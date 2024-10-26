@@ -1,5 +1,16 @@
 <x-app-layout>
     <x-slot name="header">
+        @hasrole('admin')
+                            <h1>anda adalah admin</h1>
+                        @endhasrole
+
+                        @hasrole('user')
+                            <h1>anda adalah user</h1>
+                        @endhasrole
+
+                        @hasrole('assessor')
+                            <h1>anda adalah assessor</h1>
+                        @endhasrole
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
         </h2>
