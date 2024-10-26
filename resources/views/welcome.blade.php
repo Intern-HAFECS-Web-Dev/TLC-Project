@@ -19,24 +19,7 @@
                     <span class="text-md font-semibold">Certification</span>
                 </div>
             </a>
-
-            {{-- ini tombol loginnya, atur aja, by hms --}}
-            @if (Route::has('login'))
-                <a href="{{ route('login') }}">
-                    <button>Login</button>
-                </a>    
-            @endif
-            {{-- ini tombol loginnya, atur aja, by hms --}}
-
-            {{-- tombol register by hms --}}
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}">
-                    <button>Register</button>
-                </a>
-            @endif
-            {{-- tombol register by hms --}}
-
-            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse gap-3">
                 <button class="btn btn-ghost btn-circle">
                     <svg xmln   s="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -44,13 +27,23 @@
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                 </button>
-                <button type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign
-                    Up</button>
-                <button type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign
-                    In</button>
 
+                @if (Route::has('login'))
+                <a href="{{ route('login') }}">
+                    <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Sign Up</button>
+                </a>
+                @endif
+
+                @if (Route::has('register'))
+                <a href="{{ route('register') }}">
+                    <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Sign In</button>
+                </a>
+                @endif
+                
                 <button data-collapse-toggle="navbar-sticky" type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     aria-controls="navbar-sticky" aria-expanded="false">
