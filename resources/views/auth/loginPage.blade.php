@@ -35,7 +35,8 @@
             @if ($errors->any())
                 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
                     <strong class="font-bold">Whoops!</strong>
-                    <span class="block sm:inline">{{ $errors->first() }}</span>
+                    <span class="block sm:inline">Username atau Password salah!</span>
+                    {{-- <span class="block sm:inline">{{ $errors->first() }}</span> --}}
                 </div>
             @endif
 
