@@ -36,6 +36,11 @@ class AuthenticatedSessionController extends Controller
             return redirect()->route('assessorDashboard.index');
         }
 
+        if(auth()->user()->hasrole('user')) {
+            return redirect()->route('userDashboard.index');
+        };
+
+
         // return redirect()->intended(route('dashboard', absolute: false));
     }
 

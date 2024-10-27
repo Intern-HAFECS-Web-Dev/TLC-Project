@@ -24,7 +24,7 @@ class VerifyEmailController extends Controller
                 return redirect()->route('assessorDashboard.index');
             }
             if(auth() ->user()->hasrole('user')) {
-                return redirect()->route('dashboard');
+                return redirect()->route('userDashboard');
             };
         }
 

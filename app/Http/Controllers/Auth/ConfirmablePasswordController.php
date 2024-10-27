@@ -45,7 +45,7 @@ class ConfirmablePasswordController extends Controller
         }
 
         if(auth() ->user()->hasrole('user')) {
-            return redirect()->route('dashboard');
+            return redirect()->route('userDashboard.index');
         };
 
     }
