@@ -28,21 +28,38 @@
                     </svg>
                 </button>
 
-                @if (Route::has('login'))
-                <a href="{{ route('login') }}">
-                    <button type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Login</button>
-                </a>
-                @endif
+                @guest
+                    <a href="{{ route('login') }}">
+                        <button type="button"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Login</button>
+                    </a>
 
-                @if (Route::has('register'))
-                <a href="{{ route('register') }}">
-                    <button type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Register</button>
-                </a>
-                @endif
+                    <a href="{{ route('register') }}">
+                        <button type="button"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Register</button>
+                    </a>
+                @endguest
+
+                @auth
+                    @hasrole('admin')
+                    <a href="{{ route('adminDashboard.index') }}">
+                        <button type="button"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        kembali</button>
+                    </a>
+                    @endhasrole
+
+                    @hasrole('assessor')
+                    <a href="{{ route('assessorDashboard.index') }}">
+                        <button type="button"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        kembali</button>
+                    </a>
+                    @endhasrole
+                @endauth
+              
                 
                 <button data-collapse-toggle="navbar-sticky" type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -84,6 +101,13 @@
         </div>
     </nav>
 </body>
+<script>
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+</script>
 </html>
 
 

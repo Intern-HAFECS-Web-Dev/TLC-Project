@@ -11,12 +11,12 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::resource('adminDasboard', adminDashboardController::class)->middleware('role:admin');
+Route::resource('adminDashboard', adminDashboardController::class)->middleware('role:admin');
 Route::resource('assessorDashboard', assessorDasboardController::class)->middleware('role:assessor');
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware('role:user')->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -53,8 +53,5 @@ class RegisteredUserController extends Controller
         } catch(\Exception $e) {
             return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat mendaftar : '. $e->getMessage()])->withInput();
         };
-
-
-      
     }
 }
