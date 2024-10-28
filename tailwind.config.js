@@ -12,16 +12,20 @@ export default {
         "./resources/views/**/*.blade.php",
         "./node_modules/flowbite/**/*.js",
     ],
-    
 
     theme: {
         extend: {
+            colors: {
+                abu: "#F6F8FD",
+                tombol: "#34364A",
+                kuning: "#FBCB04",
+                greys: "#E8EBF3",
+            },
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
             },
         },
     },
 
-    plugins: [forms, require('flowbite/plugin')],
-    
+    plugins: [forms, require("flowbite/plugin")],
 };
