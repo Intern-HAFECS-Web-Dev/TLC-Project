@@ -22,7 +22,7 @@ class ConfirmablePasswordController extends Controller
     /**
      * Confirm the user's password.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         if (! Auth::guard('web')->validate([
             'email' => $request->user()->email,
@@ -35,6 +35,18 @@ class ConfirmablePasswordController extends Controller
 
         $request->session()->put('auth.password_confirmed_at', time());
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // return redirect()->intended(route('dashboard', absolute: false));
+        if(auth()->user()->hasrole('admin')) {
+            return redirect()->route('adminDashboard.index');
+        };
+
+        if(auth()->user()->hasrole('assessor')) {
+            return redirect()->route('assessorDashboard.index');
+        }
+
+        if(auth() ->user()->hasrole('user')) {
+            return redirect()->route('userDashboard.index');
+        };
+
     }
 }
