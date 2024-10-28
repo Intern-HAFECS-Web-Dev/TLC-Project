@@ -15,6 +15,12 @@ export default {
     
     theme: {
         extend: {
+            colors: {
+                abu: "#F6F8FD",
+                tombol: "#34364A",
+                kuning: "#FBCB04",
+                greys: "#E8EBF3",
+            },
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
             },
