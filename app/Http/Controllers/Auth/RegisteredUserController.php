@@ -47,7 +47,7 @@ class RegisteredUserController extends Controller
     
             Auth::login($user);
     
-            $user->assignRole('user');
+            // $user->assignRole('user');
     
             // return redirect(route('user', absolute: false));
             return redirect()->route('additional.form', [
@@ -61,10 +61,16 @@ class RegisteredUserController extends Controller
 
     public function showForm(User $user)
     {
-    $provinces = Province::all();
-    return view('auth.registerAdditionalInfo', [
-        'user' => $user,
-        'provinces' => $provinces,
-    ]);
+        $provinces = Province::all();
+        return view('auth.registerAdditionalInfo', [
+            'user' => $user,
+            'provinces' => $provinces,
+        ]);
+    }
+
+    public function storeRegisterUser (Request $request, User $user) {
+        $validated = $request->validate([
+            'user' => 'required'
+        ]);
     }
 }
