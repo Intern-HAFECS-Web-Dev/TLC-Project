@@ -30,7 +30,7 @@
                 <h1 class="text-xl font-bold">Teaching Learning Certification</h1>
                 <img class="rounded-full w-20 h-20" src="{{ asset('assets/img/tlc.jpg') }}" alt="">
             </div>
-            <h1 class="text-xl md:text-2xl font-bold leading-tight">Login</h1>
+            <h1 class="text-xl md:text-2xl font-bold leading-tight mt-4">Login</h1>
 
             @if ($errors->any())
                 <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">

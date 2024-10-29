@@ -5,6 +5,7 @@ use App\Http\Controllers\assessorDasboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\userDashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WilayahController;
 
 Route::get('/', function () {
     return view('welcome', [
@@ -25,5 +26,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/regencies/{province_id}', [WilayahController::class, 'getRegencies']);
+Route::get('/districts/{regency_id}', [WilayahController::class, 'getDistricts']);
+Route::get('/villages/{district_id}', [WilayahController::class, 'getVillages']);
 
 require __DIR__.'/auth.php';
