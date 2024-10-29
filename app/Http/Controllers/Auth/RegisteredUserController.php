@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Province;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -48,10 +49,22 @@ class RegisteredUserController extends Controller
     
             $user->assignRole('user');
     
-            return redirect(route('dashboard', absolute: false));
+            // return redirect(route('user', absolute: false));
+            return redirect()->route('additional.form', [
+                'user' => $user->id,
+            ]);
 
         } catch(\Exception $e) {
             return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat mendaftar : '. $e->getMessage()])->withInput();
         };
+    }
+
+    public function showForm(User $user)
+    {
+    $provinces = Province::all();
+    return view('auth.registerAdditionalInfo', [
+        'user' => $user,
+        'provinces' => $provinces,
+    ]);
     }
 }
