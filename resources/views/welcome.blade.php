@@ -117,11 +117,13 @@
                         @guest
                             <li>
                                 <a href="{{ route('login') }}"
-                                    class="md:hidden block py-2 px-3 text-red-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Login</a>
+                                    class="md:hidden block py-2 px-3 text-red-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Sign
+                                    In</a>
                             </li>
                             <li>
                                 <a href="{{ route('register') }}"
-                                    class="md:hidden block py-2 px-3 text-red-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Register</a>
+                                    class="md:hidden block py-2 px-3 text-red-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Sign
+                                    Up</a>
                             </li>
                         @endguest
                     </ul>
@@ -132,11 +134,11 @@
 
 
     <main>
-        <section class="mt-5">
+        <section class="mt-8 mx-3">
             <div class="flex container mx-auto ">
                 <div class="grid grid-cols-12 transition-all duration-500 ease-in-out">
                     <div class="col-span-12 lg:col-span-7">
-                        <div class="">
+                        <div>
                             <span class="text-lg text-kuning">#LearnToTeach</span>
                             <h1 class="text-4xl font-bold leading-snug">Enhance Your <br> Teaching Skills With Us</h1>
                             <p class="text-lg flex-wrap mt-2">The Teaching and Learning Certification (TLC) program is
@@ -144,7 +146,8 @@
                                 designed to
                                 empower educators
                                 with the knowledge, skills, <br> and tools they need to thrive in today’s educational
-                                environment.</p>
+                                environment.
+                            </p>
                         </div>
                         <div class="flex my-5 gap-3 justify-center lg:justify-start">
                             <a href="#">
@@ -164,6 +167,95 @@
                     </div>
                     <div class="col-span-12 lg:col-span-7 w-full">
                         <img src="images/company.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-8 mx-3">
+            <div class="flex container mx-auto">
+                <div class="grid grid-cols-12">
+                    <div class="col-span-12 lg:col-span-5 ">
+                        <img src="images/guru.png" class="w-full h-full object-cover p-5" alt="">
+                    </div>
+                    <div class="col-span-12 lg:col-span-7 mx-3 mt-10">
+                        <span class="text-lg text-kuning">About Us</span>
+                        <h1 class="text-2xl font-bold leading-snug">Apa itu TLC</h1>
+                        <p class="text-md text-justify font-semibold lg:text-lg">Lorem ipsum dolor sit amet consectetur
+                            adipisicing
+                            elit. Facere nulla eius molestias vero ex. Porro culpa aliquam, cum, ullam reiciendis modi
+                            alias cupiditate asperiores nulla exercitationem debitis repudiandae velit maiores. Quaerat
+                            suscipit fugit nemo blanditiis, ipsa ad. Quis necessitatibus qui sapiente exercitationem
+                            libero laborum magni impedit omnis amet vitae! Magnam exercitationem mollitia quam velit
+                            numquam quae nulla? Quae amet reprehenderit cumque porro fugiat aliquam debitis expedita
+                            possimus cum nemo exercitationem distinctio minus itaque, quas facere nihil laboriosam,
+                            necessitatibus a in ipsa quisquam nulla omnis beatae. Facere dignissimos ratione quis
+                            deleniti eveniet asperiores architecto quia est adipisci at, accusantium sit! Voluptas?
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mx-auto my-10">
+                <div class="my-8">
+                    <h1 class="text-3xl font-bold text-center">Visi</h1>
+                    <p class="mt-2 text-justify text-md font-semibold lg:text-lg mx-3 lg:text-center">Lorem ipsum dolor
+                        sit amet
+                        consectetur adipisicing elit. Aut, quo! Ad ipsa perferendis in? Consequatur porro earum
+                        inventore cumque eos. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quae
+                        doloremque commodi voluptate ipsa magni vero itaque alias reiciendis reprehenderit beatae, sint
+                        nesciunt aut obcaecati dolorem fuga architecto possimus explicabo, temporibus nulla a omnis,
+                        neque assumenda iste. Ab officia atque neque molestias magni esse earum illo commodi laborum!
+                        Laborum, aspernatur?</p>
+                </div>
+            </div>
+
+
+            <div class="flex container mx-auto">
+                <div class="grid grid-cols-12">
+                    <div class="col-span-12 lg:col-span-7 mx-5 order-2 lg:order-1 lg:my-auto">
+                        <h1 class="text-2xl font-bold leading-snug">Misi yang kami Emban</h1>
+                        <ul class="text-md font-semibold lg:text-lg list-disc mx-5">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, corrupti? Lorem ipsum
+                                dolor sit amet consectetur adipisicing elit. Quasi dolores incidunt ut quisquam
+                                laboriosam consectetur eius cum ducimus delectus minus!</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, corrupti?</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, corrupti?</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, corrupti?</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, corrupti?</li>
+                        </ul>
+                    </div>
+                    <div class="col-span-12 lg:col-span-5 order-1 lg:order-2">
+                        <img src="images/siswa.png" class="w-full h-full object-cover p-5" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="mt-8 mx-3">
+            <div class="container mx-auto w-full h-700 bg-[#0C548C] rounded">
+                <h1 class="text-center text-white text-4xl font-bold py-5">Skema Pendaftaran TLC</h1>
+                <img src="images/alur.png" class="w-full h-full object-cover p-5" alt="">
+            </div>
+        </section>
+
+        <section class="mt-8 mx-3">
+            <div class="flex container mx-auto">
+                <div class="grid grid-cols-12">
+                    <div class="col-span-12 lg:col-span-7 lg:my-auto order-2 lg:order-1">
+                        <span class="text-lg text-kuning">Benefit</span>
+                        <h1 class="text-2xl font-bold leading-snug">Manfaat dari mengikuti program <br>Teaching
+                            Learning Certification</h1>
+                        <ul class="text-md font-semibold lg:text-lg list-disc mx-5">
+                            <li>Meningkatkan Personal Branding</li>
+                            <li>Menambah Sumber income</li>
+                            <li>Menambah Networking baru</li>
+                            <li>Mendapatkan project freelance</li>
+                        </ul>
+                    </div>
+                    <div class="col-span-12 lg:col-span-5 order-1 lg:order-2">
+                        <img src="images/benefit.png" class="w-full h-full object-cover p-5" alt="">
                     </div>
                 </div>
             </div>
