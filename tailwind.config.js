@@ -12,7 +12,7 @@ export default {
         "./resources/views/**/*.blade.php",
         "./node_modules/flowbite/**/*.js",
     ],
-    
+
     theme: {
         extend: {
             colors: {
@@ -28,5 +28,5 @@ export default {
     },
 
     plugins: [forms, require('flowbite/plugin')],
-    
+
 };
