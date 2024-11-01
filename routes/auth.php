@@ -35,8 +35,8 @@ Route::middleware('guest')->group(function () {
         ->name('password.store');
 });
 
-Route::get('register/AdditionalInfo/{user}', [RegisteredUserController::class, 'showForm'])->name('additional.form');
-Route::post('register/AdditionalInfo/{user}',  [RegisteredUserController::class, 'store'])->name('additional.store');
+Route::get('register/AdditionalInfoo/{user}', [RegisteredUserController::class, 'showForm'])->name('additional.form');
+Route::post('register/AdditionalInfo',  [RegisteredUserController::class, 'storeAdditionalInfo'])->name('additional.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('verify-email', EmailVerificationPromptController::class)

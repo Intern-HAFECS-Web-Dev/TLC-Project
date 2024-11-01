@@ -43,6 +43,7 @@
 <body>
     <header>
         <h1>ini adalah user dashboard</h1>
+        {{-- <p>{{ $province->name }}</p> --}}
     </header>
 
     <form action="{{ route('logout') }}" method="post">
@@ -56,5 +57,8 @@
         </button>
     </form>
 
+    <a href="{{ route('tampilkan.provinsi', Auth::user()->id) }}">
+        <button>testing</button>
+    </a>
 </body>
 </html>
