@@ -54,7 +54,6 @@ class RegisteredUserController extends Controller
 
             Auth::login($user);
     
-
             // return redirect(route('user', absolute: false));
             return redirect()->route('additional.form', [
                 'user' => $user->id,
@@ -67,7 +66,6 @@ class RegisteredUserController extends Controller
 
     public function showForm(User $user)
     {
-
     $provinces = Province::all();
     return view('auth.registerAdditionalInfo', [
         'user' => $user,
@@ -80,20 +78,19 @@ class RegisteredUserController extends Controller
         // dd($request);
 
         $request->validate([
-            'fullname' => ['nullable', 'string', 'max:30'],
-            'nik' => ['nullable', 'numeric'],
-            'instansi' => 'nullable|string',
-            'tempat_lahir' => 'nullable|string',
-            'tanggal_lahir' => 'nullable',
-            'jenis_kelamin' => 'nullable',
-            'no_wa' => 'nullable',
-            'provinsi' => 'nullable',
-            'kabupaten' => 'nullable',
-            'kecamatan' => 'nullable',
-            'kelurahan' => 'nullable',
+            'fullname' => ['required', 'string', 'max:30'],
+            'nik' => ['required', 'numeric'],
+            'instansi' => ['required', 'string'],
+            'tempat_lahir' => ['required',  'string'],
+            'tanggal_lahir' => 'required',
+            'jenis_kelamin' => 'required',
+            'no_wa' => ['required', 'numeric'],
+            'provinsi' => 'required',
+            'kabupaten' => 'required',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
             'profile_image' => 'nullable'
         ]);
-
 
         $userProfile = new UserProfile();
         $userProfile->user_id = Auth::user()->id;
@@ -121,10 +118,12 @@ class RegisteredUserController extends Controller
             // $userProfile->profile_image = $request->profile_image;
         };
 
-            $idd = Auth::user()->id;
-            $user = User::find($idd);
-            $user->assignRole('user');
-            $userProfile->save();
+            if (isset($userProfile)) {
+                $idd = Auth::user()->id;
+                $user = User::find($idd);
+                $user->assignRole('user');
+                $userProfile->save();
+            }
 
         return redirect()->route('userDashboard.index')->with('success', 'Data berhasil disimpan');
     }
