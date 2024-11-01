@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             
+
             // $table->string('nik')->nullable();
             // $table->string('fullname')->nullable();
             // $table->string('instansi')->nullable();
@@ -30,6 +31,7 @@ return new class extends Migration
             // $table->string('kecamatan')->nullable();
             // $table->string('kota')->nullable();
             // $table->string('provinsi')->nullable();
+
 
             $table->rememberToken();
             $table->timestamps();

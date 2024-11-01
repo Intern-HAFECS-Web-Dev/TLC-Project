@@ -32,16 +32,11 @@ class AuthenticatedSessionController extends Controller
 
         if(auth()->user()->hasrole('admin')) {
             return redirect()->route('adminDashboard.index');
-        };
-
-        if(auth()->user()->hasrole('assessor')) {
+        } else if (auth()->user()->hasrole('assessor')) {
             return redirect()->route('assessorDashboard.index');
-        }
-
-        if(auth()->user()->hasrole('user')) {
+        } else {
             return redirect()->route('userDashboard.index');
-        };
-
+        }
 
         // return redirect()->intended(route('dashboard', absolute: false));
     }

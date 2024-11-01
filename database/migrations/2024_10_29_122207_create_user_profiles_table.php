@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
+
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('nik')->nullable();
             $table->string('fullname')->nullable();
@@ -28,6 +29,7 @@ return new class extends Migration
             $table->string('no_wa')->nullable(); // Changed to string to accommodate phone numbers
             $table->string('profile_image')->nullable(); // Changed to string for filenames
             
+
             $table->timestamps();
         });
     }
@@ -39,4 +41,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('user_profiles');
     }
+
 };
+
