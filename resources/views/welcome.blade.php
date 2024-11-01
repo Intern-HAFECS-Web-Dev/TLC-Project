@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-pt-20">
 
 <head>
     <meta charset="UTF-8">
@@ -94,7 +94,7 @@
                         class="md:flex flex-sm:col-span-12 p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 lg:text-md md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <li>
                             <a href="#home"
-                                class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                                 aria-current="page">Home</a>
                         </li>
                         <li>
@@ -133,9 +133,9 @@
     </header>
 
 
-    <main>
-        <section class="mt-8 mx-5" >
-            <div class="flex container mx-auto " id="home">
+    <main id="home">
+        <section class="mt-8 mx-5">
+            <div class="flex container mx-auto " >
                 <div class="grid grid-cols-12 transition-all duration-500 ease-in-out">
                     <div class="col-span-12 lg:col-span-7 p-5">
                         <div>
@@ -353,48 +353,25 @@
 
         <section class="mt-8 mx-5">
             <div class="container mx-auto text-center pb-10" id="testimoni">
-                <h1 class="text-xl lg:text-3xl font-bold">Testimoni</h1>
-                <h5 class="text-lg font-semibold">TLC (Teaching and Learning Certification) telah membantu ratusan
-                    pendidik mengembangkan keterampilan
-                    mereka dan memberikan dampak positif pada pengalaman belajar siswa. Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit. Earum consequatur ipsum facere eligendi at cumque quibusdam nihil ut
-                    incidunt aut?</h5>
+                <h1 class="text-xl lg:text-xl font-bold text-kuning">TLC Telah Membantu Banyak Pendidik
+                <h5 class="text-lg lg:text-3xl font-bold pb-8">Apa Kata Mereka?</h5>
+                <div class="w-3/4 mx-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="grid grid-cols-5 p-5">
+                        <div class="lg:col-span-1 hidden lg:block">
+                            <img src="images/logo.svg" class="w-20 h-20 object-cover rounded-lg" alt="">
+                        </div>
+                        <div class="lg:col-span-4 col-span-5 mx-auto lg:text-start">
+                            <h1 class="text-xl font-bold">Hamas Akif Sanie</h1>
+                            <div class="grid-cols-6">
+                                <p class="text-lg  font-semibold">Teknik Informatika</p>
+                                <p class="text-lg  font-semibold pl-3">Politeknik Negeri Banjarmasin</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="overflow-hidden w-full max-w-4xl mx-auto relative">
-                <ul class="flex animate-slide gap-2" id="sliderList">
-                    <!-- Masukkan 10 gambar dari Google untuk percobaan -->
-                    <li class="flex-shrink-0 w-24 h-24 hover:scale-110 transition-transform duration-300">
-                        <img src="images/siswa.png" alt="Image 1" class="w-full h-full object-cover">
-                    </li>
-                    <li class="flex-shrink-0 w-24 h-24 hover:scale-110 transition-transform duration-300">
-                        <img src="https://via.placeholder.com/100" alt="Image 2" class="w-full h-full object-cover">
-                    </li>
-                    <li class="flex-shrink-0 w-24 h-24 hover:scale-110 transition-transform duration-300">
-                        <img src="https://via.placeholder.com/100" alt="Image 3" class="w-full h-full object-cover">
-                    </li>
-                    <li class="flex-shrink-0 w-24 h-24 hover:scale-110 transition-transform duration-300">
-                        <img src="https://via.placeholder.com/100" alt="Image 4" class="w-full h-full object-cover">
-                    </li>
-                    <li class="flex-shrink-0 w-24 h-24 hover:scale-110 transition-transform duration-300">
-                        <img src="https://via.placeholder.com/100" alt="Image 5" class="w-full h-full object-cover">
-                    </li>
-                    <li class="flex-shrink-0 w-24 h-24 hover:scale-110 transition-transform duration-300">
-                        <img src="https://via.placeholder.com/100" alt="Image 6" class="w-full h-full object-cover">
-                    </li>
-                    <li class="flex-shrink-0 w-24 h-24 hover:scale-110 transition-transform duration-300">
-                        <img src="https://via.placeholder.com/100" alt="Image 7" class="w-full h-full object-cover">
-                    </li>
-                    <li class="flex-shrink-0 w-24 h-24 hover:scale-110 transition-transform duration-300">
-                        <img src="https://via.placeholder.com/100" alt="Image 8" class="w-full h-full object-cover">
-                    </li>
-                    <li class="flex-shrink-0 w-24 h-24 hover:scale-110 transition-transform duration-300">
-                        <img src="https://via.placeholder.com/100" alt="Image 9" class="w-full h-full object-cover">
-                    </li>
-                    <li class="flex-shrink-0 w-24 h-24 hover:scale-110 transition-transform duration-300">
-                        <img src="https://via.placeholder.com/100" alt="Image 10" class="w-full h-full object-cover">
-                    </li>
-                </ul>
-            </div>
+
+
         </section>
     </main>
 
@@ -522,40 +499,51 @@
     </footer>
 </body>
 
-<style>
-    /* Animasi untuk infinite slide */
-    @keyframes slide {
-        0% {
-            transform: translateX(0);
-        }
-
-        100% {
-            transform: translateX(-100%);
-        }
-    }
-
-    /* Terapkan animasi pada ul dengan class 'animate-slide' */
-    .animate-slide {
-        animation: slide 20s linear infinite;
-    }
-
-</style>
 <script>
     window.onpageshow = function(event) {
         if (event.persisted) {
             window.location.reload();
         }
     };
+    document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll("#navbar-sticky a");
 
-    const sliderList = document.getElementById('sliderList');
-
-    sliderList.addEventListener('mouseover', () => {
-        sliderList.style.animationPlayState = 'paused';
+    navLinks.forEach(link => {
+        link.addEventListener("click", function () {
+            navLinks.forEach(navLink => navLink.classList.remove("text-blue-700", "dark:text-blue-500", "font-bold")); // Hapus kelas dari semua tautan
+            this.classList.add("text-blue-700", "dark:text-blue-500", "font-bold"); // Tambahkan kelas ke tautan yang diklik
+        });
     });
+});
 
-    sliderList.addEventListener('mouseout', () => {
-        sliderList.style.animationPlayState = 'running';
-    });
 </script>
 
 </html>
+
+
+
+
+{{-- <div class="overflow-hidden w-full max-w-md mx-auto">
+                <ul class="flex transition-transform duration-500 ease-in-out" id="sliderList">
+                    <li class="min-w-full">
+                        <img src="images/siswa.png" alt="Image 1" class="w-full object-cover">
+                    </li>
+                    <li class="min-w-full">
+                        <img src="images/benefit.png" alt="Image 2" class="w-full">
+                    </li>
+
+                </ul>
+            </div>
+
+<js nya>
+            let currentIndex = 0;
+
+    function slideImages() {
+        const sliderList = document.getElementById('sliderList');
+        const totalImages = sliderList.children.length;
+
+        currentIndex = (currentIndex + 1) % totalImages;
+        sliderList.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    setInterval(slideImages, 4000); --}}
