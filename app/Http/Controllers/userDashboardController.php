@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Province;
 use Illuminate\Http\Request;
 
 class userDashboardController extends Controller
@@ -11,17 +13,20 @@ class userDashboardController extends Controller
      */
     public function index()
     {
+        $province = Province::all();
         return view('dashboard.userDashboard', [
             'title' => 'User Dashboard',
+            'province' => $province,
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $dicoding = Province::find($id);
+
     }
 
     /**
