@@ -17,22 +17,18 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            
-
-            // $table->string('nik')->nullable();
-            // $table->string('fullname')->nullable();
-            // $table->string('instansi')->nullable();
-            // $table->string('alamat_instansi')->nullable();
-            // $table->string('tempat_lahir')->nullable();
-            // $table->date('tanggal_lahir')->nullable();
-            // $table->string('jenis_kelamin')->nullable();
-            // $table->string('alamat_jalan')->nullable();
-            // $table->string('kelurahan')->nullable();
-            // $table->string('kecamatan')->nullable();
-            // $table->string('kota')->nullable();
-            // $table->string('provinsi')->nullable();
-
-
+            $table->string('nik')->nullable();
+            $table->string('fullname')->nullable();
+            $table->string('instansi')->nullable();
+            $table->string('tempat_lahir')->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            $table->enum('jenis_kelamin', ['L', 'P'])->nullable();
+            $table->string('provinsi')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->string('kabupaten')->nullable();
+            $table->string('kelurahan')->nullable();
+            $table->string('no_wa')->nullable(); // Changed to string to accommodate phone numbers
+            $table->string('profile_image')->nullable(); // 
             $table->rememberToken();
             $table->timestamps();
         });
