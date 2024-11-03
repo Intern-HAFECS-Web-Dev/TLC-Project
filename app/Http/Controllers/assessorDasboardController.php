@@ -13,7 +13,7 @@ class assessorDasboardController extends Controller
     {
         return view('dashboard.assessorDashboard', [
             'title' => 'Assessor Dashboard',
-            'role' =>  'Assessor'
+            'role' =>  'asesor'
         ]);
     }
 

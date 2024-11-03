@@ -106,17 +106,16 @@ class RegisteredUserController extends Controller
         $userProfile->kecamatan = $request->kecamatan;
         $userProfile->kelurahan = $request->kelurahan;
 
-        $userProfile->profile_image = null;
-        if ($request->profile_image) {
-            // $path = $request->file('profile_image')->store('profileImg');
-            // $userProfile->profile_image = basename($path);
-        //    $path = Storage::put('profile_image', $request->profile_image);
+        if ($request->profile_image) 
+        {
            $path = $request->file('profile_image')->store('images');
            $userProfile->profile_image = $path;
-            // $imageName = time().'.'.$request->profile_image->extension();  
-            // $request->profile_image->move(public_path('images'), $imageName);
-            // $userProfile->profile_image = $request->profile_image;
-        };
+
+        } 
+        else if (!isset($request->profile_image))
+        {
+        $userProfile->profile_image = 'images/blankProfile.png';
+        }
 
             if (isset($userProfile)) {
                 $idd = Auth::user()->id;

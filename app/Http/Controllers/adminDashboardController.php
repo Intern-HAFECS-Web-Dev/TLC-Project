@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class adminDashboardController extends Controller
 {
@@ -10,10 +12,13 @@ class adminDashboardController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {   
+       
+        // $users = User::role('user')->count();
         return view('dashboard.adminDashboard', [
             'title' => 'AdminDashboard',
-            'role' => 'Admin'
+            'role' => 'Admin',
+            // 'user' => $users
         ]);
     }
 
@@ -63,5 +68,17 @@ class adminDashboardController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function adminDashboard() 
+    {   
+        $users = User::role('user')->count();
+        $asesor = User::role('assessor')->count();
+        return view('admin.dashboard.index', [
+            'title' => 'AdminDashboard',
+            'user' => $users,
+            'asesor' => $asesor,
+            'navTitle' => 'Admin Dashboard'
+        ]);
     }
 }
