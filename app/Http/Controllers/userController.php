@@ -56,7 +56,10 @@ class userController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.users.edit', [
+            'title' =>  'Edit User',
+            'navTitle' => 'Edit User'
+        ]);
     }
 
     /**
