@@ -1,207 +1,219 @@
 @extends('layouts.tlc')
 
 @section('content')
-    <p>Halo Selamat Datang <span>{{ $user->name }}</span></p>
-    <p>{{ $user->id }}</p>
-
-    <p>{{ Auth::user()->id }}</p>
-
-    <form action="{{ route('additional.store') }}" method="post" enctype="multipart/form-data">
-        @csrf
-        {{-- Nama Lengkap --}}
-        <div class="mb-10">
-            <label for="fullname">Input Nama Lengkap:</label>
-            <input type="text" placeholder="example name, S.T." id="fullname" name="fullname" value="{{ old('fullname') }}" required>
+    <div class="flex h-screen ">
+        <div class="w-1/2 h-full bg-cover bg-center hidden lg:block"
+            style="background-image: url({{ asset('assets/img/loginPage.jpg') }})">
         </div>
-        @error('fullname')
-            <div class="error">{{ $message }}</div>
-        @enderror
+        <div class="lg:w-1/2 w-full mx-auto h-screen overflow-y-scroll p-8">
+            <p class="pb-5 max-w-lg mx-auto">Halo Selamat Datang <span>{{ $user->name }}</span></p>
+            <form action="{{ route('additional.store') }}" class="max-w-lg mx-auto" method="post"
+                enctype="multipart/form-data">
+                @csrf
+                {{-- Nama Lengkap --}}
+                <div class="mb-7">
+                    <label class="pr-2" for="fullname">Nama Lengkap:</label>
+                    <input class="w-full" maxlength="50" type="text" placeholder="example name, S.T." id="fullname"
+                        name="fullname" required value="{{ old('fullname') }}">
+                </div>
+                @error('fullname')
+                    <div class="error">{{ $message }}</div>
+                @enderror
 
-        {{-- NIK --}}
-        <div class="mb-10">
-            <label for="NIK">Input NIK:</label>
-            <input type="number" placeholder="NIK" id="nik" name="nik" required>
+                {{-- NIK --}}
+                <div class="mb-7">
+                    <label class="pr-2" for="NIK">NIK:</label>
+                    <input class="w-full" maxlength="20" type="text" placeholder="NIK(ANGKA)" id="nik"
+                        name="nik" required>
+                </div>
+                @error('nik')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+
+                {{-- Instansi --}}
+                <div class="mb-7">
+                    <label for="instansi">Pilih Instansi:</label>
+                    <select id="instansi" name="instansi" class="w-full">
+                        <option value="" disabled selected>--Pilih Salah Satu--</option>
+                        <option value="Perguruan Tinggi">Perguruan Tinggi</option>
+                        <option value="Perguruan Tinggi">Pemerintah</option>
+                        <option value="Sekolah Menengah Atas">Sekolah Menengah Atas</option>
+                        <option value="Sekolah Menengah Kejuruan">Sekolah Menengah Kejuruan</option>
+                        <option value="Sekolah Menengah Pertama">Sekolah Menengah Pertama</option>
+                        <option value="Sekolah Dasar">Sekolah Dasar</option>
+                        <option value="Lembaga Kursus">Lembaga Kursus</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </div>
+
+                {{-- tempat lahir --}}
+                <div class="mb-7">
+                    <label for="tempat_lahir">Tempat Lahir:</label>
+                    <input class="w-full" type="text" placeholder="Tempat Lahir" id="tempat_lahir" name="tempat_lahir"
+                        required>
+                </div>
+                @error('tempat_lahir')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+
+                {{-- tanggal lahir --}}
+                <div class="mb-7">
+                    <label for="tanggal_lahir">Tanggal Lahir:</label>
+                    <input class="w-full" type="date" id="tanggal_lahir" name="tanggal_lahir" required>
+                </div>
+                @error('tanggal_lahir')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+
+                {{-- jenis kelamin --}}
+                <div class="mb-7">
+                    <label for="instansi">Jenis Kelamin:</label>
+                    <select id="instansi" name="jenis_kelamin" class="w-full">
+                        <option value="" disabled selected>--Pilih Salah Satu--</option>
+                        <option value="L">Laki-Laki</option>
+                        <option value="P">Perempuan</option>
+                    </select>
+                </div>
+                @error('jenis_kelamin')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+
+                {{-- no wa --}}
+                <div class="mb-7">
+                    <label for="no_wa">Nomor Whatsapp:</label>
+                    <input class="w-full" type="text" id="no_wa" name="no_wa" placeholder="08xxxxxx" required>
+                </div>
+                @error('no_wa')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+
+                {{-- provinsi --}}
+                <div class="mb-7">
+                    <select id="province" name="provinsi" class="w-full">
+                        <option value="">Pilih Provinsi</option>
+                        @foreach ($provinces as $province)
+                            <option value="{{ $province->name }}">{{ $province->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                {{-- kabupaten/kota --}}
+                <div class="mb-7">
+                    <select id="regency" name="kabupaten" disabled class="w-full">
+                        <option value="">Pilih Kabupaten/Kota</option>
+                    </select>
+                </div>
+
+                {{-- kecamatan --}}
+                <div class="mb-7">
+                    <select id="district" name="kecamatan" disabled class="w-full">
+                        <option value="">Pilih Kecamatan</option>
+                    </select>
+                </div>
+
+                {{-- kelurahan --}}
+                <div class="mb-7">
+                    <select id="village" name="kelurahan" disabled class="w-full">
+                        <option value="">Pilih Kelurahan</option>
+                    </select>
+                </div>
+
+                {{-- image user --}}
+                <div class="mb-2">
+                    {{-- <img id="profilePreview" src="default-profile.png" alt="Profile Picture"> --}}
+                    <label class="block mb-2 text-lg font-semibold text-gray-900 dark:text-white" for="profilInput">Upload
+                        Profile: </label>
+                    <input
+                        class="w-full upload-btn block text-sm text-gray-900 border border-black rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        aria-describedby="profilInput_help" name="profile_image" accept=".jpg, .jpeg, .png"
+                        id="profilInput" type="file">
+                    {{-- <input type="file" id="profileInput" name="profile_image" accept=".jpg, .jpeg, .png"
+                            class="upload-btn"> --}}
+                </div> {{-- <button type="submit" class="bg-blue-200 px-2 mt-3">Submit</button> --}}
+
+                <button type="submit"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                    <span
+                        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                        Submit
+                    </span>
+                </button>
+
+                <p class="text-sm text-gray-500 mt-12">&copy; {{ date('Y') }} Teaching Learning Certification - All
+                    Rights Reserved.</p>
+            </form>
         </div>
-        @error('nik')
-            <div class="error">{{ $message }}</div>
-        @enderror
-        
+    </div>
 
-        {{-- Instansi --}}
-        <div class="mb-10">
-            <label for="instansi">Input Instansi:</label>
-            <select id="instansi" name="instansi" >
-                <option value="" disabled selected>--Pilih Salah Satu--</option>
-                <option value="Perguruan Tinggi">Perguruan Tinggi</option>
-                <option value="Perguruan Tinggi">Pemerintah</option>
-                <option value="Sekolah Menengah Atas">Sekolah Menengah Atas</option>
-                <option value="Sekolah Menengah Kejuruan">Sekolah Menengah Kejuruan</option>
-                <option value="Sekolah Menengah Pertama">Sekolah Menengah Pertama</option>
-                <option value="Sekolah Dasar">Sekolah Dasar</option>
-                <option value="Lembaga Kursus">Lembaga Kursus</option>
-                <option value="Lainnya">Lainnya</option>
-            </select>
-        </div>
 
-        {{-- tempat lahir --}}
-        <div class="mb-10">
-            <label for="tempat_lahir">Tempat Lahir:</label>
-            <input type="text" placeholder="Tempat Lahir" id="tempat_lahir" name="tempat_lahir" required>
-        </div>
-        @error('tempat_lahir')
-            <div class="error">{{ $message }}</div>
-        @enderror
-        
-
-        {{-- tanggal lahir --}}
-        <div class="mb-10">
-            <label for="tanggal_lahir">Tanggal Lahir:</label>
-            <input type="date" id="tanggal_lahir" name="tanggal_lahir" required>
-        </div>
-        @error('tanggal_lahir')
-            <div class="error">{{ $message }}</div>
-        @enderror
-
-        {{-- jenis kelamin --}}
-        <div class="mb-10">
-            <label for="instansi">Jenis Kelamin:</label>
-            <select id="instansi" name="jenis_kelamin" >
-                <option value="" disabled selected>--Pilih Salah Satu--</option>
-                <option value="L">Laki-Laki</option>
-                <option value="P">Perempuan</option>
-            </select>
-        </div>
-        @error('jenis_kelamin')
-            <div class="error">{{ $message }}</div>
-        @enderror
-
-        {{-- no wa --}}
-        <div class="mb-10">
-            <label for="no_wa">Nomor Whatsapp:</label>
-            <input type="number" id="no_wa" name="no_wa" placeholder="08xxxxxx" required>
-        </div>
-        @error('no_wa')
-            <div class="error">{{ $message }}</div>
-        @enderror
-
-        {{-- provinsi --}}
-        <div class="mb-10">
-            <select id="province" name="provinsi">
-                <option value="">Pilih Provinsi</option>
-                @foreach($provinces as $province)
-                    <option value="{{ $province->name }}">{{ $province->name }}</option> <!-- Menggunakan name -->
-                @endforeach
-            </select>
-        </div>
-
-        {{-- kabupaten/kota --}}
-        <div class="mb-10">
-            <select id="regency" name="kabupaten" disabled>
-                <option value="">Pilih Kabupaten/Kota</option>
-            </select>
-        </div>
-
-        {{-- kecamatan --}}
-        <div class="mb-10">
-            <select id="district" name="kecamatan" disabled>
-                <option value="">Pilih Kecamatan</option>
-            </select>
-        </div>
-
-        {{-- kelurahan --}}
-        <div class="mb-10">
-            <select id="village" name="kelurahan" disabled>
-                <option value="">Pilih Kelurahan</option>
-            </select>
-        </div>
-
-        {{-- image user --}}
-        <div class="mt-10">
-            <img id="profilePreview" src="default-profile.png" alt="Profile Picture">
-            <input type="file" id="profileInput" name="profile_image" accept=".jpg, .jpeg, .png" class="upload-btn">
-        </div>
-        @error('profile_image')
-            <div class="error">{{ $message }}</div>
-        @enderror
-
-        {{-- submit button --}}
-        <button type="submit" class="bg-blue-200 px-2">Submit</button>
-    </form>    
-    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        const profileInput = document.getElementById('profileInput');
+        // const profileInput = document.getElementById('profileInput');
         const profilePreview = document.getElementById('profilePreview');
-    
-        profileInput.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    profilePreview.src = e.target.result;
-                }
-                reader.readAsDataURL(file);
-            }
-        });
-    
+
         $(document).ready(function() {
-    // Ketika provinsi dipilih
-    $('#province').change(function() {
-        var provinceName = $(this).val();
-        $('#regency').prop('disabled', !provinceName);
-        $('#district').prop('disabled', true);
-        $('#village').prop('disabled', true);
-        $('#regency').empty().append('<option value="">Pilih Kabupaten/Kota</option>');
-        $('#district').empty().append('<option value="">Pilih Kecamatan</option>');
-        $('#village').empty().append('<option value="">Pilih Kelurahan</option>');
+            $('#province').change(function() {
+                var provinceName = $(this).val();
 
-        if (provinceName) {
-            $.get('/regencies/' + provinceName, function(data) {
-                $.each(data, function(key, value) {
-                    $('#regency').append('<option value="' + value.name + '">' + value.name + '</option>'); // Menggunakan name
-                });
-            }).fail(function() {
-                alert('Error fetching regencies');
+                $('#regency').prop('disabled', !provinceName);
+                $('#district').prop('disabled', true);
+                $('#village').prop('disabled', true);
+                $('#regency').empty().append('<option value="">Pilih Kabupaten/Kota</option>');
+                $('#district').empty().append('<option value="">Pilih Kecamatan</option>');
+                $('#village').empty().append('<option value="">Pilih Kelurahan</option>');
+
+                if (provinceName) {
+                    $.get('/regencies/' + provinceName, function(data) {
+                        $.each(data, function(key, value) {
+                            $('#regency').append('<option value="' + value.name + '">' +
+                                value.name + '</option>');
+                        });
+                    }).fail(function() {
+                        console.error(
+                            'Error fetching regencies'); // Ganti alert dengan console.error
+                    });
+                }
             });
-        }
-    });
 
-    // Ketika kabupaten/kota dipilih
-    $('#regency').change(function() {
-        var regencyName = $(this).val();
-        $('#district').prop('disabled', !regencyName);
-        $('#village').prop('disabled', true);
-        $('#district').empty().append('<option value="">Pilih Kecamatan</option>');
-        $('#village').empty().append('<option value="">Pilih Kelurahan</option>');
+            $('#regency').change(function() {
+                var regencyName = $(this).val();
 
-        if (regencyName) {
-            $.get('/districts/' + regencyName, function(data) {
-                $.each(data, function(key, value) {
-                    $('#district').append('<option value="' + value.name + '">' + value.name + '</option>'); // Menggunakan name
-                });
-            }).fail(function() {
-                alert('Error fetching districts');
+                $('#district').prop('disabled', !regencyName);
+                $('#village').prop('disabled', true);
+                $('#district').empty().append('<option value="">Pilih Kecamatan</option>');
+                $('#village').empty().append('<option value="">Pilih Kelurahan</option>');
+
+                if (regencyName) {
+                    $.get('/districts/' + regencyName, function(data) {
+                        $.each(data, function(key, value) {
+                            $('#district').append('<option value="' + value.name + '">' +
+                                value.name + '</option>');
+                        });
+                    }).fail(function() {
+                        console.error(
+                            'Error fetching districts'); // Ganti alert dengan console.error
+                    });
+                }
             });
-        }
-    });
 
-    // Ketika kecamatan dipilih
-    $('#district').change(function() {
-        var districtName = $(this).val();
-        $('#village').prop('disabled', !districtName);
-        $('#village').empty().append('<option value="">Pilih Kelurahan</option>');
+            $('#district').change(function() {
+                var districtName = $(this).val();
 
-        if (districtName) {
-            $.get('/villages/' + districtName, function(data) {
-                $.each(data, function(key, value) {
-                    $('#village').append('<option value="' + value.name + '">' + value.name + '</option>'); // Menggunakan name
-                });
-            }).fail(function() {
-                alert('Error fetching villages');
+                $('#village').prop('disabled', !districtName);
+                $('#village').empty().append('<option value="">Pilih Kelurahan</option>');
+
+                if (districtName) {
+                    $.get('/villages/' + districtName, function(data) {
+                        $.each(data, function(key, value) {
+                            $('#village').append('<option value="' + value.name + '">' +
+                                value.name + '</option>');
+                        });
+                    }).fail(function() {
+                        console.error(
+                            'Error fetching villages'); // Ganti alert dengan console.error
+                    });
+                }
             });
-        }
-    });
-});
+        });
     </script>
-
 @endsection
