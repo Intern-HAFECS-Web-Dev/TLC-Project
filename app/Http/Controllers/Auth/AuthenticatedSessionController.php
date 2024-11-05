@@ -16,7 +16,9 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-    return view('auth.loginPage');
+    return view('auth.loginPage', [
+        'title' => 'Login Page',
+    ]);
     }
 
     /**
@@ -29,17 +31,12 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         if(auth()->user()->hasrole('admin')) {
-            return redirect()->route('adminDashboard.index');
-        };
-
-        if(auth()->user()->hasrole('assessor')) {
+            return redirect()->route('adminDashboard');
+        } else if (auth()->user()->hasrole('asesor')) {
             return redirect()->route('assessorDashboard.index');
-        }
-
-        if(auth()->user()->hasrole('user')) {
+        } else {
             return redirect()->route('userDashboard.index');
-        };
-
+        }
 
         // return redirect()->intended(route('dashboard', absolute: false));
     }

@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(RolePermissionSeeder::class);
+        $this->call(IndoRegionSeeder::class);
 
         $user = User::factory()->create([
             'name' => 'User',
@@ -36,7 +37,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'assessor@gmail.com',
             'password' => Hash::make('password'),
         ]);
-        $assessor->assignRole('assessor');
+        $assessor->assignRole('asesor');
 
     }
 }

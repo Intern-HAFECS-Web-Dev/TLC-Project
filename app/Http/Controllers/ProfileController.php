@@ -16,8 +16,10 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
+        return view('admin.settings.index', [
             'user' => $request->user(),
+            'title' => 'Admin Settings',
+            'navTitle' => 'Admin Settings'
         ]);
     }
 
