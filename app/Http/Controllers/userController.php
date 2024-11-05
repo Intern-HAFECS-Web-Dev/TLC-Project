@@ -55,7 +55,8 @@ class userController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {
+    {   
+        $users = User::findOrFail($id);
         return view('admin.users.edit', [
             'title' =>  'Edit User',
             'navTitle' => 'Edit User'
