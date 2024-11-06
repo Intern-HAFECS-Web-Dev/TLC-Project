@@ -27,6 +27,7 @@ class UserProfile extends Model
         'kabupaten',
         'kelurahan',
         'kecamatan',
+        'custom_instansi'
     ];
 
     // Define relationship to User model

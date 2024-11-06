@@ -15,7 +15,7 @@ class userController extends Controller
      */
     public function index()
     {
-        $userProfiles = UserProfile::with('user')->get();
+        $userProfiles = UserProfile::with('user')->latest()->get();
         // dd($userProfiles);
         $users = User::role('user')->get();
 

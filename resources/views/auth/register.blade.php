@@ -98,9 +98,10 @@
 
                 {{-- Nama Depan --}}
                 <div>
-                    <label class="block text-gray-700">Nama Depan</label>
-                    <input type="text" name="name" id="name" placeholder="Enter First Name" class="w-full px-4 py-3 rounded-lg mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required aria-label="Email Address"
+                    <label class="block text-gray-700">Nama Lengkap</label>
+                    <input type="text" name="name" id="name" placeholder="Enter Nama Lengkap" class="w-full px-4 py-3 rounded-lg mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required aria-label="Email Address"
                     value="{{ old('name') }}">
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
                 {{-- Email --}}
