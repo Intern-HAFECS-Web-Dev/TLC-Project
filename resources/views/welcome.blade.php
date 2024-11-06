@@ -165,10 +165,13 @@
                         </div>
                     </div>
                     <div class="hidden lg:block col-span-12 lg:col-span-5 ml-5">
-                        <img src="images/maincontent.png" class="w-full h-full object-cover p-5" alt="">
+                        <img src="images/konten_satu.jpg" class="w-full h-full object-cover rounded-lg p-5" alt="">
                     </div>
-                    <div class="col-span-12 lg:col-span-7 w-full">
-                        <img src="images/company.png" alt="">
+                    <div class="col-span-12 lg:col-span-7 w-full flex space-x-4 lg:gap-5">
+                        <img src="images/smpit-an-nur.png" alt="Logo SMPIT" class="w-20 h-2 object-cover">
+                        <img src="images/smp-sma-gibs.png" alt="Logo GIBS" class="w- h-16 object-cover my-3">
+                        <img src="images/hafecs.png" alt="Logo HAFECS" class="w- h-10 object-cover my-6">
+                        <img src="images/hrp.png" alt="hrp" class="w-24 h-24 object-cover">
                     </div>
                 </div>
             </div>
@@ -178,7 +181,7 @@
             <div class="flex container mx-auto mb-5" id="about">
                 <div class="grid grid-cols-12">
                     <div class="col-span-12 lg:col-span-5 ">
-                        <img src="images/guru.png" class="w-full h-full object-cover p-5" alt="">
+                        <img src="images/konten_dua.jpeg" class="w-full h-full object-cover rounded-lg p-5" alt="">
                     </div>
                     <div class="col-span-12 lg:col-span-7 mx-3 mt-10">
                         <span class="text-lg text-kuning">About Us</span>
@@ -199,7 +202,7 @@
                         </div>
                     </div>
                     <div class="col-span-12 lg:col-span-5 order-1 lg:order-2">
-                        <img src="images/siswa.png" class="w-full h-full object-cover p-5" alt="">
+                        <img src="images/konten_tiga.jpg" class="w-full h-full object-cover p-5" alt="">
                     </div>
                 </div>
             </div>
@@ -229,7 +232,7 @@
         <section class="mt-8 mx-5">
             <div class="container mx-auto w-full h-700 bg-[#0C548C] rounded">
                 <h1 class="text-center text-white text-4xl font-bold py-5">Skema Pendaftaran TLC</h1>
-                <img src="images/alur.png" class="w-full h-full object-cover p-5" alt="">
+                <img src="images/alur_skema.png" class="w-2/4 mx-auto h-full object-cover p-5" alt="">
             </div>
         </section>
 
