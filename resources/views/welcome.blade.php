@@ -16,7 +16,7 @@
             class="rounded-lg bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 transition-all duration-500 ease-in-out">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="images/logo.svg" class="h-8" alt="TLC Logo">
+                    <img src="images/logo.svg" class="h-14" alt="TLC Logo">
                     <div class="self-center text-md font-semibold whitespace-nowrap dark:text-white">
                         <span>Teaching Learning</span><br>
                         <span class="text-md font-semibold">Certification</span>
@@ -38,13 +38,13 @@
 
                                 <a href="{{ route('login') }}">
                                     <button type="button"
-                                        class="text-black bg-greys hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        class="text-black hover:text-white bg-greys hover:bg-biru focus:ring-4 focus:outline-none focus:ring-biru font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-biru dark:hover:bg-biru dark:focus:ring-biru">
                                         Sign in</button>
                                 </a>
 
                                 <a href="{{ route('register') }}">
                                     <button type="button"
-                                        class="text-black bg-greys hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        class="text-black hover:text-white bg-greys hover:bg-biru focus:ring-4 focus:outline-none focus:ring-biru font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-biru dark:hover:bg-biru dark:focus:ring-biru">
                                         Sign up</button>
                                 </a>
                             @endguest
@@ -135,7 +135,7 @@
 
     <main id="home">
         <section class="mt-8 mx-5">
-            <div class="flex container mx-auto " >
+            <div class="flex container mx-auto ">
                 <div class="grid grid-cols-12 transition-all duration-500 ease-in-out">
                     <div class="col-span-12 lg:col-span-7 p-5">
                         <div>
@@ -154,12 +154,12 @@
                         <div class="flex my-5 gap-3 justify-center lg:justify-start">
                             <a href="#">
                                 <button type="button"
-                                    class="text-white bg-[#0C548C] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    class="text-black hover:text-white bg-[#A6BFCF] hover:bg-biru focus:ring-4 focus:outline-none focus:ring-biru font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-biru dark:hover:bg-biru dark:focus:ring-biru">
                                     Alur Belajar</button>
                             </a>
                             <a href="#">
                                 <button type="button"
-                                    class="text-black bg-greys hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    class="text-black hover:text-white bg-[#A6BFCF] hover:bg-biru focus:ring-4 focus:outline-none focus:ring-biru font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-biru dark:hover:bg-biru dark:focus:ring-biru">
                                     Panduan Karir</button>
                             </a>
                         </div>
@@ -183,16 +183,7 @@
                     <div class="col-span-12 lg:col-span-7 mx-3 mt-10">
                         <span class="text-lg text-kuning">About Us</span>
                         <h1 class="text-2xl font-bold leading-snug">Apa itu TLC</h1>
-                        <p class="text-md text-justify font-semibold lg:text-lg">Lorem ipsum dolor sit amet consectetur
-                            adipisicing
-                            elit. Facere nulla eius molestias vero ex. Porro culpa aliquam, cum, ullam reiciendis modi
-                            alias cupiditate asperiores nulla exercitationem debitis repudiandae velit maiores. Quaerat
-                            suscipit fugit nemo blanditiis, ipsa ad. Quis necessitatibus qui sapiente exercitationem
-                            libero laborum magni impedit omnis amet vitae! Magnam exercitationem mollitia quam velit
-                            numquam quae nulla? Quae amet reprehenderit cumque porro fugiat aliquam debitis expedita
-                            possimus cum nemo exercitationem distinctio minus itaque, quas facere nihil laboriosam,
-                            necessitatibus a in ipsa quisquam nulla omnis beatae. Facere dignissimos ratione quis
-                            deleniti eveniet asperiores architecto quia est adipisci at, accusantium sit! Voluptas?
+                        <p class="text-md text-justify font-semibold lg:text-lg">Program "Teaching and Learning Certification" merupakan inisiatif yang dirancang khusus untuk menguji dan meningkatkan kompetensi para guru dalam mengajar secara efektif, dengan menggunakan metode TMF (Teaching Mastery Framework). Melalui program ini, HAFECS bertujuan memberikan standar pengajaran yang berkualitas dan terstruktur untuk membantu para guru mencapai hasil belajar yang optimal di kelas. Dengan mengikuti program ini, guru dapat menunjukkan keterampilan mengajar yang mereka miliki, meningkatkan keahlian mereka dalam mengajar, dan memperoleh sertifikasi sebagai pengakuan atas kemampuan mereka dalam mengelola kelas dengan metode yang efektif.
                         </p>
                     </div>
                 </div>
@@ -203,19 +194,7 @@
                     <div class="col-span-12 lg:col-span-7 mx-5 order-2 lg:order-1 lg:my-auto">
                         <div class="col-span-12 lg:col-span-7 mx-3 mt-10">
                             <h1 class="text-2xl font-bold leading-snug">Visi dari TLC</h1>
-                            <p class="text-md text-justify font-semibold lg:text-lg">Lorem ipsum dolor sit amet
-                                consectetur
-                                adipisicing
-                                elit. Facere nulla eius molestias vero ex. Porro culpa aliquam, cum, ullam reiciendis
-                                modi
-                                alias cupiditate asperiores nulla exercitationem debitis repudiandae velit maiores.
-                                Quaerat
-                                suscipit fugit nemo blanditiis, ipsa ad. Quis necessitatibus qui sapiente exercitationem
-                                libero laborum magni impedit omnis amet vitae! Magnam exercitationem mollitia quam velit
-                                numquam quae nulla? Quae amet reprehenderit cumque porro fugiat aliquam debitis expedita
-                                possimus cum nemo exercitationem distinctio minus itaque, quas facere nihil laboriosam,
-                                necessitatibus a in ipsa quisquam nulla omnis beatae. Facere dignissimos ratione quis
-                                deleniti eveniet asperiores architecto quia est adipisci at, accusantium sit! Voluptas?
+                            <p class="text-md text-justify font-semibold lg:text-lg">Menjadi lembaga sertifikasi kompetensi terkemuka yang berperan aktif dalam meningkatkan kualitas pendidikan dan pengembangan sumber daya manusia. Lembaga ini berfokus pada bidang pendidikan dan pelatihan, serta berkomitmen untuk menyelenggarakan uji kompetensi dengan standar kualitas tinggi demi mendorong terciptanya tenaga pendidik yang kompeten dan profesional.
                             </p>
                         </div>
                     </div>
@@ -231,13 +210,13 @@
                     <div class="col-span-12 lg:col-span-7 mx-5 order-2  lg:my-auto">
                         <h1 class="text-2xl font-bold leading-snug">Misi yang kami Emban</h1>
                         <ul class="text-md font-semibold lg:text-lg list-disc mx-5">
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, corrupti? Lorem ipsum
-                                dolor sit amet consectetur adipisicing elit. Quasi dolores incidunt ut quisquam
-                                laboriosam consectetur eius cum ducimus delectus minus!</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, corrupti?</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, corrupti?</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, corrupti?</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, corrupti?</li>
+                            <li>Memberikan sertifikasi yang berkualitas</li>
+                            <li>Mendorong pengembangan kurikulum yang relevan</li>
+                            <li>Memfasilitasi pendidikan dan pelatihan berkualitas</li>
+                            <li>Mengedepankan prinsip keterlibatan dan kepuasan peserta</li>
+                            <li>Berperan sebagai mitra strategis</li>
+                            <li>Berinovasi dan berkolaborasi</li>
+                            <li>Menjunjung tinggi etika dan integritas</li>
                         </ul>
                     </div>
                     <div class="col-span-12 lg:col-span-5 order-1">
@@ -264,11 +243,10 @@
                             Learning Certification
                         </h1>
                         <ul class="text-md font-semibold lg:text-lg list-disc mx-5">
-                            <li>Meningkatkan Personal Branding Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                Similique quae rem iure qui odio odit officiis quasi illo, illum doloribus.</li>
-                            <li>Menambah Sumber income</li>
-                            <li>Menambah Networking baru</li>
-                            <li>Mendapatkan project freelance</li>
+                            <li>Sertifikat 16 JP (per level) Peserta Uji Kompetensi</li>
+                            <li>Hasil Uji Kompetensi</li>
+                            <li>Insentif</li>
+                            <li>Berkesempatan berkarir di HAFECS</li>
                         </ul>
                     </div>
                     <div class="col-span-12 lg:col-span-5 order-1 lg:order-2">
@@ -279,12 +257,12 @@
         </section>
 
         <section class="mt-8 mx-5">
-            <div class="container mx-auto bg-[#0C548C]" id="price">
-                <div class=" text-center text-white mb-10 pt-5">
+            <div class="container mx-auto mb-10 bg-[#0C548C]" id="price">
+                <div class="text-center text-white mb-10 pt-5">
                     <h1 class="text-2xl lg:text-4xl font-bold mt-10">Sertifikasi TLC by HAFECS</h1>
                     <p class="text-sm font-medium lg:text-lg">Dapatkan harga spesial agar kamu bisa lebih hemat!!</p>
                 </div>
-                <div class="md:flex md:gap-3 md:px-3 px-4">
+                <div class="md:flex pb-2 md:gap-1 md:px-2 px-4">
                     <div
                         class="mx-auto mb-7 w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                         <div class="text-center">
@@ -305,7 +283,7 @@
                             <h5 class="mb-7 text-2xl font-semibold">Sertifikasi Level B</h5>
                             <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
                             <h5 class="text-xl font-semibold mb-7">Rp 300.000</h5>
-                            <p class="text-md font-medium mb-7">Uji Kompetensi Teori, Soal Pilihan Ganda, dan Essay</p>
+                            <p class="text-lg font-medium mb-6">Uji Kompetensi Membuat Modul dan PPT</p>
                             <button type="button"
                                 class="text-white bg-[#0C548C] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Ikut
                                 Sekarang</button>
@@ -325,7 +303,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mb-10 pb-4 px-4">
+                {{-- <div class="mb-10 pb-4 px-4">
                     <div
                         class="mx-auto w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                         <div class="grid grid-cols-12">
@@ -347,32 +325,33 @@
                                 Sekarang</button>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </section>
 
-        <section class="mt-8 mx-5">
+        {{-- <section class="mt-8 mx-5">
             <div class="container mx-auto text-center pb-10" id="testimoni">
                 <h1 class="text-xl lg:text-xl font-bold text-kuning">TLC Telah Membantu Banyak Pendidik
-                <h5 class="text-lg lg:text-3xl font-bold pb-8">Apa Kata Mereka?</h5>
-                <div class="w-3/4 mx-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div class="grid grid-cols-5 p-5">
-                        <div class="lg:col-span-1 hidden lg:block">
-                            <img src="images/logo.svg" class="w-20 h-20 object-cover rounded-lg" alt="">
-                        </div>
-                        <div class="lg:col-span-4 col-span-5 mx-auto lg:text-start">
-                            <h1 class="text-xl font-bold">Hamas Akif Sanie</h1>
-                            <div class="grid-cols-6">
-                                <p class="text-lg  font-semibold">Teknik Informatika</p>
-                                <p class="text-lg  font-semibold pl-3">Politeknik Negeri Banjarmasin</p>
+                    <h5 class="text-lg lg:text-3xl font-bold pb-8">Apa Kata Mereka?</h5>
+                    <div
+                        class="w-3/4 mx-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <div class="grid grid-cols-5 p-5">
+                            <div class="lg:col-span-1 hidden lg:block">
+                                <img src="images/logo.svg" class="w-20 h-20 object-cover rounded-lg" alt="">
+                            </div>
+                            <div class="lg:col-span-4 col-span-5 mx-auto lg:text-start">
+                                <h1 class="text-xl font-bold">Hamas Akif Sanie</h1>
+                                <div class="grid-cols-6">
+                                    <p class="text-lg  font-semibold">Teknik Informatika</p>
+                                    <p class="text-lg  font-semibold pl-3">Politeknik Negeri Banjarmasin</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
 
 
-        </section>
+        </section> --}}
     </main>
 
     <footer class="bg-white dark:bg-gray-900">
@@ -445,8 +424,8 @@
                 </div>
             </div>
             <div class="px-4 py-6 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
-                <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2023 <a
-                        href="https://flowbite.com/">Flowbite™</a>. All Rights Reserved.
+                <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2024 <a
+                        href="https://flowbite.com/">Teaching Learning Certificate</a>. All Rights Reserved.
                 </span>
                 <div class="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
                     <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
@@ -505,17 +484,18 @@
             window.location.reload();
         }
     };
-    document.addEventListener("DOMContentLoaded", function () {
-    const navLinks = document.querySelectorAll("#navbar-sticky a");
+    document.addEventListener("DOMContentLoaded", function() {
+        const navLinks = document.querySelectorAll("#navbar-sticky a");
 
-    navLinks.forEach(link => {
-        link.addEventListener("click", function () {
-            navLinks.forEach(navLink => navLink.classList.remove("text-blue-700", "dark:text-blue-500", "font-bold")); // Hapus kelas dari semua tautan
-            this.classList.add("text-blue-700", "dark:text-blue-500", "font-bold"); // Tambahkan kelas ke tautan yang diklik
+        navLinks.forEach(link => {
+            link.addEventListener("click", function() {
+                navLinks.forEach(navLink => navLink.classList.remove("text-blue-700",
+                    "dark:text-blue-500", "font-bold")); // Hapus kelas dari semua tautan
+                this.classList.add("text-blue-700", "dark:text-blue-500",
+                    "font-bold"); // Tambahkan kelas ke tautan yang diklik
+            });
         });
     });
-});
-
 </script>
 
 </html>

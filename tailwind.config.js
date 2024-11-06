@@ -17,6 +17,7 @@ export default {
         extend: {
             colors: {
                 abu: "#F6F8FD",
+                biru: "#0C548C",
                 tombol: "#34364A",
                 kuning: "#FBCB04",
                 greys: "#E8EBF3",
@@ -34,7 +35,7 @@ export default {
                 },
             },
             fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                sans: ["Poppins", ...defaultTheme.fontFamily.sans],
             },
         },
     },
