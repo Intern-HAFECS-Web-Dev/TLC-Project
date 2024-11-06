@@ -16,9 +16,6 @@ Route::get('/', function () {
     ]);
 })->middleware('guest');
 
-Route::get('/userLevel', function () {
-    return view('userLevel');
-});
 
 Route::resource('assessorDashboard', assessorDasboardController::class)->middleware('role:asesor');
 

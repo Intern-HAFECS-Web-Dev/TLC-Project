@@ -89,6 +89,7 @@ class RegisteredUserController extends Controller
             'kabupaten' => 'required',
             'kecamatan' => 'required',
             'kelurahan' => 'required',
+            'custom_instansi' => ['nullable', 'string'],
             'profile_image' => 'nullable'
         ]);
 
@@ -96,7 +97,13 @@ class RegisteredUserController extends Controller
         $userProfile->user_id = Auth::user()->id;
         $userProfile->fullname = $request->fullname;
         $userProfile->nik = $request->nik;
-        $userProfile->instansi = $request->instansi;
+
+        if ($request->custom_instansi) {
+            $userProfile->instansi = $request->custom_instansi;
+        } else {
+            $userProfile->instansi = $request->instansi;
+        }
+
         $userProfile->tempat_lahir = $request->tempat_lahir;
         $userProfile->tanggal_lahir = $request->tanggal_lahir;
         $userProfile->jenis_kelamin = $request->jenis_kelamin;
