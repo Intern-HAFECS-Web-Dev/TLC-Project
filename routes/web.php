@@ -14,7 +14,7 @@ Route::get('/', function () {
     return view('welcome', [
         'title' => 'HomePage',
     ]);
-});
+})->middleware('guest');
 
 Route::resource('assessorDashboard', assessorDasboardController::class)->middleware('role:asesor');
 Route::resource('userDashboard', userDashboardController::class)->middleware('role:user');
