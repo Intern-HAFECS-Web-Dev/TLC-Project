@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Province;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,10 +57,13 @@ class userController extends Controller
      */
     public function edit(string $id)
     {   
-        $users = User::findOrFail($id);
+        $provinces = Province::all();
+        $users = UserProfile::with('user')->findOrFail($id);
         return view('admin.users.edit', [
             'title' =>  'Edit User',
-            'navTitle' => 'Edit User'
+            'navTitle' => 'Edit User',
+            'users' =>  $users,
+            'provinces' => $provinces,
         ]);
     }
 

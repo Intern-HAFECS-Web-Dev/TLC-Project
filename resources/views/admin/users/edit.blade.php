@@ -32,7 +32,7 @@
             <div
                 class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                 <div class="items-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
-                    <img class="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0" src="/images/users/bonnie-green-2x.png"
+                    <img class="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0" src="{{ asset('/storage/' . $users->profile_image) }}"
                         alt="Jese picture">
                     <div>
                         <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Profile picture</h3>
@@ -68,33 +68,35 @@
                 <h3 class="mb-4 text-xl font-semibold dark:text-white">Informasi Users</h3>
                 <form action="#">
                     <div class="grid grid-cols-6 gap-6">
-                        {{-- Nama Depan --}}
-                        <div class="col-span-6 sm:col-span-3">
-                            <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Nama Depan
-                            </label>
-                            <input type="text" name="first-name" id="first-name"
-                                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                required>
-                        </div>
 
                         {{-- Nama Lengkap --}}
                         <div class="col-span-6 sm:col-span-3">
+                            <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Nama Lengkap
+                            </label>
+                            <input type="text" name="fullname" id="first-name"
+                                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                required value="{{ $users->user->name }}">
+                        </div>
+
+                        {{-- Nama Gelar --}}
+                        <div class="col-span-6 sm:col-span-3">
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Email
+                                Nama Gelar
                             </label>
                             <input type="text" name="email" id="email"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Email" required>
+                                placeholder="Email" required value="{{ $users->fullname }}">
                         </div>
 
+                        {{-- Nomor Whatsapp --}}
                         <div class="col-span-6 sm:col-span-3">
                             <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Nama Lengkap
+                                Nomor Whatsapp
                             </label>
                             <input type="text" name="last-name" id="last-name"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Email" required>
+                                placeholder="Email" required value="{{ $users->no_wa }}">
                         </div>
 
                         {{-- NIK --}}
@@ -104,17 +106,27 @@
                             </label>
                             <input type="text" name="country" id="country"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="NIK" required>
+                                placeholder="NIK" required value="{{ $users->nik }}">
                         </div>
 
                         {{-- Instansi --}}
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="city" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            <label for="instansi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Instansi
                             </label>
-                            <input type="text" name="city" id="city"
+                            <select id="instansi" name="instansi"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Instansi" required>
+                                onchange="showCustomInput()">
+                                <option value="{{ $users->instansi }}"selected>{{ $users->instansi }}</option>
+                                <option value="Perguruan Tinggi">Perguruan Tinggi</option>
+                                <option value="Pemerintah">Pemerintah</option>
+                                <option value="Sekolah Menengah Atas">Sekolah Menengah Atas</option>
+                                <option value="Sekolah Menengah Kejuruan">Sekolah Menengah Kejuruan</option>
+                                <option value="Sekolah Menengah Pertama">Sekolah Menengah Pertama</option>
+                                <option value="Sekolah Dasar">Sekolah Dasar</option>
+                                <option value="Lembaga Kursus">Lembaga Kursus</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
                         </div>
 
                         {{-- Tempat Lahir --}}
@@ -124,55 +136,90 @@
                             </label>
                             <input type="text" name="address" id="address"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Tempat Lahir" required>
+                                placeholder="Tempat Lahir" required value="{{ $users->tempat_lahir }}">
                         </div>
 
+                        {{-- Jenis Kelamin --}}
+                        <div class="col-span-6 sm:col-span-3">
+                            <label for="birthday" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis Kelamin</label>
+                            <select id="instansi" name="jenis_kelamin"
+                                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <option value="{{ $users->jenis_kelamin }}"selected>{{ $users->jenis_kelamin }}</option>
+                                <option value="L">Laki-Laki</option>
+                                <option value="P">Perempuan</option>
+                            </select>
+                        </div>
+
+                        {{-- Tanggal_Lahir --}}
                         <div class="col-span-6 sm:col-span-3">
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Tanggal Lahir
                             </label>
                             <input type="date" name="email" id="email"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="example@company.com" required>
+                                placeholder="example@company.com" required value="{{ $users->tanggal_lahir }}">
                         </div>
-                        <div class="col-span-6 sm:col-span-3">
-                            <label for="birthday" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis
-                                Kelamin</label>
-                            <select id="instansi" name="jenis_kelamin"
-                                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value="" disabled selected>--Pilih Salah Satu--</option>
-                                <option value="L">Laki-Laki</option>
-                                <option value="P">Perempuan</option>
-                            </select>
-                        </div>
-                        <div class="col-span-6 sm:col-span-3">
-                            <label for="phone-number"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No HP</label>
-                            <input type="text" name="phone-number" id="phone-number"
-                                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Nomor HP" required>
-                        </div>
-                        <div class="col-span-6 sm:col-span-3">
+                        
+                        {{-- Provinsi --}}
+                        {{-- <div class="col-span-6 sm:col-span-3">
                             <label for="province"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Provinsi</label>
                             <input type="text" name="phone-number" id="phone-number"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="Provinsi" required>
-                        </div>
+                        </div> --}}
+
                         <div class="col-span-6 sm:col-span-3">
+                            <label for="province" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Provinsi Domisili <span
+                                    class="text-red-500">*</span></label>
+                            <select id="province" name="provinsi"
+                                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <option value="{{ $users->provinsi }}"selected>{{ $users->provinsi }}</option>
+                                @foreach ($provinces as $province)
+                                    <option value="{{ $province->name }}">{{ $province->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        {{-- Kabupaten --}}
+                        {{-- <div class="col-span-6 sm:col-span-3">
                             <label for="regency"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kabupaten</label>
                             <input type="text" name="regency" id="regency"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="Kabupaten" required>
+                        </div> --}}
+
+                        {{-- kabupaten/kota --}}
+                        <div class="col-span-6 sm:col-span-3">
+                            <label for="regency" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kabupeten/Kota Domisili <span
+                                    class="text-red-500">*</span></label>
+                            <select id="regency" name="kabupaten" disabled
+                                class="w-full px-4 py-3 rounded-lg mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none">
+                                <option value="">Pilih Kabupaten/Kota</option>
+                            </select>
                         </div>
+
+                        {{-- Kecamatan
                         <div class="col-span-6 sm:col-span-3">
                             <label for="district"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kecamatan</label>
                             <input type="text" name="district" id="district"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="Kecamatan" required>
+                        </div> --}}
+
+                        {{-- Kecamatan --}}
+                        <div class="col-span-6 sm:col-span-3">
+                            <label for="district" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">kecamatan Domisili <span
+                                    class="text-red-500">*</span></label>
+                            <select id="district" name="kecamatan" disabled
+                                class="w-full px-4 py-3 rounded-lg mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none">
+                                <option value="">Pilih Kecamatan</option>
+                            </select>
                         </div>
+
+                        {{-- Kelurahan --}}
                         <div class="col-span-6 sm:col-span-3">
                             <label for="village"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kelurahan</label>
@@ -180,6 +227,7 @@
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="Kelurahan" required>
                         </div>
+
                         <div class="col-span-6 sm:col-full">
                             <button
                                 class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
@@ -276,5 +324,70 @@
 
     </div>
 
+    <script>
+        $(document).ready(function() {
+            $('#province').change(function() {
+                var provinceName = $(this).val();
 
+                $('#regency').prop('disabled', !provinceName);
+                $('#district').prop('disabled', true);
+                $('#village').prop('disabled', true);
+                $('#regency').empty().append('<option value="">Pilih Kabupaten/Kota</option>');
+                $('#district').empty().append('<option value="">Pilih Kecamatan</option>');
+                $('#village').empty().append('<option value="">Pilih Kelurahan</option>');
+
+                if (provinceName) {
+                    $.get('/regencies/' + provinceName, function(data) {
+                        $.each(data, function(key, value) {
+                            $('#regency').append('<option value="' + value.name + '">' +
+                                value.name + '</option>');
+                        });
+                    }).fail(function() {
+                        console.error(
+                            'Error fetching regencies');
+                    });
+                }
+            });
+
+            $('#regency').change(function() {
+                var regencyName = $(this).val();
+
+                $('#district').prop('disabled', !regencyName);
+                $('#village').prop('disabled', true);
+                $('#district').empty().append('<option value="">Pilih Kecamatan</option>');
+                $('#village').empty().append('<option value="">Pilih Kelurahan</option>');
+
+                if (regencyName) {
+                    $.get('/districts/' + regencyName, function(data) {
+                        $.each(data, function(key, value) {
+                            $('#district').append('<option value="' + value.name + '">' +
+                                value.name + '</option>');
+                        });
+                    }).fail(function() {
+                        console.error(
+                            'Error fetching districts'); // Ganti alert dengan console.error
+                    });
+                }
+            });
+
+            $('#district').change(function() {
+                var districtName = $(this).val();
+
+                $('#village').prop('disabled', !districtName);
+                $('#village').empty().append('<option value="">Pilih Kelurahan</option>');
+
+                if (districtName) {
+                    $.get('/villages/' + districtName, function(data) {
+                        $.each(data, function(key, value) {
+                            $('#village').append('<option value="' + value.name + '">' +
+                                value.name + '</option>');
+                        });
+                    }).fail(function() {
+                        console.error(
+                            'Error fetching villages'); // Ganti alert dengan console.error
+                    });
+                }
+            });
+        });
+    </script>
 @endsection

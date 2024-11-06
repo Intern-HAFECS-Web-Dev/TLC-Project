@@ -26,9 +26,9 @@
                 {{-- Nama Lengkap --}}
                 <div class="bg-white p-6 rounded-lg shadow-md mb-7">
                     <label class="pr-2 font-semibold" for="fullname">Nama Lengkap Dengan Gelar (Opsional)</label>
-                    <p class="italic font-thin">Silakan masukkan nama asli dan gelar akademik Anda (jika ada) guna
+                    <p class="italic">Silakan masukkan nama asli dan gelar akademik Anda (jika ada) guna
                         penerbitan sertifikat.</p>
-                    <p class="italic text-yellow-400 font-thin">Jika tidak ada gelar akademik maka otomatis akan menggunakan
+                    <p class="italic text-yellow-400">Jika tidak ada gelar akademik maka otomatis akan menggunakan
                         Fullname anda yaitu : {{ $user->name }}</p>
                     <input
                         class="w-full px-4 py-3 rounded-lg mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
@@ -43,7 +43,7 @@
                     <div class="mb-7">
                         <label class="pr-2 font-semibold" for="NIK">Nomor Induk Keluarga <span
                                 class="text-red-500">*</span></label>
-                        <p class="italic font-thin">Pastikan NIK anda sudah terisi dengan benar dan tanpa spasi</p>
+                        <p class="italic">Pastikan NIK anda sudah terisi dengan benar dan tanpa spasi</p>
                         <input
                             class="w-full px-4 py-3 rounded-lg mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
                             maxlength="20" type="number" placeholder="Nomor Induk Keluarga (Angka)" id="nik"
@@ -114,7 +114,7 @@
                             class="text-red-500">*</span></label>
                     <input
                         class="w-full px-4 py-3 rounded-lg mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
-                        type="text" id="no_wa" name="no_wa" placeholder="08xxxxxx" required>
+                        type="number" id="no_wa" name="no_wa" placeholder="08xxxxxx" required>
                     <x-input-error :messages="$errors->get('no_wa')" class="mt-2" />
                 </div>
 
