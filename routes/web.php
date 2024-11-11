@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\provinsiController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\userDashboardController;
+use App\Http\Controllers\userLevelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WilayahController;
 
