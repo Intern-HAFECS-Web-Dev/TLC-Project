@@ -9,7 +9,7 @@
                     class="bg-greys p-2 m-2 rounded-lg hover:bg-kuning hover:cursor-pointer inline-flex items-center">
                     <i class="fa-solid fa-arrow-left-long mr-2"></i> Back
                 </a>
-                <h1 class="text-xl mr-4 font-semibold text-white sm:text-2xl dark:text-white">EDIT USER</h1>
+                <h1 class="text-xl mr-4 font-semibold text-white sm:text-2xl dark:text-white">CREATE USER</h1>
             </div>
             <div
                 class="p-4 mt-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
@@ -25,7 +25,7 @@
                             </label>
                             <input type="text" name="name" id="first-name"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                required placeholder="Input Nama Lengkap" value="{{ $users->user->name }}">
+                                required placeholder="Input Nama Lengkap" value="{{ old('name') }}">
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                         </div>
 
@@ -36,7 +36,7 @@
                             </label>
                             <input type="text" name="fullname" id="email"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Input Nama Gelar" required value="{{ $users->fullname }}">
+                                placeholder="Input Nama Gelar" required value="{{ old('fullname') }}">
                             <x-input-error :messages="$errors->get('fullname')" class="mt-2" />
                         </div>
 
@@ -47,7 +47,7 @@
                             </label>
                             <input type="number" name="no_wa" id="number"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Input Nomor Whatsapp" required value="{{ $users->no_wa }}">
+                                placeholder="Input Nomor Whatsapp" required value="{{ old('no_wa') }}">
                             <x-input-error :messages="$errors->get('number')" class="mt-2" />
                         </div>
 
@@ -58,7 +58,7 @@
                             </label>
                             <input type="number" name="nik" id="nik"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Input Nomor Induk Keluarga" required value="{{ $users->nik }}">
+                                placeholder="Input Nomor Induk Keluarga" required value="{{ old('nik') }}">
                             <x-input-error :messages="$errors->get('nik')" class="mt-2" />
                         </div>
 
@@ -70,7 +70,7 @@
                             <select id="instansi" name="instansi"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 onchange="showCustomInput()">
-                                <option value="" disabled selected>{{ $users->instansi }}</option>
+                                <option value="" disabled selected>--Pilih Salah Satu--</option>
                                 <option value="Perguruan Tinggi">Perguruan Tinggi</option>
                                 <option value="Pemerintah">Pemerintah</option>
                                 <option value="Sekolah Menengah Atas">Sekolah Menengah Atas</option>
@@ -91,7 +91,7 @@
                             </label>
                             <input type="text" name="tempat_lahir" id="tempat_lahir"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Input Tempat Lahir" required value="{{ $users->tempat_lahir }}">
+                                placeholder="Input Tempat Lahir" required value="{{ old('tempat_lahir') }}">
                             <x-input-error :messages="$errors->get('tempat_lahir')" class="mt-2" />
                         </div>
 
@@ -101,7 +101,7 @@
                                 Kelamin</label>
                             <select id="instansi" name="jenis_kelamin"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value=""selected disabled>{{ $users->jenis_kelamin }}</option>
+                                <option value=""selected disabled>--Pilih Salah Satu--</option>
                                 <option value="L">Laki-Laki</option>
                                 <option value="P">Perempuan</option>
                             </select>
@@ -115,18 +115,18 @@
                             </label>
                             <input type="date" name="tanggal_lahir" id="tanggal_lahir"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="example@company.com" required value="{{ $users->tanggal_lahir }}">
+                                placeholder="example@company.com" required value="{{ old('tanggal_lahir') }}">
                             <x-input-error :messages="$errors->get('tanggal_lahir')" class="mt-2" />
                         </div>
 
-                        {{-- provinsi --}}
+
                         <div class="col-span-6 sm:col-span-3">
                             <label for="province"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Provinsi Domisili
                                 <span class="text-red-500">*</span></label>
                             <select id="province" name="provinsi"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value="{{ $users->provinsi }}" selected>{{ $users->provinsi }}</option>
+                                <option value="" disabled selected>--Pilih Salah Satu--</option>
                                 @foreach ($provinces as $province)
                                     <option value="{{ $province->name }}">{{ $province->name }}</option>
                                 @endforeach
@@ -140,7 +140,7 @@
                                 Domisili <span class="text-red-500">*</span></label>
                             <select id="regency" name="kabupaten" disabled
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value="{{ $users->kabupaten }}" selected>{{ $users->kabupaten }}</option>
+                                <option value="">Pilih Kabupaten/Kota</option>
                             </select>
                             <x-input-error :messages="$errors->get('kabupaten')" class="mt-2" />
                         </div>
@@ -152,7 +152,7 @@
                                 <span class="text-red-500">*</span></label>
                             <select id="district" name="kecamatan" disabled
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value="{{ $users->kecamatan }}" selected>{{ $users->kecamatan }}</option>
+                                <option value="">Pilih Kecamatan</option>
                             </select>
                             <x-input-error :messages="$errors->get('kecamatan')" class="mt-2" />
                         </div>
@@ -164,7 +164,7 @@
                                 <span class="text-red-500">*</span></label>
                             <select id="village" name="kelurahan" disabled
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value="{{ $users->kelurahan }}" selected>{{ $users->kelurahan }}</option>
+                                <option value="">Pilih Kelurahan</option>
                             </select>
                             <x-input-error :messages="$errors->get('kelurahan')" class="mt-2" />
                         </div>
@@ -175,17 +175,17 @@
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email User</label>
                             <input type="email" name="email" id="email"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Input Email Users" required value="{{ $users->user->email }}">
+                                placeholder="Input Email Users" required value="{{ old('email') }}">
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
 
-                        {{-- update password --}}
+                        {{-- password --}}
                         <div class="col-span-6 sm:col-span-3">
                             <label for="password"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Update Password</label>
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                             <input type="password" id="password" name="password"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Input Password Users" required value="">
+                                placeholder="Input Password Users" required value="{{ old('password') }}">
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
 
@@ -194,7 +194,7 @@
                             <!-- Profile Picture Preview -->
                             <div class="mb-4">
                                 <img id="profilePreview" 
-                                    src="{{ asset('/storage/' . $users->profile_image) }}" 
+                                    src="{{ asset('storage/images/blankProfile.png') }}" 
                                     alt="Profile Picture" 
                                     class="w-24 h-24 rounded-2xl shadow-md border-2 border-gray-300">
                             </div>

@@ -118,7 +118,6 @@
                     <x-input-error :messages="$errors->get('no_wa')" class="mt-2" />
                 </div>
 
-
                 {{-- provinsi --}}
                 <div class="bg-white p-6 rounded-lg shadow-md mb-7">
                     <label for="province" class="pr-2 font-semibold">Provinsi Domisili <span

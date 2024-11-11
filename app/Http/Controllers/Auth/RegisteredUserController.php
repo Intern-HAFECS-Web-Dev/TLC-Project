@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Exception;
 use App\Models\User;
 use App\Models\Regency;
 use App\Models\Village;
@@ -11,6 +12,7 @@ use Illuminate\View\View;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -82,7 +84,7 @@ class RegisteredUserController extends Controller
             'nik' => ['required', 'numeric'],
             'instansi' => ['required', 'string'],
             'tempat_lahir' => ['required',  'string'],
-            'tanggal_lahir' => 'required',
+            'tanggal_lahir' => ['required', 'date'],
             'jenis_kelamin' => 'required',
             'no_wa' => ['required', 'numeric'],
             'provinsi' => 'required',
@@ -93,17 +95,19 @@ class RegisteredUserController extends Controller
             'profile_image' => 'nullable'
         ]);
 
-        $userProfile = new UserProfile();
-        $userProfile->user_id = Auth::user()->id;
-        $userProfile->fullname = $request->fullname;
-        $userProfile->nik = $request->nik;
+        try {
 
-        if ($request->custom_instansi) {
-            $userProfile->instansi = $request->custom_instansi;
-        } else {
+            $userProfile = new UserProfile();
+            $userProfile->user_id = Auth::user()->id;
+            $userProfile->fullname = $request->fullname;
+            $userProfile->nik = $request->nik;
+            
+            if ($request->custom_instansi) {
+                $userProfile->instansi = $request->custom_instansi;
+            } else {
             $userProfile->instansi = $request->instansi;
         }
-
+        
         $userProfile->tempat_lahir = $request->tempat_lahir;
         $userProfile->tanggal_lahir = $request->tanggal_lahir;
         $userProfile->jenis_kelamin = $request->jenis_kelamin;
@@ -112,26 +116,32 @@ class RegisteredUserController extends Controller
         $userProfile->kabupaten = $request->kabupaten;
         $userProfile->kecamatan = $request->kecamatan;
         $userProfile->kelurahan = $request->kelurahan;
-
+        
         if ($request->profile_image) 
         {
-           $path = $request->file('profile_image')->store('images');
-           $userProfile->profile_image = $path;
-
+            $path = $request->file('profile_image')->store('images');
+            $userProfile->profile_image = $path;
+            
         } 
         else if (!isset($request->profile_image))
         {
-        $userProfile->profile_image = 'images/blankProfile.png';
+            $userProfile->profile_image = 'images/blankProfile.png';
         }
-
-            if (isset($userProfile)) {
-                $idd = Auth::user()->id;
-                $user = User::find($idd);
-                $user->assignRole('user');
-                $userProfile->save();
-            }
-
+        
+        if (isset($userProfile)) {
+            $idd = Auth::user()->id;
+            $user = User::find($idd);
+            $user->assignRole('user');
+            $userProfile->save();
+        }
+        
         return redirect()->route('userDashboard.index')->with('success', 'Data berhasil disimpan');
+        }
+        
+        catch(Exception $e) {
+            Log::error('Register Account step 2 failed: ' . $e->getMessage());
+            return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat ingin membuat akun baru: ' . $e->getMessage()])->withInput();
+        }
     }
     public function shows($id)
     {
