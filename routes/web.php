@@ -8,7 +8,11 @@ use App\Http\Controllers\provinsiController;
 use App\Http\Controllers\testingController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\userDashboardController;
+<<<<<<< HEAD
 use App\Http\Controllers\usersController;
+=======
+use App\Http\Controllers\userLevelController;
+>>>>>>> 77c0fa864698f40ba1ef0b35035df1100cd87d90
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WilayahController;
 
