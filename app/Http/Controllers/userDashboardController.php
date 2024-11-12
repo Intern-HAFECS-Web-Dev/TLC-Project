@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Province;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class userDashboardController extends Controller
 {
@@ -13,10 +15,13 @@ class userDashboardController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
         $province = Province::all();
         return view('dashboard.userDashboard', [
             'title' => 'User Dashboard',
             'province' => $province,
+            'user' => $userProfile
         ]);
     }
 

@@ -24,14 +24,14 @@
                     id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                     data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
-                    <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
+                    <img class="w-8 h-8 rounded-full" src="{{ asset('/storage/' . $user->profile_image) }}" alt="user photo">
                 </button>
                 <!-- Dropdown menu -->
                 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
                     id="user-dropdown">
                     <div class="px-4 py-3">
-                        <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                        <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+                        <span class="block text-sm text-gray-900 dark:text-white">{{ $user->user->name }}</span>
+                        <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ $user->user->email }}</span>
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
                         <li>
@@ -143,8 +143,6 @@
         </div>
         {{-- End Carousel --}}
 
-
-
         {{-- Activity --}}
         <div class="px-3 mt-3">
             <div class="grid grid-cols-5 mt-5 lg:bg-white lg:shadow-xl">
@@ -205,9 +203,7 @@
         </div>
         {{-- End Activity --}}
 
-
         {{-- Pricelist --}}
-
         <div class="bg-biru mt-5">
             <div class="text-center">
                 <h5 class="text-kuning text-sm font-medium md:text-base lg:text-lg pt-5">Special Price</h5>
@@ -289,8 +285,6 @@
         </div>
         {{-- End PriceList --}}
 
-
-
         {{-- Tutorial --}}
         <div class="px-3 mt-8">
             <div class="container mx-auto bg-white shadow-lg mb-10">
@@ -300,7 +294,6 @@
                 <div class="pb-5">
                 <iframe src="https://www.youtube.com/embed/00o1vJYTp4I?si" class="rounded w-full h-48 px-5 md:h-72 md:px-10 lg:px-20 lg:h-96 mb-5"
                     frameborder="0"></iframe>
-
 
                 <a href="https://wa.me/yourphone" target="_blank"
                     class="flex items-center justify-center w-40 h-12 mx-auto mb-10 lg:w-48 lg:h-20 bg-green-500 text-white font-semibold rounded-full hover:bg-green-600">
@@ -313,18 +306,9 @@
                 </a>
                 </div>
             </div>
-
-
         </div>
         {{-- End Tutorial --}}
-
-
-
     </main>
-
-
-
-
 </body>
 
 </html>
