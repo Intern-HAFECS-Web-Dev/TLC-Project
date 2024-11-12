@@ -141,7 +141,29 @@ class userController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => ['nullable', 'string'],
+            'email' => ['nullable', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['nullable', Password::defaults()],
+            'fullname' => 'nullable|string|max:255',
+            'no_wa' => ['numeric', 'nullable', 'digits_between:1,15'],
+            'nik' => ['nullable', 'string'],
+            'instansi' => ['nullable', 'string'],
+            'tempat_lahir' => ['nullable', 'string'],
+            'jenis_kelamin' => ['nullable', 'string'],
+            'tanggal_lahir' => ['nullable', 'date'],
+            'provinsi' => ['nullable', 'string'],
+            'kabupaten' => ['nullable', 'string'],
+            'kecamatan' => ['nullable', 'string'],
+            'kelurahan' => ['nullable', 'string'],
+            'profile_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'custom_instansi' => ['nullable', 'string'],
+            'update_password' => 'nullable'
+        ]);
+
+        $users = UserProfile::with('user')->findOrFail($id);
+        $users->update($request->except('update_password'));
+
     }
 
     /**
