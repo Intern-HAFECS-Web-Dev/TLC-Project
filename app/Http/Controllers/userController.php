@@ -21,22 +21,19 @@ class userController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $userProfiles = UserProfile::with('user')->latest()->get();
-        // dd($userProfiles);
-        $users = User::role('user')->get();
+{
+    // Memanggil paginate sebelum get()
+    $userProfiles = UserProfile::with('user')->latest()->paginate(4);
+    $users = User::role('user')->get();
 
-        return view('admin.users.index', [
-            'title' => 'users',
-            'users' => $users,
-            'userProfile' => $userProfiles,
-            'navTitle' => 'Table Users'
-        ]);
-    }
+    return view('admin.users.index', [
+        'title' => 'users',
+        'users' => $users,
+        'userProfile' => $userProfiles, 
+        'navTitle' => 'Table Users'
+    ]);
+}
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $provinces = Province::all();
@@ -73,7 +70,6 @@ class userController extends Controller
 
     // dd($request);
 
-    try {
         // Create User
         $user = User::create([
             'name' => $request->name,
@@ -107,10 +103,7 @@ class userController extends Controller
         Alert::success('success', 'Data User Baru Berhasil Ditambahkan!');
         return redirect()->route('users.index')->with('success', 'Data berhasil disimpan');
         
-    } catch (Exception $e) {
-        Log::error('User registration failed: ' . $e->getMessage());
-        return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat mendaftar: ' . $e->getMessage()])->withInput();
-    }
+    
     }
 
     /**
@@ -143,8 +136,8 @@ class userController extends Controller
     {
         $request->validate([
             'name' => ['nullable', 'string'],
-            'email' => ['nullable', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['nullable', Password::defaults()],
+            'email' => ['nullable', 'string', 'lowercase', 'email', 'max:255'],
+            // 'password' => ['nullable', Password::defaults()],
             'fullname' => 'nullable|string|max:255',
             'no_wa' => ['numeric', 'nullable', 'digits_between:1,15'],
             'nik' => ['nullable', 'string'],
@@ -162,8 +155,10 @@ class userController extends Controller
         ]);
 
         $users = UserProfile::with('user')->findOrFail($id);
-        $users->update($request->except('update_password'));
-
+        if(!isset($request->update_password)) {
+            $users->update($request->except('update_password'));
+        }
+        return redirect()->route('users.index');
     }
 
     /**
@@ -171,7 +166,6 @@ class userController extends Controller
      */
     public function destroy(string $id)
     {
-    try {
         $user = User::find($id);
         $userProfile = UserProfile::where('user_id', $id)->firstOrFail();
         
@@ -184,9 +178,6 @@ class userController extends Controller
 
         Alert::success('Berhasil', 'Data Berhasil Dihapus!');
         return redirect()->route('users.index');
-    } catch (Exception $e) {
-        return redirect()->route('users.index')->with('error', 'Error deleting user: ' . $e->getMessage());
-    }
     }
 
     public function destroyAll() {
@@ -195,7 +186,6 @@ class userController extends Controller
         $users = User::role('user')->get();
         $userProfiles = UserProfile::all();
     
-        try {
             foreach ($userProfiles as $userProfile) {
                 if ($userProfile->profile_image) {
                     Storage::delete($userProfile->profile_image);
@@ -208,11 +198,15 @@ class userController extends Controller
                 $user->delete();
             }
             return redirect()->route('users.index');
-        }
-        catch(Exception $e) {
-            Log::error('Delete All Users Failed: ' . $e->getMessage());
-            return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat ingin menghapus all users: ' . $e->getMessage()])->withInput();
-        }
+       
     }
 
+    public function dicoding() {
+        $users = User::role('user')->latest()->paginate(10);
+        return view('dicoding', [
+            'users' => $users
+        ]);
+    }
 }
+
+

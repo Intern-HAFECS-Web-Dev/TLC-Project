@@ -18,7 +18,6 @@ class usersController extends Controller
         $users = User::role('user')->get();
         $userProfiles = UserProfile::all();
     
-        try {
             
             foreach ($userProfiles as $userProfile) {
                 if ($userProfile->profile_image) {
@@ -31,13 +30,8 @@ class usersController extends Controller
                 $user->removeRole('user');
                 $user->delete();
             }
+        return redirect()->back();
             
-            return redirect()->route('users.index');
-        }
-        catch(Exception $e) {
-            Log::error('Input Users Failed: ' . $e->getMessage());
-            return redirect()->back()->withErrors(['error' => 'Terjadi Kesalahan Saat input Users: ' . $e->getMessage()])->withInput();
-        }
     }
 
     public function testing () {
