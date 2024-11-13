@@ -8,6 +8,7 @@ use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class usersController extends Controller
 {
@@ -18,6 +19,7 @@ class usersController extends Controller
         $userProfiles = UserProfile::all();
     
         try {
+            
             foreach ($userProfiles as $userProfile) {
                 if ($userProfile->profile_image) {
                     Storage::delete($userProfile->profile_image);
@@ -29,11 +31,12 @@ class usersController extends Controller
                 $user->removeRole('user');
                 $user->delete();
             }
+            
             return redirect()->route('users.index');
         }
         catch(Exception $e) {
-            Log::error('Delete All Users Failed: ' . $e->getMessage());
-            return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat ingin menghapus all users: ' . $e->getMessage()])->withInput();
+            Log::error('Input Users Failed: ' . $e->getMessage());
+            return redirect()->back()->withErrors(['error' => 'Terjadi Kesalahan Saat input Users: ' . $e->getMessage()])->withInput();
         }
     }
 

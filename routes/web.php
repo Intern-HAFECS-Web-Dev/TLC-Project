@@ -5,6 +5,7 @@ use App\Http\Controllers\assessorDasboardController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\provinsiController;
+use App\Http\Controllers\sertifikasiUserController;
 use App\Http\Controllers\testingController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\userDashboardController;
@@ -30,6 +31,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('role:user')->group(function (){
     Route::resource('userDashboard', userDashboardController::class);
     Route::get('/dashboardUser', [userDashboardController::class, 'userDashboard'])->name('userDashboard');
+    // Route::get('/sertifikasi', [sertifikasiUserController::class, 'index'])->name('sertifikasi.index');
+    Route::get('/sertifikasi', [userDashboardController::class, 'sertifikasiIndex'])->name('sertifikasi.index');
+    Route::get('/transaksi', [userDashboardController::class, 'transaksiIndex'])->name('transaksi.index');
 });
 
 Route::middleware('role:admin')->group(function () {
@@ -42,7 +46,6 @@ Route::middleware('role:admin')->group(function () {
     Route::get('/testing', [usersController::class, 'testing'])->name('testing');
 
 });
-
 
 Route::get('/regencies/{provinceId}', [provinsiController::class, 'getRegencies']);
 Route::get('/districts/{regencyId}', [provinsiController::class, 'getDistricts']);
