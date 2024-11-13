@@ -21,14 +21,13 @@ return new class extends Migration
             $table->string('tempat_lahir')->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->enum('jenis_kelamin', ['L', 'P'])->nullable();
-            // $table->string('alamat_jalan')->nullable();
             $table->string('provinsi')->nullable();
             $table->string('kabupaten')->nullable();
             $table->string('kecamatan')->nullable();
             $table->string('kelurahan')->nullable();
-            $table->string('no_wa')->nullable(); // Changed to string to accommodate phone numbers
-            $table->string('profile_image')->nullable(); // Changed to string for filenames
-            $table->string('custom_instansi')->nullable(); // Changed to string for filenames
+            $table->string('no_wa')->nullable();
+            $table->string('profile_image')->nullable();
+            $table->string('custom_instansi')->nullable();
 
             $table->timestamps();
         });
