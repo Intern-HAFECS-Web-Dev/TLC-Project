@@ -26,11 +26,28 @@ class userDashboardController extends Controller
     }
 
     public function sertifikasiIndex() {
-        return view('userDashboard.sertifikasi');
+        // return view('userDashboard.sertifikasi');
+        $user = Auth::user();
+        $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
+        $province = Province::all();
+        return view('userDashboard.sertifikasi', [
+            'title' => 'User Dashboard',
+            'province' => $province,
+            'user' => $userProfile
+        ]);
+
     }
 
     public function transaksiIndex() {
-        return view('userDashboard.transaksi');
+        // return view('userDashboard.transaksi');
+        $user = Auth::user();
+        $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
+        $province = Province::all();
+        return view('userDashboard.transaksi', [
+            'title' => 'User Dashboard',
+            'province' => $province,
+            'user' => $userProfile
+        ]);
     }
 
 
@@ -82,5 +99,5 @@ class userDashboardController extends Controller
     {
         //
     }
-    
+
 }

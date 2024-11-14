@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Province;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class sertifikasiUserController extends Controller
 {
@@ -12,6 +15,7 @@ class sertifikasiUserController extends Controller
     public function index()
     {
         return view('userDashboard.sertifikasi');
+
     }
 
     /**
