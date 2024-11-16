@@ -72,18 +72,16 @@
                         {{-- DELETE ALL USERS --}}
                         <a href="{{ route('deleteAllUsers') }}"
                             class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                            data-popover-target="popover-delete"
-                            data-popover-placement="bottom"
-                            >
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                 <path fill-rule="evenodd"
+                            data-popover-target="popover-delete" data-popover-placement="bottom">
+                            <svg class="w-6 h-6" fill="#F05252" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
                                     d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
                                     clip-rule="evenodd"></path>
                             </svg>
                         </a>
                         <a href="#"
                             class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="w-6 h-6" fill="#FACA15" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
                                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
                                     clip-rule="evenodd"></path>
@@ -91,7 +89,7 @@
                         </a>
                         <a href="#"
                             class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="w-6 h-6" fill="#1E429F" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
                                 </path>
@@ -133,53 +131,51 @@
 
                     {{-- table start --}}
                     <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600">
-                        <thead class="bg-gray-100 dark:bg-gray-700">
+                        <thead class="bg-gray-700 dark:bg-gray-700">
                             <tr>
-                                <th scope="col" class="p-4">
-                                    <div class="flex items-center">
-                                        <input id="checkbox-all" aria-describedby="checkbox-1" type="checkbox"
-                                            class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
-                                        <label for="checkbox-all" class="sr-only">checkbox</label>
-                                    </div>
+                               
+                                <th scope="col"
+                                    class="p-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    No
                                 </th>
                                 <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                    class="p-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Name
                                 </th>
                                 <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                    Jenis Kelamin
+                                    class="p-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    No WA
                                 </th>
                                 <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                    class="p-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Tempat Lahir
                                 </th>
                                 <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                    class="p-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Instansi
                                 </th>
                                 <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                    class="p-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Provinsi
                                 </th>
                                 <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                    class="p-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Kabupaten
                                 </th>
                                 <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                    class="p-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     kecamatan
                                 </th>
                                 <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                    class="p-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Kelurahan
                                 </th>
                                 <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                    Status
+                                    class="p-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    Level
                                 </th>
                                 <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                    class="p-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Actions
                                 </th>
                             </tr>
@@ -188,20 +184,25 @@
                             {{-- {{< users.inline >}} --}}
                             {{-- {{- range (index $.Site.Data "users") }} --}}
                             @forelse ($userProfile as $user)
-                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 odd:bg-red-100 even:bg-blue-100">
 
                                     {{-- checkbox --}}
-                                    <td class="w-4 p-4">
+                                    {{-- <td class="w-4 p-4">
                                         <div class="flex items-center">
                                             <input id="checkbox" aria-describedby="checkbox-1" type="checkbox"
                                                 class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
                                             <label for="checkbox" class="sr-only">checkbox</label>
                                         </div>
+                                    </td> --}}
+
+                                    <td
+                                        class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
+                                        {{ $loop->iteration }}
                                     </td>
 
                                     {{-- image,nama,email --}}
-                                    <td class="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap">
-                                        <img class="w-12 h-12 rounded-full"
+                                    <td class="flex items-center px-4 py-2 mr-12 space-x-6 whitespace-nowrap">
+                                            <img class="w-12 h-12 rounded-full"
                                             src="{{ asset('/storage/' . $user->profile_image) }}" alt="avatar">
                                         <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
                                             <div class="text-base font-semibold text-gray-900 dark:text-white">
@@ -210,56 +211,60 @@
                                             <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
                                                 {{ $user->user->email }}
                                             </div>
-                                            <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
+                                            {{-- <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
                                                 {{ $user->no_wa }}
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </td>
 
                                     {{-- gender --}}
-                                    <td class="p-4 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                        {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }}
+                                    <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                        {{ $user->no_wa }}
                                     </td>
+
+                                    {{-- <td class="p-4 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                        {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }}
+                                    </td> --}}
 
                                     {{-- tempat lahir --}}
                                     <td
-                                        class="max-w-sm p-4 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
+                                        class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
                                         {{ $user->tempat_lahir }}
                                     </td>
 
                                     {{-- instansi --}}
-                                    <td class="p-4 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                    <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
                                         {{ $user->instansi }}
                                     </td>
 
                                     {{-- provinsi --}}
-                                    <td class="p-4 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                    <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
                                         {{ $user->provinsi }}
                                     </td>
 
                                     {{-- kabupaten --}}
-                                    <td class="p-4 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                    <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
                                         {{ $user->kabupaten }}
                                     </td>
 
                                     {{-- kecamatan --}}
-                                    <td class="p-4 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                    <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
                                         {{ $user->kecamatan }}
                                     </td>
 
                                     {{-- kelurahan --}}
-                                    <td class="p-4 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                    <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
                                         {{ $user->kelurahan }}
                                     </td>
 
                                     {{-- status --}}
-                                    <td class="p-4 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                    <td class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                         <div class="flex items-center">
                                             <p>status</p>
                                             {{-- <div class="h-2.5 w-2.5 rounded-full bg-green-400 mr-2"></div><div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> --}}
                                         </div>
                                     </td>
-                                    <td class="p-4 space-x-2 whitespace-nowrap">
+                                    <td class="px-4 py-2 space-x-2 whitespace-nowrap">
                                         <a href="{{ route('users.edit', $user->id) }}"
                                             class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                             <i class="fa-solid fa-pen-to-square"></i>
@@ -269,12 +274,17 @@
                                             onclick="return confirm('Yakin ingin menghapus data ini?');">
                                             <i class="fa-solid fa-trash"></i>
                                         </a>
+                                        <a href="{{ route('users.destroyy', $user->user->id) }}"
+                                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-kuning rounded-lg hover:bg-yellow-400 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900"
+                                            onclick="return confirm('Yakin ingin menghapus data ini?');">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </a>
                                     </td>
                                 </tr>
-                                @empty
-                                    <p>kosong</p>
+                            @empty
+                                <p>kosong</p>
                             @endforelse
-                            
+
                         </tbody>
                     </table>
 
@@ -288,49 +298,6 @@
     </div>
     <div
         class="sticky bottom-0 right-0 items-center w-full p-4 bg-white border-t border-gray-200 sm:flex sm:justify-between dark:bg-gray-800 dark:border-gray-700">
-        {{-- <div class="flex items-center mb-4 sm:mb-0">
-            <a href="#"
-                class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </a>
-            <a href="#"
-                class="inline-flex justify-center p-1 mr-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </a>
-            <span class="text-sm font-normal text-gray-500 dark:text-gray-400">Showing <span
-                    class="font-semibold text-gray-900 dark:text-white">1-20</span> of <span
-                    class="font-semibold text-gray-900 dark:text-white">2290</span></span>
-        </div> --}}
-        {{-- <div class="flex items-center space-x-3">
-            <a href="#"
-                class="inline-flex items-center justify-center flex-1 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                <svg class="w-5 h-5 mr-1 -ml-1"" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                        clip-rule="evenodd"></path>
-                </svg>
-                Previous
-            </a>
-            <a href="#"
-                class="inline-flex items-center justify-center flex-1 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                Next
-                <svg class="w-5 h-5 ml-1 -mr-1" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </a>
-        </div> --}}
     </div>
 
     <!-- Edit User Modal -->
@@ -536,9 +503,11 @@
         </div>
     </div>
 
-    <div data-popover id="popover-delete" role="tooltip" class="absolute z-100 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
-        <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
-            <h3 class="font-semibold text-gray-900 dark:text-white">Delete All Users</h3>
+    {{-- pop over --}}
+    <div data-popover id="popover-delete" role="tooltip"
+        class="absolute z-100 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+        <div class="px-3 py-2 bg-greys border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
+            <h3 class="font-semibold text-biru dark:text-white">Delete All Users</h3>
         </div>
         <div class="px-3 py-2">
             <p>Tindakan Ini akan menghapus semua pengguna dari sistem.</p>
@@ -546,4 +515,3 @@
         <div data-popper-arrow></div>
     </div>
 @endsection
-

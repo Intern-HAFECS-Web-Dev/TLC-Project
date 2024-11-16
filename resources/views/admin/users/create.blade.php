@@ -194,7 +194,7 @@
                             <!-- Profile Picture Preview -->
                             <div class="mb-4">
                                 <img id="profilePreview" 
-                                    src="{{ asset('storage/images/blankProfile.png') }}" 
+                                    src="{{ asset('images/blankProfile.png') }}" 
                                     alt="Profile Picture" 
                                     class="w-24 h-24 rounded-2xl shadow-md border-2 border-gray-300">
                             </div>

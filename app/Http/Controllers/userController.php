@@ -23,7 +23,7 @@ class userController extends Controller
     public function index()
 {
     // Memanggil paginate sebelum get()
-    $userProfiles = UserProfile::with('user')->latest()->paginate(4);
+    $userProfiles = UserProfile::with('user')->latest()->paginate(8);
     $users = User::role('user')->get();
 
     return view('admin.users.index', [
@@ -106,17 +106,10 @@ class userController extends Controller
     
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {   
         $provinces = Province::all();
@@ -129,9 +122,6 @@ class userController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $request->validate([
@@ -161,9 +151,6 @@ class userController extends Controller
         return redirect()->route('users.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $user = User::find($id);
@@ -198,14 +185,6 @@ class userController extends Controller
                 $user->delete();
             }
             return redirect()->route('users.index');
-       
-    }
-
-    public function dicoding() {
-        $users = User::role('user')->latest()->paginate(10);
-        return view('dicoding', [
-            'users' => $users
-        ]);
     }
 }
 
