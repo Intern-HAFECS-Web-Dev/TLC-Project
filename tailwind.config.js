@@ -21,6 +21,7 @@ export default {
                 tombol: "#34364A",
                 kuning: "#FBCB04",
                 greys: "#E8EBF3",
+                birutua: "#2E4D69",
                 primary: {
                     50: "#eff6ff",
                     100: "#dbeafe",
