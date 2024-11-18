@@ -133,7 +133,7 @@
                     <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600">
                         <thead class="bg-gray-700 dark:bg-gray-700">
                             <tr>
-                               
+
                                 <th scope="col"
                                     class="p-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     No
@@ -202,7 +202,7 @@
 
                                     {{-- image,nama,email --}}
                                     <td class="flex items-center px-4 py-2 mr-12 space-x-6 whitespace-nowrap">
-                                            <img class="w-12 h-12 rounded-full"
+                                        <img class="w-12 h-12 rounded-full"
                                             src="{{ asset('/storage/' . $user->profile_image) }}" alt="avatar">
                                         <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
                                             <div class="text-base font-semibold text-gray-900 dark:text-white">
@@ -218,7 +218,8 @@
                                     </td>
 
                                     {{-- gender --}}
-                                    <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                    <td
+                                        class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
                                         {{ $user->no_wa }}
                                     </td>
 
@@ -233,32 +234,38 @@
                                     </td>
 
                                     {{-- instansi --}}
-                                    <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                    <td
+                                        class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
                                         {{ $user->instansi }}
                                     </td>
 
                                     {{-- provinsi --}}
-                                    <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                    <td
+                                        class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
                                         {{ $user->provinsi }}
                                     </td>
 
                                     {{-- kabupaten --}}
-                                    <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                    <td
+                                        class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
                                         {{ $user->kabupaten }}
                                     </td>
 
                                     {{-- kecamatan --}}
-                                    <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                    <td
+                                        class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
                                         {{ $user->kecamatan }}
                                     </td>
 
                                     {{-- kelurahan --}}
-                                    <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                    <td
+                                        class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
                                         {{ $user->kelurahan }}
                                     </td>
 
                                     {{-- status --}}
-                                    <td class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                    <td
+                                        class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                         <div class="flex items-center">
                                             <p>status</p>
                                             {{-- <div class="h-2.5 w-2.5 rounded-full bg-green-400 mr-2"></div><div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> --}}
