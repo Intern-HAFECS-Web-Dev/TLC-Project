@@ -34,7 +34,7 @@
                                 </svg>
                             </button>
 
-                            @guest
+                            {{-- @guest --}}
 
                                 <a href="{{ route('login') }}">
                                     <button type="button"
@@ -47,7 +47,7 @@
                                         class="text-black hover:text-white bg-greys hover:bg-biru focus:ring-4 focus:outline-none focus:ring-biru font-medium rounded-xl text-sm px-4 py-2 text-center dark:bg-biru dark:hover:bg-biru dark:focus:ring-biru">
                                         Sign up</button>
                                 </a>
-                            @endguest
+                            {{-- @endguest --}}
                         </div>
 
                     </div>
@@ -114,7 +114,7 @@
                             <a href="#testimoni"
                                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Testimoni</a>
                         </li>
-                        @guest
+                        {{-- @guest --}}
                             <li>
                                 <a href="{{ route('login') }}"
                                     class="md:hidden block py-2 px-3 text-red-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Sign
@@ -125,7 +125,7 @@
                                     class="md:hidden block py-2 px-3 text-red-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Sign
                                     Up</a>
                             </li>
-                        @endguest
+                        {{-- @endguest --}}
                     </ul>
                 </div>
             </div>

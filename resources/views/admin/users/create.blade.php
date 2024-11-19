@@ -70,9 +70,9 @@
                             <select id="instansi" name="instansi"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 onchange="showCustomInput()">
-                                <option value="" disabled selected>--Pilih Salah Satu--</option>
+                                <option value="{{ old('instansi') }}" selected>{{ old('instansi') ? old('instansi') : '--Pilih Salah Satu--' }}</option>
                                 <option value="Perguruan Tinggi">Perguruan Tinggi</option>
-                                <option value="Pemerintah">Pemerintah</option>
+                                <option value="Pemerintah">     Pemerintah</option>
                                 <option value="Sekolah Menengah Atas">Sekolah Menengah Atas</option>
                                 <option value="Sekolah Menengah Kejuruan">Sekolah Menengah Kejuruan</option>
                                 <option value="Sekolah Menengah Pertama">Sekolah Menengah Pertama</option>
@@ -101,7 +101,7 @@
                                 Kelamin</label>
                             <select id="instansi" name="jenis_kelamin"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value=""selected disabled>--Pilih Salah Satu--</option>
+                                <option value="{{ old('jenis_kelamin') }}"selected >{{ old('jenis_kelamin') ? old('jenis_kelamin') : '--Pilih Salah Satu--' }}</option>
                                 <option value="L">Laki-Laki</option>
                                 <option value="P">Perempuan</option>
                             </select>
@@ -126,7 +126,7 @@
                                 <span class="text-red-500">*</span></label>
                             <select id="province" name="provinsi"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value="" disabled selected>--Pilih Salah Satu--</option>
+                                <option value="{{ old('provinsi') }}" selected>{{ old('provinsi') ? old('provinsi') : 'Pilih Provinsi' }}</option>
                                 @foreach ($provinces as $province)
                                     <option value="{{ $province->name }}">{{ $province->name }}</option>
                                 @endforeach
@@ -140,7 +140,7 @@
                                 Domisili <span class="text-red-500">*</span></label>
                             <select id="regency" name="kabupaten" disabled
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value="">Pilih Kabupaten/Kota</option>
+                                <option value="" selected disabled>Pilih Kabupaten/Kota</option>
                             </select>
                             <x-input-error :messages="$errors->get('kabupaten')" class="mt-2" />
                         </div>
@@ -152,7 +152,7 @@
                                 <span class="text-red-500">*</span></label>
                             <select id="district" name="kecamatan" disabled
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value="">Pilih Kecamatan</option>
+                                <option value="" selected disabled>Pilih Kecamatan</option>
                             </select>
                             <x-input-error :messages="$errors->get('kecamatan')" class="mt-2" />
                         </div>
@@ -164,7 +164,7 @@
                                 <span class="text-red-500">*</span></label>
                             <select id="village" name="kelurahan" disabled
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value="">Pilih Kelurahan</option>
+                                <option value="" disabled selected>Pilih Kelurahan</option>
                             </select>
                             <x-input-error :messages="$errors->get('kelurahan')" class="mt-2" />
                         </div>
