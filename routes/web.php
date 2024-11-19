@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome', [
         'title' => 'HomePage',
     ]);
-})->middleware('guest');
+});
 
 Route::resource('assessorDashboard', assessorDasboardController::class)->middleware('role:asesor');
 
@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('role:user')->group(function (){
+Route::middleware(['role:user', 'user_last_seen'])->group(function (){
     Route::resource('userDashboard', userDashboardController::class);
     Route::get('/dashboardUser', [userDashboardController::class, 'userDashboard'])->name('userDashboard');
     // Route::get('/sertifikasi', [sertifikasiUserController::class, 'index'])->name('sertifikasi.index');

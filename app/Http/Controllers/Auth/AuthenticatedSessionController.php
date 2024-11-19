@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Auth\AuthenticationException;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -25,21 +26,30 @@ class AuthenticatedSessionController extends Controller
      * Handle an incoming authentication request.
      */
     public function store(LoginRequest $request)
-    {
+{
+    // Coba autentikasi
+    try {
         $request->authenticate();
-
-        $request->session()->regenerate();
-
-        if(auth()->user()->hasrole('admin')) {
-            return redirect()->route('adminDashboard');
-        } else if (auth()->user()->hasrole('asesor')) {
-            return redirect()->route('assessorDashboard.index');
-        } else {
-            return redirect()->route('userDashboard.index');
-        }
-
-        // return redirect()->intended(route('dashboard', absolute: false));
+    } catch (AuthenticationException $e) {
+        // Jika autentikasi gagal, redirect kembali dengan pesan kesalahan
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
     }
+
+    // Regenerasi sesi
+    $request->session()->regenerate();
+
+    // Redirect berdasarkan peran pengguna
+    switch (true) {
+        case auth()->user()->hasRole('admin'):
+            return redirect()->route('adminDashboard');
+        case auth()->user()->hasRole('asesor'):
+            return redirect()->route('assessorDashboard.index');
+        default:
+            return redirect()->route('userDashboard.index');
+    }
+}
 
     /**
      * Destroy an authenticated session.

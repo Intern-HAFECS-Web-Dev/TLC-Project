@@ -22,12 +22,12 @@ class userController extends Controller
      */
     public function index()
     {
-        $userProfiles = UserProfile::with('user')->latest()->get();
+        $userProfiles = UserProfile::with('user')->latest()->paginate(10);
         // dd($userProfiles);
         $users = User::role('user')->get();
 
         return view('admin.users.index', [
-            'title' => 'users',
+            'title' => 'Users Index',
             'users' => $users,
             'userProfile' => $userProfiles,
             'navTitle' => 'Table Users'
