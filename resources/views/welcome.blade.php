@@ -165,13 +165,16 @@
                         </div>
                     </div>
                     <div class="hidden lg:block col-span-12 lg:col-span-5 ml-5">
-                        <img src="images/konten_satu.jpg" class="w-full h-full object-cover rounded-lg p-5" alt="">
+                        <img src="images/konten_satu.jpg" class="w-full h-full object-cover rounded-lg p-5"
+                            alt="">
                     </div>
-                    <div class="col-span-12 lg:col-span-7 w-full flex space-x-4 lg:gap-5">
-                        <img src="images/smpit-an-nur.png" alt="Logo SMPIT" class="w-20 h-2 object-cover">
-                        <img src="images/smp-sma-gibs.png" alt="Logo GIBS" class="w- h-16 object-cover my-3">
-                        <img src="images/hafecs.png" alt="Logo HAFECS" class="w- h-10 object-cover my-6">
-                        <img src="images/hrp.png" alt="hrp" class="w-24 h-24 object-cover">
+
+                    <div class="col-span-12 w-full place-items-center md:flex lg:flex gap-2">
+                        <img src="images/smpit-an-nur.png" alt="Logo SMPIT" class="h-32 object-cover">
+                        <img src="images/smp-sma-gibs.png" alt="Logo GIBS"
+                            class="h-32 md:h-24 lg:h-24 object-cover my-3">
+                        <img src="images/hafecs.png" alt="Logo HAFECS" class="h-12 object-cover my-6">
+                        <img src="images/hrp.png" alt="hrp" class="h-32 object-cover">
                     </div>
                 </div>
             </div>
@@ -181,12 +184,20 @@
             <div class="flex container mx-auto mb-5" id="about">
                 <div class="grid grid-cols-12">
                     <div class="col-span-12 lg:col-span-5 ">
-                        <img src="images/konten_dua.jpeg" class="w-full h-full object-cover rounded-lg p-5" alt="">
+                        <img src="images/konten_dua.jpeg" class="w-full h-full object-cover rounded-lg p-5"
+                            alt="">
                     </div>
                     <div class="col-span-12 lg:col-span-7 mx-3 mt-10">
                         <span class="text-lg text-kuning">About Us</span>
                         <h1 class="text-2xl font-bold leading-snug">Apa itu TLC</h1>
-                        <p class="text-md text-justify font-semibold lg:text-lg">Program "Teaching and Learning Certification" merupakan inisiatif yang dirancang khusus untuk menguji dan meningkatkan kompetensi para guru dalam mengajar secara efektif, dengan menggunakan metode TMF (Teaching Mastery Framework). Melalui program ini, HAFECS bertujuan memberikan standar pengajaran yang berkualitas dan terstruktur untuk membantu para guru mencapai hasil belajar yang optimal di kelas. Dengan mengikuti program ini, guru dapat menunjukkan keterampilan mengajar yang mereka miliki, meningkatkan keahlian mereka dalam mengajar, dan memperoleh sertifikasi sebagai pengakuan atas kemampuan mereka dalam mengelola kelas dengan metode yang efektif.
+                        <p class="text-md text-justify font-semibold lg:text-lg">Program "Teaching and Learning
+                            Certification" merupakan inisiatif yang dirancang khusus untuk menguji dan meningkatkan
+                            kompetensi para guru dalam mengajar secara efektif, dengan menggunakan metode TMF (Teaching
+                            Mastery Framework). Melalui program ini, HAFECS bertujuan memberikan standar pengajaran yang
+                            berkualitas dan terstruktur untuk membantu para guru mencapai hasil belajar yang optimal di
+                            kelas. Dengan mengikuti program ini, guru dapat menunjukkan keterampilan mengajar yang
+                            mereka miliki, meningkatkan keahlian mereka dalam mengajar, dan memperoleh sertifikasi
+                            sebagai pengakuan atas kemampuan mereka dalam mengelola kelas dengan metode yang efektif.
                         </p>
                     </div>
                 </div>
@@ -197,7 +208,12 @@
                     <div class="col-span-12 lg:col-span-7 mx-5 order-2 lg:order-1 lg:my-auto">
                         <div class="col-span-12 lg:col-span-7 mx-3 mt-10">
                             <h1 class="text-2xl font-bold leading-snug">Visi dari TLC</h1>
-                            <p class="text-md text-justify font-semibold lg:text-lg">Menjadi lembaga sertifikasi kompetensi terkemuka yang berperan aktif dalam meningkatkan kualitas pendidikan dan pengembangan sumber daya manusia. Lembaga ini berfokus pada bidang pendidikan dan pelatihan, serta berkomitmen untuk menyelenggarakan uji kompetensi dengan standar kualitas tinggi demi mendorong terciptanya tenaga pendidik yang kompeten dan profesional.
+                            <p class="text-md text-justify font-semibold lg:text-lg">Menjadi lembaga sertifikasi
+                                kompetensi terkemuka yang berperan aktif dalam meningkatkan kualitas pendidikan dan
+                                pengembangan sumber daya manusia. Lembaga ini berfokus pada bidang pendidikan dan
+                                pelatihan, serta berkomitmen untuk menyelenggarakan uji kompetensi dengan standar
+                                kualitas tinggi demi mendorong terciptanya tenaga pendidik yang kompeten dan
+                                profesional.
                             </p>
                         </div>
                     </div>
@@ -332,29 +348,153 @@
             </div>
         </section>
 
-        {{-- <section class="mt-8 mx-5">
-            <div class="container mx-auto text-center pb-10" id="testimoni">
-                <h1 class="text-xl lg:text-xl font-bold text-kuning">TLC Telah Membantu Banyak Pendidik
-                    <h5 class="text-lg lg:text-3xl font-bold pb-8">Apa Kata Mereka?</h5>
-                    <div
-                        class="w-3/4 mx-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                        <div class="grid grid-cols-5 p-5">
-                            <div class="lg:col-span-1 hidden lg:block">
-                                <img src="images/logo.svg" class="w-20 h-20 object-cover rounded-lg" alt="">
-                            </div>
-                            <div class="lg:col-span-4 col-span-5 mx-auto lg:text-start">
-                                <h1 class="text-xl font-bold">Hamas Akif Sanie</h1>
-                                <div class="grid-cols-6">
-                                    <p class="text-lg  font-semibold">Teknik Informatika</p>
-                                    <p class="text-lg  font-semibold pl-3">Politeknik Negeri Banjarmasin</p>
+
+
+        <section class="mt-8 mx-5">
+            <div class="container mx-auto mb-10 w-3/4">
+                <h3 class="text-kuning font-semibold text-lg text-center">TLC Telah Membantu Ratusan Pendidik</h3>
+                <h1 class="font-bold text-xl lg:text-2xl text-center mb-5">Apa Kata Mereka?</h1>
+                <div class="bg-white dark:bg-gray-900 shadow-lg">
+                    <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6">
+                        <div class="relative">
+                            <!-- Testimonial Carousel -->
+                            <div id="testimonial-carousel" class="overflow-hidden">
+                                <!-- Carousel Items -->
+                                <div class="flex transition-transform duration-500" id="carousel-content">
+                                    <!-- Card 1 -->
+                                    <div class="w-full flex-shrink-0">
+                                        <figure class="max-w-screen-md mx-auto">
+                                            <blockquote>
+                                                <p class="text-2xl font-medium text-gray-900 dark:text-white">"Flowbite
+                                                    is just
+                                                    awesome. It contains tons of predesigned components and pages
+                                                    starting from
+                                                    login screen to complex dashboard. Perfect choice for your next SaaS
+                                                    application."</p>
+                                                <figcaption class="flex items-center justify-center mt-6 space-x-3">
+                                                    <img class="w-6 h-6 rounded-full"
+                                                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
+                                                        alt="profile picture">
+                                                    <div
+                                                        class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
+                                                        <div class="pr-3 font-medium text-gray-900 dark:text-white">
+                                                            Michael Gough
+                                                        </div>
+                                                        <div
+                                                            class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
+                                                            CEO at Google
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </blockquote>
+                                        </figure>
+                                    </div>
+                                    <!-- Card 2 -->
+                                    <div class="w-full flex-shrink-0">
+                                        <figure class="max-w-screen-md mx-auto">
+                                            <blockquote>
+                                                <p class="text-2xl font-medium text-gray-900 dark:text-white">"This
+                                                    tool has
+                                                    transformed the way I work. Highly recommended for all
+                                                    professionals."</p>
+                                                <figcaption class="flex items-center justify-center mt-6 space-x-3">
+                                                    <img class="w-6 h-6 rounded-full"
+                                                        src="https://via.placeholder.com/64" alt="profile picture">
+                                                    <div
+                                                        class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
+                                                        <div class="pr-3 font-medium text-gray-900 dark:text-white">
+                                                            Jane Smith
+                                                        </div>
+                                                        <div
+                                                            class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
+                                                            Product Manager
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </blockquote>
+                                        </figure>
+                                    </div>
+                                    <!-- Card 3 -->
+                                    <div class="w-full flex-shrink-0">
+                                        <figure class="max-w-screen-md mx-auto">
+                                            <blockquote>
+                                                <p class="text-2xl font-medium text-gray-900 dark:text-white">"The user
+                                                    interface
+                                                    is intuitive and the customer service is excellent."</p>
+                                                <figcaption class="flex items-center justify-center mt-6 space-x-3">
+                                                    <img class="w-6 h-6 rounded-full"
+                                                        src="https://via.placeholder.com/64" alt="profile picture">
+                                                    <div
+                                                        class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
+                                                        <div class="pr-3 font-medium text-gray-900 dark:text-white">
+                                                            John Doe
+                                                        </div>
+                                                        <div
+                                                            class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
+                                                            Developer
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </blockquote>
+                                        </figure>
+                                    </div>
+                                    <!-- Card 4 -->
+                                    <div class="w-full flex-shrink-0">
+                                        <figure class="max-w-screen-md mx-auto">
+                                            <blockquote>
+                                                <p class="text-2xl font-medium text-gray-900 dark:text-white">"Our team
+                                                    saw
+                                                    increased productivity after using this tool."</p>
+                                                <figcaption class="flex items-center justify-center mt-6 space-x-3">
+                                                    <img class="w-6 h-6 rounded-full"
+                                                        src="https://via.placeholder.com/64" alt="profile picture">
+                                                    <div
+                                                        class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
+                                                        <div class="pr-3 font-medium text-gray-900 dark:text-white">
+                                                            Sarah Lee
+                                                        </div>
+                                                        <div
+                                                            class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
+                                                            Designer
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </blockquote>
+                                        </figure>
+                                    </div>
+                                    <!-- Card 5 -->
+                                    <div class="w-full flex-shrink-0">
+                                        <figure class="max-w-screen-md mx-auto">
+                                            <blockquote>
+                                                <p class="text-2xl font-medium text-gray-900 dark:text-white">"A
+                                                    seamless
+                                                    experience from start to finish. Highly recommended."</p>
+                                                <figcaption class="flex items-center justify-center mt-6 space-x-3">
+                                                    <img class="w-6 h-6 rounded-full"
+                                                        src="https://via.placeholder.com/64" alt="profile picture">
+                                                    <div
+                                                        class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
+                                                        <div class="pr-3 font-medium text-gray-900 dark:text-white">
+                                                            Alex Carter
+                                                        </div>
+                                                        <div
+                                                            class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
+                                                            Analyst
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </blockquote>
+                                        </figure>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
+        </section>
 
 
-        </section> --}}
     </main>
 
     <footer class="bg-white dark:bg-gray-900">
@@ -481,6 +621,8 @@
     </footer>
 </body>
 
+
+
 <script>
     window.onpageshow = function(event) {
         if (event.persisted) {
@@ -499,6 +641,15 @@
             });
         });
     });
+    // Autoslide logic
+    const carouselContent = document.getElementById('carousel-content');
+    const items = carouselContent.children;
+    let index = 0;
+
+    setInterval(() => {
+        index = (index + 1) % items.length;
+        carouselContent.style.transform = `translateX(-${index * 100}%)`;
+    }, 5000); // Change slide every 5 seconds
 </script>
 
 </html>
