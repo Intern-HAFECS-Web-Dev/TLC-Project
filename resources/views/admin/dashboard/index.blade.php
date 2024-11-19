@@ -357,8 +357,7 @@
                                             <span>••• 826</span>
                                         </td>
                                         <td class="p-4 whitespace-nowrap">
-                                            <span
-                                                class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-md border border-red-100 dark:border-red-400 dark:bg-gray-700 dark:text-red-400">Cancelled</span>
+                                            <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-md border border-red-100 dark:border-red-400 dark:bg-gray-700 dark:text-red-400">Cancelled</span>
                                         </td>
                                     </tr>
                                     <tr class="bg-gray-50 dark:bg-gray-700">
