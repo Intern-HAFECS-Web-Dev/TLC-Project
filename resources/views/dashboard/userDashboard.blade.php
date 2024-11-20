@@ -92,7 +92,6 @@
         </div>
     </nav>
 
-
     <main class="container mx-auto ">
         {{-- Carousel --}}
         <div id="default-carousel" class="relative w-full" data-carousel="slide">
@@ -225,9 +224,67 @@
 
                         <h5 class="font-semibold">Keuntungan:</h5>
                         <p>Mendapatkan Sertifikasi Level A</p>
-                        <button type="button"
-                            class="text-white bg-[#0C548C] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center mt-8">Ikut
-                            Sekarang</button>
+                        <!-- Modal toggle -->
+                        <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                            class="text-white bg-[#0C548C] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-xl text-sm px-5 py-2.5 inline-flex justify-center w-full text-center mt-8"
+                            type="button">
+                            Ikut Sekarang
+                        </button>
+
+                        <!-- Main modal -->
+                        <div id="default-modal" tabindex="-1" aria-hidden="true"
+                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                            <div class="relative p-4 w-full max-w-2xl max-h-full">
+                                <!-- Modal content -->
+                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 pb-5">
+                                    <!-- Modal header -->
+                                    <div class="p-4 md:p-5  text-center">
+                                        <img src="images/popupfile.png" class="h-20 mx-auto my-2" alt="">
+                                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                                            Harap unggah file Sertifikat Part X pada form di bawah ini sebagai
+                                            persyaratan wajib.
+                                        </h3>
+
+                                    </div>
+                                    <div class="container mx-auto w-3/4 border shadow-lg">
+                                        <h1 class="text-xl font-semibold py-3 text-center lg:text-start lg:p-5">Unggah
+                                            Sertifikat</h1>
+                                        <hr class="border-black mx-auto mb-5 w-full">
+                                        <div class="flex items-center justify-center w-full mx-auto p-3">
+                                            <label for="dropzone-file"
+                                                class="flex flex-col items-center justify-center w-full h-48 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 ">
+                                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                                    <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
+                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 20 16">
+                                                        <path stroke="currentColor" stroke-linecap="round"
+                                                            stroke-linejoin="round" stroke-width="2"
+                                                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                                                    </svg>
+                                                    <p
+                                                        class="mb-2 sm:text-center text-sm text-gray-500 dark:text-gray-400">
+                                                        <span class="font-semibold">Drag & Drop or click </span> to
+                                                        upload
+                                                        “Sertifikat Part X” <span class="text-red-500 font-bold">Format
+                                                            Berupa PDF</span>
+                                                    </p>
+                                                </div>
+                                                <input id="dropzone-file" type="file" class="hidden" />
+                                            </label>
+                                        </div>
+                                        <div
+                                            class="flex items-center justify-center p-4 md:p-5 rounded-b dark:border-gray-600">
+                                            <button data-modal-hide="default-modal" type="button"
+                                                class="text-white hover:text-white border bg-biru border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Confirm
+                                                <button data-modal-hide="default-modal" type="button"
+                                                    class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Cancel</button>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -241,7 +298,7 @@
                             <h5 class="text-xl font-semibold mb-7">Rp 300.000</h5>
                         </div>
                         <hr class="border-black w-full mx-auto mb-5">
-                        <div class="pb-8">
+                        <div class="md:pb-14 pb-8">
                             <h5 class="font-semibold">Persyaratan:</h5>
                             <p>Telah bergabung dengan LMS dan memiliki
                                 sertifikat part 2 LMS dan sertifikat level A</p>
@@ -249,9 +306,12 @@
 
                         <h5 class="font-semibold">Keuntungan:</h5>
                         <p>Mendapatkan Sertifikasi Level B</p>
+
                         <button type="button"
-                            class="text-white bg-[#0C548C] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-xl text-sm px-5 py-2.5 inline-flex justify-center w-full text-center mt-8 ">Ikut
+                            class="text-white bg-[#0C548C] cursor-not-allowed hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center mt-8">Ikut
                             Sekarang</button>
+
+
                     </div>
                 </div>
 
@@ -274,7 +334,7 @@
                         <h5 class="font-semibold">Keuntungan:</h5>
                         <p>Mendapatkan Sertifikasi Level C</p>
                         <button type="button"
-                            class="text-white bg-[#0C548C] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center mt-8">Ikut
+                            class="text-white bg-[#0C548C] cursor-not-allowed hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center mt-8">Ikut
                             Sekarang</button>
                     </div>
                 </div>
