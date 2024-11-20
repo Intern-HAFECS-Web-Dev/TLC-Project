@@ -16,7 +16,7 @@
                                         d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
                                     </path>
                                 </svg>
-                                Users
+                                Asesi
                             </a>
                         </li>
                         <li>
@@ -69,11 +69,11 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </a>
-                        <a href="{{ route('deleteAllUsers') }}"
+                        <a href="#"
                             class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                             data-popover-target="popover-delete" data-popover-placement="bottom"
                             data-modal-target="popup-modal" data-modal-toggle="popup-modal">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="w-6 h-6" fill="#C81E1E" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
                                     d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
                                     clip-rule="evenodd"></path>
@@ -100,7 +100,9 @@
                 <div class="flex items-center ml-auto space-x-2 sm:space-x-3">
                     <a href="{{ route('users.create') }}">
                         <button
-                            class="inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                            class="inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                            data-popover-target="popover-addUser" 
+                            data-popover-placement="bottom">
                             <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -302,9 +304,8 @@
                                         </a>
 
                                         {{-- Show Users --}}
-                                        <a href="{{ route('users.destroyy', $user->user->id) }}"
-                                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-400 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900"
-                                            onclick="return confirm('Yakin ingin menghapus data ini?');">
+                                        <a href="{{ route('asesi-show', $user->id) }}"
+                                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-400 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>
                                     </td>
@@ -369,7 +370,7 @@
     </div> --}}
 
     <!-- Edit User Modal -->
-    <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
+    {{-- <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
         id="edit-user-modal">
         <div class="relative w-full h-full max-w-2xl px-4 md:h-auto">
             <!-- Modal content -->
@@ -455,10 +456,10 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Add User Modal -->
-    <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
+    {{-- <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
         id="add-user-modal">
         <div class="relative w-full h-full max-w-2xl px-4 md:h-auto">
             <!-- Modal content -->
@@ -528,10 +529,10 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Delete User Modal -->
-    <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
+    {{-- <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
         id="delete-user-modal">
         <div class="relative w-full h-full max-w-md px-4 md:h-auto">
             <!-- Modal content -->
@@ -569,18 +570,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    <div data-popover id="popover-delete" role="tooltip"
-        class="absolute z-100 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
-        <div class="px-3 py-2 bg-gray-100 border-b border-gray-200 rounded-t-lg dark:border-gray-600 dark:bg-gray-700">
-            <h3 class="font-semibold text-gray-900 dark:text-white">Delete All Users</h3>
-        </div>
-        <div class="px-3 py-2">
-            <p>Tindakan Ini akan menghapus semua pengguna dari sistem.</p>
-        </div>
-        <div data-popper-arrow></div>
-    </div>
+
 
     <div id="popup-modal" tabindex="-1"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -602,11 +594,12 @@
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
-                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete
-                        this product?</h3>
+                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah anda yakin ingin delete all asesi? tindakan ini tidak dapat di undo</h3>
                     <button data-modal-hide="popup-modal" type="button"
                         class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
-                        Yes, I'm sure
+                        <a href="{{ route('deleteAllUsers') }}">
+                            Yes, Saya yakin
+                        </a>
                     </button>
                     <button data-modal-hide="popup-modal" type="button"
                         class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">No,
@@ -615,4 +608,15 @@
             </div>
         </div>
     </div>
+
+    <x-popover title="Delete All Users" id="popover-delete">
+        <strong class="text-red-500">Warning!!</strong>
+        <p>Tindakan Ini akan menghapus semua pengguna dari sistem.</p>
+    </x-popover>
+
+    <x-popover title="Add Users" id="popover-addUser">
+        <p>Tindakan Ini akan menambahkan users baru kedalam database.</p>
+    </x-popover>
 @endsection
+
+popover-addUser
