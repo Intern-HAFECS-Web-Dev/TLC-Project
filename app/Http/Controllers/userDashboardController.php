@@ -38,6 +38,14 @@ class userDashboardController extends Controller
 
     }
 
+    public function profileIndex() {
+        return view('userDashboard.profile');
+    }
+
+    public function myCertificationIndex() {
+        return view('userDashboard.myCertification');
+    }
+
     public function transaksiIndex() {
         // return view('userDashboard.transaksi');
         $user = Auth::user();
