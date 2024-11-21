@@ -32,11 +32,11 @@
                         {{-- Nama Gelar --}}
                         <div class="col-span-6 sm:col-span-3">
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                Nama Gelar
+                                Nama Gelar(Opsional)
                             </label>
                             <input type="text" name="fullname" id="email"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Input Nama Gelar" required value="{{ old('fullname') }}">
+                                placeholder="Input Nama Gelar" value="{{ old('fullname') }}">
                             <x-input-error :messages="$errors->get('fullname')" class="mt-2" />
                         </div>
 
@@ -47,7 +47,7 @@
                             </label>
                             <input type="number" name="no_wa" id="number"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Input Nomor Whatsapp" required value="{{ old('no_wa') }}">
+                                placeholder="Input Nomor Whatsapp" value="{{ old('no_wa') }}">
                             <x-input-error :messages="$errors->get('number')" class="mt-2" />
                         </div>
 
@@ -58,7 +58,7 @@
                             </label>
                             <input type="number" name="nik" id="nik"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Input Nomor Induk Keluarga" required value="{{ old('nik') }}">
+                                placeholder="Input Nomor Induk Keluarga" value="{{ old('nik') }}">
                             <x-input-error :messages="$errors->get('nik')" class="mt-2" />
                         </div>
 
@@ -70,9 +70,10 @@
                             <select id="instansi" name="instansi"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 onchange="showCustomInput()">
-                                <option value="" disabled selected>--Pilih Salah Satu--</option>
+                                <option value="{{ old('instansi') }}" selected>
+                                    {{ old('instansi') ? old('instansi') : '--Pilih Salah Satu--' }}</option>
                                 <option value="Perguruan Tinggi">Perguruan Tinggi</option>
-                                <option value="Pemerintah">Pemerintah</option>
+                                <option value="Pemerintah"> Pemerintah</option>
                                 <option value="Sekolah Menengah Atas">Sekolah Menengah Atas</option>
                                 <option value="Sekolah Menengah Kejuruan">Sekolah Menengah Kejuruan</option>
                                 <option value="Sekolah Menengah Pertama">Sekolah Menengah Pertama</option>
@@ -91,7 +92,7 @@
                             </label>
                             <input type="text" name="tempat_lahir" id="tempat_lahir"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Input Tempat Lahir" required value="{{ old('tempat_lahir') }}">
+                                placeholder="Input Tempat Lahir" value="{{ old('tempat_lahir') }}">
                             <x-input-error :messages="$errors->get('tempat_lahir')" class="mt-2" />
                         </div>
 
@@ -101,7 +102,8 @@
                                 Kelamin</label>
                             <select id="instansi" name="jenis_kelamin"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value=""selected disabled>--Pilih Salah Satu--</option>
+                                <option value="{{ old('jenis_kelamin') }}"selected>
+                                    {{ old('jenis_kelamin') ? old('jenis_kelamin') : '--Pilih Salah Satu--' }}</option>
                                 <option value="L">Laki-Laki</option>
                                 <option value="P">Perempuan</option>
                             </select>
@@ -115,7 +117,7 @@
                             </label>
                             <input type="date" name="tanggal_lahir" id="tanggal_lahir"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="example@company.com" required value="{{ old('tanggal_lahir') }}">
+                                placeholder="example@company.com" value="{{ old('tanggal_lahir') }}">
                             <x-input-error :messages="$errors->get('tanggal_lahir')" class="mt-2" />
                         </div>
 
@@ -123,10 +125,11 @@
                         <div class="col-span-6 sm:col-span-3">
                             <label for="province"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Provinsi Domisili
-                                <span class="text-red-500">*</span></label>
+                            </label>
                             <select id="province" name="provinsi"
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value="" disabled selected>--Pilih Salah Satu--</option>
+                                <option value="{{ old('provinsi') }}" selected>
+                                    {{ old('provinsi') ? old('provinsi') : 'Pilih Provinsi' }}</option>
                                 @foreach ($provinces as $province)
                                     <option value="{{ $province->name }}">{{ $province->name }}</option>
                                 @endforeach
@@ -137,10 +140,10 @@
                         <div class="col-span-6 sm:col-span-3">
                             <label for="regency"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kabupeten/Kota
-                                Domisili <span class="text-red-500">*</span></label>
+                                Domisili</label>
                             <select id="regency" name="kabupaten" disabled
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value="">Pilih Kabupaten/Kota</option>
+                                <option value="" selected disabled>Pilih Kabupaten/Kota</option>
                             </select>
                             <x-input-error :messages="$errors->get('kabupaten')" class="mt-2" />
                         </div>
@@ -149,10 +152,10 @@
                         <div class="col-span-6 sm:col-span-3">
                             <label for="district"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">kecamatan Domisili
-                                <span class="text-red-500">*</span></label>
+                            </label>
                             <select id="district" name="kecamatan" disabled
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value="">Pilih Kecamatan</option>
+                                <option value="" selected disabled>Pilih Kecamatan</option>
                             </select>
                             <x-input-error :messages="$errors->get('kecamatan')" class="mt-2" />
                         </div>
@@ -161,10 +164,10 @@
                         <div class="col-span-6 sm:col-span-3">
                             <label for="village"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kelurahan Domisili
-                                <span class="text-red-500">*</span></label>
+                            </label>
                             <select id="village" name="kelurahan" disabled
                                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option value="">Pilih Kelurahan</option>
+                                <option value="" disabled selected>Pilih Kelurahan</option>
                             </select>
                             <x-input-error :messages="$errors->get('kelurahan')" class="mt-2" />
                         </div>
@@ -190,38 +193,35 @@
                         </div>
 
                         <!-- Image preview element -->
-                        <div class="flex flex-col items-center">
+                        <div class="flex flex-col items-center col-span-6">
                             <!-- Profile Picture Preview -->
                             <div class="mb-4">
-                                <img id="profilePreview" 
-                                    src="{{ asset('storage/images/blankProfile.png') }}" 
-                                    alt="Profile Picture" 
+                                <img id="profilePreview" src="{{ asset('storage/images/blankProfile.png') }}"
+                                    alt="Profile Picture"
                                     class="w-24 h-24 rounded-2xl shadow-md border-2 border-gray-300">
                             </div>
-                        
+
                             <!-- Upload Input -->
-                            <div class="w-full mt-3">
+                            <div class="w-1/2 mt-3">
                                 <label for="profilInput" class="block text-sm font-medium text-gray-700 mb-2">
                                     Upload Foto Profile <span class="text-gray-500 text-xs">(opsional)</span>
                                 </label>
-                                <input 
-                                    id="profilInput" 
-                                    name="profile_image" 
-                                    type="file" 
-                                    accept=".jpg, .jpeg, .png" 
-                                    onchange="previewImage(event)" 
+                                <input id="profilInput" name="profile_image" type="file" accept=".jpg, .jpeg, .png"
+                                    onchange="previewImage(event)"
                                     class="w-full block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-gray-400 dark:border-gray-600 dark:placeholder-gray-400">
-                                <p id="profilInput_help" class="mt-1 text-xs text-gray-500">Format file: JPG, JPEG, PNG. Maksimal 2MB.</p>
-                        
+                                <p id="profilInput_help" class="mt-1 text-xs text-gray-500">Format file: JPG, JPEG, PNG.
+                                    Maksimal 2MB.</p>
+
                                 <!-- Error Message -->
                                 <x-input-error :messages="$errors->get('profile_image')" class="mt-2 text-red-500" />
                             </div>
+                            <button type="submit"
+                                class="bg-biru w-1/2 px-10 py-2 mt-10 text-sm font-medium rounded-lg shadow-md hover:bg-kuning hover:text-black text-white">
+                                SUBMIT
+                            </button>
                         </div>
                     </div>
-                    <button type="submit"
-                        class="bg-biru px-10 py-2 mt-10 text-sm font-medium rounded-lg shadow-md hover:bg-kuning hover:text-black text-white">
-                        SUBMIT
-                    </button>
+
                 </form>
             </div>
         </div>

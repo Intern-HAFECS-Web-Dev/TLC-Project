@@ -61,7 +61,7 @@
                             <a href="#testimoni"
                                 class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 lg:dark:hover:text-blue-500 dark:border-gray-700">Testimoni</a>
                         </li>
-                        @guest
+                        {{-- @guest --}}
                             <li>
                                 <a href="{{ route('login') }}"
                                     class="block lg:hidden text-red-600 py-2 px-3 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:border-gray-700">Sign
@@ -72,7 +72,7 @@
                                     class="block lg:hidden text-red-600 py-2 px-3 rounded hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:border-gray-700">Sign
                                     Up</a>
                             </li>
-                        @endguest
+                        {{-- @endguest --}}
                     </ul>
 
                     <!-- Search Icon, Sign In & Sign Up Buttons (Visible on lg and above) -->

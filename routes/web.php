@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome', [
         'title' => 'HomePage',
     ]);
-})->middleware('guest');
+});
 
 Route::resource('assessorDashboard', assessorDasboardController::class)->middleware('role:asesor');
 
@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('role:user')->group(function (){
+Route::middleware(['role:user', 'user_last_seen'])->group(function (){
     Route::resource('userDashboard', userDashboardController::class);
     Route::get('/dashboardUser', [userDashboardController::class, 'userDashboard'])->name('userDashboard');
     // Route::get('/sertifikasi', [sertifikasiUserController::class, 'index'])->name('sertifikasi.index');
@@ -39,12 +39,12 @@ Route::middleware('role:user')->group(function (){
 Route::middleware('role:admin')->group(function () {
     Route::resource('adminDashboard', adminDashboardController::class);
     Route::resource('users', userController::class);
+    Route::get('showAsesi/{id}', [userController::class, 'show'])->name('asesi-show');
 
     Route::get('/dashboardAdmin', [adminDashboardController::class, 'adminDashboard'])->name('adminDashboard');
     Route::get('/deleteUsers/{id}', [userController::class, 'destroy'])->name('users.destroyy');
     Route::get('/deleteAllUsers', [usersController::class, 'destroyAll'])->name('deleteAllUsers');
     Route::get('/testing', [usersController::class, 'testing'])->name('testing');
-
 });
 
 Route::get('/regencies/{provinceId}', [provinsiController::class, 'getRegencies']);

@@ -22,15 +22,15 @@ class userController extends Controller
      */
     public function index()
     {
-        $userProfiles = UserProfile::with('user')->latest()->get();
+        $userProfiles = UserProfile::with('user')->latest()->paginate(10);
         // dd($userProfiles);
         $users = User::role('user')->get();
 
         return view('admin.users.index', [
-            'title' => 'users',
+            'title' => 'Users Index',
             'users' => $users,
             'userProfile' => $userProfiles,
-            'navTitle' => 'Table Users'
+            'navTitle' => 'Table Asesi'
         ]);
     }
 
@@ -53,12 +53,12 @@ class userController extends Controller
     public function store(Request $request)
     {
     $request->validate([
-        'name' => ['nullable', 'string'],
-        'email' => ['nullable', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-        'password' => ['nullable', Password::defaults()],
+        'name' => ['required', 'string'],
+        'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+        'password' => ['required', Password::defaults()],
         'fullname' => 'nullable|string|max:255',
         'no_wa' => ['numeric', 'nullable', 'digits_between:1,15'],
-        'nik' => ['nullable', 'string'],
+        'nik' => ['nullable', 'string', 'digits_between:1,17'],
         'instansi' => ['nullable', 'string'],
         'tempat_lahir' => ['nullable', 'string'],
         'jenis_kelamin' => ['nullable', 'string'],
@@ -87,7 +87,7 @@ class userController extends Controller
         // Create User Profile
         $userProfile = new UserProfile([
             'user_id' => $user->id,
-            'fullname' => $request->fullname,
+            'fullname' => isset($request->fullname) ? $request->fullname : $request->name,
             'nik' => $request->nik,
             'instansi' => $request->custom_instansi ?? $request->instansi,
             'tempat_lahir' => $request->tempat_lahir,
@@ -117,8 +117,14 @@ class userController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        //
+    {   
+        $users = UserProfile::with('user')->findOrFail($id);
+        // dd($users);
+        return view('admin.users.show', [
+            'title' => 'Show Asesi',
+            'navTitle' => 'Table Asesi',
+            'users' => $users
+        ]);
     }
 
     /**
