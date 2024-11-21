@@ -42,7 +42,7 @@ class userController extends Controller
         $provinces = Province::all();
         return view('admin.users.create', [
             'title' => 'Create User',
-            'navTitle' => 'Create User',
+            'navTitle' => 'Table Asesi',
             'provinces' => $provinces,
         ]);
     }

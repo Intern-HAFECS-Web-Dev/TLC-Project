@@ -1,7 +1,7 @@
 @extends('dashboard.adminDashboard')
 
 @section('content')
-    <div class="grid grid-cols-1 px-4 pt-6 3xl:grid-cols-3 3xl:gap-4 dark:bg-gray-900">
+    <div class="grid grid-cols-1 px-4 pt-6 mt-4 3xl:grid-cols-3 3xl:gap-4 dark:bg-gray-900">
 
         <div class="col-span-2">
             <div class="mb-4 col-span-full xl:mb-2 bg-biru p-2 rounded-xl flex items-center justify-between">
