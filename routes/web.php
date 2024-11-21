@@ -34,6 +34,9 @@ Route::middleware(['role:user', 'user_last_seen'])->group(function (){
     // Route::get('/sertifikasi', [sertifikasiUserController::class, 'index'])->name('sertifikasi.index');
     Route::get('/sertifikasi', [userDashboardController::class, 'sertifikasiIndex'])->name('sertifikasi.index');
     Route::get('/transaksi', [userDashboardController::class, 'transaksiIndex'])->name('transaksi.index');
+    Route::get('/userProfile', [userDashboardController::class, 'profileIndex'])->name('userProfile.index');
+    Route::get('/myCertification', [userDashboardController::class, 'myCertificationIndex'])->name('myCertification.index');
+    
 });
 
 Route::middleware('role:admin')->group(function () {
