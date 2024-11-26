@@ -22,10 +22,25 @@ class userController extends Controller
      */
     public function index()
     {
-        $userProfiles = UserProfile::with('user')->latest()->paginate(10);
-        // dd($userProfiles);
+        // Mengambil input pencarian
+        $search = request()->input('search');
+    
+        $userProfiles = UserProfile::with('user')
+            ->when($search, function ($query) use ($search) {
+                $query->where('fullname', 'LIKE', '%' . $search . '%') 
+                    ->orWhere('nik', 'LIKE', '%' . $search . '%')      
+                    ->orWhere('tempat_lahir', 'LIKE', '%' . $search . '%') 
+                    ->orWhereHas('user', function ($query) use ($search) {
+                        $query->where('name', 'LIKE', '%' . $search . '%') 
+                            ->orWhere('email', 'LIKE', '%' . $search . '%'); 
+                    });
+            })
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
+    
         $users = User::role('user')->get();
-
+    
         return view('admin.users.index', [
             'title' => 'Users Index',
             'users' => $users,
@@ -33,7 +48,7 @@ class userController extends Controller
             'navTitle' => 'Table Asesi'
         ]);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      */

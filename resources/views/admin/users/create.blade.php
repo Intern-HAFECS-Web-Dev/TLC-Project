@@ -121,7 +121,6 @@
                             <x-input-error :messages="$errors->get('tanggal_lahir')" class="mt-2" />
                         </div>
 
-
                         <div class="col-span-6 sm:col-span-3">
                             <label for="province"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Provinsi Domisili
@@ -228,7 +227,6 @@
     </div>
 
     <style>
-        /* Hide arrows for number inputs */
         input[type="number"]::-webkit-outer-spin-button,
         input[type="number"]::-webkit-inner-spin-button {
             -webkit-appearance: none;
@@ -237,19 +235,16 @@
 
         input[type="number"] {
             -moz-appearance: textfield;
-            /* For Firefox */
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        // const profileInput = document.getElementById('profileInput');
         const profilePreview = document.getElementById('profilePreview');
 
         function previewImage(event) {
             const input = event.target;
             const reader = new FileReader();
 
-            // When the file is loaded, set it as the src for the preview image
             reader.onload = function() {
                 const profilePreview = document.getElementById('profilePreview');
                 profilePreview.src = reader.result;
@@ -301,7 +296,7 @@
                         });
                     }).fail(function() {
                         console.error(
-                            'Error fetching districts'); // Ganti alert dengan console.error
+                            'Error fetching districts');
                     });
                 }
             });
@@ -320,7 +315,7 @@
                         });
                     }).fail(function() {
                         console.error(
-                            'Error fetching villages'); // Ganti alert dengan console.error
+                            'Error fetching villages'); 
                     });
                 }
             });
