@@ -145,7 +145,7 @@
                         </svg>
                         <span class="flex justify-start ms-3 whitespace-nowrap">Users</span>
                         <div class="ml-auto">
-                            <i class="fa-solid fa-arrow-right"></i>
+                            <i class="fa-solid fa-angle-down"></i>
                         </div>
                     </button>
                 

@@ -49,4 +49,14 @@ class User extends Authenticatable
             'last_seen' => 'datetime'
         ];
     }
+
+    public function userAdmin()
+    {
+        return $this->hasOne(userAdmin::class);
+    }
+    
+    public function userProfile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
 }

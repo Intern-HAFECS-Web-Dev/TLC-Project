@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProfileController extends Controller
 {
@@ -16,8 +17,8 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('admin.settings.index', [
-            'user' => $request->user(),
+        return view('admin.settings.userAdminEdit', [
+            'user' => $request->user(), 
             'title' => 'Admin Settings',
             'navTitle' => 'Admin Settings'
         ]);
@@ -36,6 +37,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
+        Alert::success('Success', 'Password berhasil dirubah!');
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 

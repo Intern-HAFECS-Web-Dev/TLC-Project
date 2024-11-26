@@ -185,7 +185,7 @@
 
                                     {{-- image,nama,email --}}
                                     <td class="flex items-center py-2 px-4 mr-12 space-x-6 whitespace-nowrap">
-                                        <img class="w-12 h-12 rounded-lg"
+                                        <img class="w-12 h-12 rounded-full"
                                             src="{{ asset('/storage/' . $user->profile_image) }}" alt="avatar">
                                         <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
                                             <div class="text-base font-semibold text-gray-900 dark:text-white">
@@ -324,3 +324,4 @@
         <p>Tindakan Ini akan membuat file excel dari data asesi.</p>
     </x-popover>
 @endsection
+c
