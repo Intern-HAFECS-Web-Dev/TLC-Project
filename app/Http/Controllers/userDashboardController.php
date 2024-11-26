@@ -39,11 +39,25 @@ class userDashboardController extends Controller
     }
 
     public function profileIndex() {
-        return view('userDashboard.profile');
+        $user = Auth::user();
+        $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
+        $province = Province::all();
+        return view('userDashboard.profile', [
+            'title' => 'User Profile',
+            'province' => $province,
+            'user' => $userProfile
+        ]);
     }
 
     public function myCertificationIndex() {
-        return view('userDashboard.myCertification');
+        $user = Auth::user();
+        $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
+        $province = Province::all();
+        return view('userDashboard.myCertification', [
+            'title' => 'User Certification',
+            'province' => $province,
+            'user' => $userProfile
+        ]);
     }
 
     public function transaksiIndex() {

@@ -22,6 +22,7 @@ export default {
                 kuning: "#FBCB04",
                 greys: "#E8EBF3",
                 birutua: "#2E4D69",
+                inputan: "#E5E9F2",
                 primary: {
                     50: "#eff6ff",
                     100: "#dbeafe",
