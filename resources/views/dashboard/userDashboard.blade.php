@@ -3,6 +3,7 @@
 @section('content')
 
     <main class="container mx-auto mt-20 max-w-7xl">
+
         {{-- Carousel --}}
         <div id="default-carousel" class="relative w-full" data-carousel="slide">
             <div class="relative h-40 md:h-96 overflow-hidden rounded-lg lg:h-[600px]">
