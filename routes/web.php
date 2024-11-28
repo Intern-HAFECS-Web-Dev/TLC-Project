@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\adminAsesorController;
 use App\Http\Controllers\adminDashboardController;
 use App\Http\Controllers\assessorDasboardController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -42,12 +43,16 @@ Route::middleware(['role:user', 'user_last_seen'])->group(function (){
 Route::middleware('role:admin')->group(function () {
     Route::resource('adminDashboard', adminDashboardController::class);
     Route::resource('users', userController::class);
+    Route::resource('adminAsesor', adminAsesorController::class);
+
     Route::get('showAsesi/{id}', [userController::class, 'show'])->name('asesi-show');
 
     Route::get('/dashboardAdmin', [adminDashboardController::class, 'adminDashboard'])->name('adminDashboard');
     Route::get('/deleteUsers/{id}', [userController::class, 'destroy'])->name('users.destroyy');
     Route::get('/deleteAllUsers', [usersController::class, 'destroyAll'])->name('deleteAllUsers');
     Route::get('/testing', [usersController::class, 'testing'])->name('testing');
+
+    Route::get('/download-asesi-img/{id}', [userController::class, 'downloadImage'])->name('users.DownloadImg');
 });
 
 Route::get('/regencies/{provinceId}', [provinsiController::class, 'getRegencies']);

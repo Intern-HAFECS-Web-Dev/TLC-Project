@@ -42,7 +42,7 @@ class userController extends Controller
         $users = User::role('user')->get();
     
         return view('admin.users.index', [
-            'title' => 'Users Index',
+            'title' => 'Asesi Index',
             'users' => $users,
             'userProfile' => $userProfiles,
             'navTitle' => 'Table Asesi'
@@ -234,6 +234,20 @@ class userController extends Controller
             Log::error('Delete All Users Failed: ' . $e->getMessage());
             return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat ingin menghapus all users: ' . $e->getMessage()])->withInput();
         }
+    }
+
+    public function downloadImage(string $id) {
+
+        $userProfile = UserProfile::with('user')->findOrFail($id);
+        $profile_image = $userProfile->profile_image;
+        $path = storage_path('app/public/'. $profile_image);
+
+        if(!file_exists($path)) {
+            return redirect()->back()->with('error', 'file tidak ditemukan');
+        }
+        $downloadName = str_replace(' ', '_', $userProfile->user->name) . '.jpg';
+
+        return response()->download($path, $downloadName);
     }
 
 }

@@ -37,7 +37,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        Alert::success('Success', 'Password berhasil dirubah!');
+        Alert::success('Success', 'Your Profile has been updated!');
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 

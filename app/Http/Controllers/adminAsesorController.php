@@ -2,17 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\userAdmin;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserAdminController extends Controller
+class adminAsesorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+
+        $users = User::role('asesor')->get();
+    
+        return view('admin.asesor.index', [
+            'title' => 'Asesor Index',
+            'users' => $users,
+            // 'userProfile' => $userProfiles,
+            'navTitle' => 'Table Asesor
+            '
+        ]);
     }
 
     /**
@@ -34,7 +43,7 @@ class UserAdminController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(userAdmin $userAdmin)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +51,7 @@ class UserAdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(userAdmin $userAdmin)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +59,7 @@ class UserAdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, userAdmin $userAdmin)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +67,7 @@ class UserAdminController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(userAdmin $userAdmin)
+    public function destroy(string $id)
     {
         //
     }

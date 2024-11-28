@@ -25,8 +25,11 @@
                             </button>
 
                             <!-- Download Image Button -->
+                            
                             <button class="p-2 bg-blue-600 rounded-lg">
-                                <p class="font-medium text-sm text-white">Download Image</p>
+                                <a href="{{ route('users.DownloadImg', $users->id) }}">
+                                    <p class="font-medium text-sm text-white">Download Image</p>
+                                </a>
                             </button>
                         </div>
                     </div>

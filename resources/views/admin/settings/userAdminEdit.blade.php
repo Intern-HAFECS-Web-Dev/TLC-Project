@@ -173,7 +173,7 @@
                 Swal.fire({
                     icon: 'success',
                     title: 'Success!',
-                    text: 'Your password has been updated.',
+                    text: 'Your Profile has been updated.',
                     timer: 3000, // 
                     showConfirmButton: false,
                 });
