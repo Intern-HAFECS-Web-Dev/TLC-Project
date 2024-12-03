@@ -95,7 +95,7 @@
 
     @yield('content')
 
-    <footer class="dark:bg-gray-900 border border-t-gray-600">
+    <footer class="border border-t-gray-600">
         <div class="mx-auto w-full max-w-screen-xl">
             <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
                 <div>
