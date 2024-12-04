@@ -52,6 +52,7 @@ Route::middleware('role:admin')->group(function () {
     Route::get('/deleteAllUsers', [usersController::class, 'destroyAll'])->name('deleteAllUsers');
     Route::get('/testing', [usersController::class, 'testing'])->name('testing');
 
+    Route::post('/editProfileImage', [ProfileController::class, 'editImg'])->name('profile.editImg');
     Route::get('/download-asesi-img/{id}', [userController::class, 'downloadImage'])->name('users.DownloadImg');
 });
 
