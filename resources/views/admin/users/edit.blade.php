@@ -190,38 +190,34 @@
                         </div>
 
                         <!-- Image preview element -->
-                        <div class="flex flex-col items-center">
+                        <div class="flex flex-col items-center col-span-6">
                             <!-- Profile Picture Preview -->
                             <div class="mb-4">
-                                <img id="profilePreview" 
-                                    src="{{ asset('/storage/' . $users->profile_image) }}" 
-                                    alt="Profile Picture" 
+                                <img id="profilePreview" src="{{ asset('storage/images/blankProfile.png') }}"
+                                    alt="Profile Picture"
                                     class="w-24 h-24 rounded-2xl shadow-md border-2 border-gray-300">
                             </div>
-                        
+
                             <!-- Upload Input -->
-                            <div class="w-full mt-3">
+                            <div class="w-1/2 mt-3">
                                 <label for="profilInput" class="block text-sm font-medium text-gray-700 mb-2">
                                     Upload Foto Profile <span class="text-gray-500 text-xs">(opsional)</span>
                                 </label>
-                                <input 
-                                    id="profilInput" 
-                                    name="profile_image" 
-                                    type="file" 
-                                    accept=".jpg, .jpeg, .png" 
-                                    onchange="previewImage(event)" 
+                                <input id="profilInput" name="profile_image" type="file" accept=".jpg, .jpeg, .png"
+                                    onchange="previewImage(event)"
                                     class="w-full block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-gray-400 dark:border-gray-600 dark:placeholder-gray-400">
-                                <p id="profilInput_help" class="mt-1 text-xs text-gray-500">Format file: JPG, JPEG, PNG. Maksimal 2MB.</p>
-                        
+                                <p id="profilInput_help" class="mt-1 text-xs text-gray-500">Format file: JPG, JPEG, PNG.
+                                    Maksimal 2MB.</p>
+
                                 <!-- Error Message -->
                                 <x-input-error :messages="$errors->get('profile_image')" class="mt-2 text-red-500" />
                             </div>
+                            <button type="submit"
+                                class="bg-biru w-1/2 px-10 py-2 mt-10 text-sm font-medium rounded-lg shadow-md hover:bg-kuning hover:text-black text-white">
+                                SUBMIT
+                            </button>
                         </div>
                     </div>
-                    <button type="submit"
-                        class="bg-biru px-10 py-2 mt-10 text-sm font-medium rounded-lg shadow-md hover:bg-kuning hover:text-black text-white">
-                        SUBMIT
-                    </button>
                 </form>
             </div>
         </div>
@@ -340,3 +336,5 @@
         }
     </script>
 @endsection
+
+
