@@ -12,12 +12,13 @@ class adminDashboardController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {   
-       
+    {
+
         // $users = User::role('user')->count();
         return view('dashboard.adminDashboard', [
             'title' => 'AdminDashboard',
             'role' => 'Admin',
+            'navTitle' => 'Admin Dashboard',
             // 'user' => $users
         ]);
     }
@@ -70,8 +71,8 @@ class adminDashboardController extends Controller
         //
     }
 
-    public function adminDashboard() 
-    {   
+    public function adminDashboard()
+    {
         $users = User::role('user')->count();
         $asesor = User::role('asesor')->count();
         return view('admin.dashboard.index', [
