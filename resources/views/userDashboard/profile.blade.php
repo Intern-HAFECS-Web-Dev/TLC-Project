@@ -9,15 +9,17 @@
                 <div
                     class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                     <div class="items-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
-                        <img class="h-24 xl:hidden my-3 rounded-full shadow-lg mx-auto " src="images/konten_satu.jpg"
-                            alt="Bonnie image" />
+                        <img class="h-24 xl:hidden my-3 rounded-full shadow-lg mx-auto "
+                            src="{{ asset('/storage/' . $user->profile_image) }}" alt="Bonnie image" />
                         <div class="hidden xl:block bg-biru py-3">
-                            <img class="h-24 rounded-full object-cover mx-auto " src="images/konten_satu.jpg"
-                                alt="Bonnie image" />
-                            <span class="flex justify-center text-white my-2 text-xl font-bold  dark:text-white">{{ $user->user->name }}</span>
+                            <img class="h-24 rounded-full object-cover mx-auto "
+                                src="{{ asset('/storage/' . $user->profile_image) }}" alt="Bonnie image" />
+                            <span
+                                class="flex justify-center text-white my-2 text-xl font-bold  dark:text-white">{{ $user->user->name }}</span>
                         </div>
                         <div>
-                            <span class="flex xl:hidden justify-center text-gray-800 mt-2 mb-4 text-xl font-bold  dark:text-white">{{ $user->user->name }}</span>
+                            <span
+                                class="flex xl:hidden justify-center text-gray-800 mt-2 mb-4 text-xl font-bold  dark:text-white">{{ $user->user->name }}</span>
 
                             <div class="flex flex-col w-full">
                                 <a href="{{ route('userProfile.index') }}">
@@ -59,74 +61,61 @@
                     class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                     <h3 class="mb-4 text-xl font-semibold dark:text-white">Profil</h3>
                     <hr class="border-gray-400 w-full mx-auto mb-2">
-                    <form action="#">
+                    <form action="{{ route('myProfile.update', $user->id) }}" method="post" enctype="multipart/form-data">
+                        @method('post')
+                        @csrf
                         <div class="grid grid-cols-6 gap-6">
+
+                            {{-- Nama Lengkap --}}
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="first-name"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
-                                <input type="text" name="first-name" id="first-name"
+                                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    Nama Lengkap <span class="text-red-700">*</span>
+                                </label>
+                                <input type="text" name="name" id="name"
                                     class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    placeholder="Bonnie" required>
+                                    placeholder="Input Nama Lengkap" value="{{ $user->user->name }}">
                             </div>
 
+                            {{-- Nama Gelar --}}
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="nik"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">NIK</label>
-                                <input type="text" name="nik" id="nik"
-                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    placeholder="NIK Anda" required>
-                            </div>
-                            <div class="col-span-6 sm:col-span-3">
-                                <label for="tempat_lahir"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tempat
-                                    Lahir</label>
-                                <input type="text" name="tempat_lahir" id="tempat_lahir"
-                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    placeholder="Tempat Lahir Anda" required>
-                            </div>
-                            <div class="col-span-6 sm:col-span-3">
-                                <label for="tanggal_lahir"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal
-                                    Lahir</label>
-                                <input type="date" name="tanggal_lahir" id="tanggal_lahir"
-                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    placeholder="15/08/1990" required>
-                            </div>
-                            <div class="col-span-6 sm:col-span-3">
-                                <label for="email"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                <input type="email" name="email" id="email"
-                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    placeholder="example@company.com" required>
-                            </div>
-                            <div class="col-span-6 sm:col-span-3">
-                                <label for="phone-number"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor
-                                    Handphone</label>
-                                <input type="text" maxlength="12" name="phone-number" id="phone-number"
-                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    placeholder="e.g. +(12)3456 789" required>
-                            </div>
-
-                            <div class="col-span-6 sm:col-span-3">
-                                <label for="jenis_kelamin"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis
-                                    Kelamin</label>
-                                <select id="jenis_kelamin" name="jenis_kelamin"
-                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                    <option value="" disabled selected>--Pilih Salah Satu--</option>
-                                    <option value="L">Laki-Laki</option>
-                                    <option value="P">Perempuan</option>
-                                </select>
-                            </div>
-                            <div class="col-span-6 sm:col-span-3">
-                                <label for="instansi"
+                                <label for="nama_gelar"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    Instansi</label>
+                                    Nama Gelar(Opsional) <span class="text-red-700">*</span>
+                                </label>
+                                <input type="text" name="fullname" id="nama_gelar"
+                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    placeholder="Input Nama Gelar Anda" value="{{ $user->fullname }}">
+                            </div>
+
+                            {{-- No Wa --}}
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="no-wa" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    Nomor Whatsapp <span class="text-red-700">*</span>
+                                </label>
+                                <input type="number" name="no_wa" id="no-wa"
+                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    placeholder="Input Nomor Whatsapp" value="{{ $user->no_wa }}">
+                            </div>
+
+                            {{-- NIK --}}
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="nik" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    Nomor Induk Kependudukan <span class="text-red-700">*</span>
+                                </label>
+                                <input type="number" name="nik" id="nik"
+                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    placeholder="Input Nomor Induk Kependudukan" value="{{ $user->nik }}">
+                            </div>
+
+                            {{-- Instansi --}}
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="instansi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    Instansi <span class="text-red-700">*</span>
+                                </label>
                                 <select id="instansi" name="instansi"
                                     class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                     onchange="showCustomInput()">
-                                    <option value="" disabled selected>--Pilih Salah Satu--</option>
+                                    <option value="{{ $user->instansi }}" selected>{{ $user->instansi }}</option>
                                     <option value="Perguruan Tinggi">Perguruan Tinggi</option>
                                     <option value="Pemerintah">Pemerintah</option>
                                     <option value="Sekolah Menengah Atas">Sekolah Menengah Atas</option>
@@ -136,35 +125,117 @@
                                     <option value="Lembaga Kursus">Lembaga Kursus</option>
                                     <option value="Lainnya">Lainnya</option>
                                 </select>
+                                <input type="text" id="custom-instansi" name="custom_instansi"
+                                    class=" mt-4 shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    placeholder="Masukkan instansi lain" style="display: none;">
                             </div>
+
+                            {{-- Tempat Lahir --}}
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="provinsi"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Provinsi</label>
-                                <input type="text" name="provinsi" id="provinsi"
+                                <label for="tempat_lahir"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    Tempat Lahir <span class="text-red-700">*</span>
+                                </label>
+                                <input type="text" name="tempat_lahir" id="tempat_lahir"
                                     class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    placeholder="React Developer" required>
+                                    placeholder="Input Tempat Lahir" value="{{ $user->tempat_lahir }}">
                             </div>
+
+                            {{-- Tanggal Lahir --}}
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="kabupaten"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kabupaten</label>
-                                <input type="text" name="kabupaten" id="kabupaten"
-                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    placeholder="Development" required>
+                                <label for="tanggal_lahir"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    Tanggal Lahir <span class="text-red-700">*</span>
+                                </label>
+                                <label class="block relative cursor-pointer">
+                                    <input type="date" name="tanggal_lahir" id="tanggal_lahir"
+                                        class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                        placeholder="Input Tanggal Lahir" value="{{ $user->tanggal_lahir }}">
+                                </label>
                             </div>
+
+                            {{-- Jenis Kelamin --}}
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="kecamatan"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kecamatan</label>
-                                <input type="number" name="kecamatan" id="kecamatan"
-                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    placeholder="123456" required>
+                                <label for="jenis_kelamin"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    Jenis Kelamin <span class="text-red-700">*</span>
+                                </label>
+                                <select id="jenis_kelamin" name="jenis_kelamin"
+                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option value="{{ $user->jenis_kelamin }}" selected>
+                                        {{ $user->jenis_kelamin === 'L'
+                                            ? 'Laki-Laki'
+                                            : ($user->jenis_kelamin === 'P'
+                                                ? 'Perempuan'
+                                                : 'Tidak Diketahui') }}
+                                    </option>
+                                    <option value="L">Laki-Laki</option>
+                                    <option value="P">Perempuan</option>
+                                </select>
                             </div>
+
+                            {{-- provinsi --}}
                             <div class="col-span-6 sm:col-span-3">
-                                <label for="kelurahan"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kelurahan</label>
-                                <input type="number" name="kelurahan" id="kelurahan"
-                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    placeholder="123456" required>
+                                <label for="province"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    Provinsi Domisili <span class="text-red-500">*</span>
+                                </label>
+                                <select id="province" name="provinsi"
+                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    @if ($user->provinsi)
+                                        <option value="{{ $user->provinsi }}" selected>
+                                            {{ $user->provinsi }}
+                                        </option>
+                                    @else
+                                        <option value="" disabled selected>Pilih Provinsi</option>
+                                    @endif
+                                    @foreach ($provinces as $province)
+                                        <option value="{{ $province->name }}"
+                                            {{ $user->provinsi === $province->name ? 'selected' : '' }}>
+                                            {{ $province->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
+
+                            {{-- kabupaten/kota --}}
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="regency"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    Kabupeten/Kota Domisili <span class="text-red-700">*</span>
+                                </label>
+                                <select id="regency" name="kabupaten" disabled
+                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option value="{{ $user->kabupaten }}" selected>{{ $user->kabupaten }}</option>
+                                </select>
+                            </div>
+
+                            {{-- Kecamatan --}}
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="district"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    kecamatan Domisili <span class="text-red-700">*</span>
+                                </label>
+                                <select id="district" name="kecamatan" disabled
+                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option value="{{ $user->kecamatan }}" selected>{{ $user->kecamatan }}</option>
+                                </select>
+                                <x-input-error :messages="$errors->get('kecamatan')" class="mt-2" />
+                            </div>
+
+                            {{-- kelurahan --}}
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="village"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    Kelurahan Domisili <span class="text-red-700">*</span>
+                                </label>
+                                <select id="village" name="kelurahan" disabled
+                                    class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option value="{{ $user->kelurahan }}" selected>{{ $user->kelurahan }}</option>
+                                </select>
+                                <x-input-error :messages="$errors->get('kelurahan')" class="mt-2" />
+                            </div>
+
                             <div class="col-span-6 sm:col-full">
                                 <button
                                     class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
@@ -178,6 +249,18 @@
 
         </div>
     </main>
+    <style>
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         // const profileInput = document.getElementById('profileInput');
