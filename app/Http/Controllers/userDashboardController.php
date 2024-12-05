@@ -77,7 +77,13 @@ class userDashboardController extends Controller
     }
 
     public function kategoriLevelIndex() {
-        return view('userDashboard.kategoriLevelIndex');
+        $user = Auth::user();
+        $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
+        $province = Province::all();
+        return view('userDashboard.kategoriLevelIndex',[
+            'title' => 'Category Level',
+            'user' => $userProfile
+        ]);
     }
 
 
