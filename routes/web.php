@@ -37,6 +37,9 @@ Route::middleware(['role:user', 'user_last_seen'])->group(function (){
     Route::get('/transaksi', [userDashboardController::class, 'transaksiIndex'])->name('transaksi.index');
     Route::get('/userProfile', [userDashboardController::class, 'profileIndex'])->name('userProfile.index');
     Route::get('/myCertification', [userDashboardController::class, 'myCertificationIndex'])->name('myCertification.index');
+    Route::get('/kategoriLevel', [userDashboardController::class, 'kategoriLevelIndex'])->name('kategoriLevel.index');
+    Route::post('/updateMyProfile/{id}', [userDashboardController::class, 'myProfileStore'])->name('myProfile.update');
+
 
 });
 
@@ -54,6 +57,7 @@ Route::middleware('role:admin')->group(function () {
 
     Route::post('/editProfileImage', [ProfileController::class, 'editImg'])->name('profile.editImg');
     Route::get('/download-asesi-img/{id}', [userController::class, 'downloadImage'])->name('users.DownloadImg');
+
 });
 
 Route::get('/regencies/{provinceId}', [provinsiController::class, 'getRegencies']);

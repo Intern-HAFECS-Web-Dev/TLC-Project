@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\User;
 use App\Models\Province;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class userDashboardController extends Controller
@@ -44,7 +46,7 @@ class userDashboardController extends Controller
         $province = Province::all();
         return view('userDashboard.profile', [
             'title' => 'User Profile',
-            'province' => $province,
+            'provinces' => $province,
             'user' => $userProfile
         ]);
     }
@@ -72,6 +74,10 @@ class userDashboardController extends Controller
         ]);
     }
 
+    public function kategoriLevelIndex() {
+        return view('userDashboard.kategoriLevelIndex');
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -88,6 +94,40 @@ class userDashboardController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function myProfileStore(Request $request ,string $id ) {
+        $request->validate([
+            'name' => ['required', 'string'],
+            'fullname' => ['required', 'string'],
+            'no_wa' => ['required', 'numeric', 'digits_between:1, 15'],
+            'nik' => ['required', 'string', 'digits_between:1, 17'],
+            'instansi' => ['required', 'string'],
+            'tempat_lahir' => ['required', 'string'],
+            'jenis_kelamin' => ['required', 'string'],
+            'tanggal_lahir' => ['required', 'date'],
+            'provinsi' => ['nullable', 'string'],
+            'kabupaten' => ['nullable', 'string'],
+            'kecamatan' => ['nullable', 'string'],
+            'kelurahan' => ['nullable', 'string'],
+            'custom_instansi' => ['nullable', 'string']
+        ]);
+
+        dd($request);
+
+        $profile = $request->user();
+        $profileId = $profile->id;
+        // dd($request);
+        try {
+            // $user = UserProfile::with('user')
+            DB::beginTransaction();
+
+            DB::commit();
+            DB::rollBack();
+
+        } catch(Exception $e) {
+
+        }
     }
 
     /**

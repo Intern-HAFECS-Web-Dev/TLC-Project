@@ -27,29 +27,38 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-    // Coba autentikasi
     try {
         $request->authenticate();
     } catch (AuthenticationException $e) {
         // Jika autentikasi gagal, redirect kembali dengan pesan kesalahan
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => __('The provided credentials do not match our records.'),
+        ])->withInput();
+    }
+
+
+    $request->session()->regenerate();
+    $user = auth()->user();
+    if (!$user) {
+        return redirect()->route('login')->withErrors([
+            'email' => __('Authentication failed. Please try again.'),
         ]);
     }
 
-    // Regenerasi sesi
-    $request->session()->regenerate();
-
-    // Redirect berdasarkan peran pengguna
-    switch (true) {
-        case auth()->user()->hasRole('admin'):
-            return redirect()->route('adminDashboard');
-        case auth()->user()->hasRole('asesor'):
-            return redirect()->route('assessorDashboard.index');
-        default:
-            return redirect()->route('userDashboard.index');
+    if ($user->hasRole('admin')) {
+        return redirect()->route('adminDashboard');
+    } elseif ($user->hasRole('asesor')) {
+        return redirect()->route('assessorDashboard.index');
+    } elseif ($user->hasRole('user')) {
+        return redirect()->route('userDashboard.index');
     }
-}
+
+
+    auth()->logout();
+    return redirect()->route('login')->withErrors([
+        'email' => __('Your account does not have the required permissions.'),
+    ]);
+    }
 
     /**
      * Destroy an authenticated session.
