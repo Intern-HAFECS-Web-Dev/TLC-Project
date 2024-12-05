@@ -1,7 +1,7 @@
 @extends('dashboard.adminDashboard')
 
 @section('content')
-    <div>
+    <div class="md:px-4 px-2 text-sm md:text-lg pt-4 mt-1.5 font-normal text-gray-500">
         <p>Total Number of Users with role User: {{ $user }}</p>
         <p>Total Number of Users with role asesor: {{ $asesor }}</p>
     </div>
@@ -11,15 +11,15 @@
 
             {{-- new Product start --}}
             <div
-                class=" justify-between p-4 bg-red-200 border border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-                <div class="w-full flex ">
-                    <div class="border">
+                class=" justify-between p-4 bg-red-200 border border-gray-200 rounded-lg shadow-sm sm:flex  sm:p-6">
+                <div class="w-full flex">
+                    <div class="">
                         <h3 class="text-base font-normal text-gray-500 dark:text-gray-400">Total Asesor</h3>
                         <span
                             class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white">{{ $asesor }}</span>
                     </div>
 
-                    <p class="flex items-center text-base font-normal text-gray-500 dark:text-gray-400">
+                    {{-- <p class="flex items-center text-base font-normal text-gray-500 dark:text-gray-400">
                         <span class="flex items-center mr-1.5 text-sm text-green-500 dark:text-green-400">
                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
                                 aria-hidden="true">
@@ -30,7 +30,7 @@
                             12.5%
                         </span>
                         Since last month
-                    </p>
+                    </p> --}}
                 </div>
                 <div class="w-full" id="new-products-chart"></div>
             </div>
@@ -62,7 +62,7 @@
 
             {{-- audience start --}}
             <div
-                class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                class="p-4 mb-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                 <div class="w-full">
                     <h3 class="mb-2 text-base font-normal text-gray-500 dark:text-gray-400">Audience by age</h3>
                     <div class="flex items-center mb-2">
@@ -95,14 +95,7 @@
             {{-- audience end --}}
         </div>
 
-
-
-
-
-
-
-
-        <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+        <div class="p-4 mb-5 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
             <!-- Card header -->
             <div class="items-center justify-between lg:flex">
                 <div class="mb-4 lg:mb-0">
@@ -739,56 +732,56 @@
                 </div>
             </div>
         </div>
+        <div class="grid gap-4  mb-4 md:grid-cols-2 xl:grid-cols-4 xl:px-0">
+            <div
+                class="p-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+                    <h3>Card header</h3>
+                </div>
+                <div class="h-16 px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+                    <h3>Card body</h3>
+                </div>
+                <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+                    <h3>Card footer</h3>
+                </div>
+            </div>
+            <div
+                class="p-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+                    <h3>Card header</h3>
+                </div>
+                <div class="h-16 px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+                    <h3>Card body</h3>
+                </div>
+                <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+                    <h3>Card footer</h3>
+                </div>
+            </div>
+            <div
+                class="p-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+                    <h3>Card header</h3>
+                </div>
+                <div class="h-16 px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+                    <h3>Card body</h3>
+                </div>
+                <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+                    <h3>Card footer</h3>
+                </div>
+            </div>
+            <div
+                class="p-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+                    <h3>Card header</h3>
+                </div>
+                <div class="h-16 px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+                    <h3>Card body</h3>
+                </div>
+                <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+                    <h3>Card footer</h3>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="grid gap-4 px-4 mb-4 md:grid-cols-2 xl:grid-cols-4 xl:px-0">
-        <div
-            class="p-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-            <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card header</h3>
-            </div>
-            <div class="h-16 px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card body</h3>
-            </div>
-            <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card footer</h3>
-            </div>
-        </div>
-        <div
-            class="p-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-            <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card header</h3>
-            </div>
-            <div class="h-16 px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card body</h3>
-            </div>
-            <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card footer</h3>
-            </div>
-        </div>
-        <div
-            class="p-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-            <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card header</h3>
-            </div>
-            <div class="h-16 px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card body</h3>
-            </div>
-            <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card footer</h3>
-            </div>
-        </div>
-        <div
-            class="p-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-            <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card header</h3>
-            </div>
-            <div class="h-16 px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card body</h3>
-            </div>
-            <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card footer</h3>
-            </div>
-        </div>
-    </div>
 @endsection
