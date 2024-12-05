@@ -8,7 +8,9 @@ use App\Models\Province;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class userDashboardController extends Controller
 {
@@ -96,46 +98,77 @@ class userDashboardController extends Controller
         //
     }
 
-    public function myProfileStore(Request $request ,string $id ) {
-        $request->validate([
-            'name' => ['required', 'string'],
-            'fullname' => ['required', 'string'],
-            'no_wa' => ['required', 'numeric', 'digits_between:1, 15'],
-            'nik' => ['required', 'string', 'digits_between:1, 17'],
-            'instansi' => ['required', 'string'],
-            'tempat_lahir' => ['required', 'string'],
-            'jenis_kelamin' => ['required', 'string'],
-            'tanggal_lahir' => ['required', 'date'],
-            'provinsi' => ['nullable', 'string'],
-            'kabupaten' => ['nullable', 'string'],
-            'kecamatan' => ['nullable', 'string'],
-            'kelurahan' => ['nullable', 'string'],
-            'custom_instansi' => ['nullable', 'string']
-        ]);
+    public function myProfileStore(Request $request)
+{
+    $validatedData = $request->validate([
+        'name' => ['required', 'string'],
+        'fullname' => ['required', 'string'],
+        'no_wa' => ['required', 'numeric', 'digits_between:1,13'],
+        'nik' => ['required', 'string', 'digits_between:1,16'],
+        'instansi' => ['required', 'string'],
+        'tempat_lahir' => ['required', 'string'],
+        'jenis_kelamin' => ['required', 'string'],
+        'tanggal_lahir' => ['required', 'date'],
+        'provinsi' => ['required', 'string'],
+        'kabupaten' => ['required', 'string'],
+        'kecamatan' => ['required', 'string'],
+        'kelurahan' => ['required', 'string'],
+        'custom_instansi' => ['nullable', 'string']
+    ]);
 
-        dd($request);
+    DB::beginTransaction();
+
+    try {
 
         $profile = $request->user();
         $profileId = $profile->id;
-        // dd($request);
-        try {
-            // $user = UserProfile::with('user')
-            DB::beginTransaction();
 
-            DB::commit();
-            DB::rollBack();
+        $userProfile = UserProfile::with('user')->where('user_id', $profileId)->firstOrFail();
 
-        } catch(Exception $e) {
+        $userProfile->update([
+            'fullname' => $validatedData['fullname'],
+            'no_wa' => $validatedData['no_wa'],
+            'nik' => $validatedData['nik'],
+            'instansi' => !empty($validatedData['custom_instansi']) ? $validatedData['custom_instansi'] : $validatedData['instansi'],
+            'tempat_lahir' => $validatedData['tempat_lahir'],
+            'jenis_kelamin' => $validatedData['jenis_kelamin'],
+            'tanggal_lahir' => $validatedData['tanggal_lahir'],
+            'provinsi' => $validatedData['provinsi'],
+            'kabupaten' => $validatedData['kabupaten'],
+            'kecamatan' => $validatedData['kecamatan'],
+            'kelurahan' => $validatedData['kelurahan'],
+        ]);
 
+        $user = $userProfile->user;
+        $user->update([
+            'name' => $validatedData['name']
+        ]);
+
+        DB::commit();
+
+        Alert::success('Berhasil', 'Profil Anda telah diperbarui.');
+        return redirect()->route('userProfile.index');
+
+    } catch (Exception $e) {
+        DB::rollBack();
+
+        if(!app()->isProduction()) {
+            $e->getMessage();
         }
-    }
 
+        Log::error('Error updating profile: ' . $e->getMessage());
+
+        Alert::error('Error', 'Terjadi kesalahan saat memperbarui profil Anda.');
+        return back();
+    }
+}
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        //$profile = $request->user();
+        // $profileId = $profile->id;
     }
 
     /**
