@@ -38,7 +38,7 @@ Route::middleware(['role:user', 'user_last_seen'])->group(function (){
     Route::get('/userProfile', [userDashboardController::class, 'profileIndex'])->name('userProfile.index');
     Route::get('/myCertification', [userDashboardController::class, 'myCertificationIndex'])->name('myCertification.index');
     Route::get('/kategoriLevel', [userDashboardController::class, 'kategoriLevelIndex'])->name('kategoriLevel.index');
-    Route::post('/updateMyProfile/{id}', [userDashboardController::class, 'myProfileStore'])->name('myProfile.update');
+    Route::post('/updateMyProfile', [userDashboardController::class, 'myProfileStore'])->name('myProfile.update');
 
 
 });

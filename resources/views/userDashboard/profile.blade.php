@@ -74,6 +74,7 @@
                                 <input type="text" name="name" id="name"
                                     class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                     placeholder="Input Nama Lengkap" value="{{ $user->user->name }}">
+                                <x-input-error :messages="$errors->get('name')" class="mt-2" />
                             </div>
 
                             {{-- Nama Gelar --}}
@@ -85,6 +86,7 @@
                                 <input type="text" name="fullname" id="nama_gelar"
                                     class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                     placeholder="Input Nama Gelar Anda" value="{{ $user->fullname }}">
+                                <x-input-error :messages="$errors->get('fullname')" class="mt-2" />
                             </div>
 
                             {{-- No Wa --}}
@@ -95,6 +97,7 @@
                                 <input type="number" name="no_wa" id="no-wa"
                                     class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                     placeholder="Input Nomor Whatsapp" value="{{ $user->no_wa }}">
+                                <x-input-error :messages="$errors->get('no_wa')" class="mt-2" />
                             </div>
 
                             {{-- NIK --}}
@@ -105,6 +108,7 @@
                                 <input type="number" name="nik" id="nik"
                                     class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                     placeholder="Input Nomor Induk Kependudukan" value="{{ $user->nik }}">
+                                <x-input-error :messages="$errors->get('nik')" class="mt-2" />
                             </div>
 
                             {{-- Instansi --}}
@@ -128,6 +132,7 @@
                                 <input type="text" id="custom-instansi" name="custom_instansi"
                                     class=" mt-4 shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                     placeholder="Masukkan instansi lain" style="display: none;">
+                                <x-input-error :messages="$errors->get('instansi')" class="mt-2" />
                             </div>
 
                             {{-- Tempat Lahir --}}
@@ -139,6 +144,7 @@
                                 <input type="text" name="tempat_lahir" id="tempat_lahir"
                                     class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                     placeholder="Input Tempat Lahir" value="{{ $user->tempat_lahir }}">
+                                <x-input-error :messages="$errors->get('tempat_lahir')" class="mt-2" />
                             </div>
 
                             {{-- Tanggal Lahir --}}
@@ -152,6 +158,7 @@
                                         class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                         placeholder="Input Tanggal Lahir" value="{{ $user->tanggal_lahir }}">
                                 </label>
+                                <x-input-error :messages="$errors->get('tempat_lahir')" class="mt-2" />
                             </div>
 
                             {{-- Jenis Kelamin --}}
@@ -172,6 +179,7 @@
                                     <option value="L">Laki-Laki</option>
                                     <option value="P">Perempuan</option>
                                 </select>
+                                <x-input-error :messages="$errors->get('jenis_kelamin')" class="mt-2" />
                             </div>
 
                             {{-- provinsi --}}
@@ -196,42 +204,63 @@
                                         </option>
                                     @endforeach
                                 </select>
+                                <x-input-error :messages="$errors->get('provinsi')" class="mt-2" />
                             </div>
 
                             {{-- kabupaten/kota --}}
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="regency"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    Kabupeten/Kota Domisili <span class="text-red-700">*</span>
+                                    Kabupaten/Kota Domisili <span class="text-red-700">*</span>
                                 </label>
-                                <select id="regency" name="kabupaten" disabled
+                                <select id="regency" name="kabupaten" {{ $user->kabupaten ? '' : 'disabled' }}
                                     class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                    <option value="{{ $user->kabupaten }}" selected>{{ $user->kabupaten }}</option>
+                                    @if ($user->kabupaten)
+                                        <option value="{{ $user->kabupaten }}" selected>
+                                            {{ $user->kabupaten }}
+                                        </option>
+                                    @else
+                                        <option value="" disabled selected>Pilih Kabupaten/Kota</option>
+                                    @endif
                                 </select>
+                                <x-input-error :messages="$errors->get('kabupaten')" class="mt-2" />
                             </div>
+
 
                             {{-- Kecamatan --}}
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="district"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    kecamatan Domisili <span class="text-red-700">*</span>
+                                    Kecamatan Domisili <span class="text-red-700">*</span>
                                 </label>
-                                <select id="district" name="kecamatan" disabled
+                                <select id="district" name="kecamatan" {{ $user->kecamatan ? '' : 'disabled' }}
                                     class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                    <option value="{{ $user->kecamatan }}" selected>{{ $user->kecamatan }}</option>
+                                    @if ($user->kecamatan)
+                                        <option value="{{ $user->kecamatan }}" selected>
+                                            {{ $user->kecamatan }}
+                                        </option>
+                                    @else
+                                        <option value="" disabled selected>Pilih Kecamatan</option>
+                                    @endif
                                 </select>
                                 <x-input-error :messages="$errors->get('kecamatan')" class="mt-2" />
                             </div>
 
-                            {{-- kelurahan --}}
+                            {{-- Kelurahan --}}
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="village"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                     Kelurahan Domisili <span class="text-red-700">*</span>
                                 </label>
-                                <select id="village" name="kelurahan" disabled
+                                <select id="village" name="kelurahan" {{ $user->kelurahan ? '' : 'disabled' }}
                                     class="shadow-sm bg-inputan border border-gray-300 text-gray-900 sm:text-sm rounded-3xl focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                    <option value="{{ $user->kelurahan }}" selected>{{ $user->kelurahan }}</option>
+                                    @if ($user->kelurahan)
+                                        <option value="{{ $user->kelurahan }}" selected>
+                                            {{ $user->kelurahan }}
+                                        </option>
+                                    @else
+                                        <option value="" disabled selected>Pilih Kelurahan</option>
+                                    @endif
                                 </select>
                                 <x-input-error :messages="$errors->get('kelurahan')" class="mt-2" />
                             </div>
@@ -360,4 +389,7 @@
             }
         }
     </script>
+
+
+
 @endsection
