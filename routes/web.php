@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\adminAsesorController;
 use App\Http\Controllers\adminDashboardController;
 use App\Http\Controllers\assessorDasboardController;
@@ -14,6 +16,7 @@ use App\Http\Controllers\usersController;
 use App\Http\Controllers\userLevelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WilayahController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('welcome', [
@@ -58,6 +61,9 @@ Route::middleware('role:admin')->group(function () {
     Route::post('/editProfileImage', [ProfileController::class, 'editImg'])->name('profile.editImg');
     Route::get('/download-asesi-img/{id}', [userController::class, 'downloadImage'])->name('users.DownloadImg');
 
+    // route soal asesi
+    Route::resource('categori', CategoryController::class);
+    Route::resource('questions.categori', QuestionController::class);
 });
 
 Route::get('/regencies/{provinceId}', [provinsiController::class, 'getRegencies']);

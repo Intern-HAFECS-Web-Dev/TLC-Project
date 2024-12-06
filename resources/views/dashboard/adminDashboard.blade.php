@@ -32,7 +32,8 @@
                         <a href="#" class="flex ms-2 md:me-24">
                             <img src="{{ asset('images/logoTlcPng.png') }}" class="h-8 me-3" alt="FlowBite Logo" />
                             <span
-                                class="self-center text-xl font-bold hidden md:block whitespace-nowrap text-white">{{ $navTitle }}</span>
+                                {{-- class="self-center hidden text-xl font-bold text-white md:block whitespace-nowrap">{{ $navTitle }}</span> --}}
+                                class="self-center hidden text-xl font-bold text-white md:block whitespace-nowrap"></span>
                         </a>
                     </div>
                     {{-- logo TLC end --}}
@@ -49,8 +50,8 @@
                                     <img class="w-[40px] h-[40px] rounded-full"
                                         src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
                                         alt="user photo">
-                                    <div class=" px-3 my-auto">
-                                        <p class=" text-base text-white">
+                                    <div class="px-3 my-auto ">
+                                        <p class="text-base text-white ">
                                             {{ auth()->user()->name }}
                                         </p>
                                         {{-- <p>
@@ -149,19 +150,19 @@
                     <ul id="dropdown-example" class="hidden py-2 space-y-2">
                         <li>
                             <a href="{{ route('users.index') }}" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
-                                <i class="fa-solid fa-user mr-2"></i>
+                                <i class="mr-2 fa-solid fa-user"></i>
                                 <p>Asesi</p>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('adminAsesor.index') }}" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
-                                <i class="fa-solid fa-user mr-2"></i>
+                                <i class="mr-2 fa-solid fa-user"></i>
                                 <p>Asesor</p>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
-                                <i class="fa-solid fa-user mr-2"></i>
+                                <i class="mr-2 fa-solid fa-user"></i>
                                 <p>Admin</p>
                             </a>
                         </li>
@@ -169,7 +170,7 @@
                 </li>
 
                 <li>
-                    <a href="#"
+                    <a href="{{ route('categori.index') }}"
                         class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
 
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -221,7 +222,7 @@
 
                 <li>
                     <a href="#"
-                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100  hover:text-gray-800 dark:hover:bg-gray-700 group">
+                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#FBCB04"
                             viewBox="0 0 18 20">
@@ -234,7 +235,7 @@
 
                 <li>
                     <a href="#"
-                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100  hover:text-gray-800 dark:hover:bg-gray-700 group">
+                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FBCB04" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-width="2" d="M3 11h18M3 15h18m-9-4v8m-8 0h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/>
                           </svg>

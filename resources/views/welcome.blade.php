@@ -15,18 +15,18 @@
     {{-- Navbar --}}
     <header class="mb-36">
         <nav
-            class="rounded-lg bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            class="fixed top-0 z-20 w-full bg-white border-b border-gray-200 rounded-lg dark:bg-gray-900 start-0 dark:border-gray-600">
+            <div class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
                 <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src="images/logo.svg" class="h-14" alt="TLC Logo">
-                    <div class="self-center text-md font-semibold whitespace-nowrap dark:text-white">
+                    <div class="self-center font-semibold text-md whitespace-nowrap dark:text-white">
                         <span>Teaching Learning</span><br>
-                        <span class="text-md font-semibold">Certification</span>
+                        <span class="font-semibold text-md">Certification</span>
                     </div>
                 </a>
 
                 <button data-collapse-toggle="navbar-default" type="button"
-                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    class="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     aria-controls="navbar-default" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -36,57 +36,61 @@
                     </svg>
                 </button>
 
-                <div class="hidden w-full lg:flex lg:w-auto items-center gap-8" id="navbar-default">
+                <div class="items-center hidden w-full gap-8 lg:flex lg:w-auto" id="navbar-default">
                     <ul
-                        class="flex flex-col p-4 lg:flex-row lg:space-x-5 lg:p-0 mt-4 lg:mt-0 font-medium border border-gray-100 rounded-lg bg-gray-50 lg:bg-white lg:border-0 dark:bg-gray-800 lg:dark:bg-gray-900 dark:border-gray-700">
+                        class="flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg lg:flex-row lg:space-x-5 lg:p-0 lg:mt-0 bg-gray-50 lg:bg-white lg:border-0 dark:bg-gray-800 lg:dark:bg-gray-900 dark:border-gray-700">
                         <li>
                             <a href="#home"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 lg:dark:hover:text-blue-500 dark:border-gray-700">Home</a>
+                                class="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 lg:dark:hover:text-blue-500 dark:border-gray-700">Home</a>
                         </li>
                         <li>
                             <a href="#about"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 lg:dark:hover:text-blue-500 dark:border-gray-700">Tentang
+                                class="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 lg:dark:hover:text-blue-500 dark:border-gray-700">Tentang
                                 Kami
                             </a>
                         </li>
                         <li>
                             <a href="#benefit"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 lg:dark:hover:text-blue-500 dark:border-gray-700">Keuntungan</a>
+                                class="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 lg:dark:hover:text-blue-500 dark:border-gray-700">Keuntungan</a>
                         </li>
                         <li>
                             <a href="#price"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 lg:dark:hover:text-blue-500 dark:border-gray-700">Harga</a>
+                                class="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 lg:dark:hover:text-blue-500 dark:border-gray-700">Harga</a>
                         </li>
                         <li>
                             <a href="#testimoni"
-                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 lg:dark:hover:text-blue-500 dark:border-gray-700">Testimoni</a>
+                                class="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 lg:dark:hover:text-blue-500 dark:border-gray-700">Testimoni</a>
                         </li>
-                        <li>
-                            <a href="{{ route('login') }}"
-                                class="block lg:hidden py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 lg:dark:hover:text-blue-500 dark:border-gray-700">
-                                Masuk</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('register') }}"
-                                class="block lg:hidden py-2 px-3 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 lg:dark:hover:text-blue-500 dark:border-gray-700">Daftar
-                            </a>
-                        </li>
+                        @guest
+                            <li>
+                                <a href="{{ route('login') }}"
+                                    class="block px-3 py-2 text-gray-900 rounded lg:hidden hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 lg:dark:hover:text-blue-500 dark:border-gray-700">
+                                    Masuk</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('register') }}"
+                                    class="block px-3 py-2 text-gray-900 rounded lg:hidden hover:bg-gray-100 lg:hover:bg-transparent lg:hover:text-blue-700 lg:p-0 dark:text-white dark:hover:bg-gray-700 lg:dark:hover:text-blue-500 dark:border-gray-700">Daftar
+                                </a>
+                            </li>
+                        @endguest
                     </ul>
 
-                    <div class="hidden lg:flex lg:items-center lg:space-x-4">
-                        <a href="{{ route('login') }}">
-                            <button type="button"
-                                class="rounded-full text-[#34364A] bg-[#E8EBF3] hover:bg-[#d7dae8] focus:ring-4 focus:outline-none focus:ring-[#c2c6de] font-medium  text-sm px-4 py-2 dark:bg-[#E8EBF3] dark:hover:bg-[#d7dae8] dark:focus:ring-[#b3b7ce]">
-                                Masuk
-                            </button>
-                        </a>
-                        <a href="{{ route('register') }}">
-                            <button type="button"
-                                class="text-[#34364A] bg-[#E8EBF3] hover:bg-[#d7dae8] focus:ring-4 focus:outline-none focus:ring-[#c2c6de] font-medium rounded-full text-sm px-4 py-2 dark:bg-[#E8EBF3] dark:hover:bg-[#d7dae8] dark:focus:ring-[#b3b7ce]">
-                                Daftar
-                            </button>
-                        </a>
-                    </div>
+                    @guest
+                        <div class="hidden lg:flex lg:items-center lg:space-x-4">
+                            <a href="{{ route('login') }}">
+                                <button type="button"
+                                    class="rounded-full text-[#34364A] bg-[#E8EBF3] hover:bg-[#d7dae8] focus:ring-4 focus:outline-none focus:ring-[#c2c6de] font-medium  text-sm px-4 py-2 dark:bg-[#E8EBF3] dark:hover:bg-[#d7dae8] dark:focus:ring-[#b3b7ce]">
+                                    Masuk
+                                </button>
+                            </a>
+                            <a href="{{ route('register') }}">
+                                <button type="button"
+                                    class="text-[#34364A] bg-[#E8EBF3] hover:bg-[#d7dae8] focus:ring-4 focus:outline-none focus:ring-[#c2c6de] font-medium rounded-full text-sm px-4 py-2 dark:bg-[#E8EBF3] dark:hover:bg-[#d7dae8] dark:focus:ring-[#b3b7ce]">
+                                    Daftar
+                                </button>
+                            </a>
+                        </div>
+                    @endguest
                 </div>
             </div>
         </nav>
@@ -98,43 +102,43 @@
         <div class="view">
             {{-- HOME --}}
             <div class="grid grid-cols-12 transition-all duration-500 ease-in-out mb-14">
-                <div class="col-span-12 lg:col-span-7 p-5">
+                <div class="col-span-12 p-5 lg:col-span-7">
                     <div>
                         <span class="text-lg text-kuning">#LearnToTeach</span>
                         <h1 class="text-4xl font-bold text-[#34364A] leading-snug">Tingkatkan Kemampuan
                             <br>Mengajarmu Bersama Kami
                         </h1>
                         <p
-                            class="text-base sm:text-lg lg:text-xl leading-relaxed sm:leading-snug text-center sm:text-justify mt-4">
+                            class="mt-4 text-base leading-relaxed text-center sm:text-lg lg:text-xl sm:leading-snug sm:text-justify">
                             Teaching and Learning Certification (TLC) adalah program yang dirancang untuk
                             memberdayakan para pendidik dengan pengetahuan, keterampilan, dan alat yang mereka
                             butuhkan untuk berkembang dalam lingkungan pendidikan masa kini
                         </p>
 
                     </div>
-                    <div class="flex my-5 gap-3 justify-center lg:justify-start">
+                    <div class="flex justify-center gap-3 my-5 lg:justify-start">
                         <a href="#skema">
                             <button type="button"
-                                class="text-white hover:text-white bg-biru hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-biru font-medium rounded-2xl text-sm px-4 py-2 text-center dark:bg-biru dark:hover:bg-biru dark:focus:ring-biru">
+                                class="px-4 py-2 text-sm font-medium text-center text-white hover:text-white bg-biru hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-biru rounded-2xl dark:bg-biru dark:hover:bg-biru dark:focus:ring-biru">
                                 Alur Belajar</button>
                         </a>
                         <a href="#">
                             <button type="button"
-                                class="text-black bg-greys hover:bg-slate-400 focus:ring-4 focus:outline-none focus:ring-biru font-medium rounded-2xl text-sm px-4 py-2 text-center dark:bg-biru dark:hover:bg-biru dark:focus:ring-biru">
+                                class="px-4 py-2 text-sm font-medium text-center text-black bg-greys hover:bg-slate-400 focus:ring-4 focus:outline-none focus:ring-biru rounded-2xl dark:bg-biru dark:hover:bg-biru dark:focus:ring-biru">
                                 Panduan Karir</button>
                         </a>
                     </div>
-                    <div class="w-full place-items-center md:flex lg:flex gap-2 md:justify-center lg:justify-start">
-                        <img src="images/smpit-an-nur.png" alt="Logo SMPIT" class="h-32 object-cover">
+                    <div class="w-full gap-2 place-items-center md:flex lg:flex md:justify-center lg:justify-start">
+                        <img src="images/smpit-an-nur.png" alt="Logo SMPIT" class="object-cover h-32">
                         <img src="images/smp-sma-gibs.png" alt="Logo GIBS"
-                            class="h-32 md:h-20 lg:h-20 object-cover my-3">
-                        <img src="images/hafecs.png" alt="Logo HAFECS" class="h-12 object-cover my-6">
-                        <img src="images/hrp.png" alt="hrp" class="h-32 object-cover">
+                            class="object-cover h-32 my-3 md:h-20 lg:h-20">
+                        <img src="images/hafecs.png" alt="Logo HAFECS" class="object-cover h-12 my-6">
+                        <img src="images/hrp.png" alt="hrp" class="object-cover h-32">
                     </div>
                 </div>
 
-                <div class="hidden lg:block col-span-12 lg:col-span-5 rounded-2xl mx-3 overflow-hidden">
-                    <img src="images/konten_satu.jpg" class="w-full h-full object-cover" alt="">
+                <div class="hidden col-span-12 mx-3 overflow-hidden lg:block lg:col-span-5 rounded-2xl">
+                    <img src="images/konten_satu.jpg" class="object-cover w-full h-full" alt="">
                 </div>
             </div>
             {{-- END HOME --}}
@@ -142,14 +146,14 @@
             {{-- Tentang Kami --}}
             <div class="mb-14">
                 <div class="grid grid-cols-12" id="about">
-                    <div class="col-span-12 lg:col-span-5 rounded-2xl mx-3 overflow-hidden">
+                    <div class="col-span-12 mx-3 overflow-hidden lg:col-span-5 rounded-2xl">
                         <img src="images/konten_dua.jpeg"
                             class="w-full md:w-[546px] h-full mx-auto md:h-[474px] object-cover" alt="">
                     </div>
-                    <div class="col-span-12 lg:col-span-7 mx-5 lg:mx-10 mt-5">
+                    <div class="col-span-12 mx-5 mt-5 lg:col-span-7 lg:mx-10">
                         <span class="text-lg font-semibold text-kuning">About Us</span>
                         <h1 class="text-2xl lg:text-3xl text-[#34364A] py-1 font-bold leading-snug">Apa itu TLC?</h1>
-                        <p class="text-base text-justify font-normal lg:text-base">Program "Teaching and Learning
+                        <p class="text-base font-normal text-justify lg:text-base">Program "Teaching and Learning
                             Certification" merupakan inisiatif yang dirancang khusus untuk menguji dan meningkatkan
                             kompetensi para guru dalam mengajar secara efektif, dengan menggunakan metode TMF (Teaching
                             Mastery Framework). Melalui program ini, HAFECS bertujuan memberikan standar pengajaran yang
@@ -162,10 +166,10 @@
                 </div>
 
                 <div class="grid grid-cols-12">
-                    <div class="col-span-12 lg:col-span-7 mx-5 lg:mx-10 mt-5 order-2 lg:order-1 lg:mt-20">
+                    <div class="order-2 col-span-12 mx-5 mt-5 lg:col-span-7 lg:mx-10 lg:order-1 lg:mt-20">
                         <span class="text-lg font-semibold text-kuning">Our Vision</span>
                         <h1 class="text-2xl lg:text-3xl py-1 text-[#34364A] font-bold leading-snug">Visi Kami?</h1>
-                        <p class="text-base text-justify font-normal">Menjadi lembaga sertifikasi
+                        <p class="text-base font-normal text-justify">Menjadi lembaga sertifikasi
                             kompetensi terkemuka yang berperan aktif dalam meningkatkan kualitas pendidikan dan
                             pengembangan sumber daya manusia. Lembaga ini berfokus pada bidang pendidikan dan
                             pelatihan, serta berkomitmen untuk menyelenggarakan uji kompetensi dengan standar
@@ -174,17 +178,17 @@
                         </p>
                     </div>
                     <div
-                        class="col-span-12 lg:col-span-5 rounded-2xl mx-3 mt-5 lg:mt-10 overflow-hidden order-1 lg:order-2">
+                        class="order-1 col-span-12 mx-3 mt-5 overflow-hidden lg:col-span-5 rounded-2xl lg:mt-10 lg:order-2">
                         <img src="images/konten_tiga.jpg"
                             class="w-full md:w-[546px] h-full mx-auto md:h-[474px] object-cover" alt="">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-12">
-                    <div class="col-span-12 lg:col-span-7 mt-5 mx-5 lg:mx-10 order-2 lg:mt-20">
+                    <div class="order-2 col-span-12 mx-5 mt-5 lg:col-span-7 lg:mx-10 lg:mt-20">
                         <span class="text-lg font-semibold text-kuning">Our Mission</span>
                         <h1 class="text-2xl lg:text-3xl py-1 text-[#34364A] font-bold leading-snug">Misi Kami</h1>
-                        <ul class="text-base font-semibold lg:text-lg list-disc mx-5">
+                        <ul class="mx-5 text-base font-semibold list-disc lg:text-lg">
                             <li>Memberikan sertifikasi yang berkualitas</li>
                             <li>Mendorong pengembangan kurikulum yang relevan</li>
                             <li>Memfasilitasi pendidikan dan pelatihan berkualitas</li>
@@ -194,12 +198,12 @@
                             <li>Menjunjung tinggi etika dan integritas</li>
                         </ul>
                     </div>
-                    <div class="col-span-12 lg:col-span-5 order-1 rounded-2xl mx-3 mt-5 lg:mt-10 overflow-hidden">
+                    <div class="order-1 col-span-12 mx-3 mt-5 overflow-hidden lg:col-span-5 rounded-2xl lg:mt-10">
                         <img src="images/konten_satu.jpg"
                             class="w-full md:w-[546px] h-full mx-auto md:h-[474px] object-cover" alt="">
                     </div>
-                    {{-- <div class="col-span-12 lg:col-span-5 rounded-2xl mx-3 mt-5 lg:mt-10 overflow-hidden order-1 lg:order-2">
-                        <img src="images/konten_tiga.jpg" class="w-full h-full object-cover" alt="">
+                    {{-- <div class="order-1 col-span-12 mx-3 mt-5 overflow-hidden lg:col-span-5 rounded-2xl lg:mt-10 lg:order-2">
+                        <img src="images/konten_tiga.jpg" class="object-cover w-full h-full" alt="">
                     </div> --}}
                 </div>
             </div>
@@ -207,20 +211,20 @@
 
             {{-- Skema --}}
             <div class="mb-14 w-full h-700 bg-[#0C548C] rounded" id="skema">
-                <h1 class="text-center text-white text-4xl font-bold py-5">Skema Pendaftaran TLC</h1>
-                <img src="images/alur_skema.png" class="w-2/4 mx-auto h-full object-cover p-5" alt="">
+                <h1 class="py-5 text-4xl font-bold text-center text-white">Skema Pendaftaran TLC</h1>
+                <img src="images/alur_skema.png" class="object-cover w-2/4 h-full p-5 mx-auto" alt="">
             </div>
             {{-- End Skema --}}
 
             {{-- Benefit --}}
             <div class="grid grid-cols-12 mb-14" id="benefit">
-                <div class="col-span-12 mx-5 lg:col-span-7 lg:my-auto lg:mx-10 order-2 lg:order-1">
+                <div class="order-2 col-span-12 mx-5 lg:col-span-7 lg:my-auto lg:mx-10 lg:order-1">
                     <span class="text-lg font-semibold text-kuning">Benefit</span>
                     <h1 class="text-2xl text-[#34364A] font-bold leading-snug lg:text-4xl">Manfaat dari mengikuti
                         program
                         Teaching Learning Certification
                     </h1>
-                    <ul class="text-base font-semibold lg:text-lg list-none space-y-2 lg:mt-3">
+                    <ul class="space-y-2 text-base font-semibold list-none lg:text-lg lg:mt-3">
                         <li class="flex items-center">
                             <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -259,7 +263,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-span-12 lg:col-span-5 mx-auto lg:mx-0 order-1 lg:order-2">
+                <div class="order-1 col-span-12 mx-auto lg:col-span-5 lg:mx-0 lg:order-2">
                     <img src="images/benefit.png"
                         class="w-full md:w-[440px] h-full md:h-[655px] object-cover lg:py-5 lg:pr-5" alt="">
                 </div>
@@ -268,14 +272,14 @@
 
             {{-- Pricelist --}}
             <div class="mb-14 bg-[#0C548C]" id="price">
-                <h1 class="text-center text-white pt-5 text-2xl lg:text-4xl font-bold my-10">Sertifikasi TLC by HAFECS
+                <h1 class="pt-5 my-10 text-2xl font-bold text-center text-white lg:text-4xl">Sertifikasi TLC by HAFECS
                 </h1>
-                <div class="md:flex pb-2 md:gap-4 px-5">
+                <div class="px-5 pb-2 md:flex md:gap-4">
                     <div
-                        class="mx-auto mb-7 w-full max-w-sm p-4 bg-white border border-gray-200 rounded-2xl shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                        class="w-full max-w-sm p-4 mx-auto bg-white border border-gray-200 shadow mb-7 rounded-2xl sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                         <div class="text-center">
                             <img src="images/logo.svg" class="mx-auto mb-7" alt="">
-                            <h5 class="mb-7 text-xl md:text-2xl font-medium">Sertifikasi Level A</h5>
+                            <h5 class="text-xl font-medium mb-7 md:text-2xl">Sertifikasi Level A</h5>
                             <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
                             <h5 class="text-xl font-semibold">Rp 300.000</h5>
                             <p class="text-sm font-medium my-7">Uji Kompetensi Teori, Soal Pilihan Ganda, dan Essay</p>
@@ -285,10 +289,10 @@
                         </div>
                     </div>
                     <div
-                        class="mx-auto mb-7 w-full max-w-sm p-4 bg-white border border-gray-200 rounded-2xl shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                        class="w-full max-w-sm p-4 mx-auto bg-white border border-gray-200 shadow mb-7 rounded-2xl sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                         <div class="text-center">
                             <img src="images/logo.svg" class="mx-auto mb-7" alt="">
-                            <h5 class="mb-7 text-xl md:text-2xl font-medium">Sertifikasi Level B</h5>
+                            <h5 class="text-xl font-medium mb-7 md:text-2xl">Sertifikasi Level B</h5>
                             <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
                             <h5 class="text-xl font-semibold">Rp 300.000</h5>
                             <p class="text-sm font-medium my-7 lg:my-[38px]">Uji Kompetensi Modul PDF, PPT, Dll</p>
@@ -298,10 +302,10 @@
                         </div>
                     </div>
                     <div
-                        class="mx-auto mb-7 w-full max-w-sm p-4 bg-white border border-gray-200 rounded-2xl shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                        class="w-full max-w-sm p-4 mx-auto bg-white border border-gray-200 shadow mb-7 rounded-2xl sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                         <div class="text-center">
                             <img src="images/logo.svg" class="mx-auto mb-7" alt="">
-                            <h5 class="mb-7 text-xl md:text-2xl font-medium">Sertifikasi Level C</h5>
+                            <h5 class="text-xl font-medium mb-7 md:text-2xl">Sertifikasi Level C</h5>
                             <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
                             <h5 class="text-xl font-semibold">Rp 300.000</h5>
                             <p class="text-sm font-medium my-7 lg:my-[38px]">Uji Kompetensi Dalam Mengajar</p>
@@ -311,16 +315,16 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="mb-10 pb-4 px-4">
+                {{-- <div class="px-4 pb-4 mb-10">
                         <div
-                            class="mx-auto w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                            class="w-full max-w-sm p-4 mx-auto bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                             <div class="grid grid-cols-12">
                                 <div class="col-span-12 mb-2">
                                     <img src="images/logo.svg" alt="">
                                 </div>
 
                                 <div class="col-span-6">
-                                    <h5 class="text-md font-semibold md:text-sm mb-2">Bundle Paket Sertifikat</h5>
+                                    <h5 class="mb-2 font-semibold text-md md:text-sm">Bundle Paket Sertifikat</h5>
                                     <p class="text-sm font-medium">Paket A+B+C</p>
                                 </div>
 
@@ -338,16 +342,16 @@
             {{-- End Pricelist --}}
 
             {{-- Testimoni --}}
-            <div class="container mx-auto mb-14 w-3/4" id="testimoni">
-                <h3 class="text-kuning font-medium text-lg lg:text-2xl text-center">TLC Telah Membantu Ratusan Pendidik
+            <div class="container w-3/4 mx-auto mb-14" id="testimoni">
+                <h3 class="text-lg font-medium text-center text-kuning lg:text-2xl">TLC Telah Membantu Ratusan Pendidik
                 </h3>
                 <h1 class="font-bold text-2xl md:text-3xl text-[#34364A] text-center mb-7">Apa Kata Mereka?</h1>
-                <div class="bg-white dark:bg-gray-900 shadow-lg rounded-2xl">
+                <div class="bg-white shadow-lg dark:bg-gray-900 rounded-2xl">
                     <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6">
                         <div class="relative">
                             <div id="testimonial-carousel" class="overflow-hidden">
                                 <div class="flex transition-transform duration-500" id="carousel-content">
-                                    <div class="w-full flex-shrink-0">
+                                    <div class="flex-shrink-0 w-full">
                                         <figure class="max-w-screen-md mx-auto">
                                             <blockquote>
                                                 <p class="text-2xl font-medium text-gray-900 dark:text-white">"Flowbite
@@ -375,7 +379,7 @@
                                         </figure>
                                     </div>
                                     <!-- Card 2 -->
-                                    <div class="w-full flex-shrink-0">
+                                    <div class="flex-shrink-0 w-full">
                                         <figure class="max-w-screen-md mx-auto">
                                             <blockquote>
                                                 <p class="text-2xl font-medium text-gray-900 dark:text-white">"This
@@ -400,7 +404,7 @@
                                         </figure>
                                     </div>
                                     <!-- Card 3 -->
-                                    <div class="w-full flex-shrink-0">
+                                    <div class="flex-shrink-0 w-full">
                                         <figure class="max-w-screen-md mx-auto">
                                             <blockquote>
                                                 <p class="text-2xl font-medium text-gray-900 dark:text-white">"The user
@@ -424,7 +428,7 @@
                                         </figure>
                                     </div>
                                     <!-- Card 4 -->
-                                    <div class="w-full flex-shrink-0">
+                                    <div class="flex-shrink-0 w-full">
                                         <figure class="max-w-screen-md mx-auto">
                                             <blockquote>
                                                 <p class="text-2xl font-medium text-gray-900 dark:text-white">"Our team
@@ -448,7 +452,7 @@
                                         </figure>
                                     </div>
                                     <!-- Card 5 -->
-                                    <div class="w-full flex-shrink-0">
+                                    <div class="flex-shrink-0 w-full">
                                         <figure class="max-w-screen-md mx-auto">
                                             <blockquote>
                                                 <p class="text-2xl font-medium text-gray-900 dark:text-white">"A
@@ -482,11 +486,11 @@
     </main>
 
     <footer class="bg-white dark:bg-gray-900">
-        <div class="mx-auto w-full max-w-screen-xl">
+        <div class="w-full max-w-screen-xl mx-auto">
             <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
                 <div>
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
-                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                    <ul class="font-medium text-gray-500 dark:text-gray-400">
                         <li class="mb-4">
                             <a href="#" class=" hover:underline">About</a>
                         </li>
@@ -503,7 +507,7 @@
                 </div>
                 <div>
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Help center</h2>
-                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                    <ul class="font-medium text-gray-500 dark:text-gray-400">
                         <li class="mb-4">
                             <a href="#" class="hover:underline">Discord Server</a>
                         </li>
@@ -520,7 +524,7 @@
                 </div>
                 <div>
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
-                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                    <ul class="font-medium text-gray-500 dark:text-gray-400">
                         <li class="mb-4">
                             <a href="#" class="hover:underline">Privacy Policy</a>
                         </li>
@@ -534,7 +538,7 @@
                 </div>
                 <div>
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Download</h2>
-                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                    <ul class="font-medium text-gray-500 dark:text-gray-400">
                         <li class="mb-4">
                             <a href="#" class="hover:underline">iOS</a>
                         </li>
@@ -554,7 +558,7 @@
                 <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2024 <a
                         href="https://flowbite.com/">Teaching Learning Certificate</a>. All Rights Reserved.
                 </span>
-                <div class="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
+                <div class="flex mt-4 space-x-5 sm:justify-center md:mt-0 rtl:space-x-reverse">
                     <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                             fill="currentColor" viewBox="0 0 8 19">
@@ -636,8 +640,7 @@
     }, 5000); // Change slide every 5 seconds
 
 
-ScrollReveal().reveal('.view');
-
+    ScrollReveal().reveal('.view');
 </script>
 
 </html>
