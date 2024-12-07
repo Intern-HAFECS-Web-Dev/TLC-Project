@@ -12,7 +12,7 @@
                         <img class="h-24 xl:hidden my-3 rounded-full shadow-lg mx-auto "
                             src="{{ asset('/storage/' . $user->profile_image) }}" alt="Bonnie image" />
                         <div class="hidden xl:block bg-biru py-3">
-                            <img class="h-24 rounded-full object-cover mx-auto "
+                            <img class="h-24 rounded-full object-cover mx-auto"
                                 src="{{ asset('/storage/' . $user->profile_image) }}" alt="Bonnie image" />
                             <span
                                 class="flex justify-center text-white my-2 text-xl font-bold  dark:text-white">{{ $user->user->name }}</span>
@@ -52,9 +52,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
             <div class="col-span-2">
                 <div
@@ -389,7 +386,5 @@
             }
         }
     </script>
-
-
-
 @endsection
+

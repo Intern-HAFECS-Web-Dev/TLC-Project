@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Province;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -215,7 +216,8 @@ class userController extends Controller
         
         $users = User::role('user')->get();
         $userProfiles = UserProfile::all();
-    
+        
+        DB::beginTransaction();
         try {
             foreach ($userProfiles as $userProfile) {
                 if ($userProfile->profile_image) {
@@ -228,10 +230,13 @@ class userController extends Controller
                 $user->removeRole('user');
                 $user->delete();
             }
+            DB::commit();
             return redirect()->route('users.index');
         }
         catch(Exception $e) {
             Log::error('Delete All Users Failed: ' . $e->getMessage());
+
+            DB::rollBack();
             return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat ingin menghapus all users: ' . $e->getMessage()])->withInput();
         }
     }
