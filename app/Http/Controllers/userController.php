@@ -193,6 +193,8 @@ class userController extends Controller
      */
     public function destroy(string $id)
     {
+        DB::beginTransaction();
+        
     try {
         $user = User::find($id);
         $userProfile = UserProfile::where('user_id', $id)->firstOrFail();
@@ -203,10 +205,11 @@ class userController extends Controller
 
         $user->removeRole('user');
         $user->delete();
-
+        DB::commit();
         Alert::success('Berhasil', 'Data Berhasil Dihapus!');
         return redirect()->route('users.index');
     } catch (Exception $e) {
+        DB::rollBack();
         return redirect()->route('users.index')->with('error', 'Error deleting user: ' . $e->getMessage());
     }
     }
