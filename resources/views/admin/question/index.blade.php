@@ -28,7 +28,19 @@
                                         class="mb-2 text-lg font-bold tracking-tight text-gray-900 lg:text-xl dark:text-white">
                                         {{ $question->question }}</h5>
                                 </div>
+
                             </a>
+                            @foreach ($question->answers as $answer)
+                                <div class="flex flex-col justify-between p-4 leading-normal">
+                                    <h5
+                                        class="mb-2 text-lg font-bold tracking-tight text-gray-900 lg:text-xl dark:text-white">
+                                        {{ $answer->answer }} @if ($answer->is_correct == 1)
+                                            <span class="text-green-500">Benar</span>
+                                        @endif
+                                    </h5>
+                                </div>
+
+                            @endforeach
                         </div>
                     @empty
 
