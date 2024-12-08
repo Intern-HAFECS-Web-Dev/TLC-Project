@@ -57,9 +57,9 @@
                                         class="mb-2 text-lg font-bold tracking-tight text-gray-900 lg:text-xl dark:text-white">
                                         {{ $category->name }}</h5>
                                     {{-- <button type="button" onclick="window.location.href='{{ route('kategoriLevel.index') }}';" --}}
-                                    <button type="button" onclick="window.location.href='#';"
+                                    <button type="button" onclick="window.location.href='{{route('categori.questions.index', $category)}}';"
                                         class="w-20 mt-3 text-birutua bg-white hover:bg-biru border border-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                        Buat Soal
+                                        show
                                         <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"

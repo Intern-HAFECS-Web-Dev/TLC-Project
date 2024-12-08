@@ -63,7 +63,7 @@ Route::middleware('role:admin')->group(function () {
 
     // route soal asesi
     Route::resource('categori', CategoryController::class);
-    Route::resource('questions.categori', QuestionController::class);
+    Route::resource('categori.questions', QuestionController::class);
 });
 
 Route::get('/regencies/{provinceId}', [provinsiController::class, 'getRegencies']);
