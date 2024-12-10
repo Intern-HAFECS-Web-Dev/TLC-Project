@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\adminAsesorController;
 use App\Http\Controllers\adminDashboardController;
 use App\Http\Controllers\assessorDasboardController;
@@ -29,7 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['role:user', 'user_last_seen'])->group(function (){
+Route::middleware(['role:user', 'user_last_seen'])->group(function () {
     Route::resource('userDashboard', userDashboardController::class);
     Route::get('/dashboardUser', [userDashboardController::class, 'userDashboard'])->name('userDashboard');
     // Route::get('/sertifikasi', [sertifikasiUserController::class, 'index'])->name('sertifikasi.index');
@@ -39,8 +41,6 @@ Route::middleware(['role:user', 'user_last_seen'])->group(function (){
     Route::get('/myCertification', [userDashboardController::class, 'myCertificationIndex'])->name('myCertification.index');
     Route::get('/kategoriLevel', [userDashboardController::class, 'kategoriLevelIndex'])->name('kategoriLevel.index');
     Route::post('/updateMyProfile', [userDashboardController::class, 'myProfileStore'])->name('myProfile.update');
-
-
 });
 
 Route::middleware('role:admin')->group(function () {
@@ -58,6 +58,9 @@ Route::middleware('role:admin')->group(function () {
     Route::post('/editProfileImage', [ProfileController::class, 'editImg'])->name('profile.editImg');
     Route::get('/download-asesi-img/{id}', [userController::class, 'downloadImage'])->name('users.DownloadImg');
 
+    // route soal asesi
+    Route::resource('categori', CategoryController::class);
+    Route::resource('categori.questions', QuestionController::class);
 });
 
 Route::get('/regencies/{provinceId}', [provinsiController::class, 'getRegencies']);
@@ -66,4 +69,4 @@ Route::get('/villages/{districtId}', [provinsiController::class, 'getVillages'])
 
 Route::get('/locations/{id}', [RegisteredUserController::class, 'shows'])->name('tampilkan.provinsi');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
