@@ -3,59 +3,49 @@
 @section('content')
     <main class="container mx-auto my-20">
         <div class="grid grid-cols-1 px-4 pt-6 xl:grid-cols-3 xl:gap-4 dark:bg-gray-900">
-
-            <!-- Right Content -->
             <div class="col-span-full xl:col-auto">
                 <div
-                    class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-                    <div class="items-center sm:flex xl:block 2xl:flex sm:space-x-4 xl:space-x-0 2xl:space-x-4">
-                        <img class="h-24 xl:hidden my-3 rounded-full shadow-lg mx-auto "
+                    class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                    <div
+                        class="bg-biru py-3 flex flex-col items-center justify-center md:flex-col md:space-y-4 space-y-4 sm:space-y-0 sm:flex-row xl:flex-col xl:space-y-4">
+                        <img class="h-24 rounded-full shadow-sm object-cover"
                             src="{{ asset('/storage/' . $user->profile_image) }}" alt="Bonnie image" />
-                        <div class="hidden xl:block bg-biru py-3">
-                            <img class="h-24 rounded-full object-cover mx-auto "
-                                src="{{ asset('/storage/' . $user->profile_image) }}" alt="Bonnie image" />
-                            <span
-                                class="flex justify-center text-white my-2 text-xl font-bold  dark:text-white">{{ $user->user->name }}</span>
-                        </div>
-                        <div>
-                            <span
-                                class="flex xl:hidden justify-center text-gray-800 mt-2 mb-4 text-xl font-bold  dark:text-white">{{ $user->user->name }}</span>
 
-                            <div class="flex flex-col w-full">
-                                <a href="{{ route('userProfile.index') }}">
-                                    <button type="button"
-                                        class="inline-flex items-center px-8 bg-[#BCDEF8] py-2 mt-3 text-sm font-medium text-biru  w-full">
-                                        <img src="images/svg/profile.svg" class="w-4 h-4 mr-2 -ml-1" alt="">
-                                        Profile
-                                    </button>
-                                </a>
-                                <a href="{{ route('myCertification.index') }}">
-                                    <button type="button"
-                                        class="inline-flex items-center px-8 py-2 text-sm font-medium text-gray-600 hover:bg-[#BCDEF8] w-full">
-                                        <img src="images/svg/mycertificate.svg" class="w-4 h-4 mr-2 -ml-1" alt="">
-                                        My Certificate
-                                    </button>
-                                </a>
-
-                                <form action="{{ route('logout') }}" method="post" id="logout-form" class="inline">
-                                    @csrf
-                                    <button type="button"
-                                        class="inline-flex items-center px-8 py-2 text-sm font-medium text-gray-600 hover:bg-[#BCDEF8] w-full"
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        <img src="images/svg/logout.svg" class="w-4 h-4 mr-2 -ml-1" alt="">
-                                        Log Out
-                                    </button>
-                                </form>
-
-                            </div>
-
+                        <div class="text-center sm:text-left xl:text-center 2xl:text-left">
+                            <span class="block text-white text-xl font-bold dark:text-white">
+                                {{ $user->user->name }}
+                            </span>
                         </div>
                     </div>
+
+                    <div class="flex flex-col mt-4 space-y-1">
+                        <a href="{{ route('userProfile.index') }}">
+                            <button type="button"
+                                class="inline-flex items-center px-4 py-2 text-sm font-medium text-biru bg-[#BCDEF8] rounded-md w-full hover:bg-blue-100">
+                                <img src="images/svg/profile.svg" class="w-4 h-4 mr-2 -ml-1" alt="">
+                                Profil
+                            </button>
+                        </a>
+                        <a href="{{ route('myCertification.index') }}">
+                            <button type="button"
+                                class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-600 rounded-md w-full hover:bg-[#BCDEF8]">
+                                <img src="images/svg/mycertificate.svg" class="w-4 h-4 mr-2 -ml-1" alt="">
+                                Sertifikatku
+                            </button>
+                        </a>
+                        <form action="{{ route('logout') }}" method="post" id="logout-form">
+                            @csrf
+                            <button type="button"
+                                class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-600 rounded-md w-full hover:bg-[#BCDEF8]"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <img src="images/svg/logout.svg" class="w-4 h-4 mr-2 -ml-1" alt="">
+                                Keluar
+                            </button>
+                        </form>
+                    </div>
                 </div>
-
-
-
             </div>
+
             <div class="col-span-2">
                 <div
                     class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
@@ -275,7 +265,6 @@
                 </div>
 
             </div>
-
         </div>
     </main>
     <style>
@@ -389,7 +378,4 @@
             }
         }
     </script>
-
-
-
 @endsection
