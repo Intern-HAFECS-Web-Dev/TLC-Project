@@ -1,5 +1,6 @@
 @extends('dashboard.adminDashboard')
 
+<p>gg</p>
 
 @section('content')
     <div
