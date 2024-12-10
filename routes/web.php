@@ -18,11 +18,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WilayahController;
 
 Route::get('/', function () {
-    // return view('welcome', [
-    //     'title' => 'HomePage',
-    // ]);
-
-    return view('tes');
+    return view('welcome', [
+        'title' => 'HomePage',
+    ]);
 });
 
 // return view('welcome');
