@@ -15,10 +15,10 @@ class CategoryController extends Controller
     {
 
         $categoris = Category::all();
-        return view('admin.category.index',[
+        return view('admin.category.index', [
             'title' => 'Kategori Soal',
             'categoris' => $categoris
-        ] );
+        ]);
     }
 
     /**
@@ -32,15 +32,21 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
     {
-        $request->validate([
+        // Validate the incoming request data
+        $validation = $request->validate([
             'name' => 'required',
+            'image_categori' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        Category::create($request->all());
+        $validation['image_categori'] = $request->file('image_categori')->store('categori', 'public');
 
-        return redirect()->back();
+        Category::create($validation);
+
+        alert('success', 'Category created successfully!');
+        return redirect()->back()->with('success', 'Category created successfully!');
     }
 
     /**

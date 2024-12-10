@@ -77,7 +77,8 @@
                             </div>
                             <!-- Isi Modal -->
                             <div class="p-4">
-                                <form action="{{ route('admin.categori.store') }}" method="POST">
+                                <form action="{{ route('admin.categori.store') }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <label for="name" class="block text-sm font-medium text-gray-700">Category
                                         Name</label>
@@ -95,7 +96,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -108,18 +108,32 @@
                         @forelse ($categoris as $category)
                             <div
                                 class="mb-5 lg:mb-0 bg-white w-full h-[164px] md:h-[197px] shadow-md rounded-lg overflow-hidden lg:w-[350px] lg:h-[236px]">
-                                <img src="https://via.placeholder.com/400x200" alt="Category Image"
+                                <img src="{{ Storage::url($category->image_categori) }}" alt="Category Image"
                                     class="h-28 md:h-36 w-full lg:h-[177px] object-cover">
                                 <div class="flex justify-between px-4 pt-2 pb-0 lg:py-2">
                                     <h3
                                         class="pt-1.5 md:pt-2 text-sm font-semibold md:text-base md:font-semibold lg:text-lg lg:font-bold ">
-                                        Kategori : {{ $category->name }}</h3>
+                                        {{ $category->name }}</h3>
                                     <button type="button"
                                         onclick="window.location.href='{{ route('admin.categori.questions.index', $category) }}';"
                                         class="pt-1.5 md:py-auto md:pt-2 w-24 text-birutua bg-white border border-biru hover:bg-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center">
                                         show
                                         <i class="fas fa-eye ms-2"></i>
                                     </button>
+
+                                    <button type="button"
+                                    onclick="window.location.href='{{ route('admin.categori.questions.index', $category) }}';"
+                                    class="pt-1.5 md:py-auto md:pt-2 w-24 text-birutua bg-white border border-biru hover:bg-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center">
+                                    show
+                                    <i class="fas fa-eye ms-2"></i>
+                                </button>
+
+                                <button type="button"
+                                onclick="window.location.href='{{ route('admin.categori.questions.index', $category) }}';"
+                                class="pt-1.5 md:py-auto md:pt-2 w-24 text-birutua bg-white border border-biru hover:bg-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center">
+                                show
+                                <i class="fas fa-eye ms-2"></i>
+                            </button>
                                 </div>
                             </div>
                         @empty
