@@ -71,7 +71,7 @@ public function store(LoginRequest $request)
     }
 
     if ($user->hasRole('admin')) {
-        return redirect()->route('adminDashboard');
+        return redirect()->route('admin.dashboard.index');
     } elseif ($user->hasRole('asesor')) {
         return redirect()->route('assessorDashboard.index');
     } elseif ($user->hasRole('user')) {

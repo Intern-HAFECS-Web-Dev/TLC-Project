@@ -14,13 +14,10 @@ class adminDashboardController extends Controller
     public function index()
     {
 
-        // $users = User::role('user')->count();
-        return view('dashboard.adminDashboard', [
-            'title' => 'AdminDashboard',
-            'role' => 'Admin',
-            'navTitle' => 'Admin Dashboard',
-            // 'user' => $users
-        ]);
+        $title = 'Dashboard';
+        $user = User::role('user')->count();
+        $asesor = User::role('asesor')->count();
+        return view('admin.dashboard.index', compact('user', 'asesor', 'title'));
     }
 
     /**
@@ -69,17 +66,5 @@ class adminDashboardController extends Controller
     public function destroy(string $id)
     {
         //
-    }
-
-    public function adminDashboard()
-    {
-        $users = User::role('user')->count();
-        $asesor = User::role('asesor')->count();
-        return view('admin.dashboard.index', [
-            'title' => 'AdminDashboard',
-            'user' => $users,
-            'asesor' => $asesor,
-            'navTitle' => 'Admin Dashboard'
-        ]);
     }
 }

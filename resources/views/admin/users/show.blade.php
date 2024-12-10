@@ -1,9 +1,9 @@
 @extends('dashboard.adminDashboard')
 
 @section('content')
-    <div class="grid grid-cols-1 px-4 pt-6 xl:grid-cols-3 xl:gap-4 dark:bg-gray-900 mt-4">
+    <div class="grid grid-cols-1 px-4 pt-6 mt-4 xl:grid-cols-3 xl:gap-4 dark:bg-gray-900">
 
-        <x-back-navigation-header href="{{ route('users.index') }}">
+        <x-back-navigation-header href="{{ route('admin.users.index') }}">
             Show Asesi
         </x-back-navigation-header>
 
@@ -21,14 +21,14 @@
                         <div class="flex gap-4">
                             <!-- Show Image Button -->
                             <button onclick="togglePopup(true)" class="p-2 bg-yellow-300 rounded-lg">
-                                <p class="font-medium text-sm">Show Image</p>
+                                <p class="text-sm font-medium">Show Image</p>
                             </button>
 
                             <!-- Download Image Button -->
-                            
+
                             <button class="p-2 bg-blue-600 rounded-lg">
-                                <a href="{{ route('users.DownloadImg', $users->id) }}">
-                                    <p class="font-medium text-sm text-white">Download Image</p>
+                                <a href="{{ route('admin.users.DownloadImg', $users->id) }}">
+                                    <p class="text-sm font-medium text-white">Download Image</p>
                                 </a>
                             </button>
                         </div>
@@ -36,21 +36,21 @@
 
                     <!-- Popup Container -->
                     <div id="popup"
-                        class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden justify-center items-center z-50">
-                        <div class="relative bg-white rounded-lg shadow-lg p-4 w-3/4 md:w-1/2">
+                        class="fixed inset-0 z-50 items-center justify-center hidden bg-gray-800 bg-opacity-50">
+                        <div class="relative w-3/4 p-4 bg-white rounded-lg shadow-lg md:w-1/2">
                             <button onclick="togglePopup(false)"
-                                class="absolute top-2 right-2 text-gray-500 hover:text-gray-900">
+                                class="absolute text-gray-500 top-2 right-2 hover:text-gray-900">
                                 ✖
                             </button>
                             <div class="flex flex-col items-center">
                                 <!-- Profile Image -->
                                 <img id="profileImage" src="{{ asset('/storage/' . $users->profile_image) }}"
-                                    alt="Profile Picture" class="rounded-lg w-full max-h-96 object-cover">
-                                <p class="mt-4 text-gray-600 text-sm">User Profile Picture</p>
+                                    alt="Profile Picture" class="object-cover w-full rounded-lg max-h-96">
+                                <p class="mt-4 text-sm text-gray-600">User Profile Picture</p>
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <div

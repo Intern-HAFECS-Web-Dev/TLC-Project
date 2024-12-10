@@ -18,10 +18,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WilayahController;
 
 Route::get('/', function () {
-    return view('welcome', [
-        'title' => 'HomePage',
-    ]);
+    // return view('welcome', [
+    //     'title' => 'HomePage',
+    // ]);
+
+    return view('tes');
 });
+
+// return view('welcome');
 
 Route::resource('assessorDashboard', assessorDasboardController::class)->middleware('role:asesor');
 
@@ -43,15 +47,19 @@ Route::middleware(['role:user', 'user_last_seen'])->group(function () {
     Route::post('/updateMyProfile', [userDashboardController::class, 'myProfileStore'])->name('myProfile.update');
 });
 
-Route::middleware('role:admin')->group(function () {
-    Route::resource('adminDashboard', adminDashboardController::class);
+// route admin
+
+Route::middleware('role:admin')->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('dashboard', adminDashboardController::class);
+
     Route::resource('users', userController::class);
-    Route::resource('adminAsesor', adminAsesorController::class);
+
+
+    Route::resource('asesor', adminAsesorController::class);
 
     Route::get('showAsesi/{id}', [userController::class, 'show'])->name('asesi-show');
 
-    Route::get('/dashboardAdmin', [adminDashboardController::class, 'adminDashboard'])->name('adminDashboard');
-    Route::get('/deleteUsers/{id}', [userController::class, 'destroy'])->name('users.destroyy');
+    Route::get('/deleteUsers/{id}', [userController::class, 'destroy'])->name('users.destroy');
     Route::get('/deleteAllUsers', [usersController::class, 'destroyAll'])->name('deleteAllUsers');
     Route::get('/testing', [usersController::class, 'testing'])->name('testing');
 

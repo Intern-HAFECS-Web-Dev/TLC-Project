@@ -60,7 +60,7 @@ class QuestionController extends Controller
             DB::commit();
 
             // return "ok";
-            return redirect()->route('categori.questions.index', $categori)->with('title', 'Question');
+            return redirect()->route('admin.categori.questions.index', $categori)->with('title', 'Question');
 
         } catch (\Exception $e) {
             DB::rollBack();

@@ -12,7 +12,7 @@
             <div class="grid grid-cols-5 px-3 mt-10">
                 <div class="col-span-5 px-3 bg-white shadow-xl">
                     <div class="pb-5">
-                        <a href="{{ route('categori.questions.create', $categori) }}"
+                        <a href="{{ route('admin.categori.questions.create', $categori) }}"
                             class="px-4 py-2 text-white bg-blue-500 rounded shadow hover:bg-blue-600">
                             create question
                         </a>
