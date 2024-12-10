@@ -36,9 +36,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image_categori' => 'required'
         ]);
-
 
         Category::create($request->all());
 

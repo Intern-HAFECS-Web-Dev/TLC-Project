@@ -104,133 +104,28 @@
         <div class="overflow-x-auto">
             <div class="inline-block min-w-full align-middle">
                 <div class="overflow-hidden shadow">
-
-                    <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600">
-                        <thead class="bg-gray-700 dark:bg-gray-700">
-                            <tr>
-
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    No
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Name
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    No HP
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Instansi
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Jenis Kelamin
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Created_at
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Last Seen
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Status
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Actions
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-
-                            {{-- @foreach ($userProfile as $user) --}}
-                            <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 odd:bg-red-50 even:bg-blue-50">
-
-                                {{-- checkbox --}}
-                                <td class="px-4 py-2">
-                                    {{-- {{ $loop->iteration }} --}}
-                                </td>
-
-                                {{-- image,nama,email --}}
-                                <td class="flex items-center px-4 py-2 mr-12 space-x-6 whitespace-nowrap">
-                                    <img class="w-12 h-12 rounded-lg" src="#" alt="avatar">
-                                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                        <div class="text-base font-semibold text-gray-900 dark:text-white">
-                                            {{-- {{ $user->fullname }} --}}
-                                        </div>
-                                        <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                            {{-- {{ $user->user->email }} --}}
-                                        </div>
-                                    </div>
-                                </td>
-
-                                {{-- no Wa --}}
-                                <td
-                                    class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
-                                    {{-- {{ $user->no_wa }} --}}
-                                </td>
-
-                                {{-- Instansi --}}
-                                <td
-                                    class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
-                                    {{-- {{ $user->instansi }} --}}
-                                </td>
-
-                                {{-- Jenis Kelamin --}}
-                                <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                    {{-- {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }} --}}
-                                </td>
-
-                                {{-- Created_at --}}
-                                <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                    {{-- {{ $user->user->created_at->format('d-m-Y') }} --}}
-                                </td>
-
-                                {{-- Last Seen --}}
-                                <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                    {{-- {{ $user->user->last_seen ? $user->user->last_seen->diffForHumans() : 'Never logged in' }} --}}
-                                </td>
-
-                                {{-- status --}}
-                                <td
-                                    class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div class="flex items-center">
-                                        <p>status</p>
-                                    </div>
-                                </td>
-
-                                {{-- Action --}}
-                                <td class="px-4 py-2 space-x-2 whitespace-nowrap">
-                                    {{-- Edit users --}}
-                                    <a href="#"
-                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </a>
-
-                                    {{-- Delete users --}}
-                                    <a href="#"
-                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900"
-                                        onclick="return confirm('Yakin ingin menghapus data ini?');">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
-
-                                    {{-- Show Users --}}
-                                    <a href="#"
-                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            {{-- @endforeach --}}
-                        </tbody>
-                    </table>
-                    {{-- table end --}}
+                    <div class="gap-1 px-4 py-8 lg:flex lg:px-auto lg:flex-wrap lg:justify-center gap-x-8 gap-y-6">
+                        @forelse ($categoris as $category)
+                            <div
+                                class="mb-5 lg:mb-0 bg-white w-full h-[164px] md:h-[197px] shadow-md rounded-lg overflow-hidden lg:w-[350px] lg:h-[236px]">
+                                <img src="https://via.placeholder.com/400x200" alt="Category Image"
+                                    class="h-28 md:h-36 w-full lg:h-[177px] object-cover">
+                                <div class="flex justify-between px-4 pt-2 pb-0 lg:py-2">
+                                    <h3
+                                        class="pt-1.5 md:pt-2 text-sm font-semibold md:text-base md:font-semibold lg:text-lg lg:font-bold ">
+                                        Kategori : {{ $category->name }}</h3>
+                                    <button type="button"
+                                        onclick="window.location.href='{{ route('admin.categori.questions.index', $category) }}';"
+                                        class="pt-1.5 md:py-auto md:pt-2 w-24 text-birutua bg-white border border-biru hover:bg-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center">
+                                        show
+                                        <i class="fas fa-eye ms-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        @empty
+                            <p>Tidak ada kategori</p>
+                        @endforelse
+                    </div>
                 </div>
             </div>
         </div>
