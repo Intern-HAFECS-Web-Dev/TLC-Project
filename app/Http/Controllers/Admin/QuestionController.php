@@ -61,7 +61,6 @@ class QuestionController extends Controller
 
             // return "ok";
             return redirect()->route('admin.categori.questions.index', $categori)->with('title', 'Question');
-
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json(['error' => 'Failed to create question: ' . $e->getMessage()], 500); // Return error response
@@ -78,27 +77,64 @@ class QuestionController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(Category $categori, Question $question)
     {
-        //
+        $title = "Edit Question";
+        $answers = $question->answers()->get();
+
+        // return $answers;
+        return view('admin.question.edit', compact('title', 'question', 'answers', 'categori'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $categori, Question $question)
     {
-        //
+        $request->validate([
+            'question' => 'required|string|max:255',
+            'answer' => 'required|array',
+            'answer.*' => 'required|string|max:255',
+            'correct_answer' => 'required|integer',
+        ]);
+
+        DB::beginTransaction();
+
+        try {
+            $question->update([
+                'question' => $request->question,
+            ]);
+
+            $question->answers()->delete();
+
+            foreach ($request->answer as $index => $answerText) {
+                $isCorrect = ($request->correct_answer == $index);
+                $question->answers()->create([
+                    'answer' => $answerText,
+                    'is_correct' => $isCorrect,
+                ]);
+            }
+
+            DB::commit();
+
+            return redirect()->route('admin.categori.questions.index', $categori)->with('success', 'Question updated successfully.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withErrors(['error' => 'Failed to update question: ' . $e->getMessage()]);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Category $categori, Question $question)
     {
-        //
+        DB::beginTransaction();
+
+        try {
+            $question->answers()->delete();
+            $question->delete();
+
+            DB::commit();
+
+            return redirect()->route('admin.categori.questions.index', $categori)->with('success', 'Question deleted successfully.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withErrors(['error' => 'Failed to delete question: ' . $e->getMessage()]);
+        }
     }
 }
