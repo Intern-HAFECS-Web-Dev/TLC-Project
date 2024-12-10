@@ -21,15 +21,15 @@
 
                     @forelse ($questions as $question)
                         <div class="col-span-5 px-5 mx-auto my-3">
-                            <a href=""
+                            <div
                                 class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-full lg:max-w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                                 <div class="flex flex-col justify-between p-4 leading-normal">
                                     <h5
                                         class="mb-2 text-lg font-bold tracking-tight text-gray-900 lg:text-xl dark:text-white">
                                         {{ $question->question }}</h5>
                                 </div>
+                            </div>
 
-                            </a>
                             @foreach ($question->answers as $answer)
                                 <div class="flex flex-col justify-between p-4 leading-normal">
                                     <h5
