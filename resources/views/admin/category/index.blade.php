@@ -100,10 +100,11 @@
                     </div>
                 </div>
                 <div class="flex items-center ml-auto space-x-2 sm:space-x-3">
-                    <a href="{{ route('users.create') }}">
+                   
                         <button
                             class="inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                            data-popover-target="popover-addUser" data-popover-placement="bottom">
+                            data-popover-target="popover-addUser" data-popover-placement="bottom"
+                            id="closeModal">
                             <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -112,7 +113,6 @@
                             </svg>
                             Add Kategori Soal
                         </button>
-                    </a>
                     {{-- <a href="#"
                         class="inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
                         data-popover-target="popover-export" data-popover-placement="bottom">
@@ -136,39 +136,16 @@
                     <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600">
                         <thead class="bg-gray-700 dark:bg-gray-700">
                             <tr>
+                                <th scope="col"
+                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    Kategori Soal
+                                </th>
 
                                 <th scope="col"
                                     class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    No
+                                    Image Sampul
                                 </th>
-                                <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Name
-                                </th>
-                                <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    No HP
-                                </th>
-                                <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Instansi
-                                </th>
-                                <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Jenis Kelamin
-                                </th>
-                                <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Created_at
-                                </th>
-                                <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Last Seen
-                                </th>
-                                <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Status
-                                </th>
+
                                 <th scope="col"
                                     class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Actions
@@ -183,58 +160,12 @@
                                     {{-- checkbox --}}
                                     <td class="py-2 px-4">
                                         {{-- {{ $loop->iteration }} --}}
+                                        <p>Kategori Soal</p>
                                     </td>
 
-                                    {{-- image,nama,email --}}
-                                    <td class="flex items-center py-2 px-4 mr-12 space-x-6 whitespace-nowrap">
-                                        <img class="w-12 h-12 rounded-lg"
-                                            src="#" alt="avatar">
-                                        <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                            <div class="text-base font-semibold text-gray-900 dark:text-white">
-                                                {{-- {{ $user->fullname }} --}}
-                                            </div>
-                                            <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                                {{-- {{ $user->user->email }} --}}
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                    {{-- no Wa --}}
-                                    <td
-                                        class="max-w-sm py-2 px-4 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
-                                        {{-- {{ $user->no_wa }} --}}
-                                    </td>
-
-                                    {{-- Instansi --}}
-                                    <td
-                                        class="max-w-sm py-2 px-4 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
-                                        {{-- {{ $user->instansi }} --}}
-                                    </td>
-
-                                    {{-- Jenis Kelamin --}}
-                                    <td
-                                        class="py-2 px-4 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                        {{-- {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }} --}}
-                                    </td>
-
-                                    {{-- Created_at --}}
-                                    <td
-                                        class="py-2 px-4 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                        {{-- {{ $user->user->created_at->format('d-m-Y') }} --}}
-                                    </td>
-
-                                    {{-- Last Seen --}}
-                                    <td
-                                        class="py-2 px-4 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                        {{-- {{ $user->user->last_seen ? $user->user->last_seen->diffForHumans() : 'Never logged in' }} --}}
-                                    </td>
-
-                                    {{-- status --}}
-                                    <td
-                                        class="py-2 px-4 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        <div class="flex items-center">
-                                            <p>status</p>
-                                        </div>
+                                    <td class="py-2 px-4">
+                                        {{-- {{ $loop->iteration }} --}}
+                                        <p>Images</p>
                                     </td>
 
                                     {{-- Action --}}
@@ -317,14 +248,65 @@
     </x-popover>
 
     {{-- popOver addUser --}}
-    <x-popover title="Add Users" id="popover-addUser">
-        <p>Tindakan Ini akan menambahkan users baru kedalam database.</p>
+    <x-popover title="Add Kategori Soal" id="popover-addUser">
+        <p>Tindakan Ini akan menambahkan Kategori soal baru untuk ditampilkan ke pengguna.</p>
     </x-popover>
 
     {{-- popOver Export --}}
     <x-popover title="Export Asesi" id="popover-export">
         <p>Tindakan Ini akan membuat file excel dari data asesi.</p>
     </x-popover>
+
+    <div id="modal"
+                        class="fixed inset-0 z-50 flex items-center justify-center hidden bg-gray-800 bg-opacity-50">
+                        <div class="w-1/3 bg-white rounded-lg shadow-lg">
+                            <!-- Header Modal -->
+                            <div class="flex items-center justify-between p-4 border-b">
+                                <h2 class="text-xl font-bold">Add Category</h2>
+                                <button id="closeModal" class="text-gray-500 hover:text-gray-700">&times;</button>
+                            </div>
+                            <!-- Isi Modal -->
+                            <div class="p-4">
+                                <form action="{{ route('categori.store') }}" method="POST">
+                                    @csrf
+                                    <label for="name" class="block text-sm font-medium text-gray-700">Category
+                                        Name</label>
+                                    <input type="text" id="name" name="name"
+                                        class="w-full p-2 mt-2 border rounded" placeholder="Enter category name">
+                                    <button type="submit"
+                                        class="px-4 py-2 mt-4 text-white bg-green-500 rounded shadow hover:bg-green-600">
+                                        Save
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+    <script>
+        const openModal = document.getElementById('openModal');
+        const closeModal = document.getElementById('closeModal');
+        const modal = document.getElementById('modal');
+        const body = document.body;
+
+        // Fungsi untuk membuka modal
+        openModal.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+            body.classList.add('modal-open');
+        });
+
+        // Fungsi untuk menutup modal
+        const close = () => {
+            modal.classList.add('hidden');
+            body.classList.remove('modal-open');
+        };
+
+        closeModal.addEventListener('click', close);
+
+        // Tutup modal saat klik di luar area modal
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) close();
+        });
+    </script>
 @endsection
 
 @section('content')
