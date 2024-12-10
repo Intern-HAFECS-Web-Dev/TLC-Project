@@ -5,10 +5,10 @@
         class="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
         <div class="w-full mb-1">
             <div class="mb-4">
-                <nav class="flex mb-5 mt-4" aria-label="Breadcrumb">
+                <nav class="flex mt-4 mb-5" aria-label="Breadcrumb">
                     <ol class="inline-flex items-center space-x-1 text-sm font-medium md:space-x-2">
                         <li class="inline-flex items-center">
-                            <a href="#"
+                            <a href="{{ route('admin.users.index') }}"
                                 class="inline-flex items-center text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-white">
                                 <svg class="w-5 h-5 mr-2.5" fill="currentColor" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@
                                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                                <a href="#"
+                                <a href="{{ route('admin.asesor.index') }}"
                                     class="ml-1 text-gray-400 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">
                                     Asesor
                                 </a>
@@ -52,7 +52,7 @@
             </div>
             <div class="sm:flex">
                 <div class="items-center hidden mb-3 sm:flex sm:divide-x sm:divide-gray-100 sm:mb-0 dark:divide-gray-700">
-                    <form class="lg:pr-3" action="{{ route('users.index') }}" method="GET">
+                    <form class="lg:pr-3" action="{{ route('admin.users.index') }}" method="GET">
                         <label for="users-search" class="sr-only">Search</label>
                         <div class="relative mt-1 lg:w-64 xl:w-96">
                             <input type="text" name="search" id="users-search"
@@ -62,7 +62,7 @@
                         </div>
                     </form>
                     <div class="flex pl-0 mt-3 space-x-1 sm:pl-2 sm:mt-0">
-                        <a href="{{ route('testing') }}"
+                        <a href="{{ route('admin.testing') }}"
                             class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -98,7 +98,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="flex items-center ml-auto space-x-2 sm:space-x-3">
+                {{-- <div class="flex items-center ml-auto space-x-2 sm:space-x-3">
                     <a href="{{ route('users.create') }}">
                         <button
                             class="inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
@@ -123,7 +123,7 @@
                         </svg>
                         Export
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -137,39 +137,39 @@
                             <tr>
 
                                 <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     No
                                 </th>
                                 <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Name
                                 </th>
                                 <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     No HP
                                 </th>
                                 <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Instansi
                                 </th>
                                 <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Jenis Kelamin
                                 </th>
                                 <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Created_at
                                 </th>
                                 <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Last Seen
                                 </th>
                                 <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Status
                                 </th>
                                 <th scope="col"
-                                    class="py-2 px-4 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Actions
                                 </th>
                             </tr>
@@ -180,12 +180,12 @@
                                 <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 odd:bg-red-50 even:bg-blue-50">
 
                                     {{-- checkbox --}}
-                                    <td class="py-2 px-4">
+                                    <td class="px-4 py-2">
                                         {{ $loop->iteration }}
                                     </td>
 
                                     {{-- image,nama,email --}}
-                                    <td class="flex items-center py-2 px-4 mr-12 space-x-6 whitespace-nowrap">
+                                    <td class="flex items-center px-4 py-2 mr-12 space-x-6 whitespace-nowrap">
                                         <img class="w-12 h-12 rounded-lg"
                                             src="{{ asset('/storage/' . $user->profile_image) }}" alt="avatar">
                                         <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
@@ -200,59 +200,59 @@
 
                                     {{-- no Wa --}}
                                     <td
-                                        class="max-w-sm py-2 px-4 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
+                                        class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
                                         {{ $user->no_wa }}
                                     </td>
 
                                     {{-- Instansi --}}
                                     <td
-                                        class="max-w-sm py-2 px-4 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
+                                        class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
                                         {{ $user->instansi }}
                                     </td>
 
                                     {{-- Jenis Kelamin --}}
                                     <td
-                                        class="py-2 px-4 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                        class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
                                         {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }}
                                     </td>
 
                                     {{-- Created_at --}}
                                     <td
-                                        class="py-2 px-4 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                        class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
                                         {{ $user->user->created_at->format('d-m-Y') }}
                                     </td>
 
                                     {{-- Last Seen --}}
                                     <td
-                                        class="py-2 px-4 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                        class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
                                         {{ $user->user->last_seen ? $user->user->last_seen->diffForHumans() : 'Never logged in' }}
                                     </td>
 
                                     {{-- status --}}
                                     <td
-                                        class="py-2 px-4 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                        class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                         <div class="flex items-center">
                                             <p>status</p>
                                         </div>
                                     </td>
 
                                     {{-- Action --}}
-                                    <td class="py-2 px-4 space-x-2 whitespace-nowrap">
+                                    <td class="px-4 py-2 space-x-2 whitespace-nowrap">
                                         {{-- Edit users --}}
-                                        <a href="{{ route('users.edit', $user->id) }}"
+                                        <a href="{{ route('admin.users.edit', $user->id) }}"
                                             class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </a>
 
                                         {{-- Delete users --}}
-                                        <a href="{{ route('users.destroyy', $user->user->id) }}"
+                                        <a href="{{ route('admin.users.destroy', $user->user->id) }}"
                                             class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900"
                                             onclick="return confirm('Yakin ingin menghapus data ini?');">
                                             <i class="fa-solid fa-trash"></i>
                                         </a>
 
                                         {{-- Show Users --}}
-                                        <a href="{{ route('asesi-show', $user->id) }}"
+                                        <a href="{{ route('admin.asesi-show', $user->id) }}"
                                             class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>
@@ -275,7 +275,7 @@
     {{-- Pop up Delete Asesi --}}
     <div id="popup-modal" tabindex="-1"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full max-w-md max-h-full">
+        <div class="relative w-full max-w-md max-h-full p-4">
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <button type="button"
                     class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -287,8 +287,8 @@
                     </svg>
                     <span class="sr-only">Close modal</span>
                 </button>
-                <div class="p-4 md:p-5 text-center">
-                    <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true"
+                <div class="p-4 text-center md:p-5">
+                    <svg class="w-12 h-12 mx-auto mb-4 text-gray-400 dark:text-gray-200" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -297,7 +297,7 @@
                         all asesi? tindakan ini tidak dapat di kembalikan</h3>
                     <button data-modal-hide="popup-modal" type="button"
                         class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
-                        <a href="{{ route('deleteAllUsers') }}">
+                        <a href="{{ route('admin.deleteAllUsers') }}">
                             Yes, Saya yakin
                         </a>
                     </button>

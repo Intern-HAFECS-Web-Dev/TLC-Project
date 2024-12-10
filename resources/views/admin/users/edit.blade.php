@@ -4,17 +4,17 @@
     <div class="grid grid-cols-1 px-4 pt-6 mt-4 3xl:grid-cols-3 3xl:gap-4 dark:bg-gray-900">
 
         <div class="col-span-2">
-            <div class="mb-4 col-span-full xl:mb-2 bg-biru p-2 rounded-xl flex items-center justify-between">
-                <a href="{{ route('users.index') }}"
-                    class="bg-greys p-2 m-2 rounded-lg hover:bg-kuning hover:cursor-pointer inline-flex items-center">
-                    <i class="fa-solid fa-arrow-left-long mr-2"></i> Back
+            <div class="flex items-center justify-between p-2 mb-4 col-span-full xl:mb-2 bg-biru rounded-xl">
+                <a href="{{ route('admin.users.index') }}"
+                    class="inline-flex items-center p-2 m-2 rounded-lg bg-greys hover:bg-kuning hover:cursor-pointer">
+                    <i class="mr-2 fa-solid fa-arrow-left-long"></i> Back
                 </a>
-                <h1 class="text-xl mr-4 font-semibold text-white sm:text-2xl dark:text-white">EDIT USER</h1>
+                <h1 class="mr-4 text-xl font-semibold text-white sm:text-2xl dark:text-white">EDIT USER</h1>
             </div>
             <div
                 class="p-4 mt-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                 <h3 class="mb-4 text-xl font-semibold dark:text-white">Informasi Users</h3>
-                <form action="{{ route('users.store') }}" enctype="multipart/form-data" method="POST">
+                <form action="{{ route('admin.users.store') }}" enctype="multipart/form-data" method="POST">
                     @csrf
                     <div class="grid grid-cols-6 gap-6">
 
@@ -195,17 +195,17 @@
                             <div class="mb-4">
                                 <img id="profilePreview" src="{{ asset('storage/images/blankProfile.png') }}"
                                     alt="Profile Picture"
-                                    class="w-24 h-24 rounded-2xl shadow-md border-2 border-gray-300">
+                                    class="w-24 h-24 border-2 border-gray-300 shadow-md rounded-2xl">
                             </div>
 
                             <!-- Upload Input -->
                             <div class="w-1/2 mt-3">
-                                <label for="profilInput" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Upload Foto Profile <span class="text-gray-500 text-xs">(opsional)</span>
+                                <label for="profilInput" class="block mb-2 text-sm font-medium text-gray-700">
+                                    Upload Foto Profile <span class="text-xs text-gray-500">(opsional)</span>
                                 </label>
                                 <input id="profilInput" name="profile_image" type="file" accept=".jpg, .jpeg, .png"
                                     onchange="previewImage(event)"
-                                    class="w-full block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-gray-400 dark:border-gray-600 dark:placeholder-gray-400">
+                                    class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-gray-400 dark:border-gray-600 dark:placeholder-gray-400">
                                 <p id="profilInput_help" class="mt-1 text-xs text-gray-500">Format file: JPG, JPEG, PNG.
                                     Maksimal 2MB.</p>
 
@@ -213,7 +213,7 @@
                                 <x-input-error :messages="$errors->get('profile_image')" class="mt-2 text-red-500" />
                             </div>
                             <button type="submit"
-                                class="bg-biru w-1/2 px-10 py-2 mt-10 text-sm font-medium rounded-lg shadow-md hover:bg-kuning hover:text-black text-white">
+                                class="w-1/2 px-10 py-2 mt-10 text-sm font-medium text-white rounded-lg shadow-md bg-biru hover:bg-kuning hover:text-black">
                                 SUBMIT
                             </button>
                         </div>
@@ -331,7 +331,7 @@
                 customInput.required = true;
             } else {
                 customInput.style.display = "none";
-                customInput.required = false; // 
+                customInput.required = false; //
             }
         }
     </script>
