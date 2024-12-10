@@ -26,12 +26,17 @@
                             </div>
                             <!-- Isi Modal -->
                             <div class="p-4">
-                                <form action="{{ route('categori.store') }}" method="POST">
+                                <form action="{{ route('categori.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <label for="name" class="block text-sm font-medium text-gray-700">Category
                                         Name</label>
                                     <input type="text" id="name" name="name"
                                         class="w-full p-2 mt-2 border rounded" placeholder="Enter category name">
+
+                                    <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
+                                    <input type="file" id="image" name="image_categori"
+                                        class="w-full p-2 mt-2 border rounded" placeholder="input image">
+
                                     <button type="submit"
                                         class="px-4 py-2 mt-4 text-white bg-green-500 rounded shadow hover:bg-green-600">
                                         Save
@@ -55,7 +60,8 @@
                                         class="mb-2 text-lg font-bold tracking-tight text-gray-900 lg:text-xl dark:text-white">
                                         {{ $category->name }}</h5>
                                     {{-- <button type="button" onclick="window.location.href='{{ route('kategoriLevel.index') }}';" --}}
-                                    <button type="button" onclick="window.location.href='{{route('categori.questions.index', $category)}}';"
+                                    <button type="button"
+                                        onclick="window.location.href='{{ route('categori.questions.index', $category) }}';"
                                         class="w-20 mt-3 text-birutua bg-white hover:bg-biru border border-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                         show
                                         <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
