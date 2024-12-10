@@ -16,7 +16,7 @@ class CategoryController extends Controller
 
         $categoris = Category::all();
         return view('admin.category.index',[
-            'title' => 'Category',
+            'title' => 'Kategori Soal',
             'categoris' => $categoris
         ] );
     }
