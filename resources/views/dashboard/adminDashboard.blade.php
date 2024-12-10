@@ -114,7 +114,7 @@
         <div class="h-full px-3 pb-4 overflow-y-auto bg-gray-800 dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
                 <li>
-                    <a href="{{ route('adminDashboard') }}"
+                    <a href="{{ route('admin.dashboard.index') }}"
                         class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
                         <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#FBCB04"
@@ -148,13 +148,13 @@
 
                     <ul id="dropdown-example" class="hidden py-2 space-y-2">
                         <li>
-                            <a href="{{ route('users.index') }}" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
+                            <a href="{{ route('admin.users.index') }}" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
                                 <i class="mr-2 fa-solid fa-user"></i>
                                 <p>Asesi</p>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('adminAsesor.index') }}" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
+                            <a href="{{ route('admin.asesor.index') }}" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
                                 <i class="mr-2 fa-solid fa-user"></i>
                                 <p>Asesor</p>
                             </a>
@@ -169,7 +169,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('categori.index') }}"
+                    <a href="{{ route('admin.categori.index') }}"
                         class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
 
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -207,7 +207,7 @@
                     </a>
                 </li>
 
-                <li>
+                {{-- <li>
                     <a href="#"
                         class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FBCB04" viewBox="0 0 24 24">
@@ -216,7 +216,7 @@
 
                         <span class="flex-1 ms-3 whitespace-nowrap">Testimoni</span>
                     </a>
-                </li>
+                </li> --}}
 
 
                 <li>

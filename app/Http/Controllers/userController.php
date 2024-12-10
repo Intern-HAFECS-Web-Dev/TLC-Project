@@ -25,23 +25,23 @@ class userController extends Controller
     {
         // Mengambil input pencarian
         $search = request()->input('search');
-    
+
         $userProfiles = UserProfile::with('user')
             ->when($search, function ($query) use ($search) {
-                $query->where('fullname', 'LIKE', '%' . $search . '%') 
-                    ->orWhere('nik', 'LIKE', '%' . $search . '%')      
-                    ->orWhere('tempat_lahir', 'LIKE', '%' . $search . '%') 
+                $query->where('fullname', 'LIKE', '%' . $search . '%')
+                    ->orWhere('nik', 'LIKE', '%' . $search . '%')
+                    ->orWhere('tempat_lahir', 'LIKE', '%' . $search . '%')
                     ->orWhereHas('user', function ($query) use ($search) {
-                        $query->where('name', 'LIKE', '%' . $search . '%') 
-                            ->orWhere('email', 'LIKE', '%' . $search . '%'); 
+                        $query->where('name', 'LIKE', '%' . $search . '%')
+                            ->orWhere('email', 'LIKE', '%' . $search . '%');
                     });
             })
             ->latest()
             ->paginate(10)
             ->withQueryString();
-    
+
         $users = User::role('user')->get();
-    
+
         return view('admin.users.index', [
             'title' => 'Asesi Index',
             'users' => $users,
@@ -49,7 +49,7 @@ class userController extends Controller
             'navTitle' => 'Table Asesi'
         ]);
     }
-    
+
     /**
      * Show the form for creating a new resource.
      */
@@ -114,15 +114,15 @@ class userController extends Controller
             'kabupaten' => $request->kabupaten,
             'kecamatan' => $request->kecamatan,
             'kelurahan' => $request->kelurahan,
-            'profile_image' => $request->file('profile_image') 
-                ? $request->file('profile_image')->store('images') 
+            'profile_image' => $request->file('profile_image')
+                ? $request->file('profile_image')->store('images')
                 : 'images/blankProfile.png'
         ]);
 
         $userProfile->save();
         Alert::success('success', 'Data User Baru Berhasil Ditambahkan!');
         return redirect()->route('users.index')->with('success', 'Data berhasil disimpan');
-        
+
     } catch (Exception $e) {
         Log::error('User registration failed: ' . $e->getMessage());
         return redirect()->back()->withErrors(['error' => 'Terjadi kesalahan saat mendaftar: ' . $e->getMessage()])->withInput();
@@ -133,7 +133,7 @@ class userController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {   
+    {
         $users = UserProfile::with('user')->findOrFail($id);
         // dd($users);
         return view('admin.users.show', [
@@ -147,7 +147,7 @@ class userController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {   
+    {
         $provinces = Province::all();
         $users = UserProfile::with('user')->findOrFail($id);
         return view('admin.users.edit', [
@@ -194,11 +194,11 @@ class userController extends Controller
     public function destroy(string $id)
     {
         DB::beginTransaction();
-        
+
     try {
         $user = User::find($id);
         $userProfile = UserProfile::where('user_id', $id)->firstOrFail();
-        
+
         if ($userProfile->profile_image) {
             Storage::delete($userProfile->profile_image);
         }
@@ -210,16 +210,16 @@ class userController extends Controller
         return redirect()->route('users.index');
     } catch (Exception $e) {
         DB::rollBack();
-        return redirect()->route('users.index')->with('error', 'Error deleting user: ' . $e->getMessage());
+        return redirect()->route('admin.users.index')->with('error', 'Error deleting user: ' . $e->getMessage());
     }
     }
 
     public function destroyAll() {
 
-        
+
         $users = User::role('user')->get();
         $userProfiles = UserProfile::all();
-        
+
         DB::beginTransaction();
         try {
             foreach ($userProfiles as $userProfile) {
@@ -228,7 +228,7 @@ class userController extends Controller
                 }
                 $userProfile->delete();
             }
-    
+
             foreach ($users as $user) {
                 $user->removeRole('user');
                 $user->delete();
