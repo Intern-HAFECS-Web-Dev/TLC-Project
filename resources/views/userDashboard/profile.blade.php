@@ -11,12 +11,14 @@
                         <img class="h-24 rounded-full shadow-sm object-cover"
                             src="{{ asset('/storage/' . $user->profile_image) }}" alt="Bonnie image" />
 
+
                         <div class="text-center sm:text-left xl:text-center 2xl:text-left">
                             <span class="block text-white text-xl font-bold dark:text-white">
                                 {{ $user->user->name }}
                             </span>
                         </div>
                     </div>
+
 
                     <div class="flex flex-col mt-4 space-y-1">
                         <a href="{{ route('userProfile.index') }}">
@@ -43,6 +45,7 @@
                             </button>
                         </form>
                     </div>
+
                 </div>
             </div>
 
@@ -379,3 +382,4 @@
         }
     </script>
 @endsection
+

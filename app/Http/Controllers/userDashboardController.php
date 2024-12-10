@@ -173,9 +173,11 @@ class userDashboardController extends Controller
      */
     public function show(string $id)
     {
-        //$profile = $request->user();
-        // $profileId = $profile->id;
-    }
+        $users = User::where('id', $id)->firstOrFail();
+        return view('dicoding', [
+            'users' => $users
+        ]);
+    }   
 
     /**
      * Show the form for editing the specified resource.
