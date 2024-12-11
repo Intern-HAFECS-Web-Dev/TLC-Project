@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\price;
 use Illuminate\Http\Request;
 
-class paymentController extends Controller
+class PriceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.payment.index', [
-            'title' => 'Payment Transaksi'
-        ]);
+        //
     }
 
     /**
@@ -35,7 +34,7 @@ class paymentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(price $price)
     {
         //
     }
@@ -43,7 +42,7 @@ class paymentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(price $price)
     {
         //
     }
@@ -51,7 +50,7 @@ class paymentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, price $price)
     {
         //
     }
@@ -59,7 +58,7 @@ class paymentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(price $price)
     {
         //
     }

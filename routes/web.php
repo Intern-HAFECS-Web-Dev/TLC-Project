@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\provinsiController;
 use App\Http\Controllers\sertifikasiUserController;
 use App\Http\Controllers\testingController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\userDashboardController;
 use App\Http\Controllers\usersController;
@@ -70,7 +71,7 @@ Route::middleware('role:admin')->prefix('admin')->name('admin.')->group(function
     Route::resource('categori.questions', QuestionController::class);
 
     // route payment
-    Route::resource('payment/transaksi', paymentController::class);
+    Route::resource('payment/transaksi', TransactionController::class);
     
 });
 

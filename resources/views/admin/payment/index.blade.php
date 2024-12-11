@@ -146,11 +146,11 @@
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Date
+                                    ID Transaksi
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    ID Transaksi
+                                    Date Pembelian
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
@@ -158,7 +158,15 @@
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Total Harga
+                                    Harga Awal
+                                </th>
+                                <th scope="col"
+                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    Diskon
+                                </th>
+                                <th scope="col"
+                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    Harga Akhir
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
@@ -206,6 +214,14 @@
                                 </td>
 
                                 {{-- Jenis Kelamin --}}
+                                <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                    {{-- {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }} --}}
+                                </td>
+
+                                <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                    {{-- {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }} --}}
+                                </td>
+
                                 <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
                                     {{-- {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }} --}}
                                 </td>
