@@ -11,13 +11,9 @@ class paymentController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        return view('admin.payment.index');
-=======
         return view('admin.payment.index', [
             'title' => 'Pembayaran Settings'
         ]);
->>>>>>> hamas/payment
     }
 
     /**
