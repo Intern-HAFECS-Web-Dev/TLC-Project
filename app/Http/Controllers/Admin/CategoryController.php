@@ -42,11 +42,17 @@ class CategoryController extends Controller
         ]);
 
         $validation['image_categori'] = $request->file('image_categori')->store('categori', 'public');
+        try {
+            Category::create($validation);
 
-        Category::create($validation);
+            alert('success', 'Category created successfully!');
+            return redirect()->back()->with('success', 'Category created successfully!');
+        } catch (\Throwable $th) {
+            alert('error', 'Category created failed!');
+            return redirect()->back()->with('error', 'Category created failed!');
+        }
 
-        alert('success', 'Category created successfully!');
-        return redirect()->back()->with('success', 'Category created successfully!');
+
     }
 
     /**

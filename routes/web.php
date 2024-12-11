@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\adminAsesorController;
 use App\Http\Controllers\adminDashboardController;
+use App\Http\Controllers\Asesi\AsesiController;
 use App\Http\Controllers\assessorDasboardController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\paymentController;
@@ -44,6 +45,9 @@ Route::middleware(['role:user', 'user_last_seen'])->group(function () {
     Route::get('/myCertification', [userDashboardController::class, 'myCertificationIndex'])->name('myCertification.index');
     Route::get('/kategoriLevel', [userDashboardController::class, 'kategoriLevelIndex'])->name('kategoriLevel.index');
     Route::post('/updateMyProfile', [userDashboardController::class, 'myProfileStore'])->name('myProfile.update');
+
+    // soal
+    Route::get('/asesi/soal/{categori}/question', [AsesiController::class, 'index'])->name('soal.index');
 });
 
 // route admin
