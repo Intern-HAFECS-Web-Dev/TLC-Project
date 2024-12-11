@@ -9,7 +9,7 @@
                     <ol class="inline-flex items-center space-x-1 text-sm font-medium md:space-x-2">
                         <li class="inline-flex items-center">
                             <a href="{{ route('admin.users.index') }}"
-                                class="inline-flex items-center text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-white">
+                                class="inline-flex items-center text-gray-400 hover:text-primary-600 dark:text-gray-300 dark:hover:text-white">
                                 <svg class="w-5 h-5 mr-2.5" fill="currentColor" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -28,7 +28,7 @@
                                         clip-rule="evenodd"></path>
                                 </svg>
                                 <a href="{{ route('admin.asesor.index') }}"
-                                    class="ml-1 text-gray-400 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">
+                                    class="ml-1 font-semibold text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">
                                     Asesor
                                 </a>
                             </div>
@@ -176,24 +176,24 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
 
-                            @foreach ($userProfile as $user)
+                            {{-- @foreach ($userProfile as $user) --}}
                                 <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 odd:bg-red-50 even:bg-blue-50">
 
                                     {{-- checkbox --}}
                                     <td class="px-4 py-2">
-                                        {{ $loop->iteration }}
+                                        {{-- {{ $loop->iteration }} --}}
                                     </td>
 
                                     {{-- image,nama,email --}}
                                     <td class="flex items-center px-4 py-2 mr-12 space-x-6 whitespace-nowrap">
                                         <img class="w-12 h-12 rounded-lg"
-                                            src="{{ asset('/storage/' . $user->profile_image) }}" alt="avatar">
+                                            src="#" alt="avatar">
                                         <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
                                             <div class="text-base font-semibold text-gray-900 dark:text-white">
-                                                {{ $user->fullname }}
+                                                {{-- {{ $user->fullname }} --}}
                                             </div>
                                             <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                                {{ $user->user->email }}
+                                                {{-- {{ $user->user->email }} --}}
                                             </div>
                                         </div>
                                     </td>
@@ -201,31 +201,31 @@
                                     {{-- no Wa --}}
                                     <td
                                         class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
-                                        {{ $user->no_wa }}
+                                        {{-- {{ $user->no_wa }} --}}
                                     </td>
 
                                     {{-- Instansi --}}
                                     <td
                                         class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
-                                        {{ $user->instansi }}
+                                        {{-- {{ $user->instansi }} --}}
                                     </td>
 
                                     {{-- Jenis Kelamin --}}
                                     <td
                                         class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                        {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }}
+                                        {{-- {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }} --}}
                                     </td>
 
                                     {{-- Created_at --}}
                                     <td
                                         class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                        {{ $user->user->created_at->format('d-m-Y') }}
+                                        {{-- {{ $user->user->created_at->format('d-m-Y') }} --}}
                                     </td>
 
                                     {{-- Last Seen --}}
                                     <td
                                         class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                        {{ $user->user->last_seen ? $user->user->last_seen->diffForHumans() : 'Never logged in' }}
+                                        {{-- {{ $user->user->last_seen ? $user->user->last_seen->diffForHumans() : 'Never logged in' }} --}}
                                     </td>
 
                                     {{-- status --}}
@@ -239,26 +239,26 @@
                                     {{-- Action --}}
                                     <td class="px-4 py-2 space-x-2 whitespace-nowrap">
                                         {{-- Edit users --}}
-                                        <a href="{{ route('admin.users.edit', $user->id) }}"
+                                        <a href="#"
                                             class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </a>
 
                                         {{-- Delete users --}}
-                                        <a href="{{ route('admin.users.destroy', $user->user->id) }}"
+                                        <a href="#"
                                             class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900"
                                             onclick="return confirm('Yakin ingin menghapus data ini?');">
                                             <i class="fa-solid fa-trash"></i>
                                         </a>
 
                                         {{-- Show Users --}}
-                                        <a href="{{ route('admin.asesi-show', $user->id) }}"
+                                        <a href="#"
                                             class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>
                                     </td>
                                 </tr>
-                            @endforeach
+                            {{-- @endforeach --}}
                         </tbody>
                     </table>
                     {{-- table end --}}
@@ -269,7 +269,7 @@
 
     {{-- Pagination --}}
     <div class="mt-4">
-        {{ $userProfile->links() }}
+        {{-- {{ $userProfile->links() }} --}}
     </div>
 
     {{-- Pop up Delete Asesi --}}
@@ -325,3 +325,4 @@
         <p>Tindakan Ini akan membuat file excel dari data asesi.</p>
     </x-popover>
 @endsection
+

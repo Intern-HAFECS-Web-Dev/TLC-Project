@@ -2,23 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
 
-class adminDashboardController extends Controller
+class paymentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-
-        // return "ok";
-        $title = 'Dashboard';
-        $user = User::role('user')->count();
-        $asesor = User::role('asesor')->count();
-        return view('admin.dashboard.index', compact('user', 'asesor', 'title'));
+        return view('admin.payment.index', [
+            'title' => 'Pembayaran Settings'
+        ]);
     }
 
     /**
