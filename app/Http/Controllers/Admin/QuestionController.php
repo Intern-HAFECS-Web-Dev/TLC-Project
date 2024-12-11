@@ -37,7 +37,7 @@ class QuestionController extends Controller
             'question' => 'required|string|max:255',
             'answer' => 'required|array',
             'answer.*' => 'required|string|max:255',
-            'correct_answer' => 'required|integer',
+            'correct_answer' => 'required|integer|in:0,1,2,3',
         ]);
 
         DB::beginTransaction();
@@ -130,7 +130,7 @@ class QuestionController extends Controller
             $question->delete();
 
             DB::commit();
-
+            alert('success', 'Question deleted successfully!');
             return redirect()->route('admin.categori.questions.index', $categori)->with('success', 'Question deleted successfully.');
         } catch (\Exception $e) {
             DB::rollBack();
