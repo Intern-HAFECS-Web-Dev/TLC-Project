@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Exception;
 use App\Models\User;
 use App\Models\Province;
@@ -19,6 +20,7 @@ class userDashboardController extends Controller
      */
     public function index()
     {
+        // return 'ok';
         $user = Auth::user();
         $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
         $province = Province::all();
@@ -29,7 +31,8 @@ class userDashboardController extends Controller
         ]);
     }
 
-    public function sertifikasiIndex() {
+    public function sertifikasiIndex()
+    {
         // return view('userDashboard.sertifikasi');
         $user = Auth::user();
         $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
@@ -39,10 +42,10 @@ class userDashboardController extends Controller
             'province' => $province,
             'user' => $userProfile
         ]);
-
     }
 
-    public function profileIndex() {
+    public function profileIndex()
+    {
         $user = Auth::user();
         $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
         $province = Province::all();
@@ -53,7 +56,8 @@ class userDashboardController extends Controller
         ]);
     }
 
-    public function myCertificationIndex() {
+    public function myCertificationIndex()
+    {
         $user = Auth::user();
         $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
         $province = Province::all();
@@ -64,7 +68,8 @@ class userDashboardController extends Controller
         ]);
     }
 
-    public function transaksiIndex() {
+    public function transaksiIndex()
+    {
         // return view('userDashboard.transaksi');
         $user = Auth::user();
         $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
@@ -76,13 +81,16 @@ class userDashboardController extends Controller
         ]);
     }
 
-    public function kategoriLevelIndex() {
+    public function kategoriLevelIndex()
+    {
+        $category = Category::all();
         $user = Auth::user();
         $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
         $province = Province::all();
-        return view('userDashboard.kategoriLevelIndex',[
+        return view('userDashboard.kategoriLevelIndex', [
             'title' => 'Category Level',
-            'user' => $userProfile
+            'user' => $userProfile,
+            'category' => $category
         ]);
     }
 
@@ -93,7 +101,6 @@ class userDashboardController extends Controller
     public function create($id)
     {
         $dicoding = Province::find($id);
-
     }
 
     /**
@@ -105,69 +112,68 @@ class userDashboardController extends Controller
     }
 
     public function myProfileStore(Request $request)
-{
-    $validatedData = $request->validate([
-        'name' => ['required', 'string'],
-        'fullname' => ['required', 'string'],
-        'no_wa' => ['required', 'numeric', 'digits_between:1,13'],
-        'nik' => ['required', 'string', 'digits_between:1,16'],
-        'instansi' => ['required', 'string'],
-        'tempat_lahir' => ['required', 'string'],
-        'jenis_kelamin' => ['required', 'string'],
-        'tanggal_lahir' => ['required', 'date'],
-        'provinsi' => ['required', 'string'],
-        'kabupaten' => ['required', 'string'],
-        'kecamatan' => ['required', 'string'],
-        'kelurahan' => ['required', 'string'],
-        'custom_instansi' => ['nullable', 'string']
-    ]);
-
-    DB::beginTransaction();
-
-    try {
-
-        $profile = $request->user();
-        $profileId = $profile->id;
-
-        $userProfile = UserProfile::with('user')->where('user_id', $profileId)->firstOrFail();
-
-        $userProfile->update([
-            'fullname' => $validatedData['fullname'],
-            'no_wa' => $validatedData['no_wa'],
-            'nik' => $validatedData['nik'],
-            'instansi' => !empty($validatedData['custom_instansi']) ? $validatedData['custom_instansi'] : $validatedData['instansi'],
-            'tempat_lahir' => $validatedData['tempat_lahir'],
-            'jenis_kelamin' => $validatedData['jenis_kelamin'],
-            'tanggal_lahir' => $validatedData['tanggal_lahir'],
-            'provinsi' => $validatedData['provinsi'],
-            'kabupaten' => $validatedData['kabupaten'],
-            'kecamatan' => $validatedData['kecamatan'],
-            'kelurahan' => $validatedData['kelurahan'],
+    {
+        $validatedData = $request->validate([
+            'name' => ['required', 'string'],
+            'fullname' => ['required', 'string'],
+            'no_wa' => ['required', 'numeric', 'digits_between:1,13'],
+            'nik' => ['required', 'string', 'digits_between:1,16'],
+            'instansi' => ['required', 'string'],
+            'tempat_lahir' => ['required', 'string'],
+            'jenis_kelamin' => ['required', 'string'],
+            'tanggal_lahir' => ['required', 'date'],
+            'provinsi' => ['required', 'string'],
+            'kabupaten' => ['required', 'string'],
+            'kecamatan' => ['required', 'string'],
+            'kelurahan' => ['required', 'string'],
+            'custom_instansi' => ['nullable', 'string']
         ]);
 
-        $user = $userProfile->user;
-        $user->update([
-            'name' => $validatedData['name']
-        ]);
+        DB::beginTransaction();
 
-        DB::commit();
+        try {
 
-        Alert::success('Berhasil', 'Profil Anda telah diperbarui.');
-        return redirect()->route('userProfile.index');
+            $profile = $request->user();
+            $profileId = $profile->id;
 
-    } catch (Exception $e) {
-        DB::rollBack();
+            $userProfile = UserProfile::with('user')->where('user_id', $profileId)->firstOrFail();
 
-        if(!app()->isProduction()) {
-            $e->getMessage();
+            $userProfile->update([
+                'fullname' => $validatedData['fullname'],
+                'no_wa' => $validatedData['no_wa'],
+                'nik' => $validatedData['nik'],
+                'instansi' => !empty($validatedData['custom_instansi']) ? $validatedData['custom_instansi'] : $validatedData['instansi'],
+                'tempat_lahir' => $validatedData['tempat_lahir'],
+                'jenis_kelamin' => $validatedData['jenis_kelamin'],
+                'tanggal_lahir' => $validatedData['tanggal_lahir'],
+                'provinsi' => $validatedData['provinsi'],
+                'kabupaten' => $validatedData['kabupaten'],
+                'kecamatan' => $validatedData['kecamatan'],
+                'kelurahan' => $validatedData['kelurahan'],
+            ]);
+
+            $user = $userProfile->user;
+            $user->update([
+                'name' => $validatedData['name']
+            ]);
+
+            DB::commit();
+
+            Alert::success('Berhasil', 'Profil Anda telah diperbarui.');
+            return redirect()->route('userProfile.index');
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            if (!app()->isProduction()) {
+                $e->getMessage();
+            }
+
+            Log::error('Error updating profile: ' . $e->getMessage());
+
+            Alert::error('Error', 'Terjadi kesalahan saat memperbarui profil Anda.');
+            return back();
         }
-
-        Log::error('Error updating profile: ' . $e->getMessage());
-
-        Alert::error('Error', 'Terjadi kesalahan saat memperbarui profil Anda.');
-        return back();
     }
-}
     /**
      * Display the specified resource.
      */
@@ -177,7 +183,7 @@ class userDashboardController extends Controller
         return view('dicoding', [
             'users' => $users
         ]);
-    }   
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -202,5 +208,4 @@ class userDashboardController extends Controller
     {
         //
     }
-
 }
