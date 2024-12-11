@@ -2,13 +2,15 @@
 
 @section('content')
     <div class="p-4 mt-8">
-        <div class="flex justify-between mb-4">
-            <div class="flex">
-                <h1 class="text-3xl font-bold text-gray-800">Category</h1>
-            </div>
+        <div class="flex items-center justify-between w-full">
+            <a href="{{ url()->previous() }}" 
+                class="px-3 pt-2 text-white font-semibold bg-gray-500 rounded shadow hover:bg-gray-600">
+                <i class='bx bx-arrow-back bx-sm'></i>
+            </a>
+            <h1 class="text-3xl mt-2 font-bold text-gray-800 mx-auto">Category</h1>
         </div>
 
-        <main class="mx-auto border-2 p-3 border-gray-400 mb-10 rounded-md">
+        <main class="mx-auto border-2 p-3 mt-4 border-gray-400 mb-10 rounded-md">
                 <div class="bg-white">
                     {{-- <hr class="w-full py-5 mx-auto bg-blue-700 border-black"> --}}
                     <div class="flex flex-col items-center my-3">

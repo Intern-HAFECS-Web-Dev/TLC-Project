@@ -2,7 +2,14 @@
 
 @section('content')
     <div class="p-4 mt-8">
-        <h1 class="text-3xl font-bold text-gray-800">Category</h1>
+
+        <div class="flex items-center justify-between w-full">
+            <a href="{{ route('admin.categori.index') }}" 
+                class="px-3 pt-2 text-white font-semibold bg-gray-500 rounded shadow hover:bg-gray-600">
+                <i class='bx bx-arrow-back bx-sm'></i>
+            </a>
+            <h1 class="text-3xl mt-2 font-bold text-gray-800 mx-auto">Category</h1>
+        </div>
 
         <main class="mb-10 px-3 mt-4 border-2 rounded-md border-gray-400 bg-white">
             <div class="pb-5">

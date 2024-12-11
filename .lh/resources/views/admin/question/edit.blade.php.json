@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1733888946409,
@@ -12,6 +12,10 @@
                 {
                     "date": 1733895786861,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n                 <h1 class=\"text-3xl font-bold text-gray-800\">Category</h1>\n             </div>\n         </div>\n \n-        <main class=\"mx-auto border-2 p-3 border-gray-400 mb-10 rounded-md\">\n+        <main class=\"mx-auto border-2 p-3 mt-3 border-gray-400 mb-10 rounded-md\">\n             <div class=\"bg-white\">\n                 <div class=\"flex flex-col items-center my-3\">\n \n                     @if ($errors->any())\n"
+                },
+                {
+                    "date": 1733900594120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,14 @@\n @extends('dashboard.adminDashboard')\n \n @section('content')\n     <div class=\"p-4 mt-8\">\n-        <div class=\"flex justify-between\">\n-            <div class=\"flex\">\n-                <h1 class=\"text-3xl font-bold text-gray-800\">Category</h1>\n-            </div>\n+        <div class=\"flex items-center justify-between w-full\">\n+            <a href=\"{{ url()->previous() }}\" \n+                class=\"px-3 pt-2 text-white font-semibold bg-gray-500 rounded shadow hover:bg-gray-600\">\n+                <i class='bx bx-arrow-back bx-sm'></i>\n+            </a>\n+            <h1 class=\"text-3xl mt-2 font-bold text-gray-800 mx-auto\">Category</h1>\n         </div>\n \n         <main class=\"mx-auto border-2 p-3 mt-3 border-gray-400 mb-10 rounded-md\">\n             <div class=\"bg-white\">\n"
                 }
             ],
             "date": 1733888946409,
