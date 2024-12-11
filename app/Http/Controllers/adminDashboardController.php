@@ -14,6 +14,7 @@ class adminDashboardController extends Controller
     public function index()
     {
 
+        // return "ok";
         $title = 'Dashboard';
         $user = User::role('user')->count();
         $asesor = User::role('asesor')->count();
