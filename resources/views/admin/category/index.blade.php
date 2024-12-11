@@ -1,6 +1,4 @@
 @extends('dashboard.adminDashboard')
-
-
 @section('content')
     <div
         class="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
@@ -77,12 +75,17 @@
                             </div>
                             <!-- Isi Modal -->
                             <div class="p-4">
-                                <form action="{{ route('admin.categori.store') }}" method="POST">
+                                <form action="{{ route('admin.categori.store') }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <label for="name" class="block text-sm font-medium text-gray-700">Category
                                         Name</label>
                                     <input type="text" id="name" name="name"
                                         class="w-full p-2 mt-2 border rounded" placeholder="Enter category name">
+
+                                    <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
+                                    <input type="file" id="image" name="image_categori"
+                                        class="w-full p-2 mt-2 border rounded" placeholder="input image">
                                     <button type="submit"
                                         class="px-4 py-2 mt-4 text-white bg-green-500 rounded shadow hover:bg-green-600">
                                         Save
@@ -91,7 +94,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -100,195 +102,53 @@
         <div class="overflow-x-auto">
             <div class="inline-block min-w-full align-middle">
                 <div class="overflow-hidden shadow">
+                    <div class="gap-1 px-4 py-8 lg:flex lg:px-auto lg:flex-wrap lg:justify-center gap-x-8 gap-y-6">
+                        @forelse ($categoris as $category)
+                            <div
+                                class="mb-5 lg:mb-0 bg-white w-full h-[164px] md:h-[197px] shadow-md rounded-lg overflow-hidden lg:w-[350px] lg:h-[236px]">
+                                {{-- <img src="{{ Storage::url($category->image_categori) }}" alt="Category Image" --}}
+                                <img src="{{ asset('/storage/' . $category->image_categori) }}" alt="Category Image"
 
-                    <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600">
-                        <thead class="bg-gray-700 dark:bg-gray-700">
-                            <tr>
+                                    class="h-28 md:h-36 w-full lg:h-[177px] object-cover">
+                                <div class="flex justify-between px-4 pt-2 pb-0 lg:py-2">
+                                    <h3
+                                        class="pt-1.5 md:pt-2 text-sm font-semibold md:text-base md:font-semibold lg:text-lg lg:font-bold ">
+                                        {{ $category->name }}</h3>
 
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    No
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Name
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    No HP
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Instansi
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Jenis Kelamin
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Created_at
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Last Seen
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Status
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Actions
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+                                    <button type="button"
+                                        onclick="window.location.href='{{ route('admin.categori.questions.index', $category) }}';"
+                                        class="pt-1.5 md:py-auto md:pt-2 w-24 text-birutua bg-white border border-biru hover:bg-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center">
+                                        show
+                                        <i class="fas fa-eye ms-2"></i>
+                                    </button>
 
-                            {{-- @foreach ($userProfile as $user) --}}
-                            <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 odd:bg-red-50 even:bg-blue-50">
-
-                                {{-- checkbox --}}
-                                <td class="px-4 py-2">
-                                    {{-- {{ $loop->iteration }} --}}
-                                </td>
-
-                                {{-- image,nama,email --}}
-                                <td class="flex items-center px-4 py-2 mr-12 space-x-6 whitespace-nowrap">
-                                    <img class="w-12 h-12 rounded-lg" src="#" alt="avatar">
-                                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                        <div class="text-base font-semibold text-gray-900 dark:text-white">
-                                            {{-- {{ $user->fullname }} --}}
-                                        </div>
-                                        <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                            {{-- {{ $user->user->email }} --}}
-                                        </div>
-                                    </div>
-                                </td>
-
-                                {{-- no Wa --}}
-                                <td
-                                    class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
-                                    {{-- {{ $user->no_wa }} --}}
-                                </td>
-
-                                {{-- Instansi --}}
-                                <td
-                                    class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
-                                    {{-- {{ $user->instansi }} --}}
-                                </td>
-
-                                {{-- Jenis Kelamin --}}
-                                <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                    {{-- {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }} --}}
-                                </td>
-
-                                {{-- Created_at --}}
-                                <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                    {{-- {{ $user->user->created_at->format('d-m-Y') }} --}}
-                                </td>
-
-                                {{-- Last Seen --}}
-                                <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                    {{-- {{ $user->user->last_seen ? $user->user->last_seen->diffForHumans() : 'Never logged in' }} --}}
-                                </td>
-
-                                {{-- status --}}
-                                <td
-                                    class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div class="flex items-center">
-                                        <p>status</p>
-                                    </div>
-                                </td>
-
-                                {{-- Action --}}
-                                <td class="px-4 py-2 space-x-2 whitespace-nowrap">
-                                    {{-- Edit users --}}
-                                    <a href="#"
+                                    <button type="button"
+                                        onclick="window.location.href='{{ route('admin.categori.edit', $category) }}';"
                                         class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                                        edit
                                         <i class="fa-solid fa-pen-to-square"></i>
-                                    </a>
+                                    </button>
 
-                                    {{-- Delete users --}}
-                                    <a href="#"
-                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900"
-                                        onclick="return confirm('Yakin ingin menghapus data ini?');">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
+                                    <form action="{{ route('admin.categori.destroy', $category) }}" method="post">
+                                        @csrf
 
-                                    {{-- Show Users --}}
-                                    <a href="#"
-                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            {{-- @endforeach --}}
-                        </tbody>
-                    </table>
-                    {{-- table end --}}
+                                        @method('delete')
+                                        <button type="submit" onclick="return confirm('Are you sure?')"
+                                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                                            delete
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        @empty
+                            <p>Tidak ada kategori</p>
+                        @endforelse
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    {{-- Pagination --}}
-    <div class="mt-4">
-        {{-- {{ $userProfile->links() }} --}}
-    </div>
-
-    {{-- Pop up Delete Asesi --}}
-    <div id="popup-modal" tabindex="-1"
-        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative w-full max-w-md max-h-full p-4">
-            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <button type="button"
-                    class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                    data-modal-hide="popup-modal">
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 14 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-                <div class="p-4 text-center md:p-5">
-                    <svg class="w-12 h-12 mx-auto mb-4 text-gray-400 dark:text-gray-200" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
-                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah anda yakin ingin delete
-                        all asesi? tindakan ini tidak dapat di kembalikan</h3>
-                    <button data-modal-hide="popup-modal" type="button"
-                        class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
-                        <a href="{{ route('admin.deleteAllUsers') }}">
-                            Yes, Saya yakin
-                        </a>
-                    </button>
-                    <button data-modal-hide="popup-modal" type="button"
-                        class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">No,
-                        cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- popOver Delete --}}
-    <x-popover title="Delete All Users" id="popover-delete">
-        <strong class="text-red-500">Warning!!</strong>
-        <p>Tindakan Ini akan menghapus semua pengguna dari sistem.</p>
-    </x-popover>
-
-    {{-- popOver addUser --}}
-    <x-popover title="Add Users" id="popover-addUser">
-        <p>Tindakan Ini akan menambahkan users baru kedalam database.</p>
-    </x-popover>
-
-    {{-- popOver Export --}}
-    <x-popover title="Export Asesi" id="popover-export">
-        <p>Tindakan Ini akan membuat file excel dari data asesi.</p>
-    </x-popover>
 
     <!-- Script -->
     <script>

@@ -6,6 +6,7 @@ use App\Http\Controllers\adminAsesorController;
 use App\Http\Controllers\adminDashboardController;
 use App\Http\Controllers\assessorDasboardController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\paymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\provinsiController;
 use App\Http\Controllers\sertifikasiUserController;
@@ -22,6 +23,8 @@ Route::get('/', function () {
         'title' => 'HomePage',
     ]);
 });
+
+// return view('welcome');
 
 Route::resource('assessorDashboard', assessorDasboardController::class)->middleware('role:asesor');
 
@@ -65,6 +68,10 @@ Route::middleware('role:admin')->prefix('admin')->name('admin.')->group(function
     // route soal asesi
     Route::resource('categori', CategoryController::class);
     Route::resource('categori.questions', QuestionController::class);
+
+    // route payment
+    Route::resource('payment/transaksi', paymentController::class);
+    
 });
 
 Route::get('/regencies/{provinceId}', [provinsiController::class, 'getRegencies']);

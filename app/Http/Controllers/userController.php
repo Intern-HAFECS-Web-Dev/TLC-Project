@@ -41,7 +41,7 @@ class userController extends Controller
             ->withQueryString();
 
         $users = User::role('user')->get();
-
+        
         return view('admin.users.index', [
             'title' => 'Asesi Index',
             'users' => $users,
@@ -121,7 +121,8 @@ class userController extends Controller
 
         $userProfile->save();
         Alert::success('success', 'Data User Baru Berhasil Ditambahkan!');
-        return redirect()->route('users.index')->with('success', 'Data berhasil disimpan');
+        return redirect()->route('admin.users.index')->with('success', 'Data berhasil disimpan');
+        
 
     } catch (Exception $e) {
         Log::error('User registration failed: ' . $e->getMessage());

@@ -12,7 +12,8 @@
 
 <body>
     <header>
-        <nav class="fixed top-0 z-50 w-full bg-gradient-to-r from-biru to-blue-500 dark:bg-gray-800 dark:border-gray-700">
+        <nav
+            class="fixed top-0 z-50 w-full bg-gradient-to-r from-biru to-blue-500 dark:bg-gray-800 dark:border-gray-700">
             <div class="px-3 py-3 lg:px-5 lg:pl-3">
                 <div class="flex items-center justify-between">
 
@@ -117,8 +118,7 @@
                     <a href="{{ route('admin.dashboard.index') }}"
                         class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
                         <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#FBCB04"
-                            viewBox="0 0 22 21">
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#FBCB04" viewBox="0 0 22 21">
                             <path
                                 d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
                             <path
@@ -129,14 +129,11 @@
                 </li>
                 <li>
                     <button
-                    class="flex items-center w-full p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group"
-                    aria-controls="dropdown-example"
-                    data-collapse-toggle="dropdown-example"
-                    type="button">
+                        class="flex items-center w-full p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group"
+                        aria-controls="dropdown-example" data-collapse-toggle="dropdown-example" type="button">
 
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#FBCB04"
-                            viewBox="0 0 20 18">
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#FBCB04" viewBox="0 0 20 18">
                             <path
                                 d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
                         </svg>
@@ -148,19 +145,22 @@
 
                     <ul id="dropdown-example" class="hidden py-2 space-y-2">
                         <li>
-                            <a href="{{ route('admin.users.index') }}" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
+                            <a href="{{ route('admin.users.index') }}"
+                                class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
                                 <i class="mr-2 fa-solid fa-user"></i>
                                 <p>Asesi</p>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.asesor.index') }}" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
+                            <a href="{{ route('admin.asesor.index') }}"
+                                class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
                                 <i class="mr-2 fa-solid fa-user"></i>
                                 <p>Asesor</p>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
+                            <a href="#"
+                                class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
                                 <i class="mr-2 fa-solid fa-user"></i>
                                 <p>Admin</p>
                             </a>
@@ -169,80 +169,103 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('admin.categori.index') }}"
-                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
+                    <button
+                        class="flex items-center w-full p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group"
+                        aria-controls="dropdown-level" data-collapse-toggle="dropdown-level" type="button">
 
-                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            width="24" height="24" fill="#FBCB04" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd" d="M14 4.182A4.136 4.136 0 0 1 16.9 3c1.087 0 2.13.425 2.899 1.182A4.01 4.01 0 0 1 21 7.037c0 1.068-.43 2.092-1.194 2.849L18.5 11.214l-5.8-5.71 1.287-1.31.012-.012Zm-2.717 2.763L6.186 12.13l2.175 2.141 5.063-5.218-2.141-2.108Zm-6.25 6.886-1.98 5.849a.992.992 0 0 0 .245 1.026 1.03 1.03 0 0 0 1.043.242L10.282 19l-5.25-5.168Zm6.954 4.01 5.096-5.186-2.218-2.183-5.063 5.218 2.185 2.15Z" clip-rule="evenodd"/>
-                          </svg>
-
-                        <span class="flex-1 ms-3 whitespace-nowrap">Level A</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#"
-                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
-
-                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            width="24" height="24" fill="#FBCB04" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd" d="M14 4.182A4.136 4.136 0 0 1 16.9 3c1.087 0 2.13.425 2.899 1.182A4.01 4.01 0 0 1 21 7.037c0 1.068-.43 2.092-1.194 2.849L18.5 11.214l-5.8-5.71 1.287-1.31.012-.012Zm-2.717 2.763L6.186 12.13l2.175 2.141 5.063-5.218-2.141-2.108Zm-6.25 6.886-1.98 5.849a.992.992 0 0 0 .245 1.026 1.03 1.03 0 0 0 1.043.242L10.282 19l-5.25-5.168Zm6.954 4.01 5.096-5.186-2.218-2.183-5.063 5.218 2.185 2.15Z" clip-rule="evenodd"/>
-                          </svg>
-
-                        <span class="flex-1 ms-3 whitespace-nowrap">Level B</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#"
-                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
-
-                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            width="24" height="24" fill="#FBCB04" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd" d="M14 4.182A4.136 4.136 0 0 1 16.9 3c1.087 0 2.13.425 2.899 1.182A4.01 4.01 0 0 1 21 7.037c0 1.068-.43 2.092-1.194 2.849L18.5 11.214l-5.8-5.71 1.287-1.31.012-.012Zm-2.717 2.763L6.186 12.13l2.175 2.141 5.063-5.218-2.141-2.108Zm-6.25 6.886-1.98 5.849a.992.992 0 0 0 .245 1.026 1.03 1.03 0 0 0 1.043.242L10.282 19l-5.25-5.168Zm6.954 4.01 5.096-5.186-2.218-2.183-5.063 5.218 2.185 2.15Z" clip-rule="evenodd"/>
-                          </svg>
-
-                        <span class="flex-1 ms-3 whitespace-nowrap">Level C</span>
-                    </a>
-                </li>
-
-                {{-- <li>
-                    <a href="#"
-                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
-                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FBCB04" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd" d="M3 5.983C3 4.888 3.895 4 5 4h14c1.105 0 2 .888 2 1.983v8.923a1.992 1.992 0 0 1-2 1.983h-6.6l-2.867 2.7c-.955.899-2.533.228-2.533-1.08v-1.62H5c-1.105 0-2-.888-2-1.983V5.983Zm5.706 3.809a1 1 0 1 0-1.412 1.417 1 1 0 1 0 1.412-1.417Zm2.585.002a1 1 0 1 1 .003 1.414 1 1 0 0 1-.003-1.414Zm5.415-.002a1 1 0 1 0-1.412 1.417 1 1 0 1 0 1.412-1.417Z" clip-rule="evenodd"/>
-                          </svg>
-
-                        <span class="flex-1 ms-3 whitespace-nowrap">Testimoni</span>
-                    </a>
-                </li> --}}
-
-
-                <li>
-                    <a href="#"
-                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#FBCB04"
                             viewBox="0 0 18 20">
                             <path
                                 d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
                         </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Payment</span>
-                    </a>
+                        <span class="flex justify-start ms-3 whitespace-nowrap">Levels</span>
+                        <div class="ml-auto">
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+                    </button>
+
+                    <ul id="dropdown-level" class="hidden py-2 space-y-2">
+                        <li>
+                            <a href="{{ route('admin.categori.index') }}"
+                                class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
+                                <i class="mr-2 fa-solid fa-layer-group"></i>
+                                <p>A</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.asesor.index') }}"
+                                class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
+                                <i class="mr-2 fa-solid fa-layer-group"></i>
+                                <p>B</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
+                                <i class="mr-2 fa-solid fa-layer-group"></i>
+                                <p>C</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
+                <li>
+                    <button
+                        class="flex items-center w-full p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group"
+                        aria-controls="dropdown-payment" data-collapse-toggle="dropdown-payment" type="button">
+
+                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#FBCB04"
+                            viewBox="0 0 18 20">
+                            <path
+                                d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
+                        </svg>
+                        <span class="flex justify-start ms-3 whitespace-nowrap">Payments</span>
+                        <div class="ml-auto">
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+                    </button>
+
+                    <ul id="dropdown-payment" class="hidden py-2 space-y-2">
+                        <li>
+                            <a href="{{ route('admin.transaksi.index') }}"
+                                class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
+                                <i class="mr-2 fa-solid fa-money-check-dollar"></i>
+                                <p>Transaksi</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.asesor.index') }}"
+                                class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
+                                <i class="mr-2 fa-solid fa-sack-dollar"></i>
+                                <p>Price</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
+                                <i class="mr-2 fa-solid fa-gear"></i>
+                                <p>Settings</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
 
                 <li>
                     <a href="#"
                         class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-700 group">
-                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FBCB04" viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-width="2" d="M3 11h18M3 15h18m-9-4v8m-8 0h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/>
-                          </svg>
+                        <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            fill="#FBCB04" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-width="2"
+                                d="M3 11h18M3 15h18m-9-4v8m-8 0h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z" />
+                        </svg>
 
                         <span class="flex-1 ms-3 whitespace-nowrap">Certificate</span>
                     </a>
                 </li>
-
 
                 <li>
                     <a href="#"
@@ -286,4 +309,5 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @include('sweetalert::alert')
 </body>
+
 </html>

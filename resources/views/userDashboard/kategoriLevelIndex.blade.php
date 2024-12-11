@@ -2,24 +2,24 @@
 @section('content')
     <p class="bg-biru h-36"></p>
 
-    <main class="container mx-auto mb-10 mt-10">
+    <main class="container mx-auto mt-10 mb-10">
         <div class="px-3">
             <div class="pb-5 bg-white shadow-xl">
-                <h1 class="lg:text-xl font-semibold text-gray-900 px-5 pt-5 mb-2">Kuis</h1>
-                <p class="lg:text-base text-sm font-normal text-gray-900 px-5 mb-2">Daftar kategori kuis yang akan anda
+                <h1 class="px-5 pt-5 mb-2 font-semibold text-gray-900 lg:text-xl">Kuis</h1>
+                <p class="px-5 mb-2 text-sm font-normal text-gray-900 lg:text-base">Daftar kategori kuis yang akan anda
                     kerjakan.</p>
-                <hr class="border-gray-400 w-full mx-auto mb-5">
-                <div class="flex text-center justify-center md:justify-start lg:justify-start gap-2 text-sm mb-3 px-3">
+                <hr class="w-full mx-auto mb-5 border-gray-400">
+                <div class="flex justify-center gap-2 px-3 mb-3 text-sm text-center md:justify-start lg:justify-start">
                     <a href="" class="bg-[#2E4D69] text-white w-16 py-2 rounded-full">Semua</a>
                     <a href="" class="bg-[#E1E0F1] w-24 py-2 rounded-full">Terbuka</a>
                     <a href="" class="bg-[#E1E0F1] w-20 py-2 rounded-full">Terkunci</a>
                 </div>
-                <div class="lg:flex lg:px-auto lg:flex-wrap lg:justify-center gap-x-8 gap-y-6 gap-1 py-8 px-4">
+                <div class="gap-1 px-4 py-8 lg:flex lg:px-auto lg:flex-wrap lg:justify-center gap-x-8 gap-y-6">
                     <div
                         class="mb-5 lg:mb-0 bg-white w-full h-[164px] md:h-[197px] shadow-md rounded-lg overflow-hidden lg:w-[350px] lg:h-[236px]">
                         <img src="https://via.placeholder.com/400x200" alt="Category Image"
                             class="h-28 md:h-36 w-full lg:h-[177px] object-cover">
-                        <div class="px-4 lg:py-2 pt-2 pb-0 flex justify-between">
+                        <div class="flex justify-between px-4 pt-2 pb-0 lg:py-2">
                             <h3
                                 class="pt-1.5 md:pt-2 text-sm font-semibold md:text-base md:font-semibold lg:text-lg lg:font-bold ">
                                 Kategori : Literasi</h3>
@@ -48,26 +48,26 @@
                             <!-- Main modal -->
                             <div id="default-modal" tabindex="-1" aria-hidden="true"
                                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                                <div class="relative p-4 w-full max-w-2xl max-h-full">
+                                <div class="relative w-full max-w-2xl max-h-full p-4">
                                     <!-- Modal content -->
                                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                         <!-- Modal header -->
                                         <div
-                                            class="flex items-center justify-center p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                            class="flex items-center justify-center p-4 border-b rounded-t md:p-5 dark:border-gray-600">
                                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">
                                                 PERHATIAN!!!
                                             </h3>
 
                                         </div>
                                         <!-- Modal body -->
-                                        <div class="p-4 md:p-5 space-y-4">
+                                        <div class="p-4 space-y-4 md:p-5">
                                             <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                                                 Dengan menekan tombol 'Mulai', Anda setuju bahwa waktu tes akan otomatis berjalan hingga selesai atau batas waktu habis. Pastikan persiapan Anda lengkap, termasuk koneksi internet stabil dan perangkat mendukung, karena waktu tidak dapat dijeda. Periksa sisa waktu secara berkala agar dapat menyelesaikan tes dengan optimal, karena akses akan ditutup otomatis saat waktu habis.
                                             </p>
                                         </div>
                                         <!-- Modal footer -->
                                         <div
-                                            class="flex items-center justify-center gap-2 p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                                            class="flex items-center justify-center gap-2 p-4 border-t border-gray-200 rounded-b md:p-5 dark:border-gray-600">
                                             <button data-modal-hide="default-modal" type="button"
                                                 class="py-2.5 px-5 ms-3 text-base font-medium text-red-900 focus:outline-none bg-white rounded-lg border border-red-200 hover:bg-red-100 hover:text-red-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 ">Batalkan</button>
                                             <button data-modal-hide="default-modal" type="button"
@@ -81,11 +81,13 @@
                         </div>
                     </div>
 
+
+
                     <div
                         class="mb-5 lg:mb-0 bg-white w-full h-[164px] md:h-[197px] shadow-md rounded-lg overflow-hidden lg:w-[350px] lg:h-[236px]">
                         <img src="https://via.placeholder.com/400x200" alt="Category Image"
                             class="h-28 md:h-36 w-full lg:h-[177px] object-cover">
-                        <div class="px-4 lg:py-2 pt-2 pb-0 flex justify-between">
+                        <div class="flex justify-between px-4 pt-2 pb-0 lg:py-2">
                             <h3
                                 class="pt-1.5 md:pt-2 text-sm font-semibold md:text-base md:font-semibold lg:text-lg lg:font-bold ">
                                 Kategori : Numerasi</h3>
@@ -101,7 +103,7 @@
                         class="mb-5 lg:mb-0 bg-white w-full h-[164px] md:h-[197px] shadow-md rounded-lg overflow-hidden lg:w-[350px] lg:h-[236px]">
                         <img src="https://via.placeholder.com/400x200" alt="Category Image"
                             class="h-28 md:h-36 w-full lg:h-[177px] object-cover">
-                        <div class="px-4 lg:py-2 pt-2 pb-0 flex justify-between">
+                        <div class="flex justify-between px-4 pt-2 pb-0 lg:py-2">
                             <h3
                                 class="pt-1.5 md:pt-2 text-sm font-semibold md:text-base md:font-semibold lg:text-lg lg:font-bold ">
                                 Kategori : PCK</h3>
@@ -117,7 +119,7 @@
                         class="mb-5 lg:mb-0 bg-white w-full h-[164px] md:h-[197px] shadow-md rounded-lg overflow-hidden lg:w-[350px] lg:h-[236px]">
                         <img src="https://via.placeholder.com/400x200" alt="Category Image"
                             class="h-28 md:h-36 w-full lg:h-[177px] object-cover">
-                        <div class="px-4 lg:py-2 pt-2 pb-0 flex justify-between">
+                        <div class="flex justify-between px-4 pt-2 pb-0 lg:py-2">
                             <h3
                                 class="pt-1.5 md:pt-2 text-sm font-semibold md:text-base md:font-semibold lg:text-lg lg:font-bold ">
                                 Kategori : HOTS</h3>

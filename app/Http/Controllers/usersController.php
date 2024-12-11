@@ -35,7 +35,7 @@ class usersController extends Controller
             }
             DB::commit();
             
-            return redirect()->route('users.index');
+            return redirect()->route('admin.asesor.index');
         }
         catch(Exception $e) {
             Log::error('Input Users Failed: ' . $e->getMessage());

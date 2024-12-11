@@ -8,15 +8,15 @@
                 <nav class="flex mt-4 mb-5" aria-label="Breadcrumb">
                     <ol class="inline-flex items-center space-x-1 text-sm font-medium md:space-x-2">
                         <li class="inline-flex items-center">
-                            <a href="{{ route('admin.users.index') }}"
-                                class="inline-flex items-center text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-white">
+                            <a href="{{ route('admin.transaksi.index') }}"
+                                class="inline-flex items-center font-semibold text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-white">
                                 <svg class="w-5 h-5 mr-2.5" fill="currentColor" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
                                     </path>
                                 </svg>
-                                Asesi
+                                Transaksi
                             </a>
                         </li>
                         <li>
@@ -29,7 +29,7 @@
                                 </svg>
                                 <a href="{{ route('admin.asesor.index') }}"
                                     class="ml-1 text-gray-400 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">
-                                    Asesor
+                                    Price
                                 </a>
                             </div>
                         </li>
@@ -42,7 +42,7 @@
                                         clip-rule="evenodd"></path>
                                 </svg>
                                 <span class="ml-1 text-gray-400 md:ml-2 dark:text-gray-500" aria-current="page">
-                                    Admin
+                                    Settings
                                 </span>
                             </div>
                         </li>
@@ -102,17 +102,17 @@
                     <a href="{{ route('admin.users.create') }}">
                         <button
                             class="inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                            data-popover-target="popover-addUser" data-popover-placement="bottom">
+                            data-popover-target="popover-export" data-popover-placement="bottom">
                             <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
-                                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                    d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z"
                                     clip-rule="evenodd"></path>
                             </svg>
-                            Add user
+                            Export excel
                         </button>
                     </a>
-                    <a href="#"
+                    {{-- <a href="#"
                         class="inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
                         data-popover-target="popover-export" data-popover-placement="bottom">
                         <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20"
@@ -122,7 +122,7 @@
                                 clip-rule="evenodd"></path>
                         </svg>
                         Export
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </div>
@@ -146,23 +146,19 @@
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    No HP
+                                    Date
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Instansi
+                                    ID Transaksi
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Jenis Kelamin
+                                    Pembelian
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Created_at
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Last Seen
+                                    Total Harga
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
@@ -176,89 +172,81 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
 
-                            @foreach ($userProfile as $user)
-                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 odd:bg-red-50 even:bg-blue-50">
+                            {{-- @foreach ($userProfile as $user) --}}
+                            <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 odd:bg-red-50 even:bg-blue-50">
 
-                                    {{-- checkbox --}}
-                                    <td class="px-4 py-2">
-                                        {{ $loop->iteration }}
-                                    </td>
+                                {{-- checkbox --}}
+                                <td class="px-4 py-2">
+                                    {{-- {{ $loop->iteration }} --}}
+                                </td>
 
-                                    {{-- image,nama,email --}}
-                                    <td class="flex items-center px-4 py-2 mr-12 space-x-6 whitespace-nowrap">
-                                        <img class="w-12 h-12 rounded-lg"
-                                            src="{{ asset('/storage/' . $user->profile_image) }}" alt="avatar">
+                                {{-- image,nama,email --}}
+                                <td class="flex items-center px-4 py-2 mr-12 space-x-6 whitespace-nowrap">
+                                    <img class="w-12 h-12 rounded-lg" src="#" alt="avatar">
+                                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
+                                        <div class="text-base font-semibold text-gray-900 dark:text-white">
+                                            {{-- {{ $user->fullname }} --}}
+                                        </div>
                                         <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                            <div class="text-base font-semibold text-gray-900 dark:text-white">
-                                                {{ $user->fullname }}
-                                            </div>
-                                            <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                                {{ $user->user->email }}
-                                            </div>
+                                            {{-- {{ $user->user->email }} --}}
                                         </div>
-                                    </td>
+                                    </div>
+                                </td>
 
-                                    {{-- no Wa --}}
-                                    <td
-                                        class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
-                                        {{ $user->no_wa }}
-                                    </td>
+                                {{-- no Wa --}}
+                                <td
+                                    class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
+                                    {{-- {{ $user->no_wa }} --}}
+                                </td>
 
-                                    {{-- Instansi --}}
-                                    <td
-                                        class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
-                                        {{ $user->instansi }}
-                                    </td>
+                                {{-- Instansi --}}
+                                <td
+                                    class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
+                                    {{-- {{ $user->instansi }} --}}
+                                </td>
 
-                                    {{-- Jenis Kelamin --}}
-                                    <td
-                                        class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                        {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }}
-                                    </td>
+                                {{-- Jenis Kelamin --}}
+                                <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                    {{-- {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }} --}}
+                                </td>
 
-                                    {{-- Created_at --}}
-                                    <td
-                                        class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                        {{ $user->user->created_at->format('d-m-Y') }}
-                                    </td>
+                                {{-- Created_at --}}
+                                <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                    {{-- {{ $user->user->created_at->format('d-m-Y') }} --}}
+                                </td>
 
-                                    {{-- Last Seen --}}
-                                    <td
-                                        class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                        {{ $user->user->last_seen ? $user->user->last_seen->diffForHumans() : 'Never logged in' }}
-                                    </td>
+                                {{-- Last Seen --}}
+                                {{-- status --}}
+                                <td
+                                    class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="flex items-center">
+                                        <p>status</p>
+                                    </div>
+                                </td>
 
-                                    {{-- status --}}
-                                    <td
-                                        class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                        <div class="flex items-center">
-                                            <p>status</p>
-                                        </div>
-                                    </td>
+                                {{-- Action --}}
+                                <td class="px-4 py-2 space-x-2 whitespace-nowrap">
+                                    {{-- Edit users --}}
+                                    <a href="#"
+                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
 
-                                    {{-- Action --}}
-                                    <td class="px-4 py-2 space-x-2 whitespace-nowrap">
-                                        {{-- Edit users --}}
-                                        <a href="{{ route('admin.users.edit', $user->id) }}"
-                                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </a>
+                                    {{-- Delete users --}}
+                                    <a href="#"
+                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900"
+                                        onclick="return confirm('Yakin ingin menghapus data ini?');">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
 
-                                        {{-- Delete users --}}
-                                        <a href="{{ route('admin.users.destroy', $user->user->id) }}"
-                                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900"
-                                            onclick="return confirm('Yakin ingin menghapus data ini?');">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </a>
-
-                                        {{-- Show Users --}}
-                                        <a href="{{ route('admin.asesi-show', $user->id) }}"
-                                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
-                                            <i class="fa-solid fa-eye"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
+                                    {{-- Show Users --}}
+                                    <a href="#"
+                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {{-- @endforeach --}}
                         </tbody>
                     </table>
                     {{-- table end --}}
@@ -269,7 +257,7 @@
 
     {{-- Pagination --}}
     <div class="mt-4">
-        {{ $userProfile->links() }}
+        {{-- {{ $userProfile->links() }} --}}
     </div>
 
     {{-- Pop up Delete Asesi --}}
@@ -310,14 +298,14 @@
     </div>
 
     {{-- popOver Delete --}}
-    <x-popover title="Delete All Users" id="popover-delete">
+    <x-popover title="Delete All Transaction" id="popover-delete">
         <strong class="text-red-500">Warning!!</strong>
-        <p>Tindakan Ini akan menghapus semua pengguna dari sistem.</p>
+        <p>Tindakan Ini akan menghapus semua Transaksi dari sistem.</p>
     </x-popover>
 
-    {{-- popOver addUser --}}
-    <x-popover title="Add Users" id="popover-addUser">
-        <p>Tindakan Ini akan menambahkan users baru kedalam database.</p>
+    {{-- popOver Transaksi --}}
+    <x-popover title="Export Excel" id="popover-export">
+        <p>Tindakan Ini akan Membuat file excel dari data transaksi</p>
     </x-popover>
 
     {{-- popOver Export --}}
