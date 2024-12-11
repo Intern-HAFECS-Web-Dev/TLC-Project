@@ -70,7 +70,7 @@ Route::middleware('role:admin')->prefix('admin')->name('admin.')->group(function
     Route::resource('categori.questions', QuestionController::class);
 
     // route payment
-    Route::resource('payment/settings', paymentController::class);
+    Route::resource('payment/transaksi', paymentController::class);
     
 });
 

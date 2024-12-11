@@ -20,7 +20,6 @@ class UserProfile extends Model
         'tempat_lahir',
         'tanggal_lahir',
         'jenis_kelamin',
-        'alamat_jalan',
         'no_wa',
         'profile_image',
         'provinsi', // Include foreign key fields

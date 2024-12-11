@@ -3,10 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\UserProfile;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
-class UserProfileSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,24 +18,28 @@ class UserProfileSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        // Generate 50 fake user profiles
         for ($i = 0; $i < 50; $i++) {
+            $user = User::create([
+                'name' => $faker->name,
+                'email' => $faker->unique()->safeEmail,
+                'password' => bcrypt('password'),
+            ])->assignRole('user');
+
             UserProfile::create([
-                'user_id' => $faker->numberBetween(1, 50), // Assuming user IDs are between 1 and 50
+                'user_id' => $user->id,
                 'nik' => $faker->numerify('################'),
                 'fullname' => $faker->name,
                 'instansi' => $faker->company,
                 'tempat_lahir' => $faker->city,
-                'tanggal_lahir' => $faker->date('Y-m-d', '2005-12-31'), // Random date before 2005
-                'jenis_kelamin' => $faker->randomElement(['Laki-laki', 'Perempuan']),
-                // 'alamat_jalan' => $faker->address,
+                'tanggal_lahir' => $faker->date('Y-m-d', '2005-12-31'), 
+                'jenis_kelamin' => $faker->randomElement(['L', 'P']),
                 'no_wa' => $faker->phoneNumber,
-                'profile_image' => $faker->imageUrl(200, 200, 'people'), // Placeholder image
-                'provinsi' => $faker->city,
+                'profile_image' => 'images/blankProfile.png', 
+                'provinsi' =>  $faker->city,
                 'kabupaten' => $faker->city,
                 'kelurahan' => $faker->city,
                 'kecamatan' => $faker->city,
-                // 'custom_instansi' => $faker->null
+                // 'custom_instansi' => $faker->companySuffix,
             ]);
         }
     }
