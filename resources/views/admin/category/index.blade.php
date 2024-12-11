@@ -106,7 +106,9 @@
                         @forelse ($categoris as $category)
                             <div
                                 class="mb-5 lg:mb-0 bg-white w-full h-[164px] md:h-[197px] shadow-md rounded-lg overflow-hidden lg:w-[350px] lg:h-[236px]">
-                                <img src="{{ Storage::url($category->image_categori) }}" alt="Category Image"
+                                {{-- <img src="{{ Storage::url($category->image_categori) }}" alt="Category Image" --}}
+                                <img src="{{ asset('/storage/' . $category->image_categori) }}" alt="Category Image"
+
                                     class="h-28 md:h-36 w-full lg:h-[177px] object-cover">
                                 <div class="flex justify-between px-4 pt-2 pb-0 lg:py-2">
                                     <h3

@@ -12,7 +12,7 @@ class paymentController extends Controller
     public function index()
     {
         return view('admin.payment.index', [
-            'title' => 'Pembayaran Settings'
+            'title' => 'Payment Transaksi'
         ]);
     }
 
