@@ -3,19 +3,18 @@
 namespace App\Http\Controllers\Asesi;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\Question;
+use App\Models\UserAnswer;
 use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\Return_;
 
-class AsesiController extends Controller
+class AsesiAnswerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Category $categori )
+    public function index()
     {
-        $questions = $categori->questions()->get();
-        return view('userDashboard.asesi.question', compact('categori', 'questions'))->with('title', 'Question');
+        //
     }
 
     /**
@@ -25,14 +24,26 @@ class AsesiController extends Controller
     {
         //
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(Request $request)
     {
-        //
+        $answers = $request->input('answers');
+    
+        foreach ($answers as $questionId => $answerId) {
+            UserAnswer::create([
+                'question_id' => $questionId,
+                'user_id' => auth()->user()->id,
+                'answer' => $answerId,
+            ]);
+        }
+
+        // return "ok";
+    
+        return redirect()->route('kategoriLevel.index')
+            ->with('success', 'All answers have been submitted successfully!');
     }
+    
+
 
     /**
      * Display the specified resource.
