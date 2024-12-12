@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('price');
-            $table->string('regulation');
-            $table->string('benefit');
-            $table->string('discount');
+            $table->string('title')->nullable();
+            $table->decimal('price', 10,2)->default(0.00);
+            $table->string('regulation')->default('');
+            $table->string('benefit')->default('');
+            $table->decimal('discount', 5,2)->default(0.00);
             $table->timestamps();
         });
     }

@@ -8,6 +8,7 @@ use App\Http\Controllers\Asesi\AsesiController;
 use App\Http\Controllers\assessorDasboardController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\paymentController;
+use App\Http\Controllers\PriceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\provinsiController;
 use App\Http\Controllers\sertifikasiUserController;
@@ -74,8 +75,14 @@ Route::middleware('role:admin')->prefix('admin')->name('admin.')->group(function
     Route::resource('categori', CategoryController::class);
     Route::resource('categori.questions', QuestionController::class);
 
-    // route payment
+    // route transaction
     Route::resource('payment/transaksi', TransactionController::class);
+
+    // route Price
+    Route::resource('payment/price', PriceController::class);
+
+
+
     
 });
 
