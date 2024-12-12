@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('regulation');
             $table->string('benefit');
             $table->string('discount');
-            $table->string('price');
             $table->timestamps();
         });
     }
