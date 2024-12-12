@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\adminAsesorController;
 use App\Http\Controllers\adminDashboardController;
+use App\Http\Controllers\Asesi\AsesiAnswerController;
 use App\Http\Controllers\Asesi\AsesiController;
 use App\Http\Controllers\assessorDasboardController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -50,6 +51,11 @@ Route::middleware(['role:user', 'user_last_seen'])->group(function () {
 
     // soal
     Route::get('/asesi/soal/{categori}/question', [AsesiController::class, 'index'])->name('soal.index');
+
+    // send answer
+    Route::post('/asesi/soal/question/answer', [AsesiAnswerController::class, 'store'])->name('soal.answer.store');
+
+
 });
 
 // route admin
