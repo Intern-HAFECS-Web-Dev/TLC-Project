@@ -31,7 +31,7 @@ class AsesiAnswerController extends Controller
         // Validate the incoming request
         $request->validate([
             'answers' => 'required|array',
-            'answers.*' => 'required|integer', // Assuming answer IDs are integers
+            'answers.*' => 'required|integer',
         ]);
 
         $answers = $request->input('answers');
@@ -48,8 +48,10 @@ class AsesiAnswerController extends Controller
                 ]);
             }
         }
-        return redirect()->route('kategoriLevel.index')
-            ->with('success', 'All answers have been submitted successfully!');
+        // return redirect()->route('kategoriLevel.index')
+        //     ->with('success', 'All answers have been submitted successfully!');
+        
+        return redirect()->back();
     }
 
 
