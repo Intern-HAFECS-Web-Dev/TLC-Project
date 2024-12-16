@@ -37,14 +37,10 @@ class AsesiAnswerController extends Controller
         $answers = $request->input('answers');
 
         foreach ($answers as $questionId => $answerId) {
-            // Retrieve the answer to check if it's correct
             $answer = AnswerQuestion::find($answerId);
-
-            // Check if the answer exists and is correct
             if ($answer) {
                 $isCorrect = $answer->is_correct ? 'correct' : 'wrong';
 
-                // Store the user's answer
                 UserAnswer::create([
                     'question_id' => $questionId,
                     'user_id' => auth()->user()->id,
@@ -52,8 +48,6 @@ class AsesiAnswerController extends Controller
                 ]);
             }
         }
-        return "ok";
-
         return redirect()->route('kategoriLevel.index')
             ->with('success', 'All answers have been submitted successfully!');
     }
