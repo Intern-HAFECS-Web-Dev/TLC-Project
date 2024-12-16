@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Asesi;
 
 use App\Http\Controllers\Controller;
+use App\Models\AnswerQuestion;
 use App\Models\Question;
 use App\Models\UserAnswer;
 use Illuminate\Http\Request;
@@ -24,25 +25,39 @@ class AsesiAnswerController extends Controller
     {
         //
     }
-    
+
     public function store(Request $request)
     {
-        $answers = $request->input('answers');
-    
-        foreach ($answers as $questionId => $answerId) {
-            UserAnswer::create([
-                'question_id' => $questionId,
-                'user_id' => auth()->user()->id,
-                'answer' => $answerId,
-            ]);
-        }
+        // Validate the incoming request
+        $request->validate([
+            'answers' => 'required|array',
+            'answers.*' => 'required|integer', // Assuming answer IDs are integers
+        ]);
 
-        // return "ok";
-    
+        $answers = $request->input('answers');
+
+        foreach ($answers as $questionId => $answerId) {
+            // Retrieve the answer to check if it's correct
+            $answer = AnswerQuestion::find($answerId);
+
+            // Check if the answer exists and is correct
+            if ($answer) {
+                $isCorrect = $answer->is_correct ? 'correct' : 'wrong';
+
+                // Store the user's answer
+                UserAnswer::create([
+                    'question_id' => $questionId,
+                    'user_id' => auth()->user()->id,
+                    'answer' => $isCorrect,
+                ]);
+            }
+        }
+        return "ok";
+
         return redirect()->route('kategoriLevel.index')
             ->with('success', 'All answers have been submitted successfully!');
     }
-    
+
 
 
     /**
