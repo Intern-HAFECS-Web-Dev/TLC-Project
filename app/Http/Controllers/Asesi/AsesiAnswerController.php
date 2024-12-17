@@ -56,51 +56,51 @@ class AsesiAnswerController extends Controller
 
 
     public function store(Request $request)
-{
-    try {
-        // Validate the incoming request
-        $request->validate([
-            'answers' => 'required|array',
-            'answers.*' => 'required|integer',
-        ]);
+    {
+        try {
+            // Validate the incoming request
+            $request->validate([
+                'answers' => 'required|array',
+                'answers.*' => 'required|integer',
+            ]);
 
-        $answers = $request->input('answers');
-        $userId = auth()->user()->id;
+            $answers = $request->input('answers');
+            $userId = auth()->user()->id;
 
-        foreach ($answers as $questionId => $answerId) {
-            // Periksa apakah user sudah menjawab soal ini
-            $existingAnswer = UserAnswer::where('question_id', $questionId)
-                                        ->where('user_id', $userId)
-                                        ->first();
+            foreach ($answers as $questionId => $answerId) {
+                // Periksa apakah user sudah menjawab soal ini
+                $existingAnswer = UserAnswer::where('question_id', $questionId)
+                    ->where('user_id', $userId)
+                    ->first();
 
-            if ($existingAnswer) {
-                // Jika sudah menjawab, lempar Exception
-                throw new \Exception("Anda sudah menjawab soal ini sebelumnya.");
+                if ($existingAnswer) {
+                    // Jika sudah menjawab, lempar Exception
+                    throw new \Exception("Anda sudah menjawab soal ini sebelumnya.");
+                }
+
+                // Temukan jawaban yang dipilih
+                $answer = AnswerQuestion::find($answerId);
+
+                if ($answer) {
+                    $isCorrect = $answer->is_correct ? 'correct' : 'wrong';
+
+                    // Simpan jawaban ke database
+                    UserAnswer::create([
+                        'question_id' => $questionId,
+                        'user_id' => $userId,
+                        'answer' => $isCorrect,
+                    ]);
+                }
             }
 
-            // Temukan jawaban yang dipilih
-            $answer = AnswerQuestion::find($answerId);
-
-            if ($answer) {
-                $isCorrect = $answer->is_correct ? 'correct' : 'wrong';
-
-                // Simpan jawaban ke database
-                UserAnswer::create([
-                    'question_id' => $questionId,
-                    'user_id' => $userId,
-                    'answer' => $isCorrect,
-                ]);
-            }
+            // Redirect jika semua berhasil
+            return redirect()->route('kategoriLevel.index')
+                ->with('success', 'All answers have been submitted successfully!');
+        } catch (\Exception $e) {
+            // Tangkap error dan kembalikan dengan pesan
+            return redirect()->back()->with('error', $e->getMessage());
         }
-
-        // Redirect jika semua berhasil
-        return redirect()->route('kategoriLevel.index')
-            ->with('success', 'All answers have been submitted successfully!');
-    } catch (\Exception $e) {
-        // Tangkap error dan kembalikan dengan pesan
-        return redirect()->back()->with('error', $e->getMessage());
     }
-}
 
 
 
