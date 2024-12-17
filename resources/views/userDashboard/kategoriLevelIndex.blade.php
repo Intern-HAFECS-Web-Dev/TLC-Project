@@ -13,6 +13,7 @@
                     <a href="" class="bg-[#2E4D69] text-white w-16 py-2 rounded-full">Semua</a>
                     <a href="" class="bg-[#E1E0F1] w-24 py-2 rounded-full">Terbuka</a>
                     <a href="" class="bg-[#E1E0F1] w-20 py-2 rounded-full">Terkunci</a>
+                    <a href="{{ route('cek.nilai.index') }} ">nilai</a>
                 </div>
                 <div class="gap-1 px-4 py-8 lg:flex lg:px-auto lg:flex-wrap lg:justify-center gap-x-8 gap-y-6">
                     @forelse ($category as $categori)
@@ -80,7 +81,9 @@
                                                 {{-- @foreach ($categori->soal as  )
 
                                                 @endforeach --}}
-                                                onclick="window.location.href='{{ route('soal.index', $categori ) }}'"
+                                                {{-- onclick="window.location.href='{{ route('soal.index', $categori ) }}'" --}}
+                                                {{-- tes2 --}}
+                                                onclick="window.location.href='{{ route('soal.tes2', $categori ) }}'"
                                                     class="text-white bg-biru hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base  px-5 py-2.5 text-center ">Konfirmasi
                                                 </button>
                                             </div>
