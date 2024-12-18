@@ -95,55 +95,7 @@
 
     @yield('content')
 
-    <footer class="border-t border-gray-200 bg-gray-50 dark:bg-gray-900 dark:border-gray-700">
-    <div class="w-full max-w-screen-xl px-4 py-8 mx-auto sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <!-- Section 1: Logo dan Informasi -->
-            <div>
-                <img src="images/logo.svg" class="h-10 mb-4" alt="Logo">
-                <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
-                    <li>UNIT HAFECS YHC</li>
-                    <li>Jl. Trans, Sungai Lumbah, Kec. Alalak, Kabupaten Barito Kuala, Kalimantan Selatan, Indonesia</li>
-                    <li>+62***-****-****</li>
-                    <li>team@google.com</li>
-                </ul>
-                <p class="mt-6 text-xs text-gray-400 dark:text-gray-500">
-                    © 2024 <a href="https://flowbite.com/" class="hover:underline">Teaching Learning Certificate</a>. All Rights Reserved.
-                </p>
-            </div>
-
-            <!-- Section 2: Company -->
-            <div>
-                <h2 class="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white">Company</h2>
-                <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
-                    <li><a href="#" class="hover:underline">About</a></li>
-                    <li><a href="#" class="hover:underline">Careers</a></li>
-                    <li><a href="#" class="hover:underline">Instagram</a></li>
-                    <li><a href="#" class="hover:underline">Youtube</a></li>
-                </ul>
-            </div>
-
-            <!-- Section 3: Help Center -->
-            <div>
-                <h2 class="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white">Help Center</h2>
-                <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
-                    <li><a href="#" class="hover:underline">Facebook</a></li>
-                    <li><a href="#" class="hover:underline">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <!-- Section 4: Legal -->
-            <div>
-                <h2 class="mb-4 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
-                <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
-                    <li><a href="#" class="hover:underline">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:underline">Licensing</a></li>
-                    <li><a href="#" class="hover:underline">Terms &amp; Conditions</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
+    
 
 </body>
 
