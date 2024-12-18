@@ -87,9 +87,6 @@ Route::middleware('role:admin')->prefix('admin')->name('admin.')->group(function
     // route Price
     Route::resource('payment/price', PriceController::class);
 
-
-
-    
 });
 
 Route::get('/regencies/{provinceId}', [provinsiController::class, 'getRegencies']);
