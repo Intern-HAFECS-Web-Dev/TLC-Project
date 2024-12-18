@@ -13,7 +13,7 @@
         </thead>
         <tbody>
             @foreach ($results as $result)
-            
+
                 <tr class="hover:bg-gray-50">
                     <td class="p-2 border border-gray-200">{{ $result['category'] }}</td>
                     <td class="p-2 border border-gray-200">{{ $result['total_questions'] }}</td>
@@ -45,11 +45,12 @@
 
 </head>
 
-<body>
+<body class="">
     {{-- Header --}}
     <div class="mb-14">
         <div class="bg-biru w-full h-20 flex items-center relative">
-            <a href="#" class="absolute left-4 inline-flex items-center px-3 py-1.5 rounded-md hover:bg-indigo-50">
+            <a href="{{ route('kategoriLevel.index') }}"
+                class="absolute left-4 inline-flex items-center px-3 py-1.5 rounded-md hover:bg-gray-600">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                     class="h-6 w-6 text-white">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -63,21 +64,65 @@
         </div>
     </div>
 
-    <div class="px-5">
-        <div class="px-3 mt-3 p-4 bg-white shadow-xl">
+    <div class="px-5 max-w-7xl mx-auto">
+        <div class="px-3 mt-3 p-4 bg-white h-[450px] shadow-md">
             <!-- Card header -->
-            <div class="items-center justify-between lg:flex">
-                <div class=" py-2 lg:mb-0">
-                    <h3 class="text-xl font-bold pb-2 text-gray-900">Nilai</h3>
+            <div class=" py-2 lg:mb-0">
+                <h3 class="text-xl font-bold pb-2 text-gray-900">Nilai</h3>
+                <div class="flex justify-between">
                     <span class="text-base font-normal text-gray-500">Nilai setelah melakukan quiz sertifikasi yang
                         telah Anda selesaikan</span>
+                    <a href="#" class="bg-biru hover:bg-blue-700 text-white uppercase p-2 rounded-lg">
+                        <button data-modal-target="static-modal" data-modal-toggle="static-modal" type="button"
+                            class="">
+                            Hasil Tes
+                        </button>
+                    </a>
+                    <div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative p-4 w-full max-w-2xl max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                <!-- Modal header -->
+                                <div
+                                    class="flex items-center justify-center p-4 border-b rounded-t md:p-5 dark:border-gray-600">
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+                                        PERHATIAN!!!
+                                    </h3>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="p-4 md:p-5 space-y-4">
+                                    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                                        With less than a month to go before the European Union enacts new consumer
+                                        privacy laws for its citizens, companies around the world are updating their
+                                        terms of service agreements to comply.
+                                    </p>
+                                    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into
+                                        effect on May 25 and is meant to ensure a common set of data rights in the
+                                        European Union. It requires organizations to notify users as soon as possible of
+                                        high-risk data breaches that could personally affect them.
+                                    </p>
+                                </div>
+                                <!-- Modal footer -->
+                                <div
+                                    class="flex items-center justify-center gap-2 p-4 border-t border-gray-200 rounded-b md:p-5">
+                                    <button data-modal-hide="static-modal" type="button"
+                                        class="py-2.5 px-5 ms-3 text-base font-medium text-red-900 focus:outline-none bg-white rounded-lg border border-red-200 hover:bg-red-100 hover:text-red-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 ">Batalkan
+                                        </button>
+                                    <button data-modal-hide="static-modal" type="button"
+                                        class="text-white bg-biru hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base  px-5 py-2.5 text-center ">Konfirmasi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <hr class="py-5 border-black w-full mx-auto">
 
             <!-- Table -->
-            <div class="mb-10 mt-5 px-5">
-                <div class="flex flex-col border-gray-700 rounded-lg shadow-lg">
+            <div class="mb-10 mt-3 px-5">
+                <div class="flex flex-col border-gray-700 rounded-lg shadow-md">
                     <div class="overflow-x-auto rounded-lg">
                         <div class="inline-block min-w-full align-middle">
                             <div class="overflow-hidden shadow sm:rounded-lg">
@@ -104,7 +149,7 @@
                                                         class="p-4 text-sm font-medium text-gray-700 dark:text-gray-300 tracking-wider text-center uppercase">
                                                         Total Pertanyaan
                                                     </th>
-                                               
+
                                                     <th scope="col"
                                                         class="p-4 text-sm font-medium text-gray-700 dark:text-gray-300 tracking-wider text-center uppercase">
                                                         Jawaban Benar
@@ -151,11 +196,14 @@
                                                         <td class="p-4 whitespace-nowrap">
                                                             <span
                                                                 class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-md">
-                                                                {{ $result['nilai'] }}    
+                                                                {{ $result['nilai'] }}
                                                             </span>
                                                         </td>
                                                     </tr>
                                                 @endforeach
+
+
+
 
                                             </tbody>
                                         </table>
