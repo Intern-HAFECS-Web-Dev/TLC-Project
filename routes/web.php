@@ -26,6 +26,14 @@ Route::get('/', function () {
         'title' => 'HomePage',
     ]);
 });
+Route::get('/tes', function () {
+    return view('userDashboard.asesi.tes'
+    );
+});
+Route::get('/nilai', function () {
+    return view('userDashboard.asesi.nilai'
+    );
+});
 
 // return view('welcome');
 
