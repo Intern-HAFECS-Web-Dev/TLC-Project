@@ -26,6 +26,14 @@ Route::get('/', function () {
         'title' => 'HomePage',
     ]);
 });
+Route::get('/tes', function () {
+    return view('userDashboard.asesi.tes'
+    );
+});
+Route::get('/nilai', function () {
+    return view('userDashboard.asesi.nilai'
+    );
+});
 
 // return view('welcome');
 
@@ -82,7 +90,7 @@ Route::middleware('role:admin')->prefix('admin')->name('admin.')->group(function
 
     // route payment
     Route::resource('payment/transaksi', TransactionController::class);
-    
+
 });
 
 Route::get('/regencies/{provinceId}', [provinsiController::class, 'getRegencies']);
