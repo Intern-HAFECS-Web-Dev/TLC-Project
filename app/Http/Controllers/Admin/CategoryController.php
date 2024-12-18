@@ -101,4 +101,8 @@ class CategoryController extends Controller
         alert('success', 'Category deleted successfully!');
         return redirect()->route('admin.categori.index')->with('success', 'Category deleted successfully!');
     }
+
+    public function indexSettings() {
+        
+    }
 }

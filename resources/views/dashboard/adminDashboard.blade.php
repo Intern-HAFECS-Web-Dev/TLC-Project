@@ -187,6 +187,7 @@
                     </button>
 
                     <ul id="dropdown-level" class="hidden py-2 space-y-2">
+                        {{-- Level A --}}
                         <li>
                             <a href="{{ route('admin.categori.index') }}"
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
@@ -194,6 +195,7 @@
                                 <p>A</p>
                             </a>
                         </li>
+                        {{-- Level B --}}
                         <li>
                             <a href="{{ route('admin.asesor.index') }}"
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
@@ -201,11 +203,22 @@
                                 <p>B</p>
                             </a>
                         </li>
+
+                        {{-- Level C --}}
                         <li>
                             <a href="#"
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
                                 <i class="mr-2 fa-solid fa-layer-group"></i>
                                 <p>C</p>
+                            </a>
+                        </li>
+
+                        {{-- Settings --}}
+                        <li>
+                            <a href="{{ route('admin.settings.index') }}"
+                                class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
+                                <i class="mr-2 fa-solid fa-solid fa-gear"></i>
+                                <p>Settings</p>
                             </a>
                         </li>
                     </ul>
@@ -229,6 +242,8 @@
                     </button>
 
                     <ul id="dropdown-payment" class="hidden py-2 space-y-2">
+
+                        {{-- Transaksi --}}
                         <li>
                             <a href="{{ route('admin.transaksi.index') }}"
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
@@ -236,6 +251,8 @@
                                 <p>Transaksi</p>
                             </a>
                         </li>
+
+                        {{-- Price --}}
                         <li>
                             <a href="{{ route('admin.price.index') }}"
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
@@ -243,6 +260,8 @@
                                 <p>Price</p>
                             </a>
                         </li>
+
+                        {{-- Settings --}}
                         <li>
                             <a href="#"
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">

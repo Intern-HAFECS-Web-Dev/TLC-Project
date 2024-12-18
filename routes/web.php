@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\LevelSettingsController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\adminAsesorController;
 use App\Http\Controllers\adminDashboardController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\PriceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\provinsiController;
 use App\Http\Controllers\sertifikasiUserController;
+use App\Http\Controllers\settings\SettingController;
 use App\Http\Controllers\testingController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\userController;
@@ -86,6 +88,11 @@ Route::middleware('role:admin')->prefix('admin')->name('admin.')->group(function
 
     // route Price
     Route::resource('payment/price', PriceController::class);
+
+    // Route::resource('settingss', SettingController::class);
+    Route::resource('settings', LevelSettingsController::class);
+
+
 
 });
 
