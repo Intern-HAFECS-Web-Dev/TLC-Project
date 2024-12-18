@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('purchase')->nullable();
             $table->string('total_prize')->nullable();
             $table->enum('status', ['completed', 'inProgress', 'inReview', 'cancelled', 'unpaid'])->default('unpaid');
-            $table->string('total_prize')->nullable();
         
             $table->timestamps();
         });
