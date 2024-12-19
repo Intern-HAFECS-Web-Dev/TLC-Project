@@ -55,6 +55,7 @@ class AsesiAnswerController extends Controller
     // }
 
 
+
     public function store(Request $request)
     {
         try {
@@ -73,12 +74,12 @@ class AsesiAnswerController extends Controller
                     ->where('user_id', $userId)
                     ->first();
 
-                if ($existingAnswer) {
-                    // Jika sudah menjawab, lempar Exception
-                    throw new \Exception("Anda sudah menjawab soal ini sebelumnya.");
-                }
+                // if ($existingAnswer) {
+                //     // Jika sudah menjawab, lempar Exception
+                //     throw new \Exception("Anda sudah menjawab soal ini sebelumnya.");
+                // }
 
-                // Temukan jawaban yang dipilih
+                // // Temukan jawaban yang dipilih
                 $answer = AnswerQuestion::find($answerId);
 
                 if ($answer) {
@@ -89,6 +90,7 @@ class AsesiAnswerController extends Controller
                         'question_id' => $questionId,
                         'user_id' => $userId,
                         'answer' => $isCorrect,
+                        'sesion_exam' => 1,
                     ]);
                 }
             }
@@ -101,6 +103,8 @@ class AsesiAnswerController extends Controller
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
+
+    
 
 
 

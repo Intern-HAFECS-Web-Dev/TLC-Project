@@ -109,7 +109,7 @@
                                     class="flex items-center justify-center gap-2 p-4 border-t border-gray-200 rounded-b md:p-5">
                                     <button data-modal-hide="static-modal" type="button"
                                         class="py-2.5 px-5 ms-3 text-base font-medium text-red-900 focus:outline-none bg-white rounded-lg border border-red-200 hover:bg-red-100 hover:text-red-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 ">Batalkan
-                                        </button>
+                                    </button>
                                     <button data-modal-hide="static-modal" type="button"
                                         class="text-white bg-biru hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base  px-5 py-2.5 text-center ">Konfirmasi</button>
                                 </div>
@@ -191,7 +191,7 @@
                                                         </td>
                                                         <td
                                                             class="p-4 text-sm font-normal text-gray-700 dark:text-gray-300 whitespace-nowrap">
-                                                            {{ number_format($result['pass_percentage'], 2) }}%
+                                                            {{ number_format($result['pass_percentage']) }}
                                                         </td>
                                                         <td class="p-4 whitespace-nowrap">
                                                             <span
@@ -201,9 +201,6 @@
                                                         </td>
                                                     </tr>
                                                 @endforeach
-
-
-
 
                                             </tbody>
                                         </table>
