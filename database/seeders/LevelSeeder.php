@@ -38,5 +38,13 @@ class LevelSeeder extends Seeder
             'condition' => 'Telah Bergabung di LMS C'
         ]);
 
+         // Bundling
+        Level::create([
+            'name' => 'Paket Bundling',
+            'duration' => '3',
+            'benefit' => 'Mendapatkan Akses Level A,B,C',
+            'condition' => 'Telah Bergabung di TLC'
+        ]);
+
     }
 }

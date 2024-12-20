@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use Exception;
 use App\Models\User;
+use App\Models\Level;
+use App\Models\Category;
 use App\Models\Province;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -24,10 +25,12 @@ class userDashboardController extends Controller
         $user = Auth::user();
         $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
         $province = Province::all();
+        $level = Level::all();
         return view('dashboard.userDashboard', [
             'title' => 'User Dashboard',
             'province' => $province,
-            'user' => $userProfile
+            'user' => $userProfile,
+            'levels' => $level
         ]);
     }
 

@@ -17,8 +17,6 @@
                 <form action="{{ route('admin.settings.update', $levels->id) }}" enctype="multipart/form-data" method="POST">
                     @csrf
                     @method('PUT')
-                    <div class="grid grid-cols-6 gap-6">
-
                         {{-- Nama Levels --}}
                         <div class="col-span-6 sm:col-span-3">
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">

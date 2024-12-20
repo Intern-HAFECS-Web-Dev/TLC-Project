@@ -92,6 +92,8 @@ Route::middleware('role:admin')->prefix('admin')->name('admin.')->group(function
     // Route::resource('settingss', SettingController::class);
     Route::resource('settings', LevelSettingsController::class);
 
+    Route::get('settings/autoGenerate', [LevelSettingsController::class, 'autoGenerate'])->name('settings.autoGenerate');
+
 
 
 });

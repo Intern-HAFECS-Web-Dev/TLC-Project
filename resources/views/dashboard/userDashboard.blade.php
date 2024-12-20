@@ -88,8 +88,18 @@
                         class="mx-auto text-white mb-7 w-full md:max-w-xl md:max-h-[278px] p-4 bg-gradient-to-r from-[#5F809C] to-[#212C36] border border-gray-200 rounded-2xl shadow">
                         <div class="md:flex md:justify-between ">
                             <div class="md:text-start text-center">
-                                <h5 class="text-2xl md:text-xl font-semibold">Sertifikasi Level A</h5>
-                                <p>3 Bulan</p>
+                                {{-- Level A Name --}}
+                                <h5 class="text-2xl md:text-xl font-semibold">
+                                    {{ $levels[0]->name ? $levels[0]->name : '-' }}
+                                </h5>
+
+                                {{-- Level A Duration --}}
+                                <p>
+                                    {{ $levels[0]->duration ? $levels[0]->duration : '-' }} 
+                                    <span>
+                                        Bulan
+                                    </span> 
+                                </p>
                             </div>
                             <div class="md:text-end text-center mt-3 md:mt-0">
                                 <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
@@ -99,12 +109,20 @@
                         <hr class="border-white md:w-1/2 w-full mb-3 md:ml-auto mx-auto md:mx-0 top-0 right-0">
                         <div class="md:flex md:justify-between">
                             <div class="md:text-start text-center">
+                                {{-- Level A Persyaratan --}}
                                 <p class="text-sm">Persyaratan: </p>
-                                <p class="text-xs">-</p>
+                                <p class="text-xs">
+                                    {{ $levels[0]->condition ? $levels[0]->condition : '-' }}
+                                </p>
+
                             </div>
                             <div class="md:text-end text-center">
+
                                 <h5 class="text-sm">Keuntungan<span class="md:hidden lg:hidden xl:hidden">:</span></h5>
-                                <p class="text-xs">Mendapatkan Sertifikasi Level A</p>
+                                <p class="text-xs">
+                                    {{ $levels[0]->benefit ? $levels[0]->benefit : '-' }}
+                                </p>
+
                             </div>
                         </div>
 
@@ -173,8 +191,16 @@
                         class="mx-auto text-white mb-7 w-full md:max-w-xl md:max-h-[278px] p-4 bg-gradient-to-r from-[#5F809C] to-[#212C36] border border-gray-200 rounded-2xl shadow">
                         <div class="md:flex md:justify-between ">
                             <div class="md:text-start text-center">
-                                <h5 class="text-2xl md:text-xl font-semibold">Sertifikasi Level B</h5>
-                                <p>3 Bulan</p>
+                                {{-- Level B Name --}}
+                                <h5 class="text-2xl md:text-xl font-semibold">
+                                    {{ $levels[1]->name ? $levels[1]->name : '-' }}
+                                </h5>
+
+                                {{-- Level B Duration --}}
+                                <p>
+                                    {{ $levels[1]->duration ? $levels[1]->duration : '-' }}
+                                    <span>Bulan</span>
+                                </p>
                             </div>
                             <div class="md:text-end text-center mt-3 md:mt-0">
                                 <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
@@ -185,11 +211,17 @@
                         <div class="md:flex md:justify-between">
                             <div class="md:text-start text-center">
                                 <p class="text-sm">Persyaratan: </p>
-                                <p class="text-xs">-</p>
+
+                                {{-- Level B Persyaratan --}}
+                                <p class="text-xs">
+                                    {{ $levels[1]->condition ? $levels[1]->condition : '-' }}
+                                </p>
                             </div>
                             <div class="md:text-end text-center">
                                 <h5 class="text-sm">Keuntungan<span class="md:hidden lg:hidden xl:hidden">:</span></h5>
-                                <p class="text-xs">Mendapatkan Sertifikasi Level B</p>
+                                <p class="text-xs">
+                                    {{ $levels[1]->benefit ? $levels[1]->benefit :'-'}}
+                                </p>
                             </div>
                         </div>
 
@@ -258,8 +290,16 @@
                         class="mx-auto text-white mb-7 w-full md:max-w-xl md:max-h-[278px] p-4 bg-gradient-to-r from-[#5F809C] to-[#212C36] border border-gray-200 rounded-2xl shadow">
                         <div class="md:flex md:justify-between ">
                             <div class="md:text-start text-center">
-                                <h5 class="text-2xl md:text-xl font-semibold">Sertifikasi Level C</h5>
-                                <p>3 Bulan</p>
+
+                                {{-- Level C Name --}}
+                                <h5 class="text-2xl md:text-xl font-semibold">
+                                    {{ $levels[2]->name ? $levels[2]->name : '-' }}
+                                </h5>
+                                {{-- Level C Duration --}}
+                                <p>
+                                    {{ $levels[2]->duration ? $levels[2]->duration : '-' }}
+                                    <span>Bulan</span>
+                                </p>
                             </div>
                             <div class="md:text-end text-center mt-3 md:mt-0">
                                 <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
@@ -270,11 +310,19 @@
                         <div class="md:flex md:justify-between">
                             <div class="md:text-start text-center">
                                 <p class="text-sm">Persyaratan: </p>
-                                <p class="text-xs">-</p>
+
+                                {{-- Level C Persyaratan --}}
+                                <p class="text-xs">
+                                    {{ $levels[2]->condition ? $levels[2]->condition : '-' }}
+                                </p>
                             </div>
                             <div class="md:text-end text-center">
                                 <h5 class="text-sm">Keuntungan<span class="md:hidden lg:hidden xl:hidden">:</span></h5>
-                                <p class="text-xs">Mendapatkan Sertifikasi Level C</p>
+
+                                {{-- Level C Benefit --}}
+                                <p class="text-xs">
+                                    {{ $levels[2]->benefit ? $levels[2]->benefit : '-' }}
+                                </p>
                             </div>
                         </div>
 
@@ -343,8 +391,17 @@
                         class="mx-auto text-white mb-7 w-full md:max-w-xl md:max-h-[278px] p-4 bg-gradient-to-r from-[#5F809C] to-[#212C36] border border-gray-200 rounded-2xl shadow">
                         <div class="md:flex md:justify-between ">
                             <div class="md:text-start text-center">
-                                <h5 class="text-2xl md:text-xl font-semibold">Paket Bundling</h5>
-                                <p>3 Bulan</p>
+
+                                {{-- Paket Bundling Name --}}
+                                <h5 class="text-2xl md:text-xl font-semibold">
+                                    {{ $levels[3]->name ? $levels[3]->name : '-' }}
+                                </h5>
+
+                                {{-- Pake Bundling Duration --}}
+                                <p>
+                                    {{ $levels[3]->duration ? $levels[3]->duration : '-' }}
+                                    <span>Bulan</span>
+                                </p>
                             </div>
                             <div class="md:text-end text-center mt-3 md:mt-0">
                                 <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
@@ -355,11 +412,19 @@
                         <div class="md:flex md:justify-between">
                             <div class="md:text-start text-center">
                                 <p class="text-sm">Persyaratan: </p>
-                                <p class="text-xs">-</p>
+
+                                {{-- Level Bundling Condition --}}
+                                <p class="text-xs">
+                                    {{ $levels[3]->condition ? $levels[3]->condition : '-' }}
+                                </p>
                             </div>
                             <div class="md:text-end text-center">
                                 <h5 class="text-sm">Keuntungan<span class="md:hidden lg:hidden xl:hidden">:</span></h5>
-                                <p class="text-xs">Mendapatkan Sertifikasi Level A</p>
+
+                                {{-- Level Bundling Benefit --}}
+                                <p class="text-xs">
+                                    {{ $levels[3]->benefit ? $levels[3]->benefit : '-' }}
+                                </p>
                             </div>
                         </div>
 

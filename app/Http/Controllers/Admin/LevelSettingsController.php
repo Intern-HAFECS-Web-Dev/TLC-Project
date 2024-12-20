@@ -147,4 +147,39 @@ class LevelSettingsController extends Controller
             return redirect()->back();
         }
     }
+
+    public function autoGenerate() {
+        
+         // Level A
+        Level::create([
+            'name' => 'Sertifikat Level A',
+            'duration' => '3',
+            'benefit' => 'Mendapatkan Sertifikat Level A',
+            'condition' => 'Telah Bergabung di LMS A'
+        ]);
+
+         // Level B
+        Level::create([
+            'name' => 'Sertifikat Level B',
+            'duration' => '3',
+            'benefit' => 'Mendapatkan Sertifikat Level B',
+            'condition' => 'Telah Bergabung di LMS B'
+        ]);
+
+         // Level C
+        Level::create([
+            'name' => 'Sertifikat Level C',
+            'duration' => '3',
+            'benefit' => 'Mendapatkan Sertifikat Level C',
+            'condition' => 'Telah Bergabung di LMS C'
+        ]);
+
+         // Bundling
+        Level::create([
+            'name' => 'Paket Bundling',
+            'duration' => '3',
+            'benefit' => 'Mendapatkan Akses Level A,B,C',
+            'condition' => 'Telah Bergabung di TLC'
+        ]);
+    }
 }
