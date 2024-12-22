@@ -98,7 +98,7 @@
                             </svg>
                         </a>
 
-                        <a href="#"
+                        <a href="{{ route('admin.settings.autoGenerate') }}"
                             class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#1260de"

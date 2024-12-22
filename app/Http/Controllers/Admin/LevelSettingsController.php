@@ -181,5 +181,7 @@ class LevelSettingsController extends Controller
             'benefit' => 'Mendapatkan Akses Level A,B,C',
             'condition' => 'Telah Bergabung di TLC'
         ]);
+        
+        return redirect()->route('admin.settings.index');
     }
 }
