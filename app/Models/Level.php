@@ -12,9 +12,12 @@ class Level extends Model
     protected $table = 'levels';
 
     protected $fillable = [
-        'name', // nama sertifikat
-        'duration', // durasi sertifikat
-        'benefit', // manfaat sertifikat
-        'condition' // syarat sertifikat
+        'name', 
+        'duration', 
+        'benefit', 
+        'condition',
+        'price',
+        'discount',
+        'final_price'
     ];
 }

@@ -254,7 +254,7 @@
 
                         {{-- Price --}}
                         <li>
-                            <a href="{{ route('admin.price.index') }}"
+                            <a href="#  "
                                 class="flex items-center w-full p-2 text-white transition duration-75 rounded-lg pl-11 group hover:bg-red-500 hover:text-kuning dark:text-white dark:hover:bg-gray-700">
                                 <i class="mr-2 fa-solid fa-sack-dollar"></i>
                                 <p>Price</p>

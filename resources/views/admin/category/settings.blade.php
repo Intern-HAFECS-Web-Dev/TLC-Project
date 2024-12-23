@@ -98,16 +98,22 @@
                             </svg>
                         </a>
 
-                        <a href="{{ route('admin.settings.autoGenerate') }}"
-                            class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#1260de"
-                                viewBox="0 0 24 24">
-                                <path fill-rule="evenodd"
-                                    d="M9 2a1 1 0 0 0-1 1H6a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2a1 1 0 0 0-1-1H9Zm1 2h4v2h1a1 1 0 1 1 0 2H9a1 1 0 0 1 0-2h1V4Zm5.707 8.707a1 1 0 0 0-1.414-1.414L11 14.586l-1.293-1.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </a>
+                        <form action="{{ route('admin.settings.autoGenerate') }}" method="POST" class="inline-flex">
+                            @csrf
+                            <button type="submit"
+                                class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                data-popover-target="popover-autoGenerate" data-popover-placement="bottom">
+                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#1260de"
+                                    viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M9 2a1 1 0 0 0-1 1H6a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2a1 1 0 0 0-1-1H9Zm1 2h4v2h1a1 1 0 1 1 0 2H9a1 1 0 0 1 0-2h1V4Zm5.707 8.707a1 1 0 0 0-1.414-1.414L11 14.586l-1.293-1.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            
+                        </form>
+
                     </div>
                 </div>
                 <div class="flex items-center ml-auto space-x-2 sm:space-x-3">
@@ -168,6 +174,18 @@
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    Starting Price
+                                </th>
+                                <th scope="col"
+                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    Discount
+                                </th>
+                                <th scope="col"
+                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
+                                    Final Price
+                                </th>
+                                <th scope="col"
+                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
                                     Actions
                                 </th>
                             </tr>
@@ -205,6 +223,30 @@
                                         class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                         <div class="flex items-center">
                                             {{ $level->condition }}
+                                        </div>
+                                    </td>
+
+                                    {{-- starting Price --}}
+                                    <td
+                                        class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                        <div class="flex items-center">
+                                            {{ $level->price }}
+                                        </div>
+                                    </td>
+
+                                    {{-- Discount --}}
+                                    <td
+                                        class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                        <div class="flex items-center">
+                                            {{ $level->discount }}
+                                        </div>
+                                    </td>
+
+                                    {{-- final Price --}}
+                                    <td
+                                        class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                        <div class="flex items-center">
+                                            {{ $level->final_price }}
                                         </div>
                                     </td>
 
@@ -289,5 +331,10 @@
     {{-- popOver addUser --}}
     <x-popover title="Add New Level" id="popover-addLevel">
         <p>Tindakan Ini akan menambahkan Level baru untuk ditampilkan di Users Dashboard.</p>
+    </x-popover>
+
+    {{-- popOver autoGenerate --}}
+    <x-popover title="Auto Generate Data" id="popover-autoGenerate">
+        <p>Tindakan Ini akan Menambahkan data Level General Secara Otomatis</p>
     </x-popover>
 @endsection

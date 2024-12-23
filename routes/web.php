@@ -86,15 +86,10 @@ Route::middleware('role:admin')->prefix('admin')->name('admin.')->group(function
     // route transaction
     Route::resource('payment/transaksi', TransactionController::class);
 
-    // route Price
-    Route::resource('payment/price', PriceController::class);
-
     // Route::resource('settingss', SettingController::class);
     Route::resource('settings', LevelSettingsController::class);
 
-    Route::get('settings/autoGenerate', [LevelSettingsController::class, 'autoGenerate'])->name('settings.autoGenerate');
-
-
+    Route::post('settings/autoGenerate', [LevelSettingsController::class, 'autoGenerate'])->name('settings.autoGenerate');
 
 });
 
