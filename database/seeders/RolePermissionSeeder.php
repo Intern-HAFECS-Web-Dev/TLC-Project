@@ -24,6 +24,7 @@ class RolePermissionSeeder extends Seeder
             'acces_level_A',
             'acces_level_B',
             'acces_level_C',
+            'bundling'
         ];
 
         foreach($permission_levels as $permission) {
@@ -42,6 +43,6 @@ class RolePermissionSeeder extends Seeder
             Permission::create(['name' => $permission_k]);
         };
 
-        $user->givePermissionTo('acces_level_A');
+        $user->givePermissionTo('acces_level_A','bundling');
     }   
 }

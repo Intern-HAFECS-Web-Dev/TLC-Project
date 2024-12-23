@@ -148,40 +148,53 @@ class LevelSettingsController extends Controller
         }
     }
 
-    public function autoGenerate() {
-        
-         // Level A
-        Level::create([
-            'name' => 'Sertifikat Level A',
-            'duration' => '3',
-            'benefit' => 'Mendapatkan Sertifikat Level A',
-            'condition' => 'Telah Bergabung di LMS A'
-        ]);
+    public function autoGenerate()
+{
+    DB::beginTransaction();
 
-         // Level B
-        Level::create([
-            'name' => 'Sertifikat Level B',
-            'duration' => '3',
-            'benefit' => 'Mendapatkan Sertifikat Level B',
-            'condition' => 'Telah Bergabung di LMS B'
-        ]);
+    try {
+        Level::truncate();
 
-         // Level C
-        Level::create([
-            'name' => 'Sertifikat Level C',
-            'duration' => '3',
-            'benefit' => 'Mendapatkan Sertifikat Level C',
-            'condition' => 'Telah Bergabung di LMS C'
-        ]);
+        $levels = [
+            [
+                'name' => 'Sertifikat Level A',
+                'duration' => '3',
+                'benefit' => 'Mendapatkan Sertifikat Level A',
+                'condition' => 'Telah Bergabung di LMS A',
+            ],
+            [
+                'name' => 'Sertifikat Level B',
+                'duration' => '3',
+                'benefit' => 'Mendapatkan Sertifikat Level B',
+                'condition' => 'Telah Bergabung di LMS B',
+            ],
+            [
+                'name' => 'Sertifikat Level C',
+                'duration' => '3',
+                'benefit' => 'Mendapatkan Sertifikat Level C',
+                'condition' => 'Telah Bergabung di LMS C',
+            ],
+            [
+                'name' => 'Paket Bundling',
+                'duration' => '3',
+                'benefit' => 'Mendapatkan Akses Level A,B,C',
+                'condition' => 'Telah Bergabung di TLC',
+            ],
+        ];
 
-         // Bundling
-        Level::create([
-            'name' => 'Paket Bundling',
-            'duration' => '3',
-            'benefit' => 'Mendapatkan Akses Level A,B,C',
-            'condition' => 'Telah Bergabung di TLC'
-        ]);
-        
-        return redirect()->route('admin.settings.index');
+        foreach ($levels as $levelData) {
+            Level::firstOrCreate(['name' => $levelData['name']], $levelData);
+        }
+
+        DB::commit();
+        Alert::success('Success', 'Data Auto Generate berhasil dibuat');
+        return redirect()->route('admin.settings.index')->with('success', 'Data berhasil di-generate.');
+
+    } catch (Exception $th) {
+        DB::rollBack();
+        Log::error('Terjadi kesalahan saat menggenerate data: ' . $th->getMessage());
+        Alert::warning('Error', 'Terjadi kesalahan ketika menggenerate data');
+        return redirect()->back();
     }
+}
 }

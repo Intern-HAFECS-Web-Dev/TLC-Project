@@ -95,10 +95,10 @@
 
                                 {{-- Level A Duration --}}
                                 <p>
-                                    {{ $levels[0]->duration ? $levels[0]->duration : '-' }} 
+                                    {{ $levels[0]->duration ? $levels[0]->duration : '-' }}
                                     <span>
                                         Bulan
-                                    </span> 
+                                    </span>
                                 </p>
                             </div>
                             <div class="md:text-end text-center mt-3 md:mt-0">
@@ -126,11 +126,15 @@
                             </div>
                         </div>
 
-                        <button data-modal-target="default-modal" data-modal-toggle="default-modal"
-                            class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
-                            type="button">
-                            Ikut Sekarang
-                        </button>
+                        @if (auth()->user()->hasPermissionTo('acces_level_A'))
+                            <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                                class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
+                                type="button">
+                                Ikut Sekarang
+                            </button>
+                        @else
+                            <p class="text-white text-center mt-8">Anda tidak memiliki akses untuk mendaftar.</p>
+                        @endif
 
                         <!-- Main modal -->
                         <div id="default-modal" tabindex="-1" aria-hidden="true"
@@ -220,16 +224,21 @@
                             <div class="md:text-end text-center">
                                 <h5 class="text-sm">Keuntungan<span class="md:hidden lg:hidden xl:hidden">:</span></h5>
                                 <p class="text-xs">
-                                    {{ $levels[1]->benefit ? $levels[1]->benefit :'-'}}
+                                    {{ $levels[1]->benefit ? $levels[1]->benefit : '-' }}
                                 </p>
                             </div>
                         </div>
 
-                        <button data-modal-target="default-modal" data-modal-toggle="default-modal"
-                            class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
-                            type="button">
-                            Ikut Sekarang
-                        </button>
+                        {{-- Button B --}}
+                        @if (auth()->user()->hasPermissionTo('acces_level_B'))
+                            <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                                class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
+                                type="button">
+                                Ikut Sekarang
+                            </button>
+                        @else
+                            <p class="text-white text-center mt-8">Anda belum memiliki akses ke level B</p>
+                        @endif
 
                         <!-- Main modal -->
                         <div id="default-modal" tabindex="-1" aria-hidden="true"
@@ -326,11 +335,18 @@
                             </div>
                         </div>
 
-                        <button data-modal-target="default-modal" data-modal-toggle="default-modal"
-                            class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
-                            type="button">
-                            Ikut Sekarang
-                        </button>
+
+
+                        {{-- Button C --}}
+                        @if (auth()->user()->hasPermissionTo('acces_level_C'))
+                            <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                                class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
+                                type="button">
+                                Ikut Sekarang
+                            </button>
+                        @else
+                            <p class="text-white text-center mt-8">Anda belum memiliki akses ke level C</p>
+                        @endif
 
                         <!-- Main modal -->
                         <div id="default-modal" tabindex="-1" aria-hidden="true"
@@ -428,11 +444,16 @@
                             </div>
                         </div>
 
-                        <button data-modal-target="default-modal" data-modal-toggle="default-modal"
-                            class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
-                            type="button">
-                            Ikut Sekarang
-                        </button>
+                        {{-- Button Bundling --}}
+                        @if (auth()->user()->hasPermissionTo('bundling'))
+                            <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                                class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
+                                type="button">
+                                Beli Sekarang
+                            </button>
+                        @else
+                            <p class="text-white text-center mt-8">Paket Bundling Sudah Terbuka</p>
+                        @endif
 
                         <!-- Main modal -->
                         <div id="default-modal" tabindex="-1" aria-hidden="true"

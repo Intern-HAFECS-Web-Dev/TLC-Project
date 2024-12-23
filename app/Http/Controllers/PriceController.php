@@ -12,7 +12,10 @@ class PriceController extends Controller
      */
     public function index()
     {
-        return view('admin.payment.price.index');
+        return view('admin.payment.price.index', [
+            'title' => 'Level Price',
+            'navbar' => 'Level Price',
+        ]);
     }
 
     /**
