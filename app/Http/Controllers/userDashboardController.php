@@ -6,6 +6,7 @@ use App\Models\Category;
 use Exception;
 use App\Models\User;
 use App\Models\Province;
+use App\Models\UserAnswer;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -88,10 +89,12 @@ class userDashboardController extends Controller
         $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
         $province = Province::all();
 
+        $userAnswer = UserAnswer::with('user')
+        ->where('user_id', $user->id)
+        ->where('answer', 'correct')->where('sesion_exam', 1)->count(); // Filter hanya jawaban yang benar
+    
 
-        // foreach ($category as $category) {
-        
-        // }
+        return  $userAnswer;
 
         return view('userDashboard.kategoriLevelIndex', [
             'title' => 'Category Level',
