@@ -6,8 +6,11 @@
         <div class="px-3">
             <div class="pb-5 bg-white shadow-xl">
                 <h1 class="px-5 pt-5 mb-2 font-semibold text-gray-900 lg:text-xl">Kuis</h1>
-                <p class="px-5 mb-2 text-sm font-normal text-gray-900 lg:text-base">Daftar kategori kuis yang akan anda
-                    kerjakan.</p>
+                <div class="flex justify-between px-5 mb-2">
+                    <p class="text-sm font-normal text-gray-900 lg:text-base">Daftar kategori kuis yang akan anda
+                        kerjakan.</p>
+                    <a href="{{ route('cek.nilai.index') }}" class="bg-biru hover:bg-blue-700 hover:text-black text-white uppercase p-2 rounded-lg">Nilai</a>
+                </div>
                 <hr class="w-full mx-auto mb-5 border-gray-400">
                 <div class="flex justify-center gap-2 px-3 mb-3 text-sm text-center md:justify-start lg:justify-start">
                     <a href="" class="bg-[#2E4D69] text-white w-16 py-2 rounded-full">Semua</a>
@@ -73,14 +76,16 @@
                                             </div>
                                             <!-- Modal footer -->
                                             <div
-                                                class="flex items-center justify-center gap-2 p-4 border-t border-gray-200 rounded-b md:p-5 dark:border-gray-600">
+                                                class="flex items-center justify-center gap-2 p-4 border-t border-gray-200 rounded-b md:p-5 ">
                                                 <button data-modal-hide="default-modal{{ $categori->id }}" type="button"
                                                     class="py-2.5 px-5 ms-3 text-base font-medium text-red-900 focus:outline-none bg-white rounded-lg border border-red-200 hover:bg-red-100 hover:text-red-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 ">Batalkan</button>
                                                 <button data-modal-hide="default-modal{{ $categori->id }}" type="button"
                                                 {{-- @foreach ($categori->soal as  )
 
                                                 @endforeach --}}
-                                                onclick="window.location.href='{{ route('soal.index', $categori ) }}'"
+                                                {{-- onclick="window.location.href='{{ route('soal.index', $categori ) }}'" --}}
+                                                {{-- tes2 --}}
+                                                onclick="window.location.href='{{ route('soal.tes2', $categori ) }}'"
                                                     class="text-white bg-biru hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base  px-5 py-2.5 text-center ">Konfirmasi
                                                 </button>
                                             </div>

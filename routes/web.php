@@ -5,8 +5,10 @@ use App\Http\Controllers\Admin\LevelSettingsController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\adminAsesorController;
 use App\Http\Controllers\adminDashboardController;
+use App\Http\Controllers\Asesi2\UserAnsweerController;
 use App\Http\Controllers\Asesi\AsesiAnswerController;
 use App\Http\Controllers\Asesi\AsesiController;
+use App\Http\Controllers\Asesi\ScoreController;
 use App\Http\Controllers\assessorDasboardController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\paymentController;
@@ -57,7 +59,11 @@ Route::middleware(['role:user', 'user_last_seen'])->group(function () {
     // send answer
     Route::post('/asesi/soal/question/answer', [AsesiAnswerController::class, 'store'])->name('soal.answer.store');
 
+    // get soal tes 2
+    Route::get('/asesi/soal/tes2/{categori}/question', [UserAnsweerController::class, 'index'])->name('soal.tes2');
 
+    // cek nilai
+    Route::get('/nilai',[ScoreController::class, 'getAllCategoriesScores'] )->name('cek.nilai.index');
 });
 
 // route admin

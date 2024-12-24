@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Asesi;
 
 use App\Http\Controllers\Controller;
+use App\Models\AnswerQuestion;
 use App\Models\Question;
 use App\Models\UserAnswer;
 use Illuminate\Http\Request;
@@ -24,25 +25,87 @@ class AsesiAnswerController extends Controller
     {
         //
     }
-    
+
+    // public function store(Request $request)
+    // {
+    //     // Validate the incoming request
+    //     $request->validate([
+    //         'answers' => 'required|array',
+    //         'answers.*' => 'required|integer',
+    //     ]);
+
+    //     $answers = $request->input('answers');
+
+    //     foreach ($answers as $questionId => $answerId) {
+    //         $answer = AnswerQuestion::find($answerId);
+    //         if ($answer) {
+    //             $isCorrect = $answer->is_correct ? 'correct' : 'wrong';
+
+    //             UserAnswer::create([
+    //                 'question_id' => $questionId,
+    //                 'user_id' => auth()->user()->id,
+    //                 'answer' => $isCorrect,
+    //             ]);
+    //         }
+    //     }
+    //     return redirect()->route('kategoriLevel.index')
+    //         ->with('success', 'All answers have been submitted successfully!');
+    //     // return 'ok';
+    //     // return redirect()->back();
+    // }
+
+
+
     public function store(Request $request)
     {
-        $answers = $request->input('answers');
-    
-        foreach ($answers as $questionId => $answerId) {
-            UserAnswer::create([
-                'question_id' => $questionId,
-                'user_id' => auth()->user()->id,
-                'answer' => $answerId,
+        try {
+            // Validate the incoming request
+            $request->validate([
+                'answers' => 'required|array',
+                'answers.*' => 'required|integer',
             ]);
-        }
 
-        // return "ok";
-    
-        return redirect()->route('kategoriLevel.index')
-            ->with('success', 'All answers have been submitted successfully!');
+            $answers = $request->input('answers');
+            $userId = auth()->user()->id;
+
+            foreach ($answers as $questionId => $answerId) {
+                // Periksa apakah user sudah menjawab soal ini
+                $existingAnswer = UserAnswer::where('question_id', $questionId)
+                    ->where('user_id', $userId)
+                    ->first();
+
+                // if ($existingAnswer) {
+                //     // Jika sudah menjawab, lempar Exception
+                //     throw new \Exception("Anda sudah menjawab soal ini sebelumnya.");
+                // }
+
+                // // Temukan jawaban yang dipilih
+                $answer = AnswerQuestion::find($answerId);
+
+                if ($answer) {
+                    $isCorrect = $answer->is_correct ? 'correct' : 'wrong';
+
+                    // Simpan jawaban ke database
+                    UserAnswer::create([
+                        'question_id' => $questionId,
+                        'user_id' => $userId,
+                        'answer' => $isCorrect,
+                        'sesion_exam' => 1,
+                    ]);
+                }
+            }
+
+            // Redirect jika semua berhasil
+            return redirect()->route('kategoriLevel.index')
+                ->with('success', 'All answers have been submitted successfully!');
+        } catch (\Exception $e) {
+            // Tangkap error dan kembalikan dengan pesan
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
+
     
+
 
 
     /**
