@@ -230,7 +230,10 @@
                                     <td
                                         class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                         <div class="flex items-center">
-                                            {{ $level->price }}
+                                            <p>
+                                                <span>Rp.</span>
+                                                {{ number_format($level->price) }}
+                                            </p>
                                         </div>
                                     </td>
 
@@ -238,7 +241,10 @@
                                     <td
                                         class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                         <div class="flex items-center">
-                                            {{ $level->discount }}
+                                            <p>
+                                                {{ number_format($level->discount) }}
+                                                <span>%</span>
+                                            </p>
                                         </div>
                                     </td>
 
@@ -246,7 +252,10 @@
                                     <td
                                         class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                         <div class="flex items-center">
-                                            {{ $level->final_price }}
+                                            <p>
+                                                <span>Rp.</span>
+                                                {{ number_format($level->final_price) }}
+                                            </p>
                                         </div>
                                     </td>
 

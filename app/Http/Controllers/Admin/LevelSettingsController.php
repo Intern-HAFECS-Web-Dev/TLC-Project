@@ -40,17 +40,24 @@ class LevelSettingsController extends Controller
             'name' => ['required', 'string'],
             'duration' => ['required', 'numeric'],
             'benefit' => ['required', 'string'],
-            'condition' => ['required', 'string']
+            'condition' => ['required', 'string'],
+            'price' => ['required', 'numeric'],
+            'discount' => ['required', 'numeric']
         ]);
 
         DB::beginTransaction();
 
         try {
+            $count_finalPrice = $request->price - $request->discount;
             $level = Level::create([
                 'name' => $request->name,
                 'duration' => $request->duration,
                 'benefit' => $request->benefit,
                 'condition' => $request->condition,
+                'price' => $request->price,
+                'discount' => $request->discount,
+                'final_price' => $count_finalPrice
+
             ]);
             DB::commit();
 
@@ -82,23 +89,32 @@ class LevelSettingsController extends Controller
 
     public function update(Request $request, string $id)
     {
+        // dd($request->all());
     $request->validate([
         'name' => ['required', 'string'],
         'duration' => ['required', 'numeric'],
         'benefit' => ['required', 'string'],
-        'condition' => ['required', 'string']
+        'condition' => ['required', 'string'],
+        'price' => ['required', 'numeric'],
+        'discount' => ['required', 'numeric']
     ]);
 
     DB::beginTransaction();
 
     try {
         $level = Level::findOrFail($id);
+        $discount = $request->price * $request->discount / 100;
+        $count_finalPrice = $request->price - $discount;
+
 
         $level->update([
             'name' => $request->name,
             'duration' => $request->duration,
             'benefit' => $request->benefit,
             'condition' => $request->condition,
+            'price' => $request->price,
+            'discount' => $request->discount,
+            'final_price' => $count_finalPrice
         ]);
 
         DB::commit();

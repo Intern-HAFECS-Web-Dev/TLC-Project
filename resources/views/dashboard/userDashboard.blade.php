@@ -102,8 +102,14 @@
                                 </p>
                             </div>
                             <div class="md:text-end text-center mt-3 md:mt-0">
-                                <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
-                                <h5 class="text-xl font-semibold mb-7">Rp 300.000</h5>
+                                <h5 class="text-lg text-red-600 line-through">
+                                    Rp <span>
+                                        {{ $levels[0]->price ? number_format($levels[0]->price, 0, ',', '.') : '-' }}
+                                    </span></h5>
+                                <h5 class="text-xl font-semibold mb-7">
+                                    Rp <span>
+                                        {{ $levels[0]->final_price ? number_format($levels[0]->final_price, 0, ',', '.') : '-' }}
+                                    </span></h5>
                             </div>
                         </div>
                         <hr class="border-white md:w-1/2 w-full mb-3 md:ml-auto mx-auto md:mx-0 top-0 right-0">
@@ -207,8 +213,16 @@
                                 </p>
                             </div>
                             <div class="md:text-end text-center mt-3 md:mt-0">
-                                <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
-                                <h5 class="text-xl font-semibold mb-7">Rp 300.000</h5>
+                                <h5 class="text-lg text-red-600 line-through">
+                                    Rp <span>
+                                        {{ $levels[1]->price ? number_format($levels[1]->price, 0, ',', '.') : '-' }}
+                                    </span></h5>
+                                </h5>
+                                <h5 class="text-xl font-semibold mb-7">
+                                    Rp <span>
+                                        {{ $levels[1]->final_price ? number_format($levels[1]->final_price, 0, ',', '.') : '-' }}
+                                    </span></h5>
+                                </h5>
                             </div>
                         </div>
                         <hr class="border-white md:w-1/2 w-full mb-3 md:ml-auto mx-auto md:mx-0 top-0 right-0">
@@ -311,8 +325,16 @@
                                 </p>
                             </div>
                             <div class="md:text-end text-center mt-3 md:mt-0">
-                                <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
-                                <h5 class="text-xl font-semibold mb-7">Rp 300.000</h5>
+                                <h5 class="text-lg text-red-600 line-through">
+                                    Rp <span>
+                                        {{ $levels[2]->price ? number_format($levels[2]->price, 0, ',', '.') : '-' }}
+                                    </span></h5>
+                                </h5>
+                                <h5 class="text-xl font-semibold mb-7">
+                                    Rp <span>
+                                        {{ $levels[2]->final_price ? number_format($levels[2]->final_price, 0, ',', '.') : '-' }}
+                                    </span></h5>
+                                </h5>
                             </div>
                         </div>
                         <hr class="border-white md:w-1/2 w-full mb-3 md:ml-auto mx-auto md:mx-0 top-0 right-0">
@@ -420,8 +442,14 @@
                                 </p>
                             </div>
                             <div class="md:text-end text-center mt-3 md:mt-0">
-                                <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
-                                <h5 class="text-xl font-semibold mb-7">Rp 300.000</h5>
+                                <h5 class="text-lg text-red-600 line-through">
+                                    Rp <span>
+                                        {{ $levels[3]->price ? number_format($levels[3]->price, 0, ',', '.') : '-' }}
+                                    </span></h5>
+                                </h5>
+                                <h5 class="text-xl font-semibold mb-7">Rp <span>
+                                    {{ $levels[3]->final_price ? number_format($levels[3]->final_price, 0, ',', '.') : '-' }}
+                                </span></h5></h5>
                             </div>
                         </div>
                         <hr class="border-white md:w-1/2 w-full mb-3 md:ml-auto mx-auto md:mx-0 top-0 right-0">

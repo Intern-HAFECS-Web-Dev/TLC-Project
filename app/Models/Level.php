@@ -17,7 +17,7 @@ class Level extends Model
         'benefit', 
         'condition',
         'price',
+        'final_price',
         'discount',
-        'final_price'
     ];
 }

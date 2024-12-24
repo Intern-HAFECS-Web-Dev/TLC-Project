@@ -18,7 +18,10 @@ class LevelSeeder extends Seeder
             'name' => 'Sertifikat Level A',
             'duration' => '3',
             'benefit' => 'Mendapatkan Sertifikat Level A',
-            'condition' => 'Telah Bergabung di LMS A'
+            'condition' => 'Telah Bergabung di LMS A',
+            'price' => '400000',
+            'discount' => '30',
+            'final_price' => '280000',
         ]);
 
          // Level B
@@ -26,7 +29,10 @@ class LevelSeeder extends Seeder
             'name' => 'Sertifikat Level B',
             'duration' => '3',
             'benefit' => 'Mendapatkan Sertifikat Level B',
-            'condition' => 'Telah Bergabung di LMS B'
+            'condition' => 'Telah Bergabung di LMS B',
+            'price' => '500000',
+            'discount' => '50',
+            'final_price' => '250000',
         ]);
 
         
@@ -35,7 +41,10 @@ class LevelSeeder extends Seeder
             'name' => 'Sertifikat Level C',
             'duration' => '3',
             'benefit' => 'Mendapatkan Sertifikat Level C',
-            'condition' => 'Telah Bergabung di LMS C'
+            'condition' => 'Telah Bergabung di LMS C',
+            'price' => '400000',
+            'discount' => '50',
+            'final_price' => '200000',
         ]);
 
          // Bundling
@@ -43,7 +52,10 @@ class LevelSeeder extends Seeder
             'name' => 'Paket Bundling',
             'duration' => '3',
             'benefit' => 'Mendapatkan Akses Level A,B,C',
-            'condition' => 'Telah Bergabung di TLC'
+            'condition' => 'Telah Bergabung di TLC',
+            'price' => '800000',
+            'discount' => '50',
+            'final_price' => '400000',
         ]);
 
     }

@@ -17,9 +17,9 @@ return new class extends Migration
             $table->integer('duration')->nullable()->comment('durasi sertifikat format Bulan');
             $table->string('benefit')->nullable()->comment('benefit mengikuti sertifikat');
             $table->string('condition')->nullable()->comment('benefit mengikuti sertifikat');
-            $table->decimal('price', 10, 2)->nullable()->comment('Harga dasar sertifikat');
-            $table->decimal('discount', 5, 2)->nullable()->comment('Diskon dalam persentase');
-            $table->decimal('final_price', 10, 2)->nullable()->comment('Harga akhir setelah diskon');
+            $table->decimal('price', 10)->nullable()->comment('Harga dasar sertifikat');
+            $table->decimal('discount', 5)->nullable()->comment('Diskon dalam persentase');
+            $table->decimal('final_price', 10)->nullable()->comment('Harga akhir setelah diskon');
             $table->timestamps();
         });
     }
