@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('answer');
             $table->boolean('is_correct');
-            $table->integer('sesion_exam');
             $table->foreignId('question_id')->constrained('questions')->onDelete('cascade');
             $table->timestamps();
         });
