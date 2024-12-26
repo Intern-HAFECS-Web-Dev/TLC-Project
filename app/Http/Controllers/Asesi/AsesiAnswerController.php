@@ -56,7 +56,7 @@ class AsesiAnswerController extends Controller
 
 
 
-    public function store(Request $request)
+    public function store(Request $request, $categori )
     {
         try {
             // Validate the incoming request
@@ -66,6 +66,7 @@ class AsesiAnswerController extends Controller
             ]);
 
             $answers = $request->input('answers');
+
             $userId = auth()->user()->id;
 
             foreach ($answers as $questionId => $answerId) {
@@ -90,7 +91,8 @@ class AsesiAnswerController extends Controller
                         'question_id' => $questionId,
                         'user_id' => $userId,
                         'answer' => $isCorrect,
-                        'sesion_exam' => 1,
+                        'sesion_exam' => 2,
+                        'categori_id' => $categori
                     ]);
                 }
             }

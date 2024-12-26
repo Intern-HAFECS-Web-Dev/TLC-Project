@@ -13,11 +13,11 @@
 @endif
 
 
-<form action="{{ route('soal.answer.store') }}" method="POST"
+<form action="{{ route('soal.answer.store', $categori) }}" method="POST"
     class="learning flex flex-col gap-[50px] items-center mt-[50px] w-full pb-[30px]">
     @csrf
 
-    @foreach ($categori->questions as $question)
+    @forelse  ($categori->questions as $question)
         <h1 class="w-[821px] font-extrabold text-[46px] leading-[69px] text-center">
             <span class="text-[#2B82FE]">{{ $loop->iteration }}</span>
             {{ $question->question }}
@@ -35,23 +35,24 @@
 
                         <span class="font-semibold text-xl leading-[30px]">{{ $answer->answer }}</span>
                     </div>
-                    {{-- this input is hidden and will be sent to the backend  but befor send save ini local storage --}}
-                    {{-- <input type="radio" name="answers[{{ $question->id }}]" id="{{ $answer->id }}"
-                        value="{{ $answer->id }}" class="hidden"> --}}
                     <input type="radio" name="answers[{{ $question->id }}]" id="{{ $answer->id }}"
                         value="{{ $answer->id }}" class="hidden" aria-label="Select answer {{ $answer->answer }}">
-
                 </label>
             @endforeach
         </div>
-    @endforeach
+    @empty
+        <p>Tidak ada soal</p>
+    @endforelse
 
-    {{-- jika ada inputan yg belom di pilih maka muncul alert  --}}
-    <button type="submit"
-        class="w-fit p-[14px_40px] bg-[#6436F1] rounded-full font-bold text-sm text-white transition-all duration-300 hover:shadow-[0_4px_15px_0_#6436F14D] text-center align-middle">
-        Submit
-    </button>
+    {{-- Sembunyikan tombol submit jika tidak ada soal --}}
+    @if ($categori->questions->isNotEmpty())
+        <button type="submit"
+            class="w-fit p-[14px_40px] bg-[#6436F1] rounded-full font-bold text-sm text-white transition-all duration-300 hover:shadow-[0_4px_15px_0_#6436F14D] text-center align-middle">
+            Submit
+        </button>
+    @endif
 </form>
+
 
 <script>
     // Function to load answers from localStorage on page load

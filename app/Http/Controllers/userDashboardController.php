@@ -85,24 +85,39 @@ class userDashboardController extends Controller
         ]);
     }
 
+    // public function kategoriLevelIndex()
+    // {
+    //     $categoris = Category::all();
+    //     $user = Auth::user();
+    //     $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
+    //     $province = Province::all();
+
+    //     $userAnswer = UserAnswer::with('user')
+    //     ->where('user_id', $user->id)
+    //     ->where('answer', 'correct')
+    //     ->where('sesion_exam', '1')
+    //     ->count();
+
+    //     // return  $userAnswer;
+
+    //     return view('userDashboard.kategoriLevelIndex', [
+    //         'title' => 'Category Level',
+    //         'user' => $userProfile,
+    //         'category' => $categoris
+    //     ]);
+    // }
+
+
+
     public function kategoriLevelIndex()
     {
         $categoris = Category::all();
         $user = Auth::user();
-        $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
-        $province = Province::all();
-
-        $userAnswer = UserAnswer::with('user')
-        ->where('user_id', $user->id)
-        ->where('answer', 'correct')->where('sesion_exam', 1)->count(); // Filter hanya jawaban yang benar
-    
-
-        return  $userAnswer;
-
+                    // return $userAnswers;
         return view('userDashboard.kategoriLevelIndex', [
             'title' => 'Category Level',
-            'user' => $userProfile,
-            'category' => $categoris
+            'user' => $user,
+            'categories' => $categoris,
         ]);
     }
 
