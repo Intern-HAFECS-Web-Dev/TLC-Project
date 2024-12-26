@@ -1,0 +1,22 @@
+{
+    "sourceFile": "database/migrations/2024_12_26_022540_add_is_locked_to_categories.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1735179975883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735179986811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,8 @@\n      */\n     public function down(): void\n     {\n         Schema::table('categories', function (Blueprint $table) {\n-            //\n+            $table->dropColumn('is_locked'); \n         });\n     }\n };\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1735179975883,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::table('categories', function (Blueprint $table) {\n            $table->boolean('is_locked')->default(true);\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::table('categories', function (Blueprint $table) {\n            //\n        });\n    }\n};"
+        }
+    ]
+}
