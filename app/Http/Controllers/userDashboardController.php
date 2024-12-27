@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Level;
 use App\Models\Category;
 use App\Models\Province;
+use App\Models\Question;
 use App\Models\UserAnswer;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -109,17 +110,41 @@ class userDashboardController extends Controller
 
 
 
+    // public function kategoriLevelIndex()
+    // {
+    //     $categories = Category::all();
+    //     $user = Auth::user()->id;
+
+    //     $user = UserProfile::with('user')->where('user_id', $user)->firstOrFail();
+
+
+    //     return view('userDashboard.kategoriLevelIndex', [
+    //         'title' => 'Category Level',
+    //         'user' => $user,
+    //         'categories' => $categories ,
+    //     ]);
+    // }
+
+
     public function kategoriLevelIndex()
     {
-        $categoris = Category::all();
-        $user = Auth::user();
-                    // return $userAnswers;
+        $categories = Category::with(['questions.answers', 'questions.userAnswers' => function($query) {
+            $query->where('user_id', Auth::id());
+        }])->get();
+    
+        $user = Auth::user()->id;
+    
+        $userProfile = UserProfile::with('user')->where('user_id', $user)->firstOrFail();
+    
+        // return $categories;
         return view('userDashboard.kategoriLevelIndex', [
             'title' => 'Category Level',
-            'user' => $user,
-            'categories' => $categoris,
+            'user' => $userProfile,
+            'categories' => $categories,
         ]);
     }
+    
+
 
 
     /**

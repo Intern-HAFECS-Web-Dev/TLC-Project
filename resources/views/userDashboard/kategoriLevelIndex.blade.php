@@ -30,26 +30,38 @@
                                     class="pt-1.5 md:pt-2 text-sm font-semibold md:text-base md:font-semibold lg:text-lg lg:font-bold ">
                                     {{ $categori->name }} </h3>
 
-                                    <!-- Modal toggle -->
-                                @if ($categori->is_locked == false)
-                                <button type="button"
+
+                                    @php
+                                    // Cek apakah ada jawaban pengguna untuk kategori ini
+                                    $userAnswer = $categori->questions->flatMap(function($question) {
+                                        return $question->userAnswers;
+                                    })->firstWhere('user_id', Auth::id());
+                                @endphp
+                    
+                                @if ($userAnswer && $userAnswer->sesion_exam == 1)
+                                <button type="button" class="pt-1.5 md:py-auto md:pt-2 w-24 text-birutua bg-white border border-biru hover:bg-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center">
+                                    Proses
+                                </button>
+                                @else
+                                    @if ($categori->is_locked == false)
+                                    <button type="button"
                                     class="pt-1.5 md:py-auto md:pt-2 w-24  text-birutua bg-white border border-biru hover:bg-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center">
                                     Terkunci
                                     <i class="fas fa-lock ms-2"></i>
                                 </button>
-                            @else
-                                <button data-modal-target="default-modal{{ $categori->id }}" data-modal-toggle="default-modal{{ $categori->id }}"
-                                    class="pt-1.5 md:py-auto md:pt-2 w-20 text-birutua bg-white hover:bg-biru border border-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 text-center inline-flex items-center py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    Mulai
-                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                    </svg>
-                                </button>
-                            @endif
-
-
+                                    @else
+                                    <button data-modal-target="default-modal{{ $categori->id }}" data-modal-toggle="default-modal{{ $categori->id }}"
+                                        class="pt-1.5 md:py-auto md:pt-2 w-20 text-birutua bg-white hover:bg-biru border border-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 text-center inline-flex items-center py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Mulai
+                                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                        </svg>
+                                    </button>
+                                    @endif
+                                @endif
+                                
                                     {{-- jika belom pernah ujian ke 1 --}}
                                     {{-- <button data-modal-target="default-modal{{ $categori->id }}" data-modal-toggle="default-modal{{ $categori->id }}"
                                         class="pt-1.5 md:py-auto md:pt-2 w-20 text-birutua bg-white hover:bg-biru border border-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 text-center inline-flex items-center py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">

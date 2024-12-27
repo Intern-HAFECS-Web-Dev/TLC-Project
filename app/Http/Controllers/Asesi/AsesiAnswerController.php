@@ -91,7 +91,7 @@ class AsesiAnswerController extends Controller
                         'question_id' => $questionId,
                         'user_id' => $userId,
                         'answer' => $isCorrect,
-                        'sesion_exam' => 2,
+                        'sesion_exam' => 1,
                         'categori_id' => $categori
                     ]);
                 }
