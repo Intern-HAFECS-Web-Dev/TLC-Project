@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             $user = User::create([
                 'name' => $faker->name,
                 'email' => $faker->unique()->safeEmail,

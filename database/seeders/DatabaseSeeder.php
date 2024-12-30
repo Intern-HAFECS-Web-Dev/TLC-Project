@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(RolePermissionSeeder::class);
         $this->call(IndoRegionSeeder::class);
+        $this->call(LevelSeeder::class);
         
         $user = User::factory()->create([
             'name' => 'User',

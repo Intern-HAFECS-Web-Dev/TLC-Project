@@ -15,11 +15,9 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->unique();
             $table->string('purchase')->nullable();
-            $table->string('initial_prize')->nullable();
-            $table->string('discount')->nullable();
-            $table->string('final_prize')->nullable();
             $table->string('total_prize')->nullable();
-            $table->enum('status', ['completed', 'inProgress', 'inReview', 'cancelled']);
+            $table->enum('status', ['completed', 'inProgress', 'inReview', 'cancelled', 'unpaid'])->default('unpaid');
+        
             $table->timestamps();
         });
     }

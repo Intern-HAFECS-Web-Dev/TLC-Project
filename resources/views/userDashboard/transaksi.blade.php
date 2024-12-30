@@ -75,7 +75,7 @@
                                             </button>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    {{-- <tr>
                                         <td class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap">
                                             2
                                         </td>
@@ -99,8 +99,8 @@
                                                 Invoice
                                             </button>
                                         </td>
-                                    </tr>
-                                    <tr>
+                                    </tr> --}}
+                                    {{-- <tr>
                                         <td class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap">
                                             3
                                         </td>
@@ -124,7 +124,7 @@
                                                 Invoice
                                             </button>
                                         </td>
-                                    </tr>
+                                    </tr> --}}
                                 </tbody>
                             </table>
                         </div>

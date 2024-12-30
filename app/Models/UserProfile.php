@@ -22,7 +22,7 @@ class UserProfile extends Model
         'jenis_kelamin',
         'no_wa',
         'profile_image',
-        'provinsi', // Include foreign key fields
+        'provinsi', 
         'kabupaten',
         'kelurahan',
         'kecamatan',
@@ -35,5 +35,4 @@ class UserProfile extends Model
         return $this->belongsTo(User::class);
     }
 
-    // Define relationship to Province model
-  }
+    }

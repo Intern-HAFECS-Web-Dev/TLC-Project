@@ -129,9 +129,18 @@ class RegisteredUserController extends Controller
         }
         
         if (isset($userProfile)) {
-            $idd = Auth::user()->id;
-            $user = User::find($idd);
-            $user->assignRole('user');
+            // assign role ketika regist
+            if (!$user->hasRole('user')) {
+                $user->assignRole('user');
+            }
+
+            // assign akses level A
+            if (!$user->hasPermissionTo('acces_level_A')) {
+                $user->givePermissionTo('acces_level_A');
+            }
+            // $idd = Auth::user()->id;
+            // $user = User::find($idd);
+            $user->givePermissionTo('acces_level_A');
             $userProfile->save();
         }
         

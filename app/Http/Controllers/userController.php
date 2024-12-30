@@ -97,7 +97,16 @@ class userController extends Controller
             'password' => $request->password ? Hash::make($request->password) : null,
         ]);
 
-        $user->assignRole('user');
+        // validasi role ketika create user
+        if(!$user->hasRole('user')) {
+            $user->assignRole('user');
+        }
+
+        // validasi akses level A ketika create user
+        if($user->hasPermissionTo('acces_level_A')) {
+            $user->givePermissionTo('acces_level_A');
+        }
+        
         event(new Registered($user));
 
         // Create User Profile

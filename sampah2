@@ -1,0 +1,56 @@
+    @forelse ($category as $categori)
+                        @php
+                            // Ambil jawaban pengguna untuk kategori ini
+                            $userAnswer = $userAnswers->get($categori->id);
+                            $correctAnswers = $userAnswer->correct_answers ?? 0;
+                            $totalAnswers = $userAnswer->total_answers ?? 0;
+                            $passingScore = ceil($totalAnswers * 0.7); // Lulus jika minimal 70%
+                            $status = $userAnswer
+                                ? ($correctAnswers >= $passingScore
+                                    ? 'Lulus'
+                                    : 'Remidi')
+                                : 'Belum Mulai';
+                        @endphp
+
+                        <div
+                            class="mb-5 lg:mb-0 bg-white w-full h-[164px] md:h-[197px] shadow-md rounded-lg overflow-hidden lg:w-[350px] lg:h-[236px]">
+                            <img src="{{ Storage::url($categori->image_categori) }}" alt="Category Image"
+                                class="h-28 md:h-36 w-full lg:h-[177px] object-cover">
+                            <div class="flex justify-between px-4 pt-2 pb-0 lg:py-2">
+                                <h3
+                                    class="pt-1.5 md:pt-2 text-sm font-semibold md:text-base md:font-semibold lg:text-lg lg:font-bold">
+                                    {{ $categori->name }}
+                                </h3>
+
+                                @if ($status == 'Lulus')
+                                    <button type="button"
+                                        class="pt-1.5 md:py-auto md:pt-2 w-24 text-green-700 bg-white border border-green-700 hover:bg-green-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center">
+                                        Lulus
+                                        <i class="fas fa-check ms-2"></i>
+                                    </button>
+                                @elseif ($status == 'Remidi')
+                                    <button data-modal-target="default-modal{{ $categori->id }}"
+                                        data-modal-toggle="default-modal{{ $categori->id }}"
+                                        class="pt-1.5 md:py-auto md:pt-2 w-20 text-birutua bg-white hover:bg-biru border border-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 text-center inline-flex items-center py-2">
+                                        {{ $status }}
+                                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                        </svg>
+                                    </button>
+                                @else
+                                    <button onclick="window.location.href=''{{ route('soal.index', $categori) }}'"
+                                        class="pt-1.5 md:py-auto md:pt-2 w-20 text-birutua bg-white hover:bg-biru border border-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 text-center inline-flex items-center py-2">
+                                        Mulai
+                                    </button>
+                                @endif
+                            </div>
+                        </div>
+                    @empty
+                        <div class="flex items-center justify-center h-screen">
+                            <div class="text-3xl font-bold text-gray-900 dark:text-white">
+                                Belum ada soal yang tersedia
+                            </div>
+                        </div>
+                    @endforelse

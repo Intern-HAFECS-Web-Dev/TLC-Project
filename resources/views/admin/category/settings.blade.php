@@ -8,15 +8,15 @@
                 <nav class="flex mt-4 mb-5" aria-label="Breadcrumb">
                     <ol class="inline-flex items-center space-x-1 text-sm font-medium md:space-x-2">
                         <li class="inline-flex items-center">
-                            <a href="{{ route('admin.transaksi.index') }}"
-                                class="inline-flex items-center font-semibold text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-white">
+                            <a href="{{ route('admin.users.index') }}"
+                                class="inline-flex items-center text-gray-400 dark:text-gray-300 dark:hover:text-white">
                                 <svg class="w-5 h-5 mr-2.5" fill="currentColor" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
                                     </path>
                                 </svg>
-                                Transaksi
+                                Level A
                             </a>
                         </li>
                         <li>
@@ -29,7 +29,7 @@
                                 </svg>
                                 <a href="{{ route('admin.asesor.index') }}"
                                     class="ml-1 text-gray-400 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">
-                                    Price
+                                    Level B
                                 </a>
                             </div>
                         </li>
@@ -42,6 +42,21 @@
                                         clip-rule="evenodd"></path>
                                 </svg>
                                 <span class="ml-1 text-gray-400 md:ml-2 dark:text-gray-500" aria-current="page">
+                                    Level C
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span
+                                    class="inline-flex items-center text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-white"
+                                    aria-current="page">
                                     Settings
                                 </span>
                             </div>
@@ -52,24 +67,26 @@
             </div>
             <div class="sm:flex">
                 <div class="items-center hidden mb-3 sm:flex sm:divide-x sm:divide-gray-100 sm:mb-0 dark:divide-gray-700">
-                    <form class="lg:pr-3" action="#" method="GET">
-                        <label for="transaction-search" class="sr-only">Search</label>
+                    <form class="lg:pr-3" action="{{ route('admin.users.index') }}" method="GET">
+                        <label for="users-search" class="sr-only">Search</label>
                         <div class="relative mt-1 lg:w-64 xl:w-96">
-                            <input type="text" name="search" id="transaction-search"
+                            <input type="text" name="search" id="users-search"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Search for users" value="{{ request('search') }}">
+                                placeholder="Search for Levels" value="{{ request('search') }}">
 
                         </div>
                     </form>
                     <div class="flex pl-0 mt-3 space-x-1 sm:pl-2 sm:mt-0">
-                        <a href="#"
+
+                        {{-- <a href="{{ route('admin.testing') }}"
                             class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
                                     d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
                                     clip-rule="evenodd"></path>
                             </svg>
-                        </a>
+                        </a> --}}
+
                         <a href="#"
                             class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                             data-popover-target="popover-delete" data-popover-placement="bottom"
@@ -80,38 +97,48 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </a>
-                        <a href="#"
-                            class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
-                        <a href="#"
-                            class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
-                                </path>
-                            </svg>
-                        </a>
+
+                        <form action="{{ route('admin.settings.autoGenerate') }}" method="POST" class="inline-flex">
+                            @csrf
+                            <button type="submit"
+                                class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                data-popover-target="popover-autoGenerate" data-popover-placement="bottom">
+                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#1260de"
+                                    viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M9 2a1 1 0 0 0-1 1H6a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2a1 1 0 0 0-1-1H9Zm1 2h4v2h1a1 1 0 1 1 0 2H9a1 1 0 0 1 0-2h1V4Zm5.707 8.707a1 1 0 0 0-1.414-1.414L11 14.586l-1.293-1.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            
+                        </form>
+
                     </div>
                 </div>
                 <div class="flex items-center ml-auto space-x-2 sm:space-x-3">
-                    <a href="{{ route('admin.users.create') }}">
-                        <button
-                            class="inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                            data-popover-target="popover-export" data-popover-placement="bottom">
-                            <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            Export excel
-                        </button>
-                    </a>
+
+                    @if ($levels->count() < 4)
+                        <a href="{{ route('admin.settings.create') }}">
+                            <button
+                                class="inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                                data-popover-target="popover-addLevel" data-popover-placement="bottom">
+                                <svg class="w-5 h-5 mr-2 -ml-1" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Add New Level
+                            </button>
+                        </a>
+                    @else
+                        <p
+                            class="inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                            Tidak Bisa Menambahkan Data Lagi, Max 4 Data
+                        </p>
+                    @endif
+
                 </div>
             </div>
         </div>
@@ -131,35 +158,31 @@
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Name
+                                    Nama Level
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    ID Transaksi
+                                    Durasi
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Date Pembelian
+                                    Keuntungan
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Pembelian
+                                    Persyaratan
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Harga Awal
+                                    Starting Price
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Diskon
+                                    Discount
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Harga Akhir
-                                </th>
-                                <th scope="col"
-                                    class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
-                                    Status
+                                    Final Price
                                 </th>
                                 <th scope="col"
                                     class="px-4 py-2 text-xs font-medium text-left text-white uppercase dark:text-gray-400">
@@ -169,89 +192,95 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
 
-                            {{-- @foreach ($userProfile as $user) --}}
-                            <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 odd:bg-red-50 even:bg-blue-50">
+                            @foreach ($levels as $level)
+                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 odd:bg-red-50 even:bg-blue-50">
 
-                                {{-- checkbox --}}
-                                <td class="px-4 py-2">
-                                    {{-- {{ $loop->iteration }} --}}
-                                </td>
+                                    {{-- Nomor --}}
+                                    <td class="px-4 py-2">
+                                        {{ $loop->iteration }}
+                                    </td>
 
-                                {{-- image,nama,email --}}
-                                <td class="flex items-center px-4 py-2 mr-12 space-x-6 whitespace-nowrap">
-                                    <img class="w-12 h-12 rounded-lg" src="#" alt="avatar">
-                                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                        <div class="text-base font-semibold text-gray-900 dark:text-white">
-                                            {{-- {{ $user->fullname }} --}}
+                                    {{-- Nama Sertifikasi --}}
+                                    <td
+                                        class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
+                                        {{ $level->name }}
+                                    </td>
+
+                                    {{-- Durasi --}}
+                                    <td
+                                        class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
+                                        <p>{{ $level->duration }} <span>Bulan</span></p>
+                                    </td>
+
+                                    {{-- Benefit --}}
+                                    <td
+                                        class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
+                                        {{ $level->benefit }}
+                                    </td>
+
+                                    {{-- Persyaratan --}}
+                                    <td
+                                        class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                        <div class="flex items-center">
+                                            {{ $level->condition }}
                                         </div>
-                                        <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                            {{-- {{ $user->user->email }} --}}
+                                    </td>
+
+                                    {{-- starting Price --}}
+                                    <td
+                                        class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                        <div class="flex items-center">
+                                            <p>
+                                                <span>Rp.</span>
+                                                {{ number_format($level->price) }}
+                                            </p>
                                         </div>
-                                    </div>
-                                </td>
+                                    </td>
 
-                                {{-- no Wa --}}
-                                <td
-                                    class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
-                                    {{-- {{ $user->no_wa }} --}}
-                                </td>
+                                    {{-- Discount --}}
+                                    <td
+                                        class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                        <div class="flex items-center">
+                                            <p>
+                                                {{ number_format($level->discount) }}
+                                                <span>%</span>
+                                            </p>
+                                        </div>
+                                    </td>
 
-                                {{-- Instansi --}}
-                                <td
-                                    class="max-w-sm px-4 py-2 overflow-hidden text-base font-normal text-black truncate xl:max-w-xs dark:text-gray-400">
-                                    {{-- {{ $user->instansi }} --}}
-                                </td>
+                                    {{-- final Price --}}
+                                    <td
+                                        class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                        <div class="flex items-center">
+                                            <p>
+                                                <span>Rp.</span>
+                                                {{ number_format($level->final_price) }}
+                                            </p>
+                                        </div>
+                                    </td>
 
-                                {{-- Jenis Kelamin --}}
-                                <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                    {{-- {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }} --}}
-                                </td>
+                                    {{-- Action --}}
+                                    <td class="px-4 py-2 space-x-2 whitespace-nowrap">
+                                        {{-- Edit Levels --}}
+                                        <a href="{{ route('admin.settings.edit', $level->id) }}"
+                                            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </a>
 
-                                <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                    {{-- {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }} --}}
-                                </td>
-
-                                <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                    {{-- {{ $user->jenis_kelamin === 'L' ? 'Laki Laki' : 'Perempuan' }} --}}
-                                </td>
-
-                                {{-- Created_at --}}
-                                <td class="px-4 py-2 text-base font-normal text-black whitespace-nowrap dark:text-white">
-                                    {{-- {{ $user->user->created_at->format('d-m-Y') }} --}}
-                                </td>
-
-                                {{-- Last Seen --}}
-                                {{-- status --}}
-                                <td
-                                    class="px-4 py-2 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                    <div class="flex items-center">
-                                        <p>status</p>
-                                    </div>
-                                </td>
-
-                                {{-- Action --}}
-                                <td class="px-4 py-2 space-x-2 whitespace-nowrap">
-                                    {{-- Edit users --}}
-                                    <a href="#"
-                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </a>
-
-                                    {{-- Delete users --}}
-                                    <a href="#"
-                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900"
-                                        onclick="return confirm('Yakin ingin menghapus data ini?');">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
-
-                                    {{-- Show Users --}}
-                                    <a href="#"
-                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            {{-- @endforeach --}}
+                                        {{-- Delete Levels --}}
+                                        <form action="{{ route('admin.settings.destroy', $level->id) }}" method="POST"
+                                            style="display: inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900"
+                                                onclick="return confirm('Yakin ingin menghapus data ini?');">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     {{-- table end --}}
@@ -262,7 +291,7 @@
 
     {{-- Pagination --}}
     <div class="mt-4">
-        {{-- {{ $userProfile->links() }} --}}
+        {{-- {{ $levels->links() }} --}}
     </div>
 
     {{-- Pop up Delete Asesi --}}
@@ -303,18 +332,18 @@
     </div>
 
     {{-- popOver Delete --}}
-    <x-popover title="Delete All Transaction" id="popover-delete">
+    <x-popover title="Delete All Levels" id="popover-delete">
         <strong class="text-red-500">Warning!!</strong>
-        <p>Tindakan Ini akan menghapus semua Transaksi dari sistem.</p>
+        <p>Tindakan Ini akan menghapus semua Levels dari database.</p>
     </x-popover>
 
-    {{-- popOver Transaksi --}}
-    <x-popover title="Export Excel" id="popover-export">
-        <p>Tindakan Ini akan Membuat file excel dari data transaksi</p>
+    {{-- popOver addUser --}}
+    <x-popover title="Add New Level" id="popover-addLevel">
+        <p>Tindakan Ini akan menambahkan Level baru untuk ditampilkan di Users Dashboard.</p>
     </x-popover>
 
-    {{-- popOver Export --}}
-    <x-popover title="Export Asesi" id="popover-export">
-        <p>Tindakan Ini akan membuat file excel dari data asesi.</p>
+    {{-- popOver autoGenerate --}}
+    <x-popover title="Auto Generate Data" id="popover-autoGenerate">
+        <p>Tindakan Ini akan Menambahkan data Level General Secara Otomatis</p>
     </x-popover>
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.navbar')
 
 @section('content')
-<main class="container mx-auto lg:mt-14 mt-10 max-w-7xl">
+    <main class="container mx-auto lg:mt-14 mt-10 max-w-7xl">
         {{-- Carousel --}}
         <div id="default-carousel" class="relative w-full mt-10" data-carousel="slide">
             <div class="relative h-60 md:h-96 overflow-hidden rounded-lg lg:h-[530px] xl:h-[600px]">
@@ -88,31 +88,59 @@
                         class="mx-auto text-white mb-7 w-full md:max-w-xl md:max-h-[278px] p-4 bg-gradient-to-r from-[#5F809C] to-[#212C36] border border-gray-200 rounded-2xl shadow">
                         <div class="md:flex md:justify-between ">
                             <div class="md:text-start text-center">
-                                <h5 class="text-2xl md:text-xl font-semibold">Sertifikasi Level A</h5>
-                                <p>3 Bulan</p>
+                                {{-- Level A Name --}}
+                                <h5 class="text-2xl md:text-xl font-semibold">
+                                    {{ $levels[0]->name ? $levels[0]->name : '-' }}
+                                </h5>
+
+                                {{-- Level A Duration --}}
+                                <p>
+                                    {{ $levels[0]->duration ? $levels[0]->duration : '-' }}
+                                    <span>
+                                        Bulan
+                                    </span>
+                                </p>
                             </div>
                             <div class="md:text-end text-center mt-3 md:mt-0">
-                                <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
-                                <h5 class="text-xl font-semibold mb-7">Rp 300.000</h5>
+                                <h5 class="text-lg text-red-600 line-through">
+                                    Rp <span>
+                                        {{ $levels[0]->price ? number_format($levels[0]->price, 0, ',', '.') : '-' }}
+                                    </span></h5>
+                                <h5 class="text-xl font-semibold mb-7">
+                                    Rp <span>
+                                        {{ $levels[0]->final_price ? number_format($levels[0]->final_price, 0, ',', '.') : '-' }}
+                                    </span></h5>
                             </div>
                         </div>
                         <hr class="border-white md:w-1/2 w-full mb-3 md:ml-auto mx-auto md:mx-0 top-0 right-0">
                         <div class="md:flex md:justify-between">
                             <div class="md:text-start text-center">
+                                {{-- Level A Persyaratan --}}
                                 <p class="text-sm">Persyaratan: </p>
-                                <p class="text-xs">-</p>
+                                <p class="text-xs">
+                                    {{ $levels[0]->condition ? $levels[0]->condition : '-' }}
+                                </p>
+
                             </div>
                             <div class="md:text-end text-center">
+
                                 <h5 class="text-sm">Keuntungan<span class="md:hidden lg:hidden xl:hidden">:</span></h5>
-                                <p class="text-xs">Mendapatkan Sertifikasi Level A</p>
+                                <p class="text-xs">
+                                    {{ $levels[0]->benefit ? $levels[0]->benefit : '-' }}
+                                </p>
+
                             </div>
                         </div>
 
-                        <button data-modal-target="default-modal" data-modal-toggle="default-modal"
-                            class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
-                            type="button">
-                            Ikut Sekarang
-                        </button>
+                        @if (auth()->user()->hasPermissionTo('acces_level_A'))
+                            <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                                class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
+                                type="button">
+                                Ikut Sekarang
+                            </button>
+                        @else
+                            <p class="text-white text-center mt-8">Anda tidak memiliki akses untuk mendaftar.</p>
+                        @endif
 
                         <!-- Main modal -->
                         <div id="default-modal" tabindex="-1" aria-hidden="true"
@@ -173,31 +201,58 @@
                         class="mx-auto text-white mb-7 w-full md:max-w-xl md:max-h-[278px] p-4 bg-gradient-to-r from-[#5F809C] to-[#212C36] border border-gray-200 rounded-2xl shadow">
                         <div class="md:flex md:justify-between ">
                             <div class="md:text-start text-center">
-                                <h5 class="text-2xl md:text-xl font-semibold">Sertifikasi Level A</h5>
-                                <p>3 Bulan</p>
+                                {{-- Level B Name --}}
+                                <h5 class="text-2xl md:text-xl font-semibold">
+                                    {{ $levels[1]->name ? $levels[1]->name : '-' }}
+                                </h5>
+
+                                {{-- Level B Duration --}}
+                                <p>
+                                    {{ $levels[1]->duration ? $levels[1]->duration : '-' }}
+                                    <span>Bulan</span>
+                                </p>
                             </div>
                             <div class="md:text-end text-center mt-3 md:mt-0">
-                                <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
-                                <h5 class="text-xl font-semibold mb-7">Rp 300.000</h5>
+                                <h5 class="text-lg text-red-600 line-through">
+                                    Rp <span>
+                                        {{ $levels[1]->price ? number_format($levels[1]->price, 0, ',', '.') : '-' }}
+                                    </span></h5>
+                                </h5>
+                                <h5 class="text-xl font-semibold mb-7">
+                                    Rp <span>
+                                        {{ $levels[1]->final_price ? number_format($levels[1]->final_price, 0, ',', '.') : '-' }}
+                                    </span></h5>
+                                </h5>
                             </div>
                         </div>
                         <hr class="border-white md:w-1/2 w-full mb-3 md:ml-auto mx-auto md:mx-0 top-0 right-0">
                         <div class="md:flex md:justify-between">
                             <div class="md:text-start text-center">
                                 <p class="text-sm">Persyaratan: </p>
-                                <p class="text-xs">-</p>
+
+                                {{-- Level B Persyaratan --}}
+                                <p class="text-xs">
+                                    {{ $levels[1]->condition ? $levels[1]->condition : '-' }}
+                                </p>
                             </div>
                             <div class="md:text-end text-center">
                                 <h5 class="text-sm">Keuntungan<span class="md:hidden lg:hidden xl:hidden">:</span></h5>
-                                <p class="text-xs">Mendapatkan Sertifikasi Level A</p>
+                                <p class="text-xs">
+                                    {{ $levels[1]->benefit ? $levels[1]->benefit : '-' }}
+                                </p>
                             </div>
                         </div>
 
-                        <button data-modal-target="default-modal" data-modal-toggle="default-modal"
-                            class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
-                            type="button">
-                            Ikut Sekarang
-                        </button>
+                        {{-- Button B --}}
+                        @if (auth()->user()->hasPermissionTo('acces_level_B'))
+                            <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                                class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
+                                type="button">
+                                Ikut Sekarang
+                            </button>
+                        @else
+                            <p class="text-white text-center mt-8">Anda belum memiliki akses ke level B</p>
+                        @endif
 
                         <!-- Main modal -->
                         <div id="default-modal" tabindex="-1" aria-hidden="true"
@@ -258,31 +313,62 @@
                         class="mx-auto text-white mb-7 w-full md:max-w-xl md:max-h-[278px] p-4 bg-gradient-to-r from-[#5F809C] to-[#212C36] border border-gray-200 rounded-2xl shadow">
                         <div class="md:flex md:justify-between ">
                             <div class="md:text-start text-center">
-                                <h5 class="text-2xl md:text-xl font-semibold">Sertifikasi Level A</h5>
-                                <p>3 Bulan</p>
+
+                                {{-- Level C Name --}}
+                                <h5 class="text-2xl md:text-xl font-semibold">
+                                    {{ $levels[2]->name ? $levels[2]->name : '-' }}
+                                </h5>
+                                {{-- Level C Duration --}}
+                                <p>
+                                    {{ $levels[2]->duration ? $levels[2]->duration : '-' }}
+                                    <span>Bulan</span>
+                                </p>
                             </div>
                             <div class="md:text-end text-center mt-3 md:mt-0">
-                                <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
-                                <h5 class="text-xl font-semibold mb-7">Rp 300.000</h5>
+                                <h5 class="text-lg text-red-600 line-through">
+                                    Rp <span>
+                                        {{ $levels[2]->price ? number_format($levels[2]->price, 0, ',', '.') : '-' }}
+                                    </span></h5>
+                                </h5>
+                                <h5 class="text-xl font-semibold mb-7">
+                                    Rp <span>
+                                        {{ $levels[2]->final_price ? number_format($levels[2]->final_price, 0, ',', '.') : '-' }}
+                                    </span></h5>
+                                </h5>
                             </div>
                         </div>
                         <hr class="border-white md:w-1/2 w-full mb-3 md:ml-auto mx-auto md:mx-0 top-0 right-0">
                         <div class="md:flex md:justify-between">
                             <div class="md:text-start text-center">
                                 <p class="text-sm">Persyaratan: </p>
-                                <p class="text-xs">-</p>
+
+                                {{-- Level C Persyaratan --}}
+                                <p class="text-xs">
+                                    {{ $levels[2]->condition ? $levels[2]->condition : '-' }}
+                                </p>
                             </div>
                             <div class="md:text-end text-center">
                                 <h5 class="text-sm">Keuntungan<span class="md:hidden lg:hidden xl:hidden">:</span></h5>
-                                <p class="text-xs">Mendapatkan Sertifikasi Level A</p>
+
+                                {{-- Level C Benefit --}}
+                                <p class="text-xs">
+                                    {{ $levels[2]->benefit ? $levels[2]->benefit : '-' }}
+                                </p>
                             </div>
                         </div>
 
-                        <button data-modal-target="default-modal" data-modal-toggle="default-modal"
-                            class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
-                            type="button">
-                            Ikut Sekarang
-                        </button>
+
+
+                        {{-- Button C --}}
+                        @if (auth()->user()->hasPermissionTo('acces_level_C'))
+                            <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                                class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
+                                type="button">
+                                Ikut Sekarang
+                            </button>
+                        @else
+                            <p class="text-white text-center mt-8">Anda belum memiliki akses ke level C</p>
+                        @endif
 
                         <!-- Main modal -->
                         <div id="default-modal" tabindex="-1" aria-hidden="true"
@@ -343,31 +429,59 @@
                         class="mx-auto text-white mb-7 w-full md:max-w-xl md:max-h-[278px] p-4 bg-gradient-to-r from-[#5F809C] to-[#212C36] border border-gray-200 rounded-2xl shadow">
                         <div class="md:flex md:justify-between ">
                             <div class="md:text-start text-center">
-                                <h5 class="text-2xl md:text-xl font-semibold">Sertifikasi Level A</h5>
-                                <p>3 Bulan</p>
+
+                                {{-- Paket Bundling Name --}}
+                                <h5 class="text-2xl md:text-xl font-semibold">
+                                    {{ $levels[3]->name ? $levels[3]->name : '-' }}
+                                </h5>
+
+                                {{-- Pake Bundling Duration --}}
+                                <p>
+                                    {{ $levels[3]->duration ? $levels[3]->duration : '-' }}
+                                    <span>Bulan</span>
+                                </p>
                             </div>
                             <div class="md:text-end text-center mt-3 md:mt-0">
-                                <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
-                                <h5 class="text-xl font-semibold mb-7">Rp 300.000</h5>
+                                <h5 class="text-lg text-red-600 line-through">
+                                    Rp <span>
+                                        {{ $levels[3]->price ? number_format($levels[3]->price, 0, ',', '.') : '-' }}
+                                    </span></h5>
+                                </h5>
+                                <h5 class="text-xl font-semibold mb-7">Rp <span>
+                                    {{ $levels[3]->final_price ? number_format($levels[3]->final_price, 0, ',', '.') : '-' }}
+                                </span></h5></h5>
                             </div>
                         </div>
                         <hr class="border-white md:w-1/2 w-full mb-3 md:ml-auto mx-auto md:mx-0 top-0 right-0">
                         <div class="md:flex md:justify-between">
                             <div class="md:text-start text-center">
                                 <p class="text-sm">Persyaratan: </p>
-                                <p class="text-xs">-</p>
+
+                                {{-- Level Bundling Condition --}}
+                                <p class="text-xs">
+                                    {{ $levels[3]->condition ? $levels[3]->condition : '-' }}
+                                </p>
                             </div>
                             <div class="md:text-end text-center">
                                 <h5 class="text-sm">Keuntungan<span class="md:hidden lg:hidden xl:hidden">:</span></h5>
-                                <p class="text-xs">Mendapatkan Sertifikasi Level A</p>
+
+                                {{-- Level Bundling Benefit --}}
+                                <p class="text-xs">
+                                    {{ $levels[3]->benefit ? $levels[3]->benefit : '-' }}
+                                </p>
                             </div>
                         </div>
 
-                        <button data-modal-target="default-modal" data-modal-toggle="default-modal"
-                            class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
-                            type="button">
-                            Ikut Sekarang
-                        </button>
+                        {{-- Button Bundling --}}
+                        @if (auth()->user()->hasPermissionTo('bundling'))
+                            <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                                class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
+                                type="button">
+                                Beli Sekarang
+                            </button>
+                        @else
+                            <p class="text-white text-center mt-8">Paket Bundling Sudah Terbuka</p>
+                        @endif
 
                         <!-- Main modal -->
                         <div id="default-modal" tabindex="-1" aria-hidden="true"
@@ -463,13 +577,12 @@
 
         {{-- Whatsapp --}}
         <a href="#" target="_blank"
-   class="fixed w-14 h-14 bottom-10 right-4 bg-green-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 z-50">
-    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path
-        fill="currentColor"
-            d="M20.52 3.48A11.946 11.946 0 0012 0C5.371 0 0 5.371 0 12a11.946 11.946 0 003.48 8.52l-1.14 4.38 4.38-1.14A11.946 11.946 0 0012 24c6.629 0 12-5.371 12-12 0-3.22-1.265-6.256-3.48-8.52zm-8.52 19.2a9.683 9.683 0 01-5.06-1.431l-.363-.216-2.591.675.694-2.56-.235-.372A9.696 9.696 0 012.4 12a9.6 9.6 0 019.6-9.6c5.305 0 9.6 4.295 9.6 9.6s-4.295 9.6-9.6 9.6zm5.145-7.114c-.281-.14-1.666-.823-1.922-.918-.256-.094-.444-.14-.632.14-.187.28-.725.918-.89 1.103-.165.187-.326.21-.606.07-.28-.14-1.179-.434-2.243-1.384-.83-.74-1.389-1.656-1.55-1.936-.165-.28-.018-.432.123-.57.128-.127.28-.327.419-.49.14-.165.187-.28.28-.465.093-.187.047-.351-.023-.49-.07-.14-.632-1.522-.868-2.086-.23-.558-.465-.483-.632-.483-.165 0-.351-.023-.535-.023-.187 0-.49.07-.748.35-.256.28-.98.96-.98 2.336 0 1.374 1.003 2.704 1.145 2.89.14.187 1.967 3.01 4.776 4.216.67.29 1.191.465 1.6.605.671.213 1.28.183 1.758.11.536-.08 1.665-.68 1.902-1.334.233-.65.233-1.212.163-1.334-.07-.12-.256-.187-.537-.327z" />
-    </svg>
-</a>
+            class="fixed w-14 h-14 bottom-10 right-4 bg-green-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 z-50">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M20.52 3.48A11.946 11.946 0 0012 0C5.371 0 0 5.371 0 12a11.946 11.946 0 003.48 8.52l-1.14 4.38 4.38-1.14A11.946 11.946 0 0012 24c6.629 0 12-5.371 12-12 0-3.22-1.265-6.256-3.48-8.52zm-8.52 19.2a9.683 9.683 0 01-5.06-1.431l-.363-.216-2.591.675.694-2.56-.235-.372A9.696 9.696 0 012.4 12a9.6 9.6 0 019.6-9.6c5.305 0 9.6 4.295 9.6 9.6s-4.295 9.6-9.6 9.6zm5.145-7.114c-.281-.14-1.666-.823-1.922-.918-.256-.094-.444-.14-.632.14-.187.28-.725.918-.89 1.103-.165.187-.326.21-.606.07-.28-.14-1.179-.434-2.243-1.384-.83-.74-1.389-1.656-1.55-1.936-.165-.28-.018-.432.123-.57.128-.127.28-.327.419-.49.14-.165.187-.28.28-.465.093-.187.047-.351-.023-.49-.07-.14-.632-1.522-.868-2.086-.23-.558-.465-.483-.632-.483-.165 0-.351-.023-.535-.023-.187 0-.49.07-.748.35-.256.28-.98.96-.98 2.336 0 1.374 1.003 2.704 1.145 2.89.14.187 1.967 3.01 4.776 4.216.67.29 1.191.465 1.6.605.671.213 1.28.183 1.758.11.536-.08 1.665-.68 1.902-1.334.233-.65.233-1.212.163-1.334-.07-.12-.256-.187-.537-.327z" />
+            </svg>
+        </a>
 
         {{-- Whatsapp --}}
     </main>
