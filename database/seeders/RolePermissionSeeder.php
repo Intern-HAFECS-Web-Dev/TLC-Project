@@ -24,19 +24,20 @@ class RolePermissionSeeder extends Seeder
             'acces_level_A',
             'acces_level_B',
             'acces_level_C',
-            'bundling'
+            'bundling',
+            'EXPIRED'
         ];
 
         foreach($permission_levels as $permission) {
             Permission::create(['name' => $permission]);
         };
 
-        // Permission hak akses Kategori Level A
         $permission_kategories = [
             'HOTS',
             'PCK',
             'NUMERASI',
-            'LITERASI'
+            'LITERASI',
+            'EXPIRED'
         ];
 
         foreach($permission_kategories as $permission_k) {
