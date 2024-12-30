@@ -99,7 +99,7 @@
     </header>
 
 
-    <main id="home" class="container mx-auto max-w-7xl">
+    <main id="home" class="container mx-auto max-w-7xl mb-20">
         {{-- HOME --}}
         <div class="view grid grid-cols-12 transition-all duration-500 ease-in-out mb-14">
             <div class="col-span-12 lg:col-span-7 p-5">
@@ -270,46 +270,46 @@
         {{-- End Benefit --}}
 
         {{-- Pricelist --}}
-        <div class="view7 mb-14 bg-[#0C548C]" id="price">
+        <div class="view7 mb-20 bg-[#0C548C] rounded-2xl" id="price">
             <h1 class="text-center text-white pt-5 text-2xl lg:text-4xl font-bold my-10">Sertifikasi TLC by HAFECS
             </h1>
             <div class="md:flex pb-2 md:gap-4 px-5">
                 <div
                     class="mx-auto mb-7 w-full max-w-sm p-4 bg-white border border-gray-200 rounded-2xl shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                     <div class="text-center">
-                        <img src="images/logo.svg" class="mx-auto mb-7" alt="">
+                        <img src="{{ asset('images/letter-a.png') }}" class="mx-auto mb-7 w-16 h-16" alt="Letter A">
                         <h5 class="mb-7 text-xl md:text-2xl font-medium">Sertifikasi Level A</h5>
                         <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
                         <h5 class="text-xl font-semibold">Rp 300.000</h5>
                         <p class="text-sm font-medium my-7">Uji Kompetensi Teori, Soal Pilihan Ganda, dan Essay</p>
                         <button type="button"
-                            class="text-white bg-[#0C548C] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-full text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Ikut
+                            class="text-white bg-[#0C548C] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Ikut
                             Sekarang</button>
                     </div>
                 </div>
                 <div
                     class="mx-auto mb-7 w-full max-w-sm p-4 bg-white border border-gray-200 rounded-2xl shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                     <div class="text-center">
-                        <img src="images/logo.svg" class="mx-auto mb-7" alt="">
+                        <img src="{{ asset('images/letter-b.png') }}" class="mx-auto mb-7 w-16 h-16" alt="Letter B">
                         <h5 class="mb-7 text-xl md:text-2xl font-medium">Sertifikasi Level B</h5>
                         <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
                         <h5 class="text-xl font-semibold">Rp 300.000</h5>
                         <p class="text-sm font-medium my-7 lg:my-[38px]">Uji Kompetensi Modul PDF, PPT, Dll</p>
                         <button type="button"
-                            class="text-white bg-[#0C548C] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-full text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Ikut
+                            class="text-white bg-[#0C548C] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Ikut
                             Sekarang</button>
                     </div>
                 </div>
                 <div
                     class="mx-auto mb-7 w-full max-w-sm p-4 bg-white border border-gray-200 rounded-2xl shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                     <div class="text-center">
-                        <img src="images/logo.svg" class="mx-auto mb-7" alt="">
+                        <img src="{{ asset('images/letter-c.png') }}" class="mx-auto mb-7 w-16 h-16" alt="Letter B">
                         <h5 class="mb-7 text-xl md:text-2xl font-medium">Sertifikasi Level C</h5>
                         <h5 class="text-lg text-red-600 line-through">Rp 600.000</h5>
                         <h5 class="text-xl font-semibold">Rp 300.000</h5>
                         <p class="text-sm font-medium my-7 lg:my-[38px]">Uji Kompetensi Dalam Mengajar</p>
                         <button type="button"
-                            class="text-white bg-[#0C548C] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-full text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Ikut
+                            class="text-white bg-[#0C548C] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center">Ikut
                             Sekarang</button>
                     </div>
                 </div>
@@ -345,7 +345,7 @@
             <h3 class="text-kuning font-medium text-lg lg:text-2xl text-center">TLC Telah Membantu Ratusan Pendidik
             </h3>
             <h1 class="font-bold text-2xl md:text-3xl text-[#34364A] text-center mb-7">Apa Kata Mereka?</h1>
-            <div class="bg-white dark:bg-gray-900 shadow-lg rounded-2xl">
+            <div class="bg-white dark:bg-gray-900 shadow-sm rounded-2xl">
                 <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6">
                     <div class="relative">
                         <div id="testimonial-carousel" class="overflow-hidden">
@@ -483,7 +483,7 @@
         {{-- End Testimoni --}}
     </main>
 
-    <footer class="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+    <footer class="bg-abu dark:bg-gray-900">
         <div class="mx-auto w-full max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Section 1: Logo dan Informasi -->
@@ -636,3 +636,4 @@
 </script>
 
 </html>
+
