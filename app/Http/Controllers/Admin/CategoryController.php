@@ -36,9 +36,11 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         // Validate the incoming request data
+        // dd($request->all());
         $validation = $request->validate([
             'name' => 'required',
             'image_categori' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'is_locked' => 'boolean'
         ]);
 
         $validation['image_categori'] = $request->file('image_categori')->store('categori', 'public');
@@ -51,9 +53,8 @@ class CategoryController extends Controller
             alert('error', 'Category created failed!');
             return redirect()->back()->with('error', 'Category created failed!');
         }
-
-
     }
+
 
     /**
      * Display the specified resource.
@@ -79,18 +80,20 @@ class CategoryController extends Controller
         $validation = $request->validate([
             'name' => 'required',
             'image_categori' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'is_locked' => 'boolean'
         ]);
 
         if ($request->hasFile('image_categori')) {
             $categori->image_categori = $request->file('image_categori')->store('categori', 'public');
         }
-
         $categori->name = $request->input('name');
+        $categori->is_locked = $request->input('is_locked', false);
         $categori->save();
 
         alert('success', 'Category updated successfully!');
         return redirect()->route('admin.categori.index')->with('success', 'Category deleted successfully!');
     }
+
     /**
      * Remove the specified resource from storage.
      */

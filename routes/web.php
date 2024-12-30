@@ -5,8 +5,10 @@ use App\Http\Controllers\Admin\LevelSettingsController;
 use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\adminAsesorController;
 use App\Http\Controllers\adminDashboardController;
+use App\Http\Controllers\Asesi2\UserAnsweerController;
 use App\Http\Controllers\Asesi\AsesiAnswerController;
 use App\Http\Controllers\Asesi\AsesiController;
+use App\Http\Controllers\Asesi\ScoreController;
 use App\Http\Controllers\assessorDasboardController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\paymentController;
@@ -28,6 +30,14 @@ Route::get('/', function () {
     return view('welcome', [
         'title' => 'HomePage',
     ]);
+});
+Route::get('/tes', function () {
+    return view('userDashboard.asesi.tes'
+    );
+});
+Route::get('/nilai', function () {
+    return view('userDashboard.asesi.nilai'
+    );
 });
 
 // return view('welcome');
@@ -55,9 +65,13 @@ Route::middleware(['role:user', 'user_last_seen'])->group(function () {
     Route::get('/asesi/soal/{categori}/question', [AsesiController::class, 'index'])->name('soal.index');
 
     // send answer
-    Route::post('/asesi/soal/question/answer', [AsesiAnswerController::class, 'store'])->name('soal.answer.store');
+    Route::post('/asesi/soal/{categori}/question/answer', [AsesiAnswerController::class, 'store'])->name('soal.answer.store');
 
+    // get soal tes 2
+    Route::get('/asesi/soal/tes2/{categori}/question', [UserAnsweerController::class, 'index'])->name('soal.tes2');
 
+    // cek nilai
+    Route::get('/nilai', [ScoreController::class, 'getAllCategoriesScores'])->name('cek.nilai.index');
 });
 
 // route admin
@@ -90,7 +104,6 @@ Route::middleware('role:admin')->prefix('admin')->name('admin.')->group(function
     Route::resource('settings', LevelSettingsController::class);
 
     Route::post('settings/autoGenerate', [LevelSettingsController::class, 'autoGenerate'])->name('settings.autoGenerate');
-
 });
 
 Route::get('/regencies/{provinceId}', [provinsiController::class, 'getRegencies']);

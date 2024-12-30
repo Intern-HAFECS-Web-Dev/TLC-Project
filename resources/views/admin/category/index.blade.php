@@ -72,28 +72,54 @@
                                     <form action="{{ route('admin.categori.store') }}" method="POST"
                                         enctype="multipart/form-data">
                                         @csrf
-                                        <label for="name" class="block text-sm font-medium text-gray-700">Nama Kategori</label>
+                                        <label for="name" class="block text-sm font-medium text-gray-700">Nama
+                                            Kategori</label>
                                         <input type="text" id="name" name="name"
                                             class="w-full p-2 mt-2 border rounded" placeholder="Masukkan Nama Kategori">
 
                                         <label for="image" class="block text-sm font-medium text-gray-700">Gambar</label>
                                         <input type="file" id="image" name="image_categori"
                                             class="w-full p-2 mt-2 border rounded" placeholder="input image">
+
+                                        <div class="mt-4">
+                                            <label class="inline-flex items-center cursor-pointer">
+                                                <!-- Input tersembunyi untuk nilai 0 jika checkbox tidak dicentang -->
+                                                <input type="hidden" name="is_locked" value="0">
+                                                <!-- Checkbox untuk nilai 1 ketika dicentang -->
+                                                <input id="is_locked" name="is_locked" type="checkbox" value="1"
+                                                    class="sr-only peer" checked>
+                                                <div
+                                                    class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                                                </div>
+                                                <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                    @if (old('is_locked', 1) == 1)
+                                                        Dikunci ?
+                                                    @else
+                                                        Dibuka ?
+                                                    @endif
+                                                </span>
+                                            </label>
+                                        </div>
+
                                         <button type="submit"
                                             class="px-4 py-2 mt-4 text-white bg-green-500 rounded shadow hover:bg-green-600">
                                             Save
                                         </button>
                                     </form>
                                 </div>
+
+
                             </div>
+
                         </div>
                     </div>
-                </nav>
-
-
             </div>
+            </nav>
+
 
         </div>
+
+    </div>
     </div>
     <div class="flex flex-col">
         <div class="overflow-x-auto">
@@ -127,9 +153,10 @@
                                     {{-- Lihat Soal --}}
 
                                     {{-- Edit Soal --}}
-                                    <button type="button" title="Edit Soal" id="openEditModal" data-id="{{ $category->id }}"
-                                        data-name="{{ $category->name }}"
+                                    <button type="button" title="Edit Soal" id="openEditModal"
+                                        data-id="{{ $category->id }}" data-name="{{ $category->name }}"
                                         data-image="{{ Storage::url($category->image_categori) }}"
+                                        data-is_locked="{{ $category->is_locked }}"
                                         class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-biru hover:bg-primary-800 focus:ring-4 focus:ring-primary-300">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </button>
@@ -148,7 +175,8 @@
                                                     @method('PUT')
 
                                                     <label for="name"
-                                                        class="block text-sm font-medium text-gray-700">Nama Kategori</label>
+                                                        class="block text-sm font-medium text-gray-700">Nama
+                                                        Kategori</label>
                                                     <input type="text" id="modalName" name="name"
                                                         class="w-full p-2 mt-2 border rounded"
                                                         placeholder="Masukkan Nama Kategori">
@@ -158,7 +186,19 @@
                                                     <input type="file" id="modalImage" name="image_categori"
                                                         class="w-full p-2 mt-2 border rounded">
                                                     <img id="previewImage" src="" alt="Category Image"
-                                                         class="h-24 mt-3 mx-auto">
+                                                        class="h-24 mt-3 mx-auto">
+                                                    <div>
+                                                        <label class="inline-flex items-center cursor-pointer">
+                                                            <input id="is_locked_edit" type="checkbox"
+                                                                class="sr-only peer" name="is_locked">
+                                                            <div
+                                                                class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                                                            </div>
+                                                            <span
+                                                                class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">apakah
+                                                                dibuka?</span>
+                                                        </label>
+                                                    </div>
 
                                                     <button type="submit"
                                                         class="px-4 py-2 mt-4 text-white bg-green-500 rounded shadow hover:bg-green-600">
@@ -200,44 +240,83 @@
         const closeModal = document.getElementById('closeModal');
         const modal = document.getElementById('modal');
         const body = document.body;
-
+    
         // Fungsi untuk membuka modal
         openModal.addEventListener('click', () => {
-            modal.classList.remove('hidden');
-            body.classList.add('modal-open');
+            modal.classList.remove('hidden'); // Menghapus kelas 'hidden' agar modal terbuka
+            body.classList.add('modal-open'); // Menambahkan kelas untuk menandakan modal terbuka
         });
-
+    
         // Fungsi untuk menutup modal
         const close = () => {
-            modal.classList.add('hidden');
-            body.classList.remove('modal-open');
+            modal.classList.add('hidden'); // Menambahkan kelas 'hidden' untuk menyembunyikan modal
+            body.classList.remove('modal-open'); // Menghapus kelas modal-open
         };
-
-        closeModal.addEventListener('click', close);
-
-        // Tutup modal saat klik di luar area modal
+    
+        closeModal.addEventListener('click', close); // Menutup modal ketika tombol close diklik
+    
+        // Menutup modal ketika klik di luar area modal
         modal.addEventListener('click', (e) => {
-            if (e.target === modal) close();
+            if (e.target === modal) close(); // Cek apakah klik di luar modal
         });
-
+    
+        // Menangani perubahan status checkbox is_locked
+        document.getElementById('is_locked').addEventListener('change', () => {
+            const isChecked = document.getElementById('is_locked').checked;
+            if (isChecked) {
+                document.getElementById('is_locked').value = 1;
+            } else {
+                document.getElementById('is_locked').checked = false;
+                document.getElementById('is_locked').value = 0;
+            }
+        });
+    
+        // Menangani perubahan status checkbox is_locked pada modal edit
+        document.getElementById('is_locked_edit').addEventListener('change', () => {
+            const isChecked = document.getElementById('is_locked_edit').checked;
+            if (isChecked) {
+                document.getElementById('is_locked_edit').value = 1;
+                document.getElementById('is_locked_edit').checked = true;
+            } else {
+                document.getElementById('is_locked_edit').checked = false;
+                document.getElementById('is_locked_edit').value = 0;
+            }
+        });
+    
+        // Mengatur data untuk modal edit
         document.querySelectorAll('#openEditModal').forEach(button => {
             button.addEventListener('click', () => {
                 const id = button.getAttribute('data-id');
                 const name = button.getAttribute('data-name');
                 const image = button.getAttribute('data-image');
-
+                const is_locked = button.getAttribute('data-is_locked');
+    
                 document.getElementById('modalName').value = name;
-                document.getElementById('previewImage').src = image;
-
+    
+                // Mengatur checkbox is_locked di modal edit
+                if (is_locked == 1) {
+                    document.getElementById('is_locked_edit').value = 1;
+                    document.getElementById('is_locked_edit').checked = true;
+                } else {
+                    document.getElementById('is_locked_edit').value = 0;
+                    document.getElementById('is_locked_edit').checked = false;
+                }
+    
+                document.getElementById('previewImage').src = image; // Menampilkan gambar yang sudah dipilih
+    
+                // Menyusun ulang form action untuk edit
                 const editForm = document.getElementById('editForm');
-                editForm.action = `/admin/categori/${id}`; // Ganti dengan route sesuai kebutuhan
-
+                editForm.action = `/admin/categori/${id}`; // Update form action dengan ID yang sesuai
+    
+                // Menampilkan modal edit
                 document.getElementById('editModal').classList.remove('hidden');
             });
         });
-
+    
+        // Menutup modal edit
         document.getElementById('closeEditModal').addEventListener('click', () => {
             document.getElementById('editModal').classList.add('hidden');
         });
     </script>
+    
 @endsection
