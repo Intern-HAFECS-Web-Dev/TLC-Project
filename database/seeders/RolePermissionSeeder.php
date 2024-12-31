@@ -25,7 +25,7 @@ class RolePermissionSeeder extends Seeder
             'acces_level_B',
             'acces_level_C',
             'bundling',
-            'EXPIRED'
+            'EXPIRED_LEVEL'
         ];
 
         foreach($permission_levels as $permission) {
@@ -37,7 +37,7 @@ class RolePermissionSeeder extends Seeder
             'PCK',
             'NUMERASI',
             'LITERASI',
-            'EXPIRED'
+            'EXPIRED_KATEGORY'
         ];
 
         foreach($permission_kategories as $permission_k) {
