@@ -132,7 +132,7 @@
                             </div>
                         </div>
 
-                        @if (auth()->user()->hasPermissionTo('acces_level_A'))
+                        @if (auth()->user()->hasPermissionTo('access_level_A_unpaid'))
                             <button data-modal-target="default-modal" data-modal-toggle="default-modal"
                                 class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
                                 type="button">

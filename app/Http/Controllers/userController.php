@@ -42,11 +42,31 @@ class userController extends Controller
 
         $users = User::role('user')->get();
 
+        $userCountAll = User::role('user') ? User::role('user')->count() : 0;
+        // $userCountLevelA = User::role('user')->hasPermissionTo('acces_level_A') ? User::role('user')->hasPermissionTo('acces_level_A')->count() : 0;
+
+        // $userCountLevelA = User::role('user')
+        // ->whereHas('permissions', function ($query) {
+        //     $query->where('name', 'acces_level_A');
+        // })->count();
+
+        $userCountLevelA = User::permission(('access_level_A'))->count();
+        $userCountLevelB = User::permission(('access_level_B'))->count();
+        $userCountLevelC = User::permission(('access_level_B'))->count();
+
+        $userRole = [
+            'user' => $userCountAll,
+            'level_A' => $userCountLevelA,
+            'level_B' => $userCountLevelB,
+            'level_C' => $userCountLevelC,
+        ];
+
         return view('admin.users.index', [
             'title' => 'Asesi Index',
             'users' => $users,
             'userProfile' => $userProfiles,
-            'navTitle' => 'Table Asesi'
+            'navTitle' => 'Table Asesi',
+            'userCount' => $userRole
         ]);
     }
 

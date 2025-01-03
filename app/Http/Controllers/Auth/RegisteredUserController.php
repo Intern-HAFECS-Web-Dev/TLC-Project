@@ -135,12 +135,12 @@ class RegisteredUserController extends Controller
             }
 
             // assign akses level A
-            if (!$user->hasPermissionTo('acces_level_A')) {
-                $user->givePermissionTo('acces_level_A');
+            if (!$user->hasPermissionTo('access_level_A_unpaid')) {
+                $user->givePermissionTo('access_level_A_unpaid');
             }
             // $idd = Auth::user()->id;
             // $user = User::find($idd);
-            $user->givePermissionTo('acces_level_A');
+            $user->givePermissionTo('access_level_A_unpaid');
             $userProfile->save();
         }
         
