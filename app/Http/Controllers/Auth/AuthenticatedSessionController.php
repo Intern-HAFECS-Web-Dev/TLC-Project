@@ -55,7 +55,6 @@ public function store(LoginRequest $request)
     try {
         $request->authenticate();
     } catch (AuthenticationException $e) {
-        // Jika autentikasi gagal, redirect kembali dengan pesan kesalahan
         return back()->withErrors([
             'email' => __('The provided credentials do not match our records.'),
         ])->withInput();
@@ -70,16 +69,27 @@ public function store(LoginRequest $request)
         ]);
     }
 
-    if ($user->hasRole('admin')) {
-        return redirect()->route('admin.dashboard.index');
-    } elseif ($user->hasRole('asesor')) {
-        return redirect()->route('assessorDashboard.index');
-    } elseif ($user->hasRole('user')) {
-        return redirect()->route('userDashboard.index');
+    // if ($user->hasRole('admin')) {
+    //     return redirect()->route('admin.dashboard.index');
+    // } elseif ($user->hasRole('asesor')) {
+    //     return redirect()->route('assessorDashboard.index');
+    // } elseif ($user->hasRole('user')) {
+    //     return redirect()->route('userDashboard.index');
+    // }
+
+    $routes = [
+        'admin' => 'admin.dashboard.index',
+        'asesor' => 'assessorDashboard.index',
+        'user' => 'userDashboard.index',
+    ];
+    
+    foreach ($routes as $role => $route) {
+        if ($user->hasRole($role)) {
+            return redirect()->route($route);
+        }
     }
 
-
-    auth()->logout();
+    // auth()->logout();
     return redirect()->route('login')->withErrors([
         'email' => __('Your account does not have the required permissions.'),
     ]);

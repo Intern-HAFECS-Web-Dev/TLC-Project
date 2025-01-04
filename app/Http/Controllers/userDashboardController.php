@@ -23,7 +23,6 @@ class userDashboardController extends Controller
      */
     public function index()
     {
-        // return 'ok';
         $user = Auth::user();
         $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
         $province = Province::all();
@@ -260,4 +259,5 @@ class userDashboardController extends Controller
     {
         //
     }
+
 }

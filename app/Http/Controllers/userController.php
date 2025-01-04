@@ -43,22 +43,18 @@ class userController extends Controller
         $users = User::role('user')->get();
 
         $userCountAll = User::role('user') ? User::role('user')->count() : 0;
-        // $userCountLevelA = User::role('user')->hasPermissionTo('acces_level_A') ? User::role('user')->hasPermissionTo('acces_level_A')->count() : 0;
 
-        // $userCountLevelA = User::role('user')
-        // ->whereHas('permissions', function ($query) {
-        //     $query->where('name', 'acces_level_A');
-        // })->count();
-
-        $userCountLevelA = User::permission(('access_level_A'))->count();
-        $userCountLevelB = User::permission(('access_level_B'))->count();
-        $userCountLevelC = User::permission(('access_level_B'))->count();
+        $userCountLevelA = User::permission(('access_level_A'))->count() ?? 0;
+        $userCountLevelB = User::permission(('access_level_B'))->count() ?? 0;
+        $userCountLevelC = User::permission(('access_level_B'))->count() ?? 0;
+        $userCountAllUnpaid = User::permission('access_level_A_unpaid')->count() ?? 0;
 
         $userRole = [
             'user' => $userCountAll,
             'level_A' => $userCountLevelA,
             'level_B' => $userCountLevelB,
             'level_C' => $userCountLevelC,
+            'unpaid' => $userCountAllUnpaid,
         ];
 
         return view('admin.users.index', [

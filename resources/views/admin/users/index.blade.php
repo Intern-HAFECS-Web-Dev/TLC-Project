@@ -331,28 +331,28 @@
                 <a href="#"
                     class="block px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
                     Non Level Users : 
-                    <span class="font-semibold text-red-500">99</span>
+                    <span class="font-semibold text-red-500">{{ $userCount['unpaid'] }}</span>
                 </a>
             </li>
             <li>
                 <a href="#"
                     class="block px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
                     Level A Users : 
-                    <span class="font-semibold text-red-500">99</span>
+                    <span class="font-semibold text-red-500">{{ $userCount['level_A'] }}</span>
                 </a>
             </li>
             <li>
                 <a href="#"
                     class="block px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
                     Level B Users : 
-                    <span class="font-semibold text-red-500">99</span>
+                    <span class="font-semibold text-red-500">{{ $userCount['level_B'] }}</span>
                 </a>
             </li>
             <li>
                 <a href="#"
                     class="block px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
                     Level C Users : 
-                    <span class="font-semibold text-red-500">99</span>
+                    <span class="font-semibold text-red-500">{{ $userCount['level_C'] }}</span>
                 </a>
             </li>
         </ul>
@@ -374,3 +374,27 @@
         <p>Tindakan Ini akan membuat file excel dari data asesi.</p>
     </x-popover>
 @endsection
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="container mt-4 bg-red-400">
+
+        </div>
+    </header>
+    <main>
+        <div class="header container bg-red-400 flex justify-center rounded-sm shadow-sm items-center hover:bg-red-400 ">
+
+        </div>
+    </main>
+    <footer></footer>
+
+</body>
+</html>

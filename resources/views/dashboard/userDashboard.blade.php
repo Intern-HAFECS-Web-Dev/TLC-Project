@@ -6,11 +6,11 @@
         <div id="default-carousel" class="relative w-full mt-10" data-carousel="slide">
             <div class="relative h-60 md:h-96 overflow-hidden rounded-lg lg:h-[530px] xl:h-[600px]">
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="images/userdashboard.png"
+                    <img src="{{ asset('images/userdashboard.png') }}"
                         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="images/userdashboard.png"
+                    <img src="{{ asset('images/userdashboard.png') }}"
                         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                 </div>
             </div>
@@ -244,7 +244,7 @@
                         </div>
 
                         {{-- Button B --}}
-                        @if (auth()->user()->hasPermissionTo('acces_level_B'))
+                        @if (auth()->user()->hasPermissionTo('access_level_B'))
                             <button data-modal-target="default-modal" data-modal-toggle="default-modal"
                                 class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
                                 type="button">
@@ -360,7 +360,7 @@
 
 
                         {{-- Button C --}}
-                        @if (auth()->user()->hasPermissionTo('acces_level_C'))
+                        @if (auth()->user()->hasPermissionTo('access_level_C'))
                             <button data-modal-target="default-modal" data-modal-toggle="default-modal"
                                 class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
                                 type="button">
