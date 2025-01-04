@@ -257,7 +257,14 @@ class userDashboardController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return view('admin.admin.index', [
+            'name' => 'dicodng',
+            'title' => 'dicoding',
+            'navbar' => 'dicoding'
+        ]);
+
+        
     }
 
 }
+
