@@ -185,8 +185,11 @@
 
                                     {{-- image,nama,email --}}
                                     <td class="flex items-center py-2 px-4 mr-12 space-x-6 whitespace-nowrap">
-                                        <img class="w-12 h-12 rounded-full"
-                                            src="{{ asset('/storage/' . $user->profile_image) }}" alt="avatar">
+                                        <figure>
+                                            <img class="w-12 h-12 rounded-full"
+                                            src="{{ asset('/storage/' . $user->profile_image) }}" alt="User Profile">
+                                            <figcaption>user Profile</figcaption>
+                                        </figure>
                                         <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
                                             <div class="text-base font-semibold text-gray-900 dark:text-white">
                                                 {{ $user->fullname }}
@@ -320,8 +323,7 @@
     </x-popover>
 
     {{-- popOver Export --}}
-    <x-popover title="Export Asesi" id="popover-export">
+    <x-popover title="Export Asesi" id="popover-export">/
         <p>Tindakan Ini akan membuat file excel dari data asesi.</p>
     </x-popover>
 @endsection
-c

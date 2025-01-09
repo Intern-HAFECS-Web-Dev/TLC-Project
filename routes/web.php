@@ -21,6 +21,7 @@ use App\Http\Controllers\testingController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\userDashboardController;
+use App\Http\Controllers\UserDashboardImageController;
 use App\Http\Controllers\usersController;
 use App\Http\Controllers\userLevelController;
 use Illuminate\Support\Facades\Route;
@@ -104,6 +105,12 @@ Route::middleware('role:admin')->prefix('admin')->name('admin.')->group(function
     Route::resource('settings', LevelSettingsController::class);
 
     Route::post('settings/autoGenerate', [LevelSettingsController::class, 'autoGenerate'])->name('settings.autoGenerate');
+
+    // Route User Dashboard Image
+    // Route::resource('user.image', UserDashboardImageController::class);
+    Route::get('/user/image/dashboard', [UserDashboardImageController::class, 'index'])->name('image.dashboard');
+    Route::post('/user/image/dashboard/post', [UserDashboardImageController::class, 'store'])->name('image.dashboard.store');
+
 });
 
 Route::get('/regencies/{provinceId}', [provinsiController::class, 'getRegencies']);

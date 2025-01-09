@@ -61,15 +61,21 @@
 
                         </div>
                     </form>
+
+                    <div class="bg-gray-100 py-2 px-4 border-red-700 rounded-md">
+                        <p class="text-gray-800">Total Users : <span
+                                class="font-semibold text-red-500">{{ $userCount['user'] }}</span></p>
+                    </div>
+
                     <div class="flex pl-0 mt-3 space-x-1 sm:pl-2 sm:mt-0">
-                        <a href="{{ route('admin.testing') }}"
+                        {{-- <a href="{{ route('admin.testing') }}"
                             class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
                                     d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
                                     clip-rule="evenodd"></path>
                             </svg>
-                        </a>
+                        </a> --}}
                         <a href="#"
                             class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                             data-popover-target="popover-delete" data-popover-placement="bottom"
@@ -80,22 +86,31 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </a>
-                        <a href="#"
+                        {{-- <a href="#"
                             class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
                                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
                                     clip-rule="evenodd"></path>
                             </svg>
-                        </a>
-                        <a href="#"
+                        </a> --}}
+                        {{-- <a href="#"
                             class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
                                 </path>
                             </svg>
-                        </a>
+                        </a> --}}
+                        <button
+                            class="inline-flex justify-center p-1 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                            data-dropdown-toggle="dropdownUser">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z">
+                                </path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
                 <div class="flex items-center ml-auto space-x-2 sm:space-x-3">
@@ -176,7 +191,7 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
 
-                            @foreach ($userProfile as $user)
+                            @foreach ($userProfile as $index=>$user)
                                 <tr class="hover:bg-gray-100 dark:hover:bg-gray-700 odd:bg-red-50 even:bg-blue-50">
 
                                     {{-- checkbox --}}
@@ -307,6 +322,40 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    {{-- Dropdown user Count --}}
+    <div id="dropdownUser" class="z-10 hidden bg-gray-100 divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+            <li>
+                <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
+                    Non Level Users : 
+                    <span class="font-semibold text-red-500">{{ $userCount['unpaid'] }}</span>
+                </a>
+            </li>
+            <li>
+                <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
+                    Level A Users : 
+                    <span class="font-semibold text-red-500">{{ $userCount['level_A'] }}</span>
+                </a>
+            </li>
+            <li>
+                <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
+                    Level B Users : 
+                    <span class="font-semibold text-red-500">{{ $userCount['level_B'] }}</span>
+                </a>
+            </li>
+            <li>
+                <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-600 dark:hover:text-white">
+                    Level C Users : 
+                    <span class="font-semibold text-red-500">{{ $userCount['level_C'] }}</span>
+                </a>
+            </li>
+        </ul>
     </div>
 
     {{-- popOver Delete --}}

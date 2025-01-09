@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('user_admins', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('profile_image');
+            $table->string('profile_image')->nullable();
             $table->timestamps();
         });
     }

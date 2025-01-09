@@ -21,11 +21,17 @@ class RolePermissionSeeder extends Seeder
 
         // Kategori Akses Level
         $permission_levels = [
-            'acces_level_A',
-            'acces_level_B',
-            'acces_level_C',
+            'access_level_A_unpaid',
+            'access_level_B_unpaid',
+            'access_level_C_unpaid',
+            'level_a_pending_payment',
+            'level_b_pending_payment',
+            'level_c_pending_payment',
+            'access_level_A',
+            'access_level_B',
+            'access_level_C',
             'bundling',
-            'EXPIRED'
+            'EXPIRED_LEVEL'
         ];
 
         foreach($permission_levels as $permission) {
@@ -37,13 +43,13 @@ class RolePermissionSeeder extends Seeder
             'PCK',
             'NUMERASI',
             'LITERASI',
-            'EXPIRED'
+            'EXPIRED_KATEGORY'
         ];
 
         foreach($permission_kategories as $permission_k) {
             Permission::create(['name' => $permission_k]);
         };
 
-        $user->givePermissionTo('acces_level_A','bundling');
+        $user->givePermissionTo('access_level_A_unpaid','bundling');
     }   
 }

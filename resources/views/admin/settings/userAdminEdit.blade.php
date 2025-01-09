@@ -42,7 +42,8 @@
                             </button>
                             <div class="flex flex-col items-center">
                                 <!-- Profile Image -->
-                                <img id="profileImage" src="{{ asset('/storage/' . $img->profile_image) }}" alt="Profile Picture"
+                                <img id="profileImage" src="#" alt="Profile Picture"
+                                {{-- <img id="profileImage" src="{{ asset('/storage/' . $img->profile_image) }}" alt="Profile Picture" --}}
                                     class="rounded-lg w-full max-h-96 object-cover">
                                 <p class="mt-4 text-gray-600 text-sm">User Profile Picture</p>
                             </div>
@@ -186,7 +187,8 @@
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 md:p-5">
-                    <form class="space-y-4" action="{{ route('profile.editImg') }}" method="post">
+                    {{-- <form class="space-y-4" action="{{ route('profile.editImg') }}" method="post"> --}}
+                    <form class="space-y-4" action="#" method="post">
                         @csrf
                         <div>
                             <label for="profile_image" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Input Image</label>

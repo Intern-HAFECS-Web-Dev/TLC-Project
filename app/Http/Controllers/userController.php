@@ -42,11 +42,27 @@ class userController extends Controller
 
         $users = User::role('user')->get();
 
+        $userCountAll = User::role('user') ? User::role('user')->count() : 0;
+
+        $userCountLevelA = User::permission(('access_level_A'))->count() ?? 0;
+        $userCountLevelB = User::permission(('access_level_B'))->count() ?? 0;
+        $userCountLevelC = User::permission(('access_level_B'))->count() ?? 0;
+        $userCountAllUnpaid = User::permission('access_level_A_unpaid')->count() ?? 0;
+
+        $userRole = [
+            'user' => $userCountAll,
+            'level_A' => $userCountLevelA,
+            'level_B' => $userCountLevelB,
+            'level_C' => $userCountLevelC,
+            'unpaid' => $userCountAllUnpaid,
+        ];
+
         return view('admin.users.index', [
             'title' => 'Asesi Index',
             'users' => $users,
             'userProfile' => $userProfiles,
-            'navTitle' => 'Table Asesi'
+            'navTitle' => 'Table Asesi',
+            'userCount' => $userRole
         ]);
     }
 
@@ -226,7 +242,6 @@ class userController extends Controller
 
     public function destroyAll() {
 
-
         $users = User::role('user')->get();
         $userProfiles = UserProfile::all();
 
@@ -267,5 +282,4 @@ class userController extends Controller
 
         return response()->download($path, $downloadName);
     }
-
 }
