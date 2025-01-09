@@ -323,8 +323,7 @@
     </x-popover>
 
     {{-- popOver Export --}}
-    <x-popover title="Export Asesi" id="popover-export">
+    <x-popover title="Export Asesi" id="popover-export">/
         <p>Tindakan Ini akan membuat file excel dari data asesi.</p>
     </x-popover>
 @endsection
-

@@ -374,27 +374,3 @@
         <p>Tindakan Ini akan membuat file excel dari data asesi.</p>
     </x-popover>
 @endsection
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <div class="container mt-4 bg-red-400">
-
-        </div>
-    </header>
-    <main>
-        <div class="header container bg-red-400 flex justify-center rounded-sm shadow-sm items-center hover:bg-red-400 ">
-
-        </div>
-    </main>
-    <footer></footer>
-
-</body>
-</html>

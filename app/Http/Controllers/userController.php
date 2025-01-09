@@ -242,7 +242,6 @@ class userController extends Controller
 
     public function destroyAll() {
 
-
         $users = User::role('user')->get();
         $userProfiles = UserProfile::all();
 
@@ -283,5 +282,4 @@ class userController extends Controller
 
         return response()->download($path, $downloadName);
     }
-
 }
