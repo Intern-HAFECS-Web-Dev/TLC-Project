@@ -31,7 +31,7 @@ class RolePermissionSeeder extends Seeder
             'access_level_B',
             'access_level_C',
             'bundling',
-            'EXPIRED_LEVEL'
+            'EXPIRED_LEVEL',
         ];
 
         foreach($permission_levels as $permission) {
