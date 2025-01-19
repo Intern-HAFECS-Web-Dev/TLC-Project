@@ -19,20 +19,20 @@
                     <a href="#"
                         class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-full lg:max-w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                         <img class="p-2 object-cover w-full h-auto rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-                            src="images/sertif.png" alt="">
+                            src="images/levela.png" alt="">
 
                         <div class="flex flex-col justify-between p-4 leading-normal">
                             <h5 class="mb-2 lg:text-xl text-lg font-bold tracking-tight text-gray-900 dark:text-white">
                                 Sertifikasi
                                 TLC Level A: Dasar Pengajaran Efektif</h5>
-                            <span class="flex">
+                            {{-- <span class="flex">
                                 <img class="h-6 rounded-full" src="images/logo.svg" alt="user photo">
                                 <p class="self-center text-base">Testing</p>
                             </span>
                             <span class="flex mt-3">
                                 <img class="h-6 rounded-full" src="images/logo.svg" alt="user photo">
                                 <p class="self-center text-sm">999++ enrolls</p>
-                            </span>
+                            </span> --}}
                             <p class="leading-normal mt-3">Ini akan diisi untuk penjelasan tentang level, dan test yang
                                 akan di jalani </p>
 
@@ -101,20 +101,20 @@
                     <a href="#"
                         class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-full lg:max-w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                         <img class="p-2 object-cover w-full h-auto rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-                            src="images/sertif.png" alt="">
+                            src="images/levelb.png" alt="">
 
                         <div class="flex flex-col justify-between p-4 leading-normal">
                             <h5 class="mb-2 lg:text-xl text-lg font-bold tracking-tight text-gray-900 dark:text-white">
                                 Sertifikasi
                                 TLC Level A: Dasar Pengajaran Efektif</h5>
-                            <span class="flex">
+                            {{-- <span class="flex">
                                 <img class="h-6 rounded-full" src="images/logo.svg" alt="user photo">
                                 <p class="self-center text-base">Testing</p>
                             </span>
                             <span class="flex mt-3">
                                 <img class="h-6 rounded-full" src="images/logo.svg" alt="user photo">
                                 <p class="self-center text-sm">999++ enrolls</p>
-                            </span>
+                            </span> --}}
                             {{-- <p class="leading-normal mt-3">Disclaimer: Dengan menekan tombol 'Mulai', Anda menyetujui --}}
                             {{-- bahwa waktu pada tes ini akan otomatis dimulai dan terus berjalan hingga selesai atau
                             batas waktu habis. Pastikan Anda telah mempersiapkan diri sepenuhnya sebelum memulai
@@ -126,7 +126,7 @@
                                 akan di jalani </p>
 
                             <button type="button"
-                                class="w-24 mt-3 text-birutua bg-white border border-biru hover:bg-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                class="w-24 mt-3 disabled cursor-not-allowed text-birutua bg-white border border-biru hover:bg-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Terkunci
                                 <i class="fas fa-lock ms-2"></i>
                             </button>
@@ -138,20 +138,20 @@
                     <a href="#"
                         class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-full lg:max-w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                         <img class="p-2 object-cover w-full h-auto rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-                            src="images/sertif.png" alt="">
+                            src="images/levelc.png" alt="">
 
                         <div class="flex flex-col justify-between p-4 leading-normal">
                             <h5 class="mb-2 lg:text-xl text-lg font-bold tracking-tight text-gray-900 dark:text-white">
                                 Sertifikasi TLC Level A: Dasar Pengajaran Efektif
                             </h5>
-                            <span class="flex">
+                            {{-- <span class="flex">
                                 <img class="h-6 rounded-full" src="images/logo.svg" alt="user photo">
                                 <p class="self-center text-base">Testing</p>
                             </span>
                             <span class="flex mt-3">
                                 <img class="h-6 rounded-full" src="images/logo.svg" alt="user photo">
                                 <p class="self-center text-sm">999++ enrolls</p>
-                            </span>
+                            </span> --}}
                             {{-- <p
                             class="leading-normal mt-3 text-sm sm:text-xs md:text-sm lg:text-base xl:text-lg text-opacity-15">
                             Disclaimer: Dengan menekan tombol 'Mulai', Anda menyetujui bahwa waktu pada tes ini akan
@@ -169,7 +169,7 @@
                             <p class="leading-normal mt-3">Ini akan diisi untuk penjelasan tentang level, dan test yang
                                 akan di jalani </p>
                             <button type="button"
-                                class="w-24 mt-3 text-birutua bg-white border border-biru hover:bg-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                class="w-24 mt-3 disabled cursor-not-allowed text-birutua bg-white border border-biru hover:bg-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Terkunci
                                 <i class="fas fa-lock ms-2"></i>
                             </button>

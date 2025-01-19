@@ -63,7 +63,7 @@
 
             <hr class="my-6 border-gray-300 w-full">
 
-            {{-- <a  href="https://www.instagram.com/hmsakif__/" 
+            {{-- <a  href="https://www.instagram.com/hmsakif__/"
                 class="w-full block bg-white hover:bg-gray-100 focus:bg-gray-100 text-gray-900 font-semibold rounded-lg px-4 py-3 border border-gray-300"
                 target="_blank">
                 <div class="flex items-center justify-center">
@@ -88,7 +88,7 @@
             </a> --}}
 
             <p class="mt-8">
-                Need an account? 
+                Need an account?
                 <a href="{{ route('register') }}" class="text-blue-500 hover:text-blue-700 font-semibold">
                     Create an account
                 </a>
