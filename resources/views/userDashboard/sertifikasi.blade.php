@@ -106,7 +106,7 @@
                         <div class="flex flex-col justify-between p-4 leading-normal">
                             <h5 class="mb-2 lg:text-xl text-lg font-bold tracking-tight text-gray-900 dark:text-white">
                                 Sertifikasi
-                                TLC Level A: Dasar Pengajaran Efektif</h5>
+                                TLC Level B</h5>
                             {{-- <span class="flex">
                                 <img class="h-6 rounded-full" src="images/logo.svg" alt="user photo">
                                 <p class="self-center text-base">Testing</p>
@@ -142,7 +142,7 @@
 
                         <div class="flex flex-col justify-between p-4 leading-normal">
                             <h5 class="mb-2 lg:text-xl text-lg font-bold tracking-tight text-gray-900 dark:text-white">
-                                Sertifikasi TLC Level A: Dasar Pengajaran Efektif
+                                Sertifikasi TLC Level C
                             </h5>
                             {{-- <span class="flex">
                                 <img class="h-6 rounded-full" src="images/logo.svg" alt="user photo">
