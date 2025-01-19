@@ -36,11 +36,11 @@
                     <ul class="py-2" aria-labelledby="user-menu-button">
                         <li>
                             <a href="{{ route('userProfile.index') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">MyProfile</a>
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile</a>
                         </li>
                         <li>
                             <a href="{{ route('myCertification.index') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">MyCertification</a>
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sertifikatku</a>
                         </li>
                         <li>
                             <form action="{{ route('logout') }}" method="post" id="logout-form" class="inline">
@@ -48,7 +48,7 @@
                                 <a href="#" title=""
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    Sign Out
+                                    Keluar
                                 </a>
                             </form>
                         </li>
@@ -95,7 +95,7 @@
 
     @yield('content')
 
-    <footer class="border-t border-gray-200 bg-gray-50 dark:bg-gray-900 dark:border-gray-700">
+    {{-- <footer class="border-t border-gray-200 bg-gray-50 dark:bg-gray-900 dark:border-gray-700">
     <div class="w-full max-w-screen-xl px-4 py-8 mx-auto sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             <!-- Section 1: Logo dan Informasi -->
@@ -143,7 +143,7 @@
             </div>
         </div>
     </div>
-</footer>
+</footer> --}}
 
 </body>
 

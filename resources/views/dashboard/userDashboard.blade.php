@@ -4,7 +4,7 @@
     <main class="container mx-auto lg:mt-14 mt-10 max-w-7xl">
         {{-- Carousel --}}
         <div id="default-carousel" class="relative w-full mt-10" data-carousel="slide">
-            <div class="relative h-60 md:h-96 overflow-hidden rounded-lg lg:h-[530px] xl:h-[600px]">
+            <div class="relative h-60 md:h-96 overflow-hidden rounded-lg lg:h-[480px] xl:h-[600px]">
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                     <img src="{{ asset('images/userdashboard.png') }}"
                         class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
@@ -133,17 +133,19 @@
                         </div>
 
                         @if (auth()->user()->hasPermissionTo('access_level_A_unpaid'))
-                            <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                        <a href="{{ route('pembayaran.index') }}">
+                            <button 
                                 class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
                                 type="button">
                                 Ikut Sekarang
                             </button>
+                        </a>
                         @else
                             <p class="text-white text-center mt-8">Anda tidak memiliki akses untuk mendaftar.</p>
                         @endif
 
                         <!-- Main modal -->
-                        <div id="default-modal" tabindex="-1" aria-hidden="true"
+                        {{-- <div id="default-modal" tabindex="-1" aria-hidden="true"
                             class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                             <div class="relative p-4 w-full max-w-2xl max-h-full">
                                 <!-- Modal content -->
@@ -195,7 +197,7 @@
 
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div
                         class="mx-auto text-white mb-7 w-full md:max-w-xl md:max-h-[278px] p-4 bg-gradient-to-r from-[#5F809C] to-[#212C36] border border-gray-200 rounded-2xl shadow">
@@ -475,7 +477,7 @@
                         {{-- Button Bundling --}}
                         @if (auth()->user()->hasPermissionTo('bundling'))
                             <button data-modal-target="default-modal" data-modal-toggle="default-modal"
-                                class="text-white bg-[#FBCB04] hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
+                                class="text-white bg-[#FBCB04] disabled cursor-not-allowed hover:bg-yellow-500 font-medium rounded-xl text-base px-3 py-2 block w-52 text-center mt-8 mx-auto"
                                 type="button">
                                 Beli Sekarang
                             </button>

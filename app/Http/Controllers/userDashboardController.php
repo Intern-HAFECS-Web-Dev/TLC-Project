@@ -79,12 +79,24 @@ class userDashboardController extends Controller
         $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
         $province = Province::all();
         return view('userDashboard.transaksi', [
-            'title' => 'User Dashboard',
+            'title' => 'User Transaksi',
             'province' => $province,
             'user' => $userProfile
         ]);
     }
 
+    public function pembayaranIndex()
+    {
+        // return view('userDashboard.transaksi');
+        $user = Auth::user();
+        $userProfile = UserProfile::with('user')->where('user_id', $user->id)->firstOrFail();
+        $province = Province::all();
+        return view('userDashboard.pembayaran', [
+            'title' => 'User Pembayaran',
+            'province' => $province,
+            'user' => $userProfile
+        ]);
+    }
     // public function kategoriLevelIndex()
     // {
     //     $categoris = Category::all();
@@ -130,11 +142,11 @@ class userDashboardController extends Controller
         $categories = Category::with(['questions.answers', 'questions.userAnswers' => function($query) {
             $query->where('user_id', Auth::id());
         }])->get();
-    
+
         $user = Auth::user()->id;
-    
+
         $userProfile = UserProfile::with('user')->where('user_id', $user)->firstOrFail();
-    
+
         // return $categories;
         return view('userDashboard.kategoriLevelIndex', [
             'title' => 'Category Level',
@@ -142,7 +154,7 @@ class userDashboardController extends Controller
             'categories' => $categories,
         ]);
     }
-    
+
 
 
 
@@ -263,7 +275,7 @@ class userDashboardController extends Controller
             'navbar' => 'dicoding'
         ]);
 
-        
+
     }
 
 }

@@ -9,7 +9,7 @@
                 <div class="flex justify-between px-5 mb-2">
                     <p class="text-sm font-normal text-gray-900 lg:text-base">Daftar kategori kuis yang akan anda
                         kerjakan.</p>
-                    <a href="{{ route('cek.nilai.index') }}" class="bg-biru hover:bg-blue-700 hover:text-black text-white uppercase p-2 rounded-lg">Nilai</a>
+                    <a href="{{ route('cek.nilai.index') }}" class="bg-biru hover:bg-blue-700 hover:text-white text-white uppercase p-2 rounded-lg">Nilai</a>
                 </div>
                 <hr class="w-full mx-auto mb-5 border-gray-400">
                 <div class="flex justify-center gap-2 px-3 mb-3 text-sm text-center md:justify-start lg:justify-start">
@@ -19,7 +19,7 @@
                 </div>
                 <div class="gap-1 px-4 py-8 lg:flex lg:px-auto lg:flex-wrap lg:justify-center gap-x-8 gap-y-6">
 
-                    
+
                     @forelse ($categories as $categori)
                         <div
                             class="mb-5 lg:mb-0 bg-white w-full h-[164px] md:h-[197px] shadow-md rounded-lg overflow-hidden lg:w-[350px] lg:h-[236px]">
@@ -37,15 +37,15 @@
                                         return $question->userAnswers;
                                     })->firstWhere('user_id', Auth::id());
                                 @endphp
-                    
+
                                 @if ($userAnswer && $userAnswer->sesion_exam == 1)
                                 <button type="button" class="pt-1.5 md:py-auto md:pt-2 w-24 text-birutua bg-white border border-biru hover:bg-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center">
-                                    selesai
-                                    
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                    Selesai
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="rtl:rotate-180 w-4 h-4 ms-2">
                                         <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" />
                                       </svg>
-                                      
+
                                 </button>
                                 @else
                                     @if ($categori->is_locked == false)
@@ -66,7 +66,7 @@
                                     </button>
                                     @endif
                                 @endif
-                                
+
                                     {{-- jika belom pernah ujian ke 1 --}}
                                     {{-- <button data-modal-target="default-modal{{ $categori->id }}" data-modal-toggle="default-modal{{ $categori->id }}"
                                         class="pt-1.5 md:py-auto md:pt-2 w-20 text-birutua bg-white hover:bg-biru border border-biru hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 text-center inline-flex items-center py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -104,7 +104,7 @@
 
                                     {{-- jika lulus  --}}
 
-                                
+
                                 <!-- Main modal -->
                                 <div id="default-modal{{ $categori->id }}" tabindex="-1" aria-hidden="true"
                                     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">

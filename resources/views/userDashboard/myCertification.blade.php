@@ -62,7 +62,7 @@
                         {{-- <img class="object-cover w-full rounded-t-lg h-64 md:h-48 md:w-auto lg:h-48 lg:w-auto md:rounded-none md:rounded-s-lg"
                             src="images/konten_satu.jpg" alt=""> --}}
                         <img class="object-cover w-full rounded-t-lg h-64 md:h-44 md:w-1/2 lg:w-1/2 lg:h-44 md:rounded-none md:rounded-s-lg"
-                            src="images/konten_satu.jpg" alt="">
+                            src="images/levela.png" alt="">
                         <div class="flex flex-col justify-between p-4 leading-normal">
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 Sertifikat Level A

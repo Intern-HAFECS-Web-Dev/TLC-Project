@@ -198,7 +198,7 @@
                     </ul>
                 </div>
                 <div class="col-span-12 lg:col-span-5 order-1 rounded-2xl mx-3 mt-5 lg:mt-10 overflow-hidden">
-                    <img src="images/konten_satu.jpg"
+                    <img src="images/guru.png"
                         class="w-full md:w-[546px] h-full mx-auto md:h-[474px] object-cover" alt="">
                 </div>
                 {{-- <div class="col-span-12 lg:col-span-5 rounded-2xl mx-3 mt-5 lg:mt-10 overflow-hidden order-1 lg:order-2">
@@ -209,9 +209,9 @@
         {{-- End Tentang Kami --}}
 
         {{-- Skema --}}
-        <div class="view5 mb-14 w-full h-700 bg-[#0C548C] rounded" id="skema">
+        <div class="view5 mb-14 w-full h-700 bg-[#0C548C] px-5 py-5 rounded" id="skema">
             <h1 class="text-center text-white text-4xl font-bold py-5">Skema Pendaftaran TLC</h1>
-            <img src="images/alur_skema.png" class="w-2/4 mx-auto h-full object-cover p-5" alt="">
+            <img src="images/alur.png" class="w-3/4 mx-auto h-full object-cover p-5" alt="">
         </div>
         {{-- End Skema --}}
 
